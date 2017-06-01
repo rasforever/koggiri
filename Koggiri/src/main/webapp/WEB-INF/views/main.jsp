@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,10 +26,10 @@
 <script type="text/javascript" src="Scripts/jquery.validate.min.js"></script>
 <script type="text/javascript" src="Scripts/jquery.validate.unobtrusive.min.js"></script> -->
 <link rel="shortcut icon" type="image/x-icon" href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
-<link rel="stylesheet" href="Content/themes/real/ui_main.css" />
+<link rel="stylesheet" href="resources/Content/themes/real/ui_main.css" />
 <script src="http://js.nx.com/s1/da/playlog.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="Scripts/ui.js"></script>
-<link href="Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body class="main">
