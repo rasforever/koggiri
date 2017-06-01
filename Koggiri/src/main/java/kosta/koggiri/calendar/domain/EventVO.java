@@ -1,6 +1,8 @@
 package kosta.koggiri.calendar.domain;
 
-public class EventVO {
+import java.io.Serializable;
+
+public class EventVO implements Serializable {
 	
 	private String title;
 	private String start_date;
@@ -8,7 +10,8 @@ public class EventVO {
 	private String _id;
 	private String content;
 	private String mem_id;
-
+	private String start;
+	private String end;
 	public String getTitle() {
 		return title;
 	}
@@ -55,6 +58,22 @@ public class EventVO {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public String getStart() {
+		return start;
+	}
+
+	public void setStart(String start) {
+		this.start = start;
+	}
+
+	public String getEnd() {
+		return end;
+	}
+
+	public void setEnd(String end) {
+		this.end = end;
 	}
 
 	@Override

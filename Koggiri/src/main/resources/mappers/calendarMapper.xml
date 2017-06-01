@@ -8,7 +8,7 @@
 	<cache />
 	
 	
-	<insert id="calendarinsert" parameterType="Event" >
+	<insert id="calendarinsert">
 
 		
 		insert into calendar values(
@@ -17,20 +17,20 @@
 		
 		
 	</insert>
-	<select id="calendarList" resultType="Event" parameterType="String">
+	<select id="calendarList" resultType="EventVO">
 		select start_date,end_date,title,event_id as "_id",content from calendar
 		where show = 'y' and mem_id= #{mem_id}
 		
 	</select>
 	
 	
-	<update id="updateEvent" parameterType="Event">
+	<update id="updateEvent" parameterType="EventVO">
 		update calendar set title = #{title}, start_date = #{start_date}, end_date = #{end_date}, content = #{content}
 		 where event_id = #{_id} and mem_id =#{mem_id}
 		
 	</update>
 	
-	<update id="deleteEvent" parameterType="Event">
+	<update id="deleteEvent" parameterType="EventVO">
 		update calendar set show = 'n' where event_id = #{_id} and mem_id = #{mem_id}
 	</update>
 </mapper>
