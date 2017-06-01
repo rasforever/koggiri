@@ -64,8 +64,8 @@
 		},
 		
 		 events: { // 데이터 받고 뿌려주기
-	            url: 'get.cal',
-	            type: 'GET', 
+	            url: 'get',
+	            type: 'GET'
 	            
 	        },     
 		    
@@ -146,12 +146,18 @@
 		     	cal[cal.length-1]._id = "_fc"+cal.length; // _id 1로 자꾸 지정되서 event개수만큼 으로 지정함.
 				send = JSONtoString(cal[cal.length-1]).replace(/\n/gi,"\\n"); 
 				//엔터키-->개행문자 전환
-		     	
-		     	$.ajax({
+		     	console.log("send::"+send);
+		     	$.ajax({ // 일정 등록
 		            
 		            type:"POST",
-		            url:"send.cal",
-					data: send,
+		            url:"/calendar/insert",
+		            headers :{
+		            	"Content-Type" : "application/json",
+		            	"X-HTTP-Method-Override" : "POST"
+		            	
+		            },
+		            dataType : 'text',
+					data: send
 					
 		        });
 		     	ssi_modal.removeAll();
@@ -179,7 +185,13 @@
 		    	   }
 		    	   $.ajax({
 		    		   type:"POST",
-		    		   url:"update.cal",
+		    		   url:"/calendar/update",
+		    		   headers :{
+			            	"Content-Type" : "application/json",
+			            	"X-HTTP-Method-Override" : "POST"
+			            	
+			            },
+			            dataType : 'text',
 		    		   data:update
 		    	   });
 	    
@@ -243,7 +255,12 @@
  	    	        	    	  
  	   	        	    	   $.ajax({
  	   	        	    		   type:"POST",
- 	   	        	    		   url:"delete.cal",
+ 	   	        	    		   url:"/calendar/delete",
+ 	   	        	    		headers :{
+ 		       		            	"Content-Type" : "application/json",
+ 		       		            	"X-HTTP-Method-Override" : "POST"
+ 		       		            	
+ 		       		            },
  	   	        	    		   data:del
  	   	        	    		  
  	   	        	    			  
@@ -293,7 +310,13 @@
 	        	    	   
 	        	    	   $.ajax({
 	        	    		   type:"POST",
-	        	    		   url:"update.cal",
+	        	    		   url:"/calendar/update",
+	        	    		   headers :{
+	       		            	"Content-Type" : "application/json",
+	       		            	"X-HTTP-Method-Override" : "POST"
+	       		            	
+	       		            },
+	       		            dataType : 'text',
 	        	    		   data:update
 	        	    		  
 	        	    	   });
@@ -346,7 +369,13 @@
 	    	   }
 	    	   $.ajax({
 	    		   type:"POST",
-	    		   url:"update.cal",
+	    		   url:"/calendar/update",
+	    		   headers :{
+		            	"Content-Type" : "application/json",
+		            	"X-HTTP-Method-Override" : "POST"
+		            	
+		            },
+		            dataType : 'text',
 	    		   data:update
 	    	   });
 

@@ -111,6 +111,7 @@ textarea.contents{resize:none;overflow-y:auto;padding:10px}
 
 /* logo */
 #header .logo{float:left;padding-top:30px}
+#header .logo a{width:20px;height:46px;display:block;}
 
 /*gnb*/
 #header .gnb{float:right;margin-top:5px}
@@ -237,10 +238,10 @@ textarea.contents{resize:none;overflow-y:auto;padding:10px}
 .main #content .service>div>a{position:relative;display:block;width:226px;height:412px}
 .main #content .service>div>a>span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
 .main #content .service>div.ip_manage a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_ip_manage.gif) no-repeat 0 0}
-.main #content .service>div.game_play a{margin-left : 17px;   background:#fff url(resources/img/check_img.png) no-repeat 0 0}
+.main #content .service>div.game_play a{margin-left : 17px;   background:#fff url(../../../img/check_img.png) no-repeat 0 0}
 .main #content .service>div.pay_list a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_pay_list.gif) no-repeat 0 0}
-.main #content .service>div.goods_info a{background:#fff url(resources/img/email_img.png) no-repeat 0 0;}
-.main #content .service>div.event_apply a{background:#fff url(resources/img/task_img.png) no-repeat 0 0}
+.main #content .service>div.goods_info a{background:#fff url(../../../img/email_img.png) no-repeat 0 0;}
+.main #content .service>div.event_apply a{background:#fff url(../../../img/task_img.png) no-repeat 0 0}
 .main #content .service>div.refund_apply a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/160721/bg_refund_apply.gif) no-repeat 0 0}
 .main #content .service>div.remote_support a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_remote_supply.gif) no-repeat 0 0}
 .main #content .service>div.game_play,
@@ -514,23 +515,23 @@ table.vertical th.detail{background:#f0f4f6;vertica}
 .on_btn{
    width :184px;
    height:48px;
-   background: url(resources/img/on.png);
+   background: url(../../../img/on.png);
    border: 0px;
 }
 
 .on_btn:HOVER{
-   background:url(resources/img/on_hover.png);
+   background:url(../../../img/on_hover.png);
 }
 
 .off_btn{
    width :184px;
    height:48px;
-   background: url(resources/img/off.png);
+   background: url(../../../img/off.png);
    border: 0px;
 }
 
 .off_btn:HOVER{
-   background:url(resources/img/off_hover.png);
+   background:url(../../../img/off_hover.png);
 }
 
 .menu_a{
