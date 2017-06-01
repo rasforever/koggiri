@@ -1,0 +1,1327 @@
+@charset "utf-8";
+@import url(./common.css);
+
+/*hidden*/
+.hidden{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+
+.essential{color:#f00;font-size:14px;margin-right:5px;}
+
+/*background*/
+.main{background:#eef1f2}
+.sub{background:#fff}
+
+/*align*/
+.align_l{text-align:left}
+.align_c{text-align:center}
+.align_r{text-align:right}
+
+/*float*/
+.float_l{float:left}
+.float_r{float:right}
+.clfix:after{content:'';display:block;clear:both;height:0px;visibility:hidden;}
+
+a{display:inline-block;font-size:14px;color:#333}
+a:hover{color:#003e7c}
+
+/*etc*/
+.gray_box{background:#f0f4f6;border:1px #d4d4d4 solid}
+.gray_bb{border-bottom:1px #d0d0d0 solid;}
+.original_price{text-decoration:line-through}
+.sale_price{color:#f00}
+.red{color:#f00}
+.bl{border-left:1px #bcbcbc solid}
+.br{border-right:1px #bcbcbc solid}
+.bl_light_gray{border-left:1px #e3e3e3 solid}
+.br_light_gray{border-right:1px #e3e3e3 solid}
+.waring{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_waring.gif) no-repeat 0 3px;padding-left:20px}
+textarea.contents{resize:none;overflow-y:auto;padding:10px}
+.link{color:#00a1e1;text-decoration:underline;}
+
+
+/*padding*/
+.pd0{padding:0px}
+.pt5{padding-top:5px}
+.pt10{padding-top:10px}
+.pt20{padding-top:20px}
+.pt30{padding-top:30px}
+.pt40{padding-top:40px}
+.pt50{padding-top:50px}
+.pb5{padding-bottom:5px}
+.pb10{padding-bottom:10px}
+.pb20{padding-bottom:20px}
+.pb30{padding-bottom:30px}
+.pb40{padding-bottom:40px}
+.pb50{padding-bottom:50px}
+.pl5{padding-left:5px}
+.pl10{padding-left:10px}
+.pl20{padding-left:20px}
+.pl30{padding-left:30px}
+.pl40{padding-left:40px}
+.pl50{padding-left:50px}
+.pr5{padding-right:5px}
+.pr10{padding-right:10px}
+.pr20{padding-right:20px}
+.pr30{padding-right:30px}
+.pr40{padding-right:40px}
+.pr50{padding-right:50px}
+
+/*margin*/
+.mg0{margin:0}
+.mt5{margin-top:5px}
+.mt10{margin-top:10px}
+.mt15{margin-top:15px}
+.mt20{margin-top:20px}
+.mt25{margin-top:25px}
+.mt30{margin-top:30px}
+.mt35{margin-top:35px}
+.mt40{margin-top:40px}
+.mt45{margin-top:45px}
+.mt50{margin-top:50px}
+.mt55{margin-top:55px}
+.mt60{margin-top:60px}
+.mt65{margin-top:65px}
+.mb0{margin-bottom:0}
+.mb5{margin-bottom:5px}
+.mb10{margin-bottom:10px}
+.mb15{margin-bottom:15px}
+.mb20{margin-bottom:20px}
+.mb30{margin-bottom:30px}
+.mb40{margin-bottom:40px}
+.mb50{margin-bottom:50px}
+.mb60{margin-bottom:60px}
+.ml5{margin-left:5px}
+.ml10{margin-left:10px}
+.ml20{margin-left:20px}
+.ml30{margin-left:30px}
+.ml40{margin-left:40px}
+.ml50{margin-left:50px}
+.ml60{margin-left:50px}
+.mr5{margin-right:5px}
+.mr10{margin-right:10px}
+.mr20{margin-right:20px}
+.mr30{margin-right:30px}
+.mr40{margin-right:40px}
+.mr50{margin-right:50px}
+.mr60{margin-right:60px}
+
+/*skipNavi*/
+#skipNavi {display: block; position:absolute; top:0px; left:0; width:100%; z-index:1000; text-align: center; }
+#skipNavi a {display: block; position: absolute; top:-100px; left:0; padding:10px 0px; width: 100%; background:#333;color:#fff;font-weight:bold}
+#skipNavi a:focus, #skipNavi a:active {top:0px; text-decoration: none}
+
+/* logo */
+#header .logo{float:left;padding-top:30px}
+#header .logo a{width:250px;height:46px;display:block;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/logo.gif) no-repeat 0 0}
+
+/*gnb*/
+#header .gnb{float:right;margin-top:5px}
+#header .gnb ul{}
+#header .gnb ul:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+#header .gnb ul>li{position:relative;float:left;margin:35px 0 0 70px;padding-right:40px}
+#header .gnb ul>li>a{display:block;padding:30px 0;}
+#header .gnb ul>li.menu01{padding-right:40px}
+#header .gnb ul>li.menu02{padding-right:40px}
+#header .gnb ul>li.menu03{padding-right:45px}
+#header .gnb ul>li.menu04{padding-right:30px}
+#header .gnb ul>li.menu01>a{width:82px;background-position:0 0}
+#header .gnb ul>li.menu02>a{width:103px;background-position:-92px 0}
+#header .gnb ul>li.menu03>a{width:68px;background-position:-205px 0}
+#header .gnb ul>li.menu04>a{width:77px;background-position:-273px 0}
+#header .gnb ul>li.menu01.on>a, #header .gnb ul>li.menu01.active>a{background-position:0 -70px}
+#header .gnb ul>li.menu02.on>a, #header .gnb ul>li.menu02.active>a{background-position:-92px -70px}
+#header .gnb ul>li.menu03.on>a, #header .gnb ul>li.menu03.active>a{background-position:-205px -70px}
+#header .gnb ul>li.menu04.on>a, #header .gnb ul>li.menu04.active>a{background-position:-273px -70px}
+#header .gnb ul>li.on>ul>li>a, #header .gnb ul>li.active>ul>li>a{color:#000}
+#header .gnb ul>li>a>span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+#header .gnb ul>li>ul{position:absolute;top:83px;left:0}
+#header .gnb ul>li>ul>li{position:relative;margin:2px 0;padding:3px 0;clear:both}
+#header .gnb ul>li>ul>li>a{display:block;background:#fff;padding:5px;color:#8c8c8c;font-weight:bold;font-size:15px}
+#header .gnb ul>li>ul>li.on>a, #header .gnb ul>li>ul>li.active>a{background:#1cabe4;color:#fff}
+
+#header .gnb ul>li>ul>li>div{position:absolute;display:none;width:130px;top:-25px;left:130px;z-index:10;padding:3px 8px;background:#fff;border:2px #626262 solid}
+#header .gnb ul>li>ul>li.on>div{display:block}
+#header .gnb ul>li>ul>li>div>span{position:absolute;top:32px;left:-12px}
+#header .gnb ul>li>ul>li>div>ul>li{width:90%;margin:0;padding:10px 5px;clear:both;border-bottom:1px #d2d2d2 solid}
+#header .gnb ul>li>ul>li>div>ul>li>a{display:block;background:none;padding:3px 0;font-size:14px;letter-spacing:-1px}
+#header .gnb ul>li>ul>li>div>ul>li>a:hover, #header .gnb ul>li>ul>li>div>ul>li.active>a{font-weight:bold;color:#1c5b9b}
+
+/*gnb_banner*/
+#header .gnb_banner{position:absolute;top:135px;padding:0 100px 30px 0}
+#header .gnb_banner dl{position:relative;padding-top:105px;line-height:20px}
+#header .gnb_banner dt>a{font-weight:bold;color:#333}
+#header .gnb_banner dd.img{position:absolute;top:0;left:0}
+#header .gnb_banner dd.img>a{display:inline-block}
+
+/*login before*/
+.login_ip{position:relative;float:right;width:470px}
+.login_ip>div:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+.login_ip input{width:288px;padding:14px 25px;font-family:inherit;font-size:15px;border:1px #d7d7d9 solid}
+.login_ip input[type="text"]{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_txt_id.png) no-repeat 25px 50%}
+.login_ip input[type="password"]{margin-top:-1px;background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_txt_pw.png) no-repeat 25px 50%}
+.login_ip input[type="checkbox"]{width:10px;margin:0;padding:0;border:0;border:1px #f00 solid}
+.login_ip label{margin-left:5px}
+.login_ip .btn_login{position:absolute;top:0;right:0}
+
+/*login after*/
+.login_ip .login.after{background:#fff;padding:20px 25px 11px 25px}
+.login_ip .login.after .login_txt .section{border-bottom:2px #c4ccd3 solid;padding-bottom:10px;margin-bottom:7px}
+.login_ip .login.after .login_txt .section p{font-size:16px;line-height:21px}
+.login_ip .login.after .login_txt .section p em{font-weight:bold;color:#195b9c}
+.login_ip .login.after .login_txt .section p span{font-size:15px}
+.login_ip .login.after .login_txt>a{display:inline-block}
+.login_ip .login.after .login_txt>p{margin-bottom:15px;font-size:13px;letter-spacing:-1px}
+.login_ip .login.after .login_txt>p:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+
+/*loign util button*/
+.login_ip .util{margin:20px 0;padding:0 0 10px 0}
+.login_ip .util:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+.login_ip .util a{vertical-align:middle}
+.login_ip .util input[type="checkbox"]{margin:0;padding:0;border:0}
+.login_ip .util label{margin-right:3px;color:#000}
+.login_ip .util label span{font-weight:bold;color:#003e7c;}
+.login_ip .util ul{float:right;margin-top:1px}
+.login_ip .util ul>li{float:left;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_login_bar.gif) no-repeat right 3px;padding:0 6px}
+.login_ip .util ul>li>a{font-size:13px}
+.login_ip .util ul>li>a>em{font-weight:bold;color:#3c556e}
+.login_ip .util ul>li.none{background:none}
+.login_ip .util ul:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+
+/*ip_address*/
+.login_ip .ip_address{float:right;background:#dcdcdc url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_ip.gif) no-repeat 21px 8px;width:420px;margin-bottom:18px;padding:10px 0 12px 50px;font-size:16px;line-height:18px;color:#000}
+.login_ip .ip_address p>span{margin-right:20px}
+.login_ip .login:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+
+/*login before chrome용*//*2017-03-06수정*/
+.login_ip_chrome{position:relative;float:right;width:470px}
+.login_ip_chrome>div:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+.login_ip_chrome input{width:288px;padding:14px 25px;font-family:inherit;font-size:15px;border:1px #d7d7d9 solid}
+.login_ip_chrome input[type="text"]{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_txt_id.png) no-repeat 25px 50%}
+.login_ip_chrome input[type="password"]{margin-top:-1px;background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_txt_pw.png) no-repeat 25px 50%}
+.login_ip_chrome input[type="checkbox"]{width:10px;margin:0;padding:0;border:0;border:1px #f00 solid}
+.login_ip_chrome label{margin-left:5px}
+.login_ip_chrome .welcomtext{float:left;height:40px;width:470px;font-size:14px;letter-spacing:-0.5px;line-height:23px} /*2017-03-06 추가 된 내용*/
+.login_ip_chrome .input_area{float:left;width: 470px;height:72px}  /*2017-03-06 추가 된 내용*/
+.login_ip_chrome .btn_login{position:relative}
+
+/*login after chrome용*/
+.login_ip_chrome .login.after{background:#fff;padding:20px 25px 11px 25px}
+.login_ip_chrome .login.after .login_txt .section{border-bottom:2px #c4ccd3 solid;padding-bottom:10px;margin-bottom:7px}
+.login_ip_chrome .login.after .login_txt .section p{font-size:16px;line-height:21px}
+.login_ip_chrome .login.after .login_txt .section p em{font-weight:bold;color:#195b9c}
+.login_ip_chrome .login.after .login_txt .section p span{font-size:15px}
+.login_ip_chrome .login.after .login_txt>a{display:inline-block}
+.login_ip_chrome .login.after .login_txt>p{margin-bottom:15px;font-size:13px;letter-spacing:-1px}
+.login_ip_chrome .login.after .login_txt>p:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+
+/*loign util button chrome용*/
+.login_ip_chrome .util{}
+.login_ip_chrome .util:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+.login_ip_chrome .util a{vertical-align:middle}
+.login_ip_chrome .util input[type="checkbox"]{margin:0;padding:0;border:0}
+.login_ip_chrome .util label{margin-right:3px;color:#000}
+.login_ip_chrome .util label span{font-weight:bold;color:#003e7c}
+.login_ip_chrome .util ul{float:left;margin:14px 0 24px}
+.login_ip_chrome .util ul>li{float: inherit;}
+.login_ip_chrome .util ul>li.text-right{float:left} /*2017-03-06 추가 된 내용*/
+.login_ip_chrome .util ul>li.text-right>a{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_login_bar.gif) no-repeat right 3px;padding:0 6px 0} /*17-03-06 추가 된 내용*/
+.login_ip_chrome .util ul>li>a>em{}
+.login_ip_chrome .util ul>li.none{margin: 0 226px 0 0}
+.login_ip_chrome .util ul>li.none>a{background:none;font-weight:bold;color:#3c556e;padding:0} /*17-03-06 추가 된 내용*/
+.login_ip_chrome .util ul:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+/*ip_address chrome용*/
+.login_ip_chrome .ip_address{float:right;background:#dcdcdc url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_ip.gif) no-repeat 21px 8px;width:420px;margin-bottom:18px;padding:10px 0 12px 50px;font-size:16px;line-height:18px;color:#000}
+.login_ip_chrome .ip_address p>span{margin-right:20px}
+.login_ip_chrome .login:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+
+/*main service*/
+.main #content .service>div{float:left;margin:0 17px 17px 0;height:206px;overflow:hidden}
+.main #content .service>div>a{position:relative;display:block;width:226px;height:412px}
+.main #content .service>div>a>span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+.main #content .service>div.ip_manage a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_ip_manage.gif) no-repeat 0 0}
+.main #content .service>div.game_play a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_game_play.gif) no-repeat 0 0}
+.main #content .service>div.pay_list a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_pay_list.gif) no-repeat 0 0}
+.main #content .service>div.goods_info a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_goods_info.gif) no-repeat 0 0}
+.main #content .service>div.event_apply a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_event_apply.gif) no-repeat 0 0}
+.main #content .service>div.refund_apply a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/160721/bg_refund_apply.gif) no-repeat 0 0}
+.main #content .service>div.remote_support a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_remote_supply.gif) no-repeat 0 0}
+.main #content .service>div.game_play,
+.main #content .service>div.remote_support{margin-right:0}
+.main #content .service>div.faq{margin:0}
+.main #content .service>div.faq a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_faq.gif) no-repeat 0 0}
+.main #content .service>div.taxInvoice{margin:0}
+.main #content .service>div.taxInvoice a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_taxInvoice.gif) no-repeat 0 0}
+
+/*notice*/
+.main #content .service .notice{position:relative;width:409px;height:106px;margin:0 0 17px 0;padding:70px 30px 30px 30px;background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/tit_notice.gif) no-repeat 27px 28px}
+.main #content .service .notice ul>li{position:relative}
+.main #content .service .notice ul>li>a{display:block;width:320px;font-size:14px;line-height:28px;color:#333;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal}
+.main #content .service .notice ul>li>a:hover{color:#003e7c;font-weight:bold}
+.main #content .service .notice ul>li>span{position:absolute;top:0;right:0;margin-top:9px}
+.main #content .service .notice .more{position:absolute;top:0;right:0}
+.main #content .service .notice .more>a{display:block;width:32px;height:32px}
+
+/*customer_center*/
+.main #content .service>div.customer_center a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_customer_center.gif) no-repeat 0 0; width:469px;}
+
+
+
+/*rolling banner*/
+.aside{float:right;width:470px;height:652px;margin-left:18px}
+.aside .rolling_banner{position:relative}
+.aside .rolling_banner .bx-wrapper{position:relative;height:652px;overflow:hidden}
+.aside .rolling_banner .bx-wrapper .bx-controls .bx-controls-direction>a{display:block;width:66px;height:66px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/btn/btn_rolling_arrow.gif) no-repeat}
+.aside .rolling_banner .bx-wrapper .bx-controls .bx-controls-direction>a.bx-prev{position:absolute;top:0;right:66px;background-position:0 0;font-size:0}
+.aside .rolling_banner .bx-wrapper .bx-controls .bx-controls-direction>a.bx-next{position:absolute;top:0;right:0;background-position:100% 0;font-size:0}
+.aside .rolling_banner ul>li{position:relative}
+.aside .rolling_banner ul>li .description{position:absolute;width:410px;height:50px;padding:19px 30px;bottom:0;left:0;z-index:10;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_dim.png) repeat 0 0;font-size:14px;color:#fff;line-height:160%}
+.aside .rolling_banner .page_number{position:absolute;top:24px;left:22px;font-size:24px;z-index:10}
+.aside .rolling_banner .page_number .current_page{font-weight:bold;color:#008ec6}
+
+
+/*로그인 정보*/
+.login_info_wrap{position:relative;background:#0b2a4a;color:#fff;padding:16px 40px;margin-bottom:40px}
+.login_info_wrap:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+.login_info_wrap .btn_logout{position:absolute;top:14px;right:12px;}
+.login_who{float:left;font-size:20px;color:#fff;margin-top:8px}
+.login_who .spot_name{color:#e8ff00;font-size:28px;font-weight:bold}
+.login_who .owner_name{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_bar_white.gif) no-repeat 0 8px;font-size:28px;font-weight:bold;padding-left:30px;margin:0 5px 0 30px;}
+.login_info{float:right;font-size:14px;padding-right:120px;}
+.login_info>p{text-align:right;line-height:24px}
+
+.contents_wrap>div{position:relative;width:387px;height:252px;float:left;background:#fff;border:1px #cbcbcb solid;margin:0 16px 16px 0}
+.contents_wrap>div>a.btn_more{position:absolute;top:0;right:0;display:inline-block}
+
+/* footer */
+#footer address{position:relative}
+#footer address{display:block;height:64px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_footer.png) no-repeat 0 0;width:522px}
+#footer address a.business_info{position:absolute;top:0;right:0;display:block;width:77px;height:12px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_business_info.png) no-repeat 0 0}
+#footer address span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+#footer .footer_logo{float:left;width:190px;padding:78px 0 45px 0}
+#footer .footer_logo a{display:block;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/footer_logo.png) no-repeat 0 0;width:125px;height:37px}
+#footer .footer_logo a span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+#footer .section{float:left;width:1010px}
+#footer .section .footer_menu{border-bottom:1px #c2c4c4 solid;margin-bottom:30px}
+#footer .section .footer_menu ul{padding:18px 0 19px 0}
+#footer .section .footer_menu ul:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+#footer .section .footer_menu ul li{float:left;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/line_footer_menu.png) no-repeat 100% 0;padding:0 35px}
+#footer .section .footer_menu ul li a{display:block;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_footer_menu.png) no-repeat 0 0;height:14px}
+#footer .section .footer_menu ul li.privacy{padding-left:0}
+#footer .section .footer_menu ul li.sitemap{background:none}
+#footer .section .footer_menu ul li.privacy a{width:95px;background-position:0 0}
+#footer .section .footer_menu ul li.policy a{width:84px;background-position:-105px 0}
+#footer .section .footer_menu ul li.sitemap a{width:48px;background-position:-199px 0}
+#footer .section .footer_menu ul li a span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+
+/*관련사이트*/
+#footer .section .relation_site_wrap{width:270px;float:right}
+#footer .section .relation_site_wrap a{display:inline-block}
+#footer .section .relation_site_wrap:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+#footer .section .relation_site{position:relative;float:left;width:200px;margin-right:7px;background:#fff;border:1px #d9d9d9 solid}
+#footer .section .relation_site>a{display:block;padding:13px 20px;font-size:12px;color:#000;background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_arrow.gif) no-repeat 100% 0}
+#footer .section .relation_site>a.on{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_arrow.gif) no-repeat 100% 100%}
+#footer .section .relation_site>ul{position:absolute;top:-167px;left:-1px;width:200px;height:165px;background:#fff;border:1px #d9d9d9 solid;overflow:hidden;overflow-y:scroll;display:none}
+#footer .section .relation_site>ul.on{display:block}
+#footer .section .relation_site>ul>li>a{}
+#footer .section .relation_site>ul>li>a{display:block;padding:5px 0 5px 5px;font-size:12px}
+#footer .section .relation_site>ul>li>a:hover{background:#1e90ff;color:#fff}
+
+/*sub*/
+
+/*lnb*/
+.lnb01{float:left;width:225px}
+.lnb01 strong{display:block;width:140px;height:47px;border-bottom:2px #00a1e1 solid; margin-bottom:18px}
+.lnb01 strong span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+.lnb01 a span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+.lnb01 ul{padding:0;width:140px}
+.lnb01 ul>li>a{display:block;height:16px;margin-bottom:19px;}
+.lnb01 ul>li>ul{padding-bottom:19px;margin-bottom:19px;border-bottom:1px #c7c7c7 solid}
+.lnb01 ul>li>ul>li{padding:0 0 0 16px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bu_box_gray.gif) no-repeat 0 center}
+.lnb01 ul>li>ul>li:hover, .lnb01 ul>li>ul>li.on{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bu_box_blue.gif) no-repeat 0 center}
+.lnb01 ul>li>ul>li>a{height:14px;margin-bottom:14px}
+
+.lnb01 strong.menu01{background:url(../../../img/menu01.png) no-repeat 0 0;}
+.lnb01 strong.menu02{background:url(../../../img/menu02.png) no-repeat 0 0;}
+.lnb01 strong.menu03{background:url(../../../img/menu03.png) no-repeat 0 0;}
+.lnb01 strong.menu04{background:url(../../../img/menu04.png) no-repeat 0 0;}
+.lnb01 strong.menu05{background:url(../../../img/menu05.png) no-repeat 0 0;}
+
+.lnb01 ul>li.menu01>a{width:74px;background-position:0 0}
+.lnb01 ul>li.menu02>a{width:57px;background-position:-84px 0}
+.lnb01 ul>li.menu03>a{width:57px;background-position:-151px 0}
+.lnb01 ul>li.menu04>a{width:105px;background-position:-218px 0}
+.lnb01 ul>li.menu01>a:hover, .lnb01 ul>li.menu01.on>a{background-position:0 -26px}
+.lnb01 ul>li.menu02>a:hover, .lnb01 ul>li.menu02.on>a{background-position:-84px -26px}
+.lnb01 ul>li.menu03>a:hover, .lnb01 ul>li.menu03.on>a{background-position:-151px -26px}
+.lnb01 ul>li.menu04>a:hover, .lnb01 ul>li.menu04.on>a{background-position:-218px -26px}
+
+.lnb01 ul>li.menu01>ul>li.sub01>a{width:50px;background-position:0 -52px}
+.lnb01 ul>li.menu01>ul>li.sub02>a{width:40px;background-position:-60px -52px}
+.lnb01 ul>li.menu01>ul>li.sub03>a{width:49px;background-position:-110px -52px}
+.lnb01 ul>li.menu01>ul>li.sub01>a:hover, .lnb01 ul>li.menu01>ul>li.sub01.on>a{background-position:0 -76px}
+.lnb01 ul>li.menu01>ul>li.sub02>a:hover, .lnb01 ul>li.menu01>ul>li.sub02.on>a{background-position:-60px -76px}
+.lnb01 ul>li.menu01>ul>li.sub03>a:hover, .lnb01 ul>li.menu01>ul>li.sub03.on>a{background-position:-110px -76px}
+
+.lnb01 ul>li.menu02>ul>li.sub01>a{width:92px;background-position:0 -100px}
+.lnb01 ul>li.menu02>ul>li.sub02>a{width:82px;background-position:-102px -100px}
+.lnb01 ul>li.menu02>ul>li.sub03>a{width:107px;background-position:-194px -100px}
+.lnb01 ul>li.menu02>ul>li.sub01>a:hover, .lnb01 ul>li.menu02>ul>li.sub01.on>a{background-position:0 -124px}
+.lnb01 ul>li.menu02>ul>li.sub02>a:hover, .lnb01 ul>li.menu02>ul>li.sub02.on>a{background-position:-102px -124px}
+.lnb01 ul>li.menu02>ul>li.sub03>a:hover, .lnb01 ul>li.menu02>ul>li.sub03.on>a{background-position:-194px -124px}
+
+.lnb01 ul>li.menu03>ul>li.sub01>a{width:78px;background-position:0 -148px}
+.lnb01 ul>li.menu03>ul>li.sub02>a{width:82px;background-position:-88px -148px}
+.lnb01 ul>li.menu03>ul>li.sub03>a{width:53px;background-position:-180px -148px}
+.lnb01 ul>li.menu03>ul>li.sub04>a{width:100px;background-position:-242px -148px}
+.lnb01 ul>li.menu03>ul>li.sub01>a:hover, .lnb01 ul>li.menu03>ul>li.sub01.on>a{background-position:0 -172px}
+.lnb01 ul>li.menu03>ul>li.sub02>a:hover, .lnb01 ul>li.menu03>ul>li.sub02.on>a{background-position:-88px -172px}
+.lnb01 ul>li.menu03>ul>li.sub03>a:hover, .lnb01 ul>li.menu03>ul>li.sub03.on>a{background-position:-180px -172px}
+.lnb01 ul>li.menu03>ul>li.sub04>a:hover, .lnb01 ul>li.menu03>ul>li.sub04.on>a{background-position:-242px -172px}
+
+.lnb01 ul>li.menu04>ul>li.sub01>a{width:53px;background-position:0 -196px}
+.lnb01 ul>li.menu04>ul>li.sub02>a{width:108px;background-position:-63px -196px}
+.lnb01 ul>li.menu04>ul>li.sub01>a:hover, .lnb01 ul>li.menu04>ul>li.sub01.on>a{background-position:0 -220px}
+.lnb01 ul>li.menu04>ul>li.sub02>a:hover, .lnb01 ul>li.menu04>ul>li.sub02.on>a{background-position:-63px -219px}
+
+/*상품과 결제 LNB*/
+.lnb02{float:left;width:225px}
+.lnb02 strong{display:block;width:140px;height:47px;border-bottom:2px #00a1e1 solid;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/tit_lnb.gif) no-repeat 0 -57px;margin-bottom:18px}
+.lnb02 strong span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+.lnb02 a span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+.lnb02 ul{padding:0;width:140px}
+.lnb02 ul>li{border-bottom:1px #c7c7c7 solid;margin-bottom:17px}
+.lnb02 ul>li>a{display:block;height:16px;margin-bottom:19px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/txt_lnb02.gif) no-repeat}
+.lnb02 ul>li.menu01>a{width:123px;background-position:0 0}
+.lnb02 ul>li.menu02>a{width:105px;background-position:-133px 0}
+.lnb02 ul>li.menu01>a:hover, .lnb02 ul>li.menu01.on>a{background-position:0 -26px}
+.lnb02 ul>li.menu02>a:hover, .lnb02 ul>li.menu02.on>a{background-position:-133px -26px}
+
+/*이벤트 LNB*/
+.lnb03{float:left;width:225px}
+.lnb03 strong{display:block;width:140px;height:47px;border-bottom:2px #00a1e1 solid;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/tit_lnb.gif) no-repeat 0 -114px;margin-bottom:18px}
+.lnb03 strong span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+.lnb03 a span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+.lnb03 ul{padding:0;width:140px}
+.lnb03 ul>li{border-bottom:1px #c7c7c7 solid;margin-bottom:17px}
+.lnb03 ul>li>a{display:block;height:16px;margin-bottom:19px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/txt_lnb03.gif) no-repeat}
+.lnb03 ul>li.menu01>a{width:87px;background-position:0 0}
+.lnb03 ul>li.menu02>a{width:87px;background-position:-97px 0}
+.lnb03 ul>li.menu03>a{width:77px;background-position:-194px 0}
+.lnb03 ul>li.menu01>a:hover, .lnb03 ul>li.menu01.on>a{background-position:0 -26px}
+.lnb03 ul>li.menu02>a:hover, .lnb03 ul>li.menu02.on>a{background-position:-97px -26px}
+.lnb03 ul>li.menu03>a:hover, .lnb03 ul>li.menu03.on>a{background-position:-194px -26px}
+
+/*고객센터 LNB*/
+.lnb04{float:left;width:225px}
+.lnb04 strong{display:block;width:140px;height:47px;border-bottom:2px #00a1e1 solid;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/tit_lnb.gif) no-repeat 0 -171px;margin-bottom:18px}
+.lnb04 strong span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+.lnb04 a span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+.lnb04 ul{padding:0;width:140px}
+.lnb04 ul>li{border-bottom:1px #c7c7c7 solid;margin-bottom:17px}
+.lnb04 ul>li>a{display:block;height:16px;margin-bottom:19px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/txt_lnb04.gif) no-repeat}
+.lnb04 ul>li>ul{}
+.lnb04 ul>li>ul>li{padding:0 0 0 16px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bu_box_gray.gif) no-repeat 0 center;border-bottom:0}
+.lnb04 ul>li>ul>li:hover, .lnb04 ul>li>ul>li.on{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bu_box_blue.gif) no-repeat 0 center}
+.lnb04 ul>li>ul>li>a{height:14px;margin-bottom:14px}
+
+.lnb04 ul>li.menu01>a{width:73px;background-position:0 0}
+.lnb04 ul>li.menu02>a{width:90px;background-position:-83px 0}
+.lnb04 ul>li.menu03>a{width:46px;background-position:-183px 0}
+.lnb04 ul>li.menu04>a{width:72px;background-position:-239px 0}
+
+.lnb04 ul>li.menu01>a:hover, .lnb04 ul>li.menu01.on>a{background-position:0 -26px}
+.lnb04 ul>li.menu02>a:hover, .lnb04 ul>li.menu02.on>a{background-position:-83px -26px}
+.lnb04 ul>li.menu03>a:hover, .lnb04 ul>li.menu03.on>a{background-position:-183px -26px}
+.lnb04 ul>li.menu04>a:hover, .lnb04 ul>li.menu04.on>a{background-position:-239px -26px}
+
+.lnb04 ul>li.menu04>ul>li.sub01>a{width:83px;background-position:0 -52px}
+.lnb04 ul>li.menu04>ul>li.sub02>a{width:92px;background-position:-91px -52px}
+.lnb04 ul>li.menu04>ul>li.sub01>a:hover, .lnb04 ul>li.menu04>ul>li.sub01.on>a{background-position:0 -76px}
+.lnb04 ul>li.menu04>ul>li.sub02>a:hover, .lnb04 ul>li.menu04>ul>li.sub02.on>a{background-position:-91px -76px}
+
+
+/*breadcrumb*/
+.breadcrumb{position:absolute;top:14px;right:0;vertical-align:middle;font-size:13px;}
+.breadcrumb a,.breadcrumb strong,.breadcrumb span{display:inline-block;vertical-align:middle;font-size:13px;}
+.breadcrumb strong{color:#000;}
+.breadcrumb .home{padding-left:20px;background: url(http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_home.gif) no-repeat 0 2px;}
+
+/*sub content*/
+h1{border-bottom:2px #777 solid;margin-bottom:40px;padding-bottom:19px}
+h2{font-weight:bold;color:#555;font-size:18px;margin-bottom:20px;letter-spacing:-1px}
+#content .title_info:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+#content .title_info h2{float:left}
+#content .title_info a{float:left;margin:5px 0 0 10px}
+#content .title_info .info_box_wrap{position:relative;float:left}
+#content .title_info .info_box_wrap .info_box{position:absolute;top:30px;padding:20px;font-size:12px;color:#666;display:block;background:#fff;border:2px #5f5f5f solid;display:none}
+#content .title_info .info_box_wrap .info_box>p{line-height:23px}
+#content .title_info .info_box_wrap .info_box>span{position:absolute;top:-8px;left:10px}
+
+#content p{line-height:22px;letter-spacing:-1px}
+#content .description{position:relative;margin-bottom:20px}
+#content .description:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+#content .description ul>li{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bu_box_gray.gif) no-repeat 0 50%;padding-left:10px;color:#555;font-size:14px;letter-spacing:-1px;margin:10px 0}
+#content .description ul>li strong{color:#3d4854}
+#content .description p{line-height:23px;margin-top:10px;font-size:13px;color:#555}
+#content .description a{position:absolute;top:0;right:0}
+
+.btn_area{margin-top:30px}
+
+/*table*/
+.tbl_header{padding:10px 0}
+.tbl_header:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+.tbl_header a{display:inline-block;text-decoration:underline;color:#00a1e1}
+.tbl_header span{font-weight:bold;color:#0b2a4a}
+.tbl_header span.bar{background: url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_bar.gif) no-repeat 0 4px;margin-left:10px;padding-left:13px}
+.tbl_header p>span{vertical-align:middle;font-size:14px}
+.tbl_header p>span.total_price{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_span_bar.gif) no-repeat 0 8px;padding-left:13px;margin-left:13px;font-size:18px;color:#00a1e1}
+
+/*표 가로형*/
+table{width:100%;table-layout:fixed;border-collapse:collapse;border-top:2px #777 solid;border-bottom:2px #bcbcbc solid;margin-bottom:30px}
+table th{vertical-align:middle;background:#f0f0f0;color:#555;padding:13px 0;letter-spacing:-1px;font-size:14px;color:#333;border-bottom:1px #bcbcbc solid;line-height:160%}
+table th.bar{background:#f0f0f0 url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_th_bar.gif) no-repeat 100% 50%}
+table th.detail{background:#f0f4f6}
+table th.detail.bar{background:#f0f4f6 url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_th_bar_s.gif) no-repeat 100% 50%}
+table th .tbl_info{position:relative;display:inline-block}
+table th .tbl_info:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+table th a.btn_info{position:relative;margin-left:5px;vertical-align: middle}
+table th a.btn_info img{vertical-align: baseline}
+table td{vertical-align:middle;background:#fff;border-bottom:1px #e3e3e3 solid;text-align:center;padding:8px 0;letter-spacing:-1px;line-height:160%;color:#555}
+table td.article{text-align:left}
+table td input[type="text"]{padding:5px;border:1px #bdbdbd solid;font-size:13px}
+table td input[type="password"]{padding:5px;border:1px #bdbdbd solid;font-size:13px}
+table td label{vertical-align:baseline;}
+table td a{font-weight:bold;color:#555;font-size:13px}
+table td a.link{color:#00a1e1;text-decoration:underline;}
+table td a.link:hover{color:#003e7c}
+table td a:hover{text-decoration:underline;color:#24598e}
+table td span{font-family:inherit;font-size:12px;letter-spacing:-1px}
+table td.sum{background:#f0f4f6;font-weight:bold;color:#444e7d}
+table td.left{text-align:left;padding-left:20px;}
+table td .notice{color:#db2525}
+table td .play{color:#db2525}
+table td .attend{color:#2c5f94}
+table td .notice strong{color:#db2525;font-size:14px}
+table td select{padding:4px 0 4px 5px}
+
+/*FAQ*/
+table.tbl_faq{}
+table.tbl_faq tr td{padding:10px 0;height:20px;}
+table.tbl_faq tr td>div{display:none;margin:30px 0;}
+table.tbl_faq tr td a.on{color:#00a1e1;}
+
+
+/*표 세로형 */
+table.vertical{width:100%;table-layout:fixed;border-collapse:collapse;border-top:2px #bcbcbc solid;border-bottom:2px #bcbcbc solid;margin-bottom:30px}
+table.vertical th{background:#f0f0f0;color:#555;padding:13px 0;letter-spacing:-1px;font-size:14px;color:#333;border-bottom:1px #d4d4d4 solid;vertical-align:middle;line-height:160%}
+table.vertical th.last{border-bottom:1px #8a8a8a solid}
+table.vertical th.detail{background:#f0f4f6;vertical-align:middle;border-left:1px #e3e3e3 solid;border-right:none;border-bottom:1px #e3e3e3 solid}
+table.vertical th.detail.last{border-bottom:1px #8a8a8a solid}
+table.vertical td{background:#fff;border-bottom:1px #e3e3e3 solid;text-align:left;padding:8px 0 8px 10px;letter-spacing:-1px;vertical-align:middle;line-height:160%}
+table.vertical td a{display:inline-block;text-decoration:underline;color:#00a1e1;}
+table.vertical td a.link{color:#00a1e1;text-decoration:underline;}
+table.vertical td a.link:hover{color:#003e7c}
+td a:hover{color:#003e7c}
+table.vertical td.sum{background:#f0f4f6;font-weight:bold;color:#444e7d}
+table.vertical td.last{border-bottom:1px #8a8a8a solid}
+table.vertical td textarea{resize:none;font-size:inherit;}
+table.left td{text-align:left;padding-left:10px}
+table.inner_tbl{width:100%;table-layout:fixed;border-collapse:collapse;border-top:2px #777 solid;border-bottom:2px #bcbcbc solid;margin:15px 0}
+table.inner_tbl th,
+table.inner_tbl td{text-align:center}
+
+/*표 세로형 type02*/
+table.vertical_type02 {width:100%;table-layout:fixed;border-collapse:collapse;border-top:2px #bcbcbc solid;border-bottom:2px #bcbcbc solid;margin-bottom:30px}
+table.vertical_type02 th{background:#f0f0f0;color:#555;padding:13px 0 13px 20px;text-align:left;letter-spacing:-1px;font-size:14px;color:#333;border-bottom:1px #bcbcbc solid;vertical-align:middle;line-height:160%}
+table.vertical_type02 th.last{border-bottom:1px #8a8a8a solid}
+table.vertical_type02 th.detail{background:#f0f4f6;vertical-align:middle;border-left:1px #e3e3e3 solid;border-right:none;border-bottom:1px #bcbcbc solid}
+table.vertical_type02 th.detail.last{border-bottom:1px #8a8a8a solid}
+table.vertical_type02 td{background:#fff;border-bottom:1px #bcbcbc solid;text-align:left;padding:8px 0 8px 10px;letter-spacing:-1px;vertical-align:middle;line-height:160%}
+table.vertical_type02 td a{display:inline-block;text-decoration:underline;color:#00a1e1;vertical-align:middle}
+table.vertical_type02 td a:hover{color:#003e7c}
+table.vertical_type02 td.sum{background:#f0f4f6;font-weight:bold;color:#444e7d}
+table.vertical_type02 td.last{border-bottom:1px #8a8a8a solid}
+table.left td{text-align:left;padding-left:10px}
+table.inner_tbl{width:100%;table-layout:fixed;border-collapse:collapse;border-top:2px #777 solid;border-bottom:2px #bcbcbc solid;margin:15px 0}
+table.inner_tbl th,
+table.inner_tbl td{text-align:center}
+
+/*표 보기*/
+table.tbl_view{width:100%;table-layout:fixed;border-collapse:collapse;border-top:2px #adadad solid;border-bottom:1px #d7d7d7 solid;margin-bottom:0}
+table.tbl_view th{font-weight:normal;vertical-align:middle;background:#f0f0f0;color:#555;text-align:left;padding:13px 0 13px 20px;letter-spacing:-1px;font-size:16px;color:#000;border-bottom:1px #bcbcbc solid;line-height:160%}
+table.tbl_view th.date{font-size:13px;color:#555;font-weight:normal;text-align:right;padding-right:20px}
+table.tbl_view th.view{font-size:inherit;}
+
+table.tbl_view th span.date{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_bar.gif) no-repeat 0 4px;padding-left:10px;margin-left:5px}
+table.tbl_view td{text-align:left;padding:30px 20px;}
+table.tbl_view td p{line-height:18px}
+
+
+/*넥슨PC방 상품설명*/
+.goods_list{margin-bottom:10px;}
+
+/*표 상품설명*/
+table.tbl_goods{border:none;width:100%;margin-bottom:10px;border:none;}
+table.tbl_goods td{text-align:left;letter-spacing:-1px;padding:15px 0;}
+table.tbl_goods td>span{display:inline-block;width:42px;}
+
+
+/*이전글, 다음글*/
+.prev_next{border-bottom:2px #b4b4b4 solid;border-top:none;}
+.prev_next dl{padding:14px 5px;}
+.prev_next dl:hover{background:#f7f7f7;}
+.prev_next dl.prev{border-bottom:1px #d7d7d7 solid}
+.prev_next dl:after{content:'';display:block;clear:both;visibility:hidden;height:0}
+.prev_next dl dt{float:left;display:block;padding:0 15px}
+.prev_next dl dd a{color:#444}
+.prev_next dl dd a:hover{color:#003e7c}
+.prev_next dl dd{float:left;display:block;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_prev_next_bar.gif) no-repeat 0 2px;padding-left:15px}
+
+/*pagination*/
+.tbl_bottom{position:relative;margin:20px 0 40px 0}
+.tbl_bottom:after{content:'';display:block;clear:both;visibility:hidden;height:0}
+.tbl_bottom .btn_area{}
+.tbl_bottom .pagination{text-align:center;vertical-align:top}
+.tbl_bottom .pagination a{display:inline-block;width:33px;height:33px;text-align:center;font-size:16px;line-height:30px;color:#555;vertical-align:top;margin-left:5px;background:#fff;border:1px #e3e3e3 solid}
+.tbl_bottom .pagination a:hover, .tbl_bottom .pagination a.on{color:#44bae9;font-weight:bold;border:1px #bdbdbd solid}
+.tbl_bottom .pagination a span{text-indent:-9999px;position:absolute;top:-9999px}
+.tbl_bottom .pagination a.first{margin-left:5px}
+.tbl_bottom .pagination a.btn_first{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_pagination.gif) no-repeat 0 0;margin-left:0px}
+.tbl_bottom .pagination a.btn_prev{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_pagination.gif) no-repeat 0 100%}
+.tbl_bottom .pagination a.btn_next{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_pagination.gif) no-repeat 100% 100%;margin-left:5px}
+.tbl_bottom .pagination a.btn_last{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_pagination.gif) no-repeat 100% 0}
+
+/* 회원가입 */
+.step03 .all_ip input{margin:0 3px;}
+.step03 .all_ip_list{margin-top:5px;}
+.step03 .all_ip_list select{vertical-align:top;}
+.step03 .all_ip_list .btn_del{margin:0 0 0 5px;}
+
+/*사용내역조회*/
+.ip_setting_wrap .gray_box:after{content:'';display:block;clear:both;visibility:hidden;height:0}
+.ip_setting_wrap .gray_box{padding:30px}
+.ip_setting_wrap .all_ip{float:left;width:360px}
+.ip_setting_wrap .all_ip .section{width:358px;text-align:justify}
+.ip_setting_wrap .all_ip .section:after{content:'';display:block;clear:both;visibility:hidden;height:0}
+.ip_setting_wrap .all_ip input{display:inline-block;border:1px #cbcdcf solid;margin:0 3px}
+.ip_setting_wrap .all_ip select{margin-top:10px;padding:18px 16px;height:160px;border:1px #cbcdcf solid;overflow-x:none;overflow-y:auto}
+.ip_setting_wrap .mid_button{float:left;width:82px;text-align:center;padding:47px 69px 0}
+.ip_setting_wrap .mid_button>div{margin:25px 0}
+.ip_setting_wrap .mid_button>div>a{margin:5px 0}
+.ip_setting_wrap select{border:1px #cbcdcf solid}
+.ip_setting_wrap .contract_ip_list{margin-top:10px;padding:18px 16px;height:160px;overflow-x:none;overflow-y:auto}
+.ip_setting_wrap a{display:inline-block;vertical-align:middle}
+.ip_setting_wrap h3{font-size:16px;color:#666;font-weight:bold;margin-bottom:23px}
+.ip_setting_wrap .btn_area{margin-top:10px;text-align:right}
+.ip_setting_wrap .btn_area span{display:inline-block;font-weight:bold;color:#0b2a4a}
+.ip_setting_wrap .btn_area:after{content:'';display:block;clear:both;visibility:hidden;height:0}
+
+/*회원탈퇴*/
+.member_leave>p{line-height:20px;padding-left:10px;font-size:13px;color:#555;letter-spacing:-1px}
+.member_leave>p>a{color:#00a1e1;text-decoration:underline;}
+.member_leave>p>a:hover{color:#003e7c}
+.member_leave>span{margin-right:20px;}
+.member_leave>div{border:1px #d2d2d2 solid;padding:40px;text-align:center;}
+.member_leave>div>span{margin:0 50px;}
+.member_leave>div>span>label{margin-left:5px;font-weight:bold;}
+.member_leave_step{margin-bottom:35px}
+.member_leave_step>ul{}
+.member_leave_step>ul:after{content:'';display:block;clear:both;visibility:hidden;height:0}
+.member_leave_step>ul>li{float:left;display:block;width:150px;height:89px;margin-right:10px;padding:0;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_member_leave.gif) no-repeat}
+.member_leave_step>ul>li.on{width:311px}
+.member_leave_step>ul>li.step01{background-position:0 0}
+.member_leave_step>ul>li.step02{background-position:-160px 0}
+.member_leave_step>ul>li.step03{background-position:-320px 0}
+.member_leave_step>ul>li.step04{background-position:-480px 0}
+.member_leave_step>ul>li.step05{background-position:-640px 0}
+.member_leave_step>ul>li.step01.on{background-position:0 -99px}
+.member_leave_step>ul>li.step02.on{background-position:-325px -99px}
+.member_leave_step>ul>li.step03.on{background-position:0 -198px}
+.member_leave_step>ul>li.step04.on{background-position:-325px -198px}
+.member_leave_step>ul>li.step05.on{background-position:0 -297px}
+.member_leave_step>ul>li.last{margin-right:0}
+.member_leave_step>ul>li span{text-indent:-9999px;position:absolute;top:-9999px}
+
+.second_column:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+.second_column li{position:relative;float:left;width:476px;border-right:1px #d5d5d5 solid;padding:25px 0}
+.second_column li p{width:400px;margin:0 auto;line-height:20px;color:#555}
+.second_column li p span{font-weight:bold;padding-right:20px}
+.second_column li p em{font-size:18px}
+.second_column li p.id{text-align:right;border-right:1px #cfcfcf solid;padding-right:50px}
+.second_column li>dl{line-height:20px;letter-spacing:-1px}
+.second_column li>dl>dt{font-size:16px;font-weight:bold;margin-bottom:3px}
+.second_column li>dl>dd{font-size:13px}
+.second_column li>dl>dd>a{display:inline-block;margin-top:5px}
+.second_column li.left>a{position:absolute;top:40px;left:300px;display:inline-block}
+
+.second_column li.left.cp p{width:220px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_cp.png) no-repeat 0 0;padding-left:60px}
+.second_column li.left.discounts dl{width:200px;margin:0 auto;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_discounts.png) no-repeat 0 0;padding-left:80px}
+.second_column li.left.bank_account dl{width:310px;margin:0 auto;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_bank_account.png) no-repeat 0 5px;padding-left:80px}
+.second_column li.left.online_refund_apply dl{width:220px;margin:0 auto;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_online_refund_apply.png) no-repeat 0 5px;padding-left:80px}
+
+.second_column li.right{border-right:none}
+.second_column li.right.email p{width:210px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_email.png) no-repeat 0 0;border-right:none;padding-left:70px}
+.second_column li.right.purchase_manage dl{width:280px;margin:0 auto;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_purchase_manage.png) no-repeat 0 0;padding-left:80px}
+.second_column li.right.credit_card dl{width:310px;margin:0 auto;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_credit_card.png) no-repeat 0 5px;padding-left:80px}
+.second_column li.right.offline_refund_apply dl{width:250px;margin:0 auto;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_offline_refund_apply.png) no-repeat 0 5px;padding-left:80px}
+
+.second_column input[type="text"]{padding:5px}
+.second_column.brnone li{border-right:none}
+
+/*프리미엄 혜택*/
+.goods_type{padding:15px 20px}
+.goods_type ul{margin:0 auto;}
+.goods_type ul:after{content:'';display:block;clear:both;visibility:hidden;height:0}
+.goods_type ul li{float:left;line-height:24px;padding:0 50px 0 30px;font-size:14px;font-weight:bold;border-right:1px #d3d3d3 solid}
+.goods_type ul li p{float:left;}
+.goods_type ul li select{width:244px;padding:2px 0;}
+.goods_type ul li label{margin-right:20px;vertical-align:middle;color:#333;}
+.goods_type ul li.goods_type01{}
+.goods_type ul li.goods_type02{border:none}
+
+.goods_description{padding:15px 20px}
+.goods_description ul{margin:0 auto;}
+.goods_description ul:after{content:'';display:block;clear:both;visibility:hidden;height:0}
+.goods_description ul li{float:left;line-height:24px;padding:0 20px;font-size:14px;font-weight:bold;border-right:1px #d3d3d3 solid}
+.goods_description ul li strong{color:#333;}
+.goods_description ul li span{color:#666;font-weight:normal;}
+.goods_description ul li.last{border:none;}
+
+.game_contents{margin-top:25px;}
+.game_contents:after{content:'';display:block;clear:both;visibility:hidden;height:0}
+.game_image{float:left;width:395px;}
+.game_image dl{position:relative;width:100%;display:block;padding-top:527px;}
+.game_image dl>dt{display:block;margin-top:10px;padding:12px 18px;background:#0999d5;color:#fff;font-weight:bold;font-size:16px;}
+.game_image dl>dd{position:absolute;top:0;left:0;}
+.game_benefit{float:right;}
+.game_benefit>ul{width:545px;}
+.game_benefit>ul>li{position:relative;}
+.game_benefit>ul>li>dl{position:relative;padding:20px 35px 20px 90px;border:1px #b9b9b9 solid;margin-bottom:10px;}
+.game_benefit>ul>li>dl>dt{font-size:16px;color:#000;margin-bottom:15px;}
+.game_benefit>ul>li>dl>dd{line-height:20px;}
+.game_benefit>ul>li>dl>dd.icon{position:absolute;top:20px;left:35px;}
+
+/*search box*/
+.search_box{background:#f0f4f6;border:1px #d4d4d4 solid;padding:20px 20px 20px 30px;margin-bottom:30px}
+.search_box input[type="text"],
+.search_box select{padding:3px}
+.search_box:after{content:'';display:block;clear:both;visibility:hidden;height:0}
+.search_box .inquiry_input{float:left}
+.search_box .inquiry_input label{display:inline-block;font-weight:bold;color:#333}
+.search_box .inquiry_input p{padding:5px 0;letter-spacing:-1px}
+.search_box .inquiry_input p.notice{padding-top:10px}
+.search_box .inquiry_input span{margin:0 10px}
+.search_box .inquiry_input img{vertical-align:middle}
+.search_box .inquiry_input strong{color:#333;}
+.search_box .inquiry_btn{float:right}
+
+/*article_search box*/
+.article_search{width:660px;margin:0 auto;border:1px #d4d4d4 solid;background:#f0f4f6;padding:20px 0;text-align:center;}
+.article_search label{font-weight:bold;margin-right:5px;vertical-align:middle;}
+.article_search a{vertical-align:middle;}
+
+/*이메일 문의*/
+.reply_email{margin-top:10px;}
+.reply_email label{vertical-align:baseline;}
+.file_upload{position:relative;clear:both;}
+.file_upload:after{content:'';display:block;clear:both;visibility:hidden;height:0}
+.file_upload select{float:left;margin-top:5px;width:354px;color:inherit;font-size:13px}
+.file_upload a{display:inline-block;margin:5px 0 0 8px;}
+.file_upload p{margin:5px 0;}
+
+.file_notice{padding:0 20px 20px 20px;display:none;}
+.file_notice a{position:absolute;top:30px;right:30px;display:block;width:15px;height:15px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/btn/btn_layer_close.gif) no-repeat 0 0}
+.file_notice a span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+.file_notice p{line-height:22px;}
+.file_notice .agree{border-top:1px #bfbfbf solid;margin-top:15px;padding:15px 0;}
+.file_notice .agree label{margin-left:5px;}
+
+/*FAQ 문의*/
+.faq_header{}
+.faq_header:after{content:'';display:block;clear:both;visibility:hidden;height:0}
+.faq_header .faq_search{width:344px;float:left;background:#3e6a97;padding:42px;}
+.faq_header .faq_search .section{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_faq_header.png) no-repeat 0 0;padding:0 0 20px 115px;}
+.faq_header .faq_search .section h2{margin-top:8px;}
+.faq_header .faq_search .section p{color:#fff;}
+.faq_header .faq_search input[type="text"]{width:270px;padding:10px}
+.faq_header .faq_search a{vertical-align:middle;}
+.faq_header .faq_best{float:right;width:505px;}
+.faq_header .faq_best table{width:100%;table-layout:fixed;border-top:none;}
+.faq_header .faq_best table th{border-bottom:none;background:#c3d500;padding:16px 0;}
+.faq_header .faq_best table th, .faq_best table td{text-align:left;padding-left:20px;}
+
+.link_shortcut{margin:10px 0}
+.link_shortcut a{}
+.link_shortcut a{color:#00a1e1;text-decoration:underline;display:inline-block}
+.link_shortcut a:hover{color:#003e7c}
+.link_shortcut a.bar{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_bar.gif) no-repeat 0 4px;margin-left:10px;padding-left:13px}
+
+/*원격지원*/
+.remote_support_wrap{width:640px;margin:0 auto 50px;}
+.remote_support_wrap .remote_support_header{margin-top:30px;padding-bottom:20px;}
+.remote_support_wrap .remote_support_header:after{content:'';display:block;clear:both;visibility:hidden;height:0}
+.remote_support_wrap .remote_support_header .logo{float:left;}
+.remote_support_wrap .remote_support_header .util{float:right;}
+.remote_support_wrap .remote_support{background:#e9f2f6;border:1px #c3d9e3 solid;padding-top:20px;margin-bottom:10px;}
+.remote_support_wrap .remote_support .contents{background:#fff;width:600px;margin:0 auto;border:1px #b7d0db solid;}
+.remote_support_wrap .remote_support .contents>p{margin-bottom:30px;}
+.remote_support_wrap .remote_support .contents h1{margin:0 30px 0 30px;font-size:15px;color:#253b50;border-bottom:2px #a2b4c5 solid;}
+.remote_support_wrap .remote_support .contents dl{margin:0 30px;border-bottom:1px #cecece solid;}
+.remote_support_wrap .remote_support .contents dl>dt{font-size:13px;color:#333;font-weight:bold;margin:20px 0;}
+.remote_support_wrap .remote_support .contents dl>dd{font-size:13px;line-height:23px;padding-bottom:20px}
+.remote_support_wrap .remote_support p.waiting{margin:0 30px;padding:40px 0;font-weight:bold;color:#3c556e;font-size:15px;text-align:center;border-bottom:1px #cfd5dc solid;}
+.remote_support_wrap .remote_support .notice{width:525px;margin:0 auto;padding:20px 0 30px 50px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_question_mark.png) no-repeat 0 25px;line-height:20px;color:#333;}
+.remote_support_wrap .remote_support .notice a{color:#00a1e1;font-size:13px;text-decoration:underline;}
+.remote_support_wrap .remote_support .notice a:hover{color:#003e7c}
+
+/*e-coupon*/
+.e-coupon{text-align:center;padding:30px 0 40px 0;margin-bottom:20px;border-top:2px #adadad solid;border-bottom:1px #bcbcbc solid}
+
+/*service_info*/
+.info_box{position:absolute;padding:18px 20px 14px 20px;font-size:12px;color:#666;display:block;background:#fff;border:2px #5f5f5f solid;display:none}
+.info_box>p{line-height:23px}
+.info_box>span{position:absolute;top:-8px;left:10px}
+
+/*tab*/
+.tab{margin-bottom:20px}
+.tab ul{border:1px #c3d9e3 solid;background:#e9f2f6}
+.tab ul:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+.tab ul>li{position:relative;float:left;width:50%;background:#e9f2f6 url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/tab_bar.gif) no-repeat 100% 0}
+.tab ul>li>a{display:block;text-align:center;font-weight:bold;font-size:15px;color:#2f5768;letter-spacing:-1px;padding:10px 0}
+.tab ul>li>span{position:absolute;bottom:-10px;left:50%;margin-left:-10px;display:none}
+.tab ul>li.on>a{background:#00a1e1;color:#fff}
+.tab ul>li.on>span{display:block}
+
+/*tab 3개일 때*/
+.tab3{margin-bottom:20px}
+.tab3 ul{border:1px #c3d9e3 solid;background:#e9f2f6}
+.tab3 ul:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+.tab3 ul>li{position:relative;float:left;width:33%;background:#e9f2f6 url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/tab_bar.gif) no-repeat 100% 0}
+.tab3 ul>li>a{display:block;text-align:center;font-weight:bold;font-size:15px;color:#2f5768;letter-spacing:-1px;padding:10px 0}
+.tab3 ul>li>span{position:absolute;bottom:-10px;left:50%;margin-left:-10px;display:none}
+.tab3 ul>li.on{width:34%}
+.tab3 ul>li.on>a{background:#00a1e1;color:#fff}
+.tab3 ul>li.on>span{display:block}
+
+/*tab 5개일 때*/
+.tab5{margin-bottom:20px}
+.tab5 ul{border:1px #c3d9e3 solid;background:#e9f2f6}
+.tab5 ul:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+.tab5 ul>li{position:relative;float:left;width:20%;background:#e9f2f6 url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/tab_bar.gif) no-repeat 100% 0}
+.tab5 ul>li>a{display:block;text-align:center;font-weight:bold;font-size:15px;color:#2f5768;letter-spacing:-1px;padding:10px 0}
+.tab5 ul>li>span{position:absolute;bottom:-10px;left:50%;margin-left:-10px;display:none}
+.tab5 ul>li.on{width:20%}
+.tab5 ul>li.on>a{width:100%;background:#00a1e1;color:#fff}
+.tab5 ul>li.on>span{display:block}
+
+/*환불*/
+.refund_process{}
+.refund_process ul,
+.refund_process ol{padding:20px 30px;border:1px #d4d4d4 solid;margin:10px 0 0 20px}
+.refund_process ul>li,
+.refund_process ol>li{line-height:23px}
+.refund_process ol>li{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/160721/bg_circle_num.gif) no-repeat;padding-left:26px}
+.refund_process ol>li.num01{background-position:0 5px}
+.refund_process ol>li.num02{background-position:0 -140px}
+.refund_process ol>li.num03{background-position:0 -305px}
+.refund_process a{text-decoration:underline;color:#00a1e1;display:inline-block}
+.refund_process a:hover{color:#003e7c}
+.refund_process ul>li>dl{margin-bottom:10px}
+.refund_process ul>li>dl>dt{font-weight:bold}
+.refund_process ul>li>dl>dd{}
+.refund_process ul>li>dl>dd.notice{color:#f00}
+.refund_process p{margin-top:10px}
+.refund_process p.notice{color:#f00;margin:10px 0 0 20px}
+
+.faq_wrap{position:absolute;top:100px;left:-340px;width:400px;background:#253b50;letter-spacing:-1px}
+.faq_wrap input{padding:8px 17px}
+.search_header{position:relative;padding:70px 30px 30px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_faq_txt.png) no-repeat 30px 30px}
+.search_header p{margin-bottom:20px}
+.search_header a.btn_faq{position:absolute;top:0;right:0;display:block;width:59px;height:155px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_btn_faq.gif) no-repeat 0 0}
+.search_header a.btn_faq span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+.search_header a.btn_faq.on{background-position:-59px 0}
+.search_header a{vertical-align:middle}
+.search_header>div{position:absolute;top:20px;right:-183px;width:146px;height:35px;padding:12px 20px 0 25px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_faq_tooltip.png) no-repeat 0 0;color:#666}
+.search_result_wrap{width:300px;background:#f4f4f4;padding:20px 10px 0 30px}
+.search_result_wrap p{margin:10px 0}
+.search_result_wrap ol>li{line-height:25px;font-size:13px}
+.search_result{height:600px;padding-right:20px;overflow:hidden;min-height:100px;overflow-y:scroll}
+.search_result p, .search_faq_best p{font-size:14px;padding:0 0 20px 0;border-bottom:2px #959595 solid;}
+.search_result p strong{color:#1c4b7a;}
+.search_result>div{margin-bottom:30px;}
+.search_result>div p{border:none;margin:0;padding:10px 0 0 0;}
+.search_result>div p>a{float:right;}
+.search_result>div p>strong{color:#1c4b7a;}
+.search_result>div ul>li:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+.search_result>div ul>li{padding:20px 0;line-height:20px;border-bottom:1px #c6c6c6 solid;}
+.search_result>div ul>li>a{float:left;margin-right:10px;}
+.search_result>div ul>li>span{display:inline-block;font-size:12px;color:#666;}
+
+.search_faq_best{height:600px;padding-right:20px;overflow:hidden;min-height:100px;overflow-y:scroll}
+.search_faq_best p>a{float:right;}
+.search_faq_best ul{}
+.search_faq_best ul>li{padding:20px 0;line-height:25px;border-bottom:1px #c6c6c6 solid;}
+
+.answer{margin:20px 0;padding:20px;background:#fff;border:1px #dcdcdc solid;color:#424242;}
+.answer>p{padding-left:8px;border-style: none;}
+
+.single_box:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+.single_box li{position:relative;float:left;width:476px;padding:25px 0}
+.single_box li>dl{line-height:20px;letter-spacing:-1px;}
+.single_box li>dl>dt{font-size:16px;font-weight:bold;margin-bottom:3px}
+.single_box li>dl>dd{font-size:13px;margin-bottom:3px}
+.single_box li.left dl{width:220px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/160721/bg_transfer_positive.png) no-repeat 75px 10px;padding-left:170px}
+.gray_box_sg{background:#f0f4f6;border:1px #d4d4d4 solid;width:472px;}
+
+
+/*popup*/
+#pop_wrap{width:720px;letter-spacing:-1px}
+#pop_wrap select{padding:4px 0;letter-spacing:-1px}
+#pop_wrap select[disabled]{background:#dedede}
+#pop_header{height:65px;background:#434343 url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/popup_logo.png) no-repeat 550px center}
+#pop_header h1{color:#fff;font-size:20px;margin:0;padding:22px 0 0 30px;vertical-align:middle;letter-spacing:-1px;border-bottom:none;}
+#pop_header h1>span{font-weight:normal;font-size:18px;vertical-align:baseline}
+#pop_container{padding:30px}
+#pop_contents h2{font-size:16px;margin:10px 0}
+#pop_contents .description>p{line-height:25px}
+#pop_contents .description ul{padding:30px 0;}
+#pop_contents .description ul>li{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bu_box_gray.gif) no-repeat 0 8px;padding-left:10px;line-height:22px}
+#pop_contents .gray_box{padding:20px 25px;margin-bottom:30px}
+#pop_contents .gray_box p span{font-weight:bold;margin-right:20px;color:#333}
+#pop_contents .gray_box p label{margin-right:13px;font-weight:bold;color:#333}
+#pop_contents .gray_box p input[type="text"]{padding:3px}
+#pop_contents .gray_box:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+
+/*이메일 인증 */
+#pop_contents .send_mail input[type="text"]{padding:5px;border:1px #bdbdbd solid;font-size:13px}
+#pop_contents .send_mail .notice{margin:20px 0;padding-top:20px;border-top:1px #bdbdbd solid;}
+#pop_contents .send_mail .notice p{line-height:25px;}
+
+
+/*아이디 찾기*/
+#pop_contents .find_id{text-align:center;padding:16px 0;}
+#pop_contents .find_id label{font-weight:bold;color:#333;margin-right:10px;font-size:13px;}
+#pop_contents p>a{text-decoration:underline;color:#00a1e1;font-weight:bold;}
+#pop_contents p>a:hover{color:#003e7c;}
+
+/*본인인증*/
+#pop_contents .confirm_id{border:1px solid #d2d2d2;background:#f3f4f8;margin-top:20px;}
+#pop_contents .confirm_id dl{float:left;height:81px;padding:42px 110px 0 150px;color:#333;}
+#pop_contents .confirm_id dl dt{line-height:18px;}
+#pop_contents .confirm_id dl dt, #pop_contents .confirm_id dl dd{float:left;}
+#pop_contents .confirm_id dl dd{margin:15px 0 0 10px;}
+#pop_contents .confirm_id .phone{height:81px;padding:40px 30px 0 80px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_cp.png) no-repeat 26px 40px;border-right:1px solid #d2d2d2;}
+#pop_contents .confirm_id .email{height:73px;padding:40px 90px 0 128px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_email.png) no-repeat 60px 42px;}
+
+/*상품과 결제 popup*/
+#pop_contents .payment_wrap{margin:20px 0;background:#f6f6f6}
+#pop_contents .payment_wrap ul{width:615px;padding:10px 20px 20px 20px;border:2px #878787 solid;border-bottom:none}
+#pop_contents .payment_wrap ul li{padding-top:30px}
+#pop_contents .payment_wrap ul li:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+#pop_contents .payment_wrap ul li h2{float:left;width:100px;padding:0 30px 0 10px;font-size:16px}
+#pop_contents .payment_wrap ul li div{float:left;border-left:1px #d6d6d6 solid}
+#pop_contents .payment_wrap ul li div dl{position:relative;width:300px;padding:5px 0 5px 50px}
+#pop_contents .payment_wrap ul li div dl:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+#pop_contents .payment_wrap ul li div dl dt{float:left;margin-right:30px;width:80px}
+#pop_contents .payment_wrap ul li div dl dt.pay_goods_tit{float:left;height:30px}
+#pop_contents .payment_wrap ul li div dl dd{width:190px;display:block;float:right;}
+#pop_contents .payment_wrap ul li div dl dd:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+#pop_contents .payment_wrap ul li div dl dd span{color:#222}
+#pop_contents .payment_wrap ul li div dl dd p{font-size:14px}
+#pop_contents .payment_wrap ul li div dl dd a{float:left;display:block;width:71px;height:24px;margin:0 5px 5px 0;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_payment.gif) no-repeat}
+#pop_contents .payment_wrap ul li div dl dd a.normal{background-position:0 0;}
+#pop_contents .payment_wrap ul li div dl dd a.auto{background-position:-81px 0;}
+#pop_contents .payment_wrap ul li div dl dd a.normal:hover,
+#pop_contents .payment_wrap ul li div dl dd a.normal.on{background-position:0 -34px;}
+#pop_contents .payment_wrap ul li div dl dd a.auto:hover,
+#pop_contents .payment_wrap ul li div dl dd a.auto.on{background-position:-81px -34px;}
+#pop_contents .payment_wrap ul li div dl dd a span{text-indent:-9999px;font-size:0px;position:absolute;top:-9999px}
+#pop_contents .payment_wrap ul li.goods{border-bottom:1px #e3e3e3 solid;padding-bottom:20px}
+#pop_contents .payment_wrap ul li.goods div dl dt.select_godds{top:18px}
+#pop_contents .payment_wrap .payment_sum{height:34px;padding:15px 30px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_payment_sum.jpg) no-repeat 0 100%;color:#333}
+#pop_contents .payment_wrap .payment_sum span{display:inline-block;margin-top:10px;font-size:14px}
+#pop_contents .payment_wrap .payment_sum span.sum{float:right;font-weight:bold;color:#2c3946;margin:0;}
+#pop_contents .payment_wrap .payment_sum span.sum strong{color:#f00;font-size:24px;margin-left:10px}
+#pop_contents .payment_wrap .payment_sum .price{margin:0 30px 0 10px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_bar.gif) no-repeat 0 4px;padding-left:15px}
+#pop_contents .payment_wrap .goods_description{width:290px;margin:10px 0 0 0;padding:0;border:none}
+#pop_contents .payment_wrap .goods_description p{font-size:12px;line-height:18px}
+#pop_contents .payment_wrap .goods_description p strong{color:#f00}
+#pop_contents .payment_wrap .goods_check{margin-top:10px;border:none;line-height:20px;}
+#pop_contents .payment_wrap .goods_check label{margin-right:5px;}
+
+/*팝업 내 파일 업로드*/
+#pop_contents .file_upload{position:relative;clear:both;}
+#pop_contents .file_upload:after{content:'';display:block;clear:both;visibility:hidden;height:0}
+#pop_contents .file_upload select{float:left;margin-top:5px;width:354px;color:inherit;font-size:13px}
+#pop_contents .file_upload a{display:inline-block;margin:5px 0 0 8px;}
+#pop_contents .file_upload p{margin:5px 0;}
+#pop_contents .file_upload .file_notice{position:absolute;top:-175px;left:-70px;width:555px;padding:70px 20px 20px 20px;background:#fff;border:2px #787878 solid;display:none;z-index:30;}
+#pop_contents .file_upload .file_notice a{position:absolute;top:30px;right:30px;display:block;width:15px;height:15px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/btn/btn_layer_close.gif) no-repeat 0 0}
+#pop_contents .file_upload .file_notice a span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+#pop_contents .file_upload .file_notice .agree{border-top:1px #bfbfbf solid;margin-top:15px;padding:15px 0;}
+#pop_contents .file_upload .file_notice .agree label{margin-left:5px;}
+
+#pop_contents .agree_wrap{position:relative}
+#pop_contents .agree_wrap p{line-height:25px}
+#pop_contents .agree_wrap a{font-size:13px;text-decoration:underline}
+#pop_contents .agree_wrap p.total_agree{width:265px;margin-bottom:10px}
+#pop_contents .agree_wrap p.total_agree a{float:right;color:#00b6fb}
+#pop_contents .agree_wrap p.total_agree:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+#pop_contents .agree_wrap p.waring{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_waring.gif) no-repeat 0 6px;padding-left:20px}
+#pop_contents .agree_wrap .btn_confirm,
+#pop_contents .agree_wrap .btn_next,
+#pop_contents .agree_wrap .btn_payment{position:absolute;top:0;right:0}
+#pop_contents .agree_wrap a.notice{position:absolute;bottom:0;right:0;font-size:13px;color:#00b6fb}
+
+#pop_contents .service_policy,
+#pop_contents .pay{margin-bottom:20px}
+#pop_contents .popup_agree h2{margin-bottom:10px;padding-left:6px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bu_box_gray.gif) no-repeat 0 7px}
+#pop_contents .popup_agree textarea{overflow-x:none;overflow-y:scroll;resize:none;padding:10px;color:#666;letter-spacing:-1px;margin-bottom:13px;font-size:13px}
+#pop_contents .popup_agree input[type="checkbox"]{margin-right:5px}
+#pop_contents .popup_agree>div{margin-bottom:30px}
+
+#pop_contents .tbl_header{padding:5px 0}
+#pop_contents .tbl_header:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+#pop_contents .tbl_header a{color:#00a1e1;text-decoration:underline;display:inline-block}
+#pop_contents .tbl_header a:hover{color:#003e7c}
+#pop_contents .tbl_header a.bar{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_bar.gif) no-repeat 0 4px;margin-left:10px;padding-left:13px}
+#pop_contents .tbl_header span{font-weight:bold;color:#0b2a4a}
+#pop_contents .tbl_header p>span{vertical-align:middle;font-size:14px}
+#pop_contents .tbl_header p>span.total_price{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_span_bar.gif) no-repeat 0 8px;padding-left:13px;margin-left:13px;font-size:18px;color:#00a1e1}
+
+#pop_contents table{width:100%;table-layout:fixed;border-collapse:collapse;border-top:2px #777 solid;border-bottom:2px #bcbcbc solid;margin-bottom:30px}
+#pop_contents th{vertical-align:middle;background:#f0f0f0;color:#555;padding:13px 0;letter-spacing:-1px;font-size:14px;color:#333;border-bottom:1px #e3e3e3 solid;line-height:160%}
+#pop_contents td{vertical-align:middle;background:#fff;border-bottom:1px #e3e3e3 solid;text-align:center;padding:8px 0;letter-spacing:-1px;line-height:160%;color:#555}
+#pop_contents td input[type="text"]{padding:5px;border:1px #bdbdbd solid;font-size:13px}
+#pop_contents td input[type="password"]{padding:5px;border:1px #bdbdbd solid;font-size:13px}
+#pop_contents td a{text-decoration:underline;color:#00a1e1}
+#pop_contents td a:hover{color:#003e7c}
+#pop_contents td.sum{background:#f0f4f6;font-weight:bold;color:#444e7d}
+#pop_contents td span{font-family:inherit;font-size:12px;letter-spacing:-1px;margin-left:10px}
+#pop_contents td span.notice{color:#db2525}
+#pop_contents td select{padding:4px 0 4px 5px}
+
+#pop_contents table.vertical{width:100%;table-layout:fixed;border-collapse:collapse;border-top:2px #bcbcbc solid;border-bottom:2px #bcbcbc solid;margin-bottom:30px}
+#pop_contents table.vertical th{background:#f0f0f0;color:#555;padding:13px 0;letter-spacing:-1px;font-size:14px;color:#333;border-bottom:1px #d4d4d4 solid;vertical-align:middle;line-height:160%}
+#pop_contents table.vertical th.last{border-bottom:1px #8a8a8a solid}
+#pop_contents table.vertical th.detail{background:#f0f0f0;vertical-align:middle;border-left:1px #e3e3e3 solid;border-right:none;border-bottom:1px #d4d4d4 solid}
+#pop_contents table.vertical th.detail.last{border-bottom:1px #8a8a8a solid}
+#pop_contents table.vertical td{background:#fff;border-bottom:1px #e3e3e3 solid;text-align:left;padding:8px 0 8px 10px;letter-spacing:-1px;vertical-align:middle;line-height:160%}
+#pop_contents table.vertical td a{text-decoration:underline;color:#00a1e1}
+#pop_contents table.vertical td a:hover{color:#003e7c}
+#pop_contents table.vertical td.sum{background:#f0f4f6;font-weight:bold;color:#444e7d}
+#pop_contents table.vertical td.last{border-bottom:1px #8a8a8a solid}
+#pop_contents table.vertical td span.price{margin-left:0;font-size:18px;font-weight:bold}
+#pop_contents table.vertical td span.price strong{color:#f00}
+#pop_contents table.left th{text-align:left;padding-left:20px}
+#pop_contents table.left th.align_c{text-align:center;padding:0}
+#pop_contents table.left td{text-align:left;padding-left:10px}
+
+#pop_contents table.vertical_type02{width:100%;table-layout:fixed;border-collapse:collapse;border-top:2px #bcbcbc solid;border-bottom:2px #bcbcbc solid;margin-bottom:30px}
+#pop_contents table.vertical_type02 th{background:#f0f0f0;color:#555;padding:13px 0 13px 20px;letter-spacing:-1px;font-size:14px;color:#333;border-bottom:1px #d4d4d4 solid;vertical-align:middle;line-height:160%}
+#pop_contents table.vertical_type02 th.last{border-bottom:1px #8a8a8a solid}
+#pop_contents table.vertical_type02 th.detail{background:#f0f0f0;vertical-align:middle;border-left:1px #e3e3e3 solid;border-right:none;border-bottom:1px #bcbcbc solid}
+#pop_contents table.vertical_type02 th.detail.last{border-bottom:1px #8a8a8a solid}
+#pop_contents table.vertical_type02 td{background:#fff;border-bottom:1px #e3e3e3 solid;text-align:left;padding:8px 0 8px 10px;letter-spacing:-1px;vertical-align:middle;line-height:160%}
+#pop_contents table.vertical_type02 td a{text-decoration:underline;color:#00a1e1}
+#pop_contents table.vertical_type02 td td a:hover{color:#003e7c}
+#pop_contents table.vertical_type02 td.sum{background:#f0f4f6;font-weight:bold;color:#444e7d}
+#pop_contents table.vertical_type02 td.last{border-bottom:1px #8a8a8a solid}
+#pop_contents table.vertical_type02 td span.price{font-size:18px;font-weight:bold;margin:0}
+#pop_contents table.vertical_type02 td span.price strong{color:#f00}
+
+#pop_contents .tbl_bottom{margin:0 0 30px 0}
+#pop_contents .tbl_bottom dl{padding-bottom:3px}
+#pop_contents .tbl_bottom dl:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+#pop_contents .tbl_bottom dl dt{float:left;margin-right:20px;font-weight:bold}
+#pop_contents .tbl_bottom ul{}
+#pop_contents .tbl_bottom ul li{float:left;margin-right:40px}
+#pop_contents .tbl_bottom ul li:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+
+#pop_contents .tbl_bottom p{line-height:20px}
+
+/*대시보드*/
+.contents_wrap > div{position:relative;width:349px;height:218px;float:left;background:#fff;border:1px #cbcbcb solid;margin:0 16px 16px 0;padding:17px 19px}
+.contents_wrap .btn_more{position:absolute;top:0;right:0;display:inline-block}
+.prdt_list{position:relative;height:57px;border:2px solid #646464;padding-left:18px;padding-right:41px;margin-top:20px}
+.prdt_list .prdt_name{height:57px;overflow:hidden}
+.prdt_list .prdt_name ul{position:relative}
+.prdt_list .prdt_name li{vertical-align:middle;height:57px}
+.prdt_list .prdt_name li span{font-size:20px;color:#000;line-height:57px}
+.prdt_list .prdt_name li strong{font-size:30px;color:#0da6e3;line-height:57px;vertical-align:bottom}
+.prdt_list .prdt_btn{position:absolute;top:3px;right:3px;width:35px}
+.prdt_list .prdt_btn > a{display:inline-block;width:35px;height:24px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/dashboard/btn_list.gif) no-repeat 0 0}
+.prdt_list .prdt_btn > a span{text-indent:-9999px;font-size:0px;position:absolute;top:-9999px}
+.prdt_list .prdt_btn .prev{background-position:0 0;margin-bottom:3px}
+.prdt_list .prdt_btn .next{background-position:0 -27px}
+.prdt_detail{margin-top:28px}
+.prdt_detail:after{content:'';display:block;height:0px;clear:both;visibility:hidden}
+.prdt_detail .usage_time{float:left;width:103px;height:49px;padding:17px 0 0 83px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/dashboard/bg_usage_time.gif) no-repeat 0 7px;font-size:13px;text-align:center;margin-right:5px}
+.prdt_detail .usage_time span{display:block;margin-top:5px}
+.prdt_detail .usage_time strong{font-size:28px;text-decoration:underline}
+.prdt_detail .usage_person{float:right;width:97px;height:49px;padding:17px 0 0 60px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/dashboard/bg_usage_person.gif) no-repeat 0 0;font-size:13px;text-align:center}
+.prdt_detail .usage_person span{display:block;margin-top:5px}
+.prdt_detail .usage_person strong{font-size:28px;text-decoration:underline}
+.payment_list{margin-top:45px}
+.payment_list li{background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bu_box_gray.gif) no-repeat 4px 50%;margin-bottom:16px;padding-left:10px}
+.payment_list span{display:inline-block;height:15px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.payment_list .date{width:75px;color:#666;margin-right:25px}
+.payment_list .prdt{width:103px;color:#000;margin-right:10px}
+.payment_list .payment{width:120px;color:#000}
+.payment_manage div{text-align:center;background:#eef1f2;border:1px solid #dadada;padding:43px 0 35px 0;margin-top:20px;font-size:20px;color:#000}
+.payment_manage div strong{color:#00a1e1}
+.payment_manage div p{font-size:13px;margin-top:13px}
+.payment_manage > p{text-align:center;margin-top:17px;color:#000}
+.payment_manage > p img{vertical-align:middle}
+.time_top5{}
+.time_top5 ol {}
+.time_top5 ol li{position:relative;color:#666;height:25px;line-height:25px;margin-bottom:5px;font-size:14px;padding:0 6px 0 2px}
+.time_top5 ol li .num{display:inline-block;width:25px;height:25px;border-radius:3px;background:#666;margin-right:20px;color:#fff;text-align:center}
+.time_top5 ol li.first{color:#0da6e3}
+.time_top5 ol li.first .num{background:#0da6e3}
+.time_top5 ol li .time{position:absolute;right:0;top:0;line-height:25px}
+
+
+
+.time_top5 .error {height:160px;}
+.time_top5 .base {text-align:center}
+.graph_usage{margin:42px 0 0 32px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/dashboard/bg_line.gif) no-repeat 0 120px;padding-left:30px}
+.graph_usage:after{content:'';display:block;height:0px;clear:both;visibility:hidden}
+.graph_usage dl{position:relative;float:left;width:70px;height:27px;padding-top:120px}
+.graph_usage dl dt{text-align:center;width:70px;height:14px;padding-top:13px;color:#000}
+.graph_usage dl dd{position:absolute;top:0;left:0;width:70px;height:120px}
+.graph_usage dl dd span{display:block;position:absolute;bottom:0;left:10px;width:50px;height:0%;text-align:center}
+.graph_usage dl dd span strong{position:relative;top:-27px;color:#000;font-size:18px}
+.graph_usage .past_month span{background:#c5d1d6}
+.graph_usage .this_month span{background:#52798f}
+.graph_usage .next_month span{background:#16b4f3}
+.ip_management{text-align:center}
+.ip_management h2{text-align:left}
+.ip_management dl{margin:20px 0}
+.ip_management dt{font-size:16px;vertical-align:bottom}
+.ip_management dt span{font-size:18px}
+.ip_management dt strong{font-size:30px;color:#00a1e1}
+.ip_management dd{background:#eef1f2;border:1px solid #dadada;padding:12px;margin-top:18px}
+.ip_management dd li{font-size:14px;color:#000;margin-bottom:5px}
+.ip_management > p{text-align:center;margin-top:17px;color:#000}
+.ip_management > p img{vertical-align:middle}
+.contents_wrap > div.dashboard_event,.contents_wrap > div.dashboard_notice,.contents_wrap > div.dashboard_cscenter{height:235px}
+.dashboard_event div{margin-top:25px;margin-bottom:40px}
+.dashboard_event div:after{content:'';display:block;height:0px;clear:both;visibility:hidden}
+.dashboard_event div p{width:164px;text-align:center;background:#eef1f2;border:1px solid #dadada;padding:22px 0}
+.dashboard_event div p strong a{font-size:30px;color:#16b4f3;text-decoration:underline;}
+.dashboard_event div p span{display:block;font-size:20px;margin-top:10px;vertical-align:middle}
+ 
+.dashboard_notice ul{margin-top:17px;height:195px;overflow:hidden}
+.dashboard_notice li{position:relative;color:#393939;width:100%;border-bottom:1px solid #cecece;padding:13px 0 15px 0}
+.dashboard_notice li .date{display:block;color:#666}
+.dashboard_notice li .txt{display:inline-block;width:310px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:150%;margin-top:5px}
+.dashboard_notice li .ico{position:absolute;top:34px;right:0}
+.contents_wrap > div.dashboard_cscenter{background:#0da6e3;padding-top:43px;height:209px}
+.dashboard_cscenter dl{height:136px;overflow:hidden}
+.dashboard_cscenter dt{margin-bottom:18px}
+.dashboard_cscenter dd{margin-bottom:8px}
+.dashboard_cscenter p{margin-top:18px}
+
+/*상품과 결제*/
+.goods_info_wrap{text-align:center;border:2px #929292 solid;padding:23px 0}
+
+/*레이어 팝업*/
+.layer_popup{display:none;position:fixed;width:650px;top:50%;left:50%;border:3px #787878 solid;background:#fff;padding:30px;z-index:10}
+.layer_popup .layer_contents{position:relative}
+.layer_popup .layer_contents a{position:absolute;top:0;right:0;display:block;width:15px;height:15px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/btn/btn_layer_close.gif) no-repeat 0 0}
+.layer_popup .layer_contents a span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+
+.layer_popup2{display:none;position:fixed;width:650px;top:50%;left:50%;border:3px #787878 solid;background:#fff;padding:30px;z-index:10}
+.layer_popup2 .layer_contents{position:relative}
+.layer_popup2 .layer_contents a.btn_layer_close{position:absolute;top:0;right:0;display:block;width:15px;height:15px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/btn/btn_layer_close.gif) no-repeat 0 0}
+.layer_popup2 .layer_contents a span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+
+.layer_contents .description>p{line-height:22px;}
+.layer_contents .pop_box{margin-top:10px;border-bottom:5px solid #f0f0f0;}
+.layer_contents .pop_box>div{border:2px solid #878787;padding:10px 20px;background:#f6f6f6}
+.layer_contents .pop_box>div:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+.layer_contents .pop_box>div span.sum{float:right;font-weight:bold;color:#2c3946;margin:0;}
+.layer_contents .pop_box>div span.sum strong{color:#f00;font-size:24px;margin-left:10px}
+
+.layer_popup_option{margin-bottom:20px;padding:30px;text-align:center;border-top:2px #777 solid;border-bottom:2px #bcbcbc solid;}
+.layer_popup_option span label{margin-left:5px;}
+.layer_popup_option span{margin:0 20px;}
+
+.gray_block_box{background:#f0f0f0;width:350px;padding:10px 20px;text-align:center; vertical-align: baseline;}
+.box_addText {padding-top:10px;}
+.gray_block_box dl {display:inline-block;}
+.gray_block_box dt{float:left;margin-top:3px;margin-right:40px;font-weight:bold;}
+.gray_block_box dd {float:right;}
+.gray_block_box span {margin-left:40px;font-weight:bold;}
+
+/*이벤트*/
+.event{border-bottom:1px #9e9e9e solid}
+.event ul:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+.event ul li{float:left;height:163px;border-bottom:1px #d1d1d1 solid;padding:40px 40px 40px 0}
+.event ul li dl{position:relative;padding-top:100px;width:290px}
+.event ul li dl dt a{font-size:14px;color:#555;font-weight:bold;line-height:18px;height:36px;overflow:hidden}
+.event ul li dl dt a:hover{text-decoration:underline;color:#24598e}
+.event ul li dl dd.image{position:absolute;top:0;left:0}
+.event ul li dl dd.date{margin-top:13px;font-size:13px;color:#666}
+
+/*이벤트 - pc방 공지사항 view페이지*/
+.file_area p.file{margin-bottom:5px;padding-left:23px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_file.gif) no-repeat 0 center;}
+.event_banner p.img{margin-bottom:5px;}
+
+.file_input_textbox{float:left;width:342px;}
+.file_input_div{position:relative;width:100px;height:30px;overflow:hidden;}
+.file_input_button{position:absolute;top:2px;left:8px;width:64px;height:24px;background:#868686;color:#fff;font-size:12px;border:none;}
+.file_input_hidden{font-size:45px;position:absolute;right:0px;left:8px;width:64px;opacity:0;filter:alpha(opacity=0);-ms-filter:"alpha(opacity=0)";-khtml-opacity:0;-moz-opacity:0;cursor:pointer;}
+
+.login_service{width:950px;margin:51px auto 156px auto;}
+.login_service > p{margin-bottom:20px;}
+.login_service .login{float:left;width:401px;height:130px;background:#e2eff4;border:1px solid #c4d5db;padding:24px 0 25px 39px;margin-right:15px;}
+.login_service .login h1{margin-bottom:18px;padding:0;border-bottom:none;}
+.login_service .login > div{width:204px;float:left;padding-left:71px;margin-right:5px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_login.gif) no-repeat 7px 7px;}
+.login_service .login > div:after{}
+.login_service .login dl{margin-top:4px;}
+.login_service .login dl dt{text-indent:-9999px;font-size:0px;position:absolute;top:-9999px;}
+.login_service .login dl dd{}
+.login_service .login dl dd input{width:192px;height:14px;padding:5px;border:1px solid #c2cacd;background:#fff;}
+.login_service .login .btn_login{margin-top:4px;}
+.login_service .login .btn_find{clear:both;margin:14px 0 0 71px;}
+
+.login_service .join{float:left;width:406px;height:130px;background:#e2eff4;border:1px solid #c4d5db;padding:24px 0 25px 34px;}
+.login_service .join > strong{display:inline-block;margin-bottom:18px;}
+.login_service .join p{padding-left:66px;margin-bottom:16px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_join.gif) no-repeat 0 16px;}
+.login_service .join a{display:inline-block;margin-left:76px;}
+
+/*로그인 페이지 chrome 용 */
+.login_service_chrome{width:1000px;margin:51px auto 156px auto}
+.login_service_chrome > p{margin-bottom:20px}
+.login_service_chrome .login{float:left;width:502px;height:130px;background:#e2eff4;border:1px solid #c4d5db;padding:24px 0 25px 39px;margin-right:15px}
+.login_service_chrome .login h1{margin-bottom:18px;padding:0;border-bottom:none}
+.login_service_chrome .login > div{width:226px;float:left;padding-left:71px;margin-right:5px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_login.gif) no-repeat 7px 7px}
+.login_service_chrome .login > div:after{}
+.login_service_chrome .login dl{margin-top:4px}
+.login_service_chrome .login dl dt{text-indent:-9999px;font-size:0px;position:absolute;top:-9999px}
+.login_service_chrome .login dl dd{}
+.login_service_chrome .login dl dd input{width:213px;height:14px;padding:5px;border:1px solid #c2cacd;background:#fff}
+.login_service_chrome .login .btn_login{margin-top:4px}
+.login_service_chrome .login .btn_find{clear:both;margin:14px 0 0 71px}
+.login_service_chrome .login .btn_find label{margin-right:3px;color:#000}
+.login_service_chrome .login .btn_find label span{font-weight:bold;color:#003e7c}
+.login_service_chrome .join{float:left;width:406px;height:130px;background:#e2eff4;border:1px solid #c4d5db;padding:24px 0 25px 34px}
+.login_service_chrome .join > strong{display:inline-block;margin-bottom:18px}
+.login_service_chrome .join p{padding-left:66px;margin-bottom:16px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_join.gif) no-repeat 0 16px}
+.login_service_chrome .join a{display:inline-block;margin-left:76px}
+
+#content.member_join{float:none;margin:0 auto;}
+.member_join h1{margin-bottom:20px;padding:0;border-bottom:none;}
+.member_join input[type="checkbox"]{margin:0;padding:0;width:13px;height:13px;}
+.member_join .step{margin:30px 0 40px 0;}
+.member_join .step li{float:left;margin-right:10px;}
+.member_join .step li.mr0{margin-right:0;}
+.member_join .term{position:relative;margin-top:30px;}
+.member_join .term dt{font-size:14px;font-weight:bold;color:#3d4854;margin-bottom:10px;}
+.member_join .term .term_box{height:99px;overflow:scroll;overflow-x:hidden;font-size:13px;color:#666;padding:25px 20px;border:1px solid #e0e0e0;}
+.member_join .term .agree{position:absolute;top:0;right:0;vertical-align:middle;}
+.member_join .term .agree label,
+.member_join .term .agree input[type="checkbox"]{vertical-align:middle;}
+.member_join .agree_all{color:#333;font-weight:bold;margin-top:20px;}
+
+.tit_annotation{font-size:14px;color:#555;line-height:21px;margin-top:15px;}
+.tit_annotation strong{font-weight:bold;color:#333;}
+
+.step02 .confirm_id{border:1px solid #d2d2d2;background:#f3f4f8;margin-top:20px;}
+.step02 .confirm_id dl{float:left;height:81px;padding:42px 110px 0 150px;color:#333;}
+.step02 .confirm_id dl dt{line-height:18px;}
+.step02 .confirm_id dl dt,.step02 .confirm_id dl dd{float:left;}
+.step02 .confirm_id dl dd{margin:15px 0 0 10px;}
+.step02 .confirm_id .phone{height:81px;padding:42px 110px 0 150px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_confirm_phone.gif) no-repeat 61px 24px;border-right:1px solid #d2d2d2;}
+.step02 .confirm_id .email{height:73px;padding:50px 110px 0 150px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_confirm_email.gif) no-repeat 53px 31px;}
+
+.member_join .ip_list{float:left;border:1px solid #bdbdbd;width:215px;height:78px;margin-top:10px;padding:10px;overflow:auto;}
+.member_join .btn_del{margin:10px 0 0 10px;}
+
+.step04 .msg_box{border:1px solid #d2d2d2;background:#f3f4f8;padding:29px 39px;font-size:13px;color:#555;line-height:150%;}
+.step04 .msg_box p strong{font-size:15px;}
+.step04 .msg_box p em{font-weight:bold;}
+.step04 .msg_box a{display:inline-block;margin-top:10px;}
+
+/* 아이디 중복확인 */
+.pop_box{margin-bottom:12px;border-bottom:5px solid #f0f0f0;}
+.pop_box>div{border:2px solid #878787}
+.pop_box .top_cont{margin: 0 42px;border-bottom: 1px solid #d9d9d9;}
+.pop_box .bottom_cont{margin: 0 42px;}
+.pop_box .top_cont .id_overlap{padding: 18px 0 24px;text-align: center;}
+.pop_box .top_cont .id_overlap label{margin-right: 9px;color: #333;font-weight: bold;}
+.pop_box .top_cont .id_overlap input[type="text"]{margin-right: 5px;}
+.pop_box .bottom_cont .id_check{padding: 23px 0 24px;text-align: center;}
+.pop_box .bottom_cont .id_check .txt{display:inline-block;margin-right:10px;color:#333;font-size:16px;font-weight:bold;}
+.pop_box .bottom_cont .id_check .txt span{color:#00a1e1;letter-spacing:0;}
+
+/* pc방 관리 */
+.pcbang .all_ip input{margin:0 3px;}
+
+/* 사업자등록증 제출 */
+.pop_box .top_cont .license{position: relative;padding: 30px 0;}
+.pop_box .top_cont .license span{display:block;font-size:15px;margin-bottom:20px;}
+.pop_box .top_cont .license strong{color:#00a1e1;}
+.pop_box .top_cont .license p{line-height:20px;}
+.pop_box .top_cont .license a{margin-top:20px;}
+.pop_box .bottom_cont .leave{padding: 30px 0;}
+.pop_box .bottom_cont .leave .txt{margin-bottom: 20px;color: #555;font-weight: bold;}
+
+/* 아이디 찾기 */
+#pop_contents td.blue{color: #0053a8;font-weight: bold;}
+
+/* 개인정보취급방침, 이용약관 */
+.color555{color: #555;}
+#pop_contents .popup_agree textarea{line-height: 23px;}
+#pop_contents .btn_area.privacy_wrap{margin-top: 10px;}
+#pop_contents .privacy{display: inline-block;position: relative;width: 188px;height: 28px;border:1px solid #bdbdbd;}
+#pop_contents .privacy a{display: block;color: #555;font-size:13px;text-align: left;}
+#pop_contents .privacy a:hover{color: #555;}
+#pop_contents .privacy>a{padding: 6px 34px 9px 17px;background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/etc/bg_popup_arrow.gif) no-repeat 100% 0}
+#pop_contents .privacy>a.on{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/etc/bg_popup_arrow.gif) no-repeat 100% 100%}
+#pop_contents .privacy ul{display: none;overflow-y: auto;position: absolute;left:-1px;bottom:28px;width: 100%;height: 155px;padding: 5px 0;border:1px solid #bdbdbd;background: #fff;}
+#pop_contents .privacy ul li a{padding: 5px 17px;}
+
+/* 에러페이지 */
+.error_wrap{position: absolute;top: 50%;left: 50%;margin: -151px 0 0 -329px;text-align: center;}
+.error_wrap.mt-159{margin-top: -159px;}
+.error_wrap h1{margin-bottom:29px;padding:0;border-bottom:none;}
+.error_wrap .txt{color: #555;font-size:14px;line-height: 21px;}
+.error_wrap .number{margin-top: 52px;}
+
+#container .error_wrap{position:static;margin: 0;padding:70px 0 82px;}
+#container .error_wrap .btn_area{margin-top:52px;}
+#container .error_wrap .btn_area a{margin: 0 5px;}
+
+/*사이트맵*/
+.sitemap{padding-top:40px;}
+.sitemap ul:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+.sitemap ul>li{float:left;margin-right:140px;width:133px;}
+.sitemap ul>li.last{margin:0;}
+.sitemap ul>li>ul>li{border-bottom:1px #b7b7b7 solid;padding:25px 0;}
+.sitemap ul>li>ul>li>ul{padding-top:15px;}
+.sitemap ul>li>ul>li>ul>li{margin:0;padding:0 0 0 8px;line-height:22px;border:none;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bu_sitemap.gif) no-repeat 0 11px;}
+.sitemap ul>li>ul>li>ul>li>a{font-size:12px;letter-spacing:-1px;}
+.sitemap ul>li>h2{margin:0;padding-bottom:20px;color:#253b50;font-size:16px;border-bottom:2px #8a8a8a solid;}
+.sitemap ul>li>ul>li>h3{font-weight:bold;font-size:14px;color:#444;}
+
+/*결제 팝업 안내사항 LayerPopup*/
+.payment_notice{display:none;position:fixed;width:500px;top:50%;left:10%;border:3px #787878 solid;background:#fff;padding:30px}
+.payment_notice .layer_contents{position:relative}
+.payment_notice .layer_contents a.btn_layer_close{position:absolute;top:0;right:0;display:block;width:15px;height:15px;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/btn/btn_layer_close.gif) no-repeat 0 0}
+.payment_notice .layer_contents a span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
+.payment_notice .layer_contents textarea{overflow-x:none;overflow-y:scroll;resize:none;padding:10px;color:#666;letter-spacing:-1px;margin-bottom:13px;font-size:13px}
+
+#pop_WrapEvent{width:875px;letter-spacing:-1px;}
+#pop_header_guide{height:65px;background:#434343 url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/popup_logo.png) no-repeat 700px center}
+#pop_header_guide h1{color:#fff;font-size:20px;margin:0;padding:22px 0 0 30px;vertical-align:middle;letter-spacing:-1px;border-bottom:none;}
+
+/* 세금계산서 발행 */
+.select_month {position:absolute;top:150px;left:100px;overflow:hidden;width:210px;height:200px;border:1px solid #d6d6d6;background-color:#fff;text-align:center;padding:20px 10px;}
+.select_month span {font-size:1.5em;}
+.select_month .monthArea {padding:0px 5px;}
+.select_month .monthArea ul{margin-top:15px;}
+.select_month .monthArea li {width:25%;height:28px;border:1px solid #d6d6d6;margin:5px 3px;display:inline-block;line-height: 25px;}
+.select_month .monthArea li a{display:block;}
+.select_month .monthArea li:hover, .select_month .monthArea li.on {border:1px solid #d6d6d6;background-color:#f0f4f7;}

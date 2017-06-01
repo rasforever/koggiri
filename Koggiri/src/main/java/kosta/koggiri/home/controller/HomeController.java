@@ -1,4 +1,4 @@
-package kotsa.koggri.basic;
+package kosta.koggiri.home.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -33,7 +33,9 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		//  return "login/loginForm";    로그인기능 완성 되면 활성화
+		
+		return "main";
 	}
 	
 }

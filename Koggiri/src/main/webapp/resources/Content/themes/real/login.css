@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+
+.idpw{
+	margin: 6px;
+	width: 400px;
+	height: 50px;
+	border: 2px solid silver;
+	font-size: 20px;
+
+}
+
+
+#loginbt{
+	margin:6px;
+	width: 100px;
+	height: 132px;
+	background-color: silver;
+	color: white;
+	border: 0px;
+	font-size: 17px;
+}
+
+#loginbt:HOVER{
+	background-color: gray;
+}
+
+#login_outer{
+	margin-top: 10%
+}
+
+#login img{
+	width: 150px;
+	height: 150px;
+	margin-bottom: 20px;
+}
