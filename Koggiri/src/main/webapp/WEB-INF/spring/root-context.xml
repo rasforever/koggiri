@@ -1,8 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"></property>
+		<property name="username" value="kosta152"></property>
+		<property name="password" value="1234"></property>
+	</bean>
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+		<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<tx:annotation-driven />
+
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"
+		destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+	
+	<!--  admin_emp <context:component-scan> -->
+	<context:component-scan base-package="kosta.koggiri.admin_emp.persistence"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.admin_emp.service"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.admin_emp.aop"></context:component-scan>
+	
+	<!--  approval <context:component-scan>-->
+	<context:component-scan base-package="kosta.koggiri.approval.persistence"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.approval.service"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.approval.aop"></context:component-scan>
+	
+	<!--  calendar <context:component-scan>-->
+	<context:component-scan base-package="kosta.koggiri.calendar.persistence"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.calendar.service"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.calendar.aop"></context:component-scan>
+	
+	<!--  chart <context:component-scan>-->
+	<context:component-scan base-package="kosta.koggiri.chart.persistence"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.chart.service"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.chart.aop"></context:component-scan>
+	
+	<!--  document <context:component-scan>-->
+	<context:component-scan base-package="kosta.koggiri.document.persistence"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.document.service"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.document.aop"></context:component-scan>
+		
+	<!--  importantboard <context:component-scan>-->
+	<context:component-scan base-package="kosta.koggiri.importantboard.persistence"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.importantboard.service"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.importantboard.aop"></context:component-scan>
+		
+	<!--  login <context:component-scan>-->
+	<context:component-scan base-package="kosta.koggiri.login.persistence"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.login.service"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.login.aop"></context:component-scan>
+	
+	<!--  mail <context:component-scan>-->
+	<context:component-scan base-package="kosta.koggiri.mail.persistence"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.mail.service"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.mail.aop"></context:component-scan>
+	
+	<!--  noticeboard <context:component-scan>-->
+	<context:component-scan base-package="kosta.koggiri.noticeboard.persistence"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.noticeboard.service"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.noticeboard.aop"></context:component-scan>
+	
+	<!--  sns <context:component-scan>-->
+	<context:component-scan base-package="kosta.koggiri.sns.persistence"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.sns.service"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.sns.aop"></context:component-scan>
+		
+	<!--  task <context:component-scan>-->
+	<context:component-scan base-package="kosta.koggiri.task.persistence"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.task.service"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.task.aop"></context:component-scan>
+	
+	
 		
 </beans>
