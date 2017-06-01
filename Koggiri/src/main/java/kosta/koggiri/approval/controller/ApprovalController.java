@@ -36,7 +36,7 @@ public class ApprovalController {
 		rttr.addFlashAttribute("msg","SUCCESS");
 		
 		//return "/board/success";
-		return "redirect:/board/listAll";
+		return "redirect:/approval/listAll";
 	}
 	
 	@RequestMapping(value="/listAll", method= RequestMethod.GET)
@@ -56,7 +56,7 @@ public class ApprovalController {
 		
 		service.remove(app_id);
 		rttr.addFlashAttribute("msg","SUCCESS");
-		return "redirect:/board/listAll";
+		return "redirect:/approval/listAll";
 	}
 	
 	@RequestMapping(value="/modify", method= RequestMethod.GET)
@@ -73,7 +73,7 @@ public class ApprovalController {
 		service.modify(board);
 		rttr.addFlashAttribute("msg","SUCCESS");
 		
-		return "redirect:/board/listAll";
+		return "redirect:/approval/listAll";
 	}
 
 }
