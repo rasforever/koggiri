@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+/* RESET */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var, b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup, menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline}
+body{line-height:1}
+dl,ul,ol,menu,li{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
+table{table-layout:fixed;border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0 none;vertical-align:middle}
+hr{display:none}
+input,select,textarea,button,label{vertical-align:middle;font-family:inherit}
+input,select,textarea{border:1px #bdbdbd solid}
+input[type=radio],input[type=checkbox]{width:13px;height:13px;margin:0 5px 0 0;padding:0;border:none;vertical-align:middle}
+textarea{resize:none;}
+button{border:0 none;background-color:transparent;cursor:pointer}
+address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+legend, caption{text-indent:-9999px;top:-9999px;left:-9999px;height:0}
+
+/* COMMON */
+body{font-size:13px;font-family:'맑은 고딕','Malgun Gothic',sans-serif;color:#666}
+a{font-family:inherit;color:#333;text-decoration:none}
+a:hover{color:#333}
+
+/* LAYOUT (_wrap 은 class)*/
+#wrap{min-width:1370px}
+#wrap, .header_wrap, .container_wrap, .footer_wrap{width:100%}
+.header_wrap{position:relative;height:100px;border-bottom:2px #000 solid;overflow:hidden;background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_header_wrap.gif) repeat-x 0 0}
+.container_wrap{padding:42px 0 40px 0;min-height:580px;}
+.footer_wrap{}
+#header{position:relative;width:1200px;height:100px;margin:0 auto}
+#header:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+#container{width:1200px;margin:0 auto}
+#container:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+#lnb{float:left}
+#lnb:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+#content{position:relative;float:right;width:955px}
+.main #content{float:left;width:712px;border:0}
+#footer{width:1200px;margin:0 auto;padding-bottom:30px;border-top:3px #000 solid}
+#footer:after{content:'';display:block;visibility:hidden;height:0;clear:both}
+
+/* MODULE (button, pagination, table etc) */
