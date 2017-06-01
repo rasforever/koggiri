@@ -4,9 +4,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kosta.koggiri.mapper.ApprovalMapper"><!--경로를 뜻하는 것이 아님!!! -->
+	
+	<select id="appty_select" resultType="AppTypeVO">
+		<![CDATA[ 
+		select app_type_cd,
+		app_type_nm from App_type
+		order by APP_TYPE_CD
+		]]>
+	</select>
 
+	<select id="dept_select" resultType="DeptVO">
+		select dept_id,
+		dept_nm,
+		dept_e_nm from Dept
+	</select>
 
-	<insert id="create">
+	<select id="einfo_select" parameterType="String" resultType="Emp_InfoVO">
+		select e.emp_id as emp_id, e.emp_nm as emp_nm, e.dept_id as dept_id,
+		d.dept_nm as dept_nm, p.pos_nm as pos_nm
+		from emp e inner join dept d
+		on e.dept_id = d.dept_id
+		inner join pos p
+		on
+		e.pos_id = p.pos_id
+		and
+		e.emp_id = #{emp_id}
+	</select>
+
+	<insert id="create" parameterType="ApprovalVO" >
 		{CALL
 		insert_approval(#{app_type_cd}, #{draft_emp_id},
 		#{app_emp_id},
@@ -42,6 +67,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 		order by a.app_id desc
 	</select>
-
+	
+	<insert id="addAttach">
+		insert into approval_attach(FULLNAME, app_id) values (#{fullName}, #{app_id})
+	</insert>
+	
+	<select id="getAttach" resultType="string">
+		select fullname from approval_attach where app_id = #{app_id} order by regdate
+	</select>
+	
+	<delete id="deleteAttach">
+		delete from approval_attach where app_id = #{app_id}
+	</delete>
+	
+	<insert id="replaceAttach">
+		insert into approval_attach(fullname, app_id) values (#{fullName},#{app_id})
+	</insert>
 
 </mapper>

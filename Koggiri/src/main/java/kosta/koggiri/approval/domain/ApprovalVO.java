@@ -21,7 +21,9 @@ public class ApprovalVO {
 	private String input_emp_id;
 	private Timestamp input_sysdt;
 	private String chg_emp_id;
-	private Timestamp chg_sysdt;
+	private Timestamp chg_sysdt;	
+
+	private String[] files;
 	
 	public String getApp_id() {
 		return app_id;
@@ -137,5 +139,12 @@ public class ApprovalVO {
 	public void setChg_sysdt(Timestamp chg_sysdt) {
 		this.chg_sysdt = chg_sysdt;
 	}
+	public String[] getFiles() {
+		return files;
+	}
+	public void setFiles(String[] files) {
+		this.files = files;
+	}
+	
 	
 }
