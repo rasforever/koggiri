@@ -11,9 +11,11 @@ public class CalendarController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(CalendarController.class);
 	
-	@RequestMapping("doA")
-	public void calendar(){
-		logger.info("calendar page get");
+	@RequestMapping(value="/calendar")
+	public String calendar(){
 		
+		return "/calendar/index";
 	}
+	
+	
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="koggiri.calendar.mapper.CalendarMapper">
+	<cache />
+	
+	
+	<insert id="calendarinsert" parameterType="Event" >
+
+		
+		insert into calendar values(
+		#{_id},#{title},#{start_date},#{end_date},#{content},'y',#{mem_id}
+		)
+		
+		
+	</insert>
+	<select id="calendarList" resultType="Event" parameterType="String">
+		select start_date,end_date,title,event_id as "_id",content from calendar
+		where show = 'y' and mem_id= #{mem_id}
+		
+	</select>
+	
+	
+	<update id="updateEvent" parameterType="Event">
+		update calendar set title = #{title}, start_date = #{start_date}, end_date = #{end_date}, content = #{content}
+		 where event_id = #{_id} and mem_id =#{mem_id}
+		
+	</update>
+	
+	<update id="deleteEvent" parameterType="Event">
+		update calendar set show = 'n' where event_id = #{_id} and mem_id = #{mem_id}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
