@@ -15,20 +15,20 @@
 <title>Koggiri</title>
 
 
-<script type="text/javascript" src="Scripts/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="resources/Scripts/jquery-1.11.2.min.js"></script>
 <!-- <script type="text/javascript" src="Scripts/jquery-ui.min.js"></script> -->
-<script type="text/javascript" src="Scripts/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="resources/Scripts/jquery.easing.1.3.js"></script>
 <!-- <script type="text/javascript" src="Scripts/jquery.bxslider.min.js"></script> -->
 <!-- <script type="text/javascript" src="Scripts/jquery.paging.min.js"></script> -->
 <!-- <script type="text/javascript" src="Scripts/ajaxOverSsl.js"></script> -->
-<script type="text/javascript" src="Scripts/common.js"></script>
+<script type="text/javascript" src="resources/Scripts/common.js"></script>
 <!-- <script type="text/javascript" src="Scripts/common.formatNumber-1.0.0.js"></script>
 <script type="text/javascript" src="Scripts/jquery.validate.min.js"></script>
 <script type="text/javascript" src="Scripts/jquery.validate.unobtrusive.min.js"></script> -->
 <link rel="shortcut icon" type="image/x-icon" href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
 <link rel="stylesheet" href="resources/Content/themes/real/ui_main.css" />
 <script src="http://js.nx.com/s1/da/playlog.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="Scripts/ui.js"></script>
+<script type="text/javascript" src="resources/Scripts/ui.js"></script>
 <link href="resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -61,7 +61,7 @@
       <hr />
 
       <div class="notice">
-      <img src="img/notice_t.png" style="margin-bottom:10px">
+      <img src="resources/img/notice_t.png" style="margin-bottom:10px">
          <ul>
                     
                     <li><a href="/HelpDesk/Notify/Detail?sn=2456">서든어택 네트워크 공격 행위(일명 ‘누킹’) 66차~69차 대응 안내 <img src="http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_new.gif" alt="새글" /></a><span>2017-05-29</span></li>
@@ -81,7 +81,7 @@
       
         <h3 class="hidden">받은 메일함</h3>
       <div class="notice">
-       <img src="img/receive_mail.png" style="margin-bottom:10px">
+       <img src="resources/img/receive_mail.png" style="margin-bottom:10px">
          <ul>
                     
                     <li><a href="/HelpDesk/Notify/Detail?sn=2456">서든어택 네트워크 공격 행위(일명 ‘누킹’) 66차~69차 대응 안내 <img src="http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_new.gif" alt="새글" /></a><span>2017-05-29</span></li>
