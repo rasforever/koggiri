@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.document.domain.Doc_BoardVO;
 import kosta.koggiri.document.service.Doc_BoardService;
@@ -24,10 +25,11 @@ public class Doc_BoardController {
 	}
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
-	public String registerPOST(Doc_BoardVO board, Model model)throws Exception{
+	public String registerPOST(Doc_BoardVO board, RedirectAttributes rttr)throws Exception{
 		
 		service.regist(board);
-		model.addAttribute("result", "success");
+		
+		rttr.addFlashAttribute("msg", "success");
 		
 		//return "/document/success";
 		return "redirect:/document/listAll";
@@ -36,6 +38,8 @@ public class Doc_BoardController {
 	@RequestMapping(value="/listAll", method=RequestMethod.GET)
 	public void listAll(Model model)throws Exception{
 		System.out.println("페이지넘겨버리기~~~");
+		
+		model.addAttribute("list", service.listAll());
 	}
 	
 
