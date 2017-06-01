@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{draft_dt}, #{app_title}, #{app_context})}
 	</insert>
 
-	<select id="read" resultType="Approval" >
+	<select id="read" resultType="ApprovalVO" >
 		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as
 		app_type_nm,
 		d.dept_nm as dept_nm, ed.emp_nm as draft_emp_nm ,
