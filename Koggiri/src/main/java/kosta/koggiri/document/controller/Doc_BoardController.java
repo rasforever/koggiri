@@ -29,7 +29,13 @@ public class Doc_BoardController {
 		service.regist(board);
 		model.addAttribute("result", "success");
 		
-		return "/document/success";
+		//return "/document/success";
+		return "redirect:/document/listAll";
+	}
+	
+	@RequestMapping(value="/listAll", method=RequestMethod.GET)
+	public void listAll(Model model)throws Exception{
+		System.out.println("페이지넘겨버리기~~~");
 	}
 	
 
