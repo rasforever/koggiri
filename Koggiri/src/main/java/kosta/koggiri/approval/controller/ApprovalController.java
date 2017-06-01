@@ -46,13 +46,13 @@ public class ApprovalController {
 	}
 	
 	@RequestMapping(value="/read", method= RequestMethod.GET)
-	public void read(@RequestParam("app_id") int app_id, Model model) throws Exception{
+	public void read(@RequestParam("app_id") String app_id, Model model) throws Exception{
 		
 		model.addAttribute(service.read(app_id));	
 	}
 	
 	@RequestMapping(value="/remove", method= RequestMethod.POST)
-	public String remove(@RequestParam("app_id") int app_id, RedirectAttributes rttr) throws Exception{
+	public String remove(@RequestParam("app_id") String app_id, RedirectAttributes rttr) throws Exception{
 		
 		service.remove(app_id);
 		rttr.addFlashAttribute("msg","SUCCESS");
@@ -60,7 +60,7 @@ public class ApprovalController {
 	}
 	
 	@RequestMapping(value="/modify", method= RequestMethod.GET)
-	public void modifyGET(int app_id, Model model) throws Exception{
+	public void modifyGET(String app_id, Model model) throws Exception{
 		
 		model.addAttribute(service.read(app_id));
 	}

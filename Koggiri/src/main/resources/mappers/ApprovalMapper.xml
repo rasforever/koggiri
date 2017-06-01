@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kosta.koggiri.mapper.ApprovalMapper"><!--경로를 뜻하는 것이 아님!!! -->
+
+
+	<insert id="create">
+		{CALL
+		insert_approval(#{app_type_cd}, #{draft_emp_id},
+		#{app_emp_id},
+		#{draft_dt}, #{app_title}, #{app_context})}
+	</insert>
+
+	<select id="read" resultType="Approval" >
+		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as
+		app_type_nm,
+		d.dept_nm as dept_nm, ed.emp_nm as draft_emp_nm ,
+		ea.emp_nm as app_emp_nm,
+		ap.app_pro_nm as app_pro_nm
+		from approval a
+		inner join app_type at
+		on a.app_type_cd = at.app_type_cd
+		and
+		a.draft_emp_id = #{emp_id}
+		inner join
+		app_pro_type ap
+		on a.app_pro_cd =
+		ap.app_pro_cd
+		inner join
+		dept d
+		on
+		a.dept_id = d.dept_id
+		inner join emp ed
+		on a.draft_emp_id =
+		ed.emp_id
+		inner join emp ea
+		on a.app_emp_id =
+		ea.emp_id
+		
+
+		order by a.app_id desc
+	</select>
+
+
+</mapper>
