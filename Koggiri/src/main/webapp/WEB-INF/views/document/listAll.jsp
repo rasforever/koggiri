@@ -19,7 +19,7 @@
 				</div>
 				<div class="box-body">
 				
-<table class="table table-bordered">
+<table class="table table-bordered" border="1">
 	<tr>
 		<th style="width: 10px">BNO</th>
 		<th>TITLE</th>
