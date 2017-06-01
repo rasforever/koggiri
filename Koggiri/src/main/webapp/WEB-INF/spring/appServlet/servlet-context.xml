@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="kotsa.koggri.basic" />
+	<context:component-scan base-package="kotsa.koggri" />
 	
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -32,6 +32,8 @@
 		<beans:constructor-arg value="C:\\kosta\\upload">
 		</beans:constructor-arg>
 	</beans:bean>
+	
+	
 	
 	
 </beans:beans>
