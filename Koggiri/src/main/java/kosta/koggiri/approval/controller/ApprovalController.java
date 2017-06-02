@@ -59,45 +59,43 @@ public class ApprovalController {
 		model.addAttribute("pageMaker",pageMaker);
 	
 	}	
-	/*
-	
 	
 	@RequestMapping(value="/readPage", method= RequestMethod.GET)
-	public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") SearchCriteria cri,  Model model) throws Exception{
+	public void read(@RequestParam("app_id") String app_id, @ModelAttribute("cri") SearchCriteria cri,  Model model) throws Exception{
 		
-		model.addAttribute(service.read(bno));	
+		model.addAttribute(service.read(app_id));	
 	}
 	
 	@RequestMapping(value="/removePage", method= RequestMethod.POST)
-	public String remove(@RequestParam("bno") int bno, SearchCriteria cri, RedirectAttributes rttr) throws Exception{
+	public String remove(@RequestParam("app_id") String app_id, SearchCriteria cri, RedirectAttributes rttr) throws Exception{
 		
-		service.remove(bno);
+		service.remove(app_id);
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addAttribute("searchType", cri.getSearchType());
 		rttr.addAttribute("keyword", cri.getKeyword());
 		rttr.addFlashAttribute("msg","SUCCESS");
-		return "redirect:/sboard/list";
+		return "redirect:/approval/list";
 	}
 	
 	@RequestMapping(value="/modifyPage", method= RequestMethod.GET)
-	public void modifyPagingGET(@RequestParam("bno")int bno,@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
+	public void modifyPagingGET(@RequestParam("app_id")String app_id,@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
 		
-		model.addAttribute(service.read(bno));
+		model.addAttribute(service.read(app_id));
 	}
 	
 	@RequestMapping(value="/modifyPage", method= RequestMethod.POST)
-	public String modifyPagingPOST(BoardVO board, SearchCriteria cri, RedirectAttributes rttr) throws Exception{
+	public String modifyPagingPOST(ApprovalVO approval, SearchCriteria cri, RedirectAttributes rttr) throws Exception{
 		
 		
-		service.modify(board);
+		service.modify(approval);
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addAttribute("searchType", cri.getSearchType());
 		rttr.addAttribute("keyword", cri.getKeyword());
 		rttr.addFlashAttribute("msg","SUCCESS");
 		
-		return "redirect:/sboard/list";
-	}*/
+		return "redirect:/approval/list";
+	}
 
 }

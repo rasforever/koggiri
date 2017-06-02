@@ -37,23 +37,30 @@
 				<div class="box-body">
 					<table class="table table-bordered">
 						<tr>
-							<th style="width: 10px">BNO</th>
-							<th>TITLE</th>
-							<th>WRITER</th>
-							<th>REGDATE</th>
+							<th>결재문서번호</th>
+							<th>제안일</th>
+							<th>결재구분</th>
+							<th>관리부서</th>
+							<th>기안자</th>
+							<th>결재자</th>
+							<th>진행상태</th>
 						</tr>
 
-						<c:forEach items="${list}" var="boardVO">
+						<c:forEach items="${list}" var="approvalVO">
 
 							<tr>
-								<td>${boardVO.bno}</td>
 								<td><a
-									href='/approval/readPage${pageMaker.makeSearch(pageMaker.cri.page) }&bno=${approvalVO.app_id}'>
-										${approvalVO.app_title} 
-								</a></td>
-								<td>${approvalVO.drapft_emp_nm}</td>
-								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-										value="${approvalVO.input_sysdt}" /></td>
+									href='/approval/readPage${pageMaker.makeSearch(pageMaker.cri.page) }&app_id=${approvalVO.app_id}'>
+										${approvalVO.app_id} 
+								</a></td>								
+								<td>${approvalVO.draft_dt}"</td>
+								<td>${approvalVO.app_type_nm}</td>	
+								<td>${approvalVO.dept_nm}</td>	
+								<td>${approvalVO.draft_emp_nm}</td>	
+								<td>${approvalVO.app_emp_nm}</td>		
+								<td>${approvalVO.app_pro_nm}</td>	
+										
+								
 							</tr>
 
 						</c:forEach>

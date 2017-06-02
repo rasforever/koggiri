@@ -31,14 +31,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		e.emp_id = #{emp_id}
 	</select>
 
-	<insert id="create" parameterType="ApprovalVO" keyProperty="app_id" useGeneratedKeys="true">
+	<select id="create" parameterType="ApprovalVO" statementType="CALLABLE"	 >
 		{CALL
 		insert_approval(#{app_type_cd}, #{draft_emp_id},
 		#{app_emp_id},
-		#{draft_dt}, #{app_title}, #{app_context})}
-	</insert>
+		#{draft_dt}, #{app_title}, #{app_context}, #{app_id, mode=OUT, jdbcType=VARCHAR})}
+	</select>
 
-	<select id="read" resultType="ApprovalVO" >
+	<select id="listSearch" resultType="ApprovalVO" >
 		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as
 		app_type_nm,
 		d.dept_nm as dept_nm, ed.emp_nm as draft_emp_nm ,
@@ -48,7 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		inner join app_type at
 		on a.app_type_cd = at.app_type_cd
 		and
-		a.draft_emp_id = #{emp_id}
+		a.draft_emp_id = 'k15010201'
 		inner join
 		app_pro_type ap
 		on a.app_pro_cd =
@@ -66,6 +66,64 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 
 		order by a.app_id desc
+	</select>
+	
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[  
+		 select count(a.app_id) as app_id
+		from approval a
+		inner join app_type at
+		on a.app_type_cd = at.app_type_cd
+		and
+		a.draft_emp_id = 'k15010201'
+		inner join
+		app_pro_type ap
+		on a.app_pro_cd =
+		ap.app_pro_cd
+		inner join
+		dept d
+		on
+		a.dept_id = d.dept_id
+		inner join emp ed
+		on a.draft_emp_id =
+		ed.emp_id
+		inner join emp ea
+		on a.app_emp_id =
+		ea.emp_id
+		
+
+		order by a.app_id desc 
+		]]>
+
+	</select>
+	
+	<select id="read" parameterType="String" resultType="ApprovalVO">
+		select a.app_id as app_id, at.app_type_nm as app_type_nm, d.dept_nm as
+		dept_nm, ap.app_pro_nm as app_pro_nm,
+		ed.emp_nm as draft_emp_nm,
+		a.draft_emp_id as draft_emp_id, ea.emp_nm as
+		app_emp_nm, a.app_emp_id
+		as app_emp_id,
+		a.draft_dt as draft_dt, a.app_dt as app_dt, a.app_title
+		as app_title,
+		a.app_context as app_context
+		from approval a inner join
+		app_type at
+		on
+		a.app_type_cd = at.app_type_cd
+		inner join app_pro_type ap
+		on
+		a.app_pro_cd = ap.app_pro_cd
+		inner join dept d
+		on a.dept_id =
+		d.dept_id
+		inner join emp ed
+		on a.draft_emp_id = ed.emp_id
+		inner join emp
+		ea
+		on
+		a.app_emp_id = ea.emp_id
+		and a.app_id = #{app_id}
 	</select>
 	
 	<insert id="addAttach">
