@@ -479,7 +479,7 @@ table th .tbl_info{position:relative;display:inline-block}
 table th .tbl_info:after{content:'';display:block;visibility:hidden;height:0;clear:both}
 table th a.btn_info{position:relative;margin-left:5px;vertical-align: middle}
 table th a.btn_info img{vertical-align: baseline}
-table td{vertical-align:middle;background:#fff;border-bottom:1px #e3e3e3 solid;text-align:center;padding:8px 0;letter-spacing:-1px;line-height:160%;color:#555}
+table td{vertical-align:middle;border-bottom:1px #e3e3e3 solid;text-align:center;padding:8px 0;letter-spacing:-1px;line-height:160%;color:#555}
 table td.article{text-align:left}
 table td input[type="text"]{padding:5px;border:1px #bdbdbd solid;font-size:13px}
 table td input[type="password"]{padding:5px;border:1px #bdbdbd solid;font-size:13px}
