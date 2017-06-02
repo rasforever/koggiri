@@ -2,25 +2,29 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="kosta.koggiri.mapper.Doc_BoardMapper">
 
- 	<insert id="create" parameterType="Doc_BoardVO">
- 		insert into documentboard(f_id, f_title, f_content, f_emp_id, f_date, f_hit)
- 			values(doc_seq.nextval, #{f_title}, #{f_content},
- 						#{f_emp_id}, sysdate, 0)
- 	</insert>
- 	
- 	<select id="read" resultType="Doc_BoardVO">
- 		select 
-   			f_id, f_title, f_content, f_emp_id, f_date, f_hit 
- 		from 
-  			 documentboard
- 			 where f_id = #{f_id}
- 	</select>
+	<insert id="create" parameterType="Doc_BoardVO">
+		insert into
+		documentboard(f_id, f_title, f_content, f_emp_id, f_date, f_hit)
+		values(doc_seq.nextval, #{f_title}, #{f_content},
+		#{f_emp_id}, sysdate,
+		0)
+	</insert>
+
+	<select id="read" resultType="Doc_BoardVO">
+		select
+		f_id, f_title, f_content,
+		f_emp_id, f_date, f_hit
+		from
+		documentboard
+		where f_id = #{f_id}
+	</select>
 
 	<update id="update" parameterType="Doc_BoardVO">
-		update documentboard set f_title =#{f_title}, f_content =#{f_content} 
+		update documentboard set
+		f_title =#{f_title}, f_content =#{f_content}
 		where f_id = #{f_id}
 	</update>
 
@@ -28,7 +32,7 @@
 		delete from documentboard where f_id = #{f_id}
 	</delete>
 
- 	<select id="listAll" resultType="Doc_BoardVO">
+	<select id="listAll" resultType="Doc_BoardVO">
  		<![CDATA[
 			 select 
 			   f_id, f_title, f_content, f_emp_id, f_date, f_hit
@@ -40,80 +44,44 @@
 			 
 		<![CDATA[	  
 			 order by f_id desc, f_date desc
- 		]]>  
- 	</select>
- 	
- 	
- 	 	
-<!--  
- 	
-	<sql id="search">
-		<if test="searchType != null">
-			<if test="searchType == 't'.toString()">
-				and title like '%'|| #{keyword}||'%'
-			</if>
-			<if test="searchType == 'c'.toString()">
-				and content like '%'|| #{keyword}||'%'
-			</if>
-			<if test="searchType == 'w'.toString()">
-				and writer like '%'|| #{keyword}||'%'
-			</if>
-			<if test="searchType == 'tc'.toString()">
-				and ( title like '%'|| #{keyword}||'%' OR content like
-				'%'||
-				#{keyword}||'%')
-			</if>
-			<if test="searchType == 'cw'.toString()">
-				and ( content like '%'|| #{keyword}||'%' OR writer like
-				'%'||
-				#{keyword}||'%')
-			</if>
-			<if test="searchType == 'tcw'.toString()">
-				and ( title like '%'|| #{keyword}||'%'
-				OR
-				content like
-				'%'|| #{keyword}||'%'
-				OR
-				writer like '%'|| #{keyword}||'%')
-			</if>
-		</if>
-	</sql> 
- 	
+ 		]]>
+	</select>
+
+	<select id="listPage" resultType="Doc_BoardVO">
+  		<![CDATA[
+ 			select 
+   				f_id, f_title, f_content, f_emp_id, f_date, f_hit 
+ 			from 
+  				documentboard
+			 where f_id > 0 
+ 				order by f_id desc, f_date desc
+ 			
+ 		]]>
+	</select>
+
+	<select id="listCriteria" resultType="Doc_BoardVO">
+    <![CDATA[
+    select 
+      f_id, f_title, f_content, f_emp_id, f_date, f_hit
+    from 
+      documentboard
+    where f_id > 0 
+    order by f_id desc, f_date desc   
+    ]]>
+	</select>
 
 	<select id="countPaging" resultType="int">
-	<![CDATA[
-		select count(bno) from tbl_board where bno > 0			
-	]]>		
-	
-	 <include refid="search"></include>
+ 	<![CDATA[
+ 	select 
+   		count(f_id)
+ 	from 
+   		documentboard
+	 where 
+   		f_id > 0 
+ ]]>
 	</select>
-	
-	<update id="updateReplyCnt">
-		update tbl_board set replycnt = replycnt + #{amount}
-			where bno = #{bno}
-	</update>
-	
-	<select id="getBno" resultType="int">
-		select bno from tbl_reply where rno = #{rno}
-	</select>
-	
-	<update id="updateViewCnt">
-		update tbl_board set viewcnt = viewcnt + 1 
-			where bno = #{bno}
-	</update>
-	
-	<insert id="addAttach" parameterType="FileVO">
-		insert into tbl_attach(fullname, bno) 
-			values(#{fullName}, #{bno})
-	</insert>
-	
-	<select id="maxNum" resultType="int">
-		select MAX(bno) from tbl_board
-	</select>
-	
-	<select id="getAttach" resultType="string">
-		select fullname from tbl_attach where bno = #{bno} order by regdate
-	</select> 
-   -->
- 
+
+
+
+
 </mapper>  

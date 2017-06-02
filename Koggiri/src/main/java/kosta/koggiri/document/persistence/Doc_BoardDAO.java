@@ -3,6 +3,7 @@ package kosta.koggiri.document.persistence;
 import java.util.List;
 
 import kosta.koggiri.document.domain.Doc_BoardVO;
+import kosta.koggiri.document.domain.Doc_Criteria;
 
 public interface Doc_BoardDAO {
 	
@@ -16,5 +17,8 @@ public interface Doc_BoardDAO {
 	
 	public List<Doc_BoardVO> listAll()throws Exception;
 	
+	public List<Doc_BoardVO> listCriteria (Doc_Criteria cri)throws Exception;
+	
+	public int countPaging(Doc_Criteria cri)throws Exception;
 
 }
