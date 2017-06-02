@@ -20,7 +20,8 @@
     <input type='hidden' name='f_id' value ="${doc_BoardVO.f_id}">
     <input type='hidden' name='page' value ="${cri.page}">
     <input type='hidden' name='perPageNum' value ="${cri.perPageNum}">
-    
+    <input type='hidden' name='searchType' value="${cri.searchType}">
+	<input type='hidden' name='keyword' value="${cri.keyword}">
  </form>   
     
   <div class="box-body">
