@@ -4,6 +4,7 @@ import java.util.List;
 
 import kosta.koggiri.document.domain.Doc_BoardVO;
 import kosta.koggiri.document.domain.Doc_Criteria;
+import kosta.koggiri.document.domain.Doc_SearchCriteria;
 
 public interface Doc_BoardDAO {
 	
@@ -20,5 +21,10 @@ public interface Doc_BoardDAO {
 	public List<Doc_BoardVO> listCriteria (Doc_Criteria cri)throws Exception;
 	
 	public int countPaging(Doc_Criteria cri)throws Exception;
+	
+	public List<Doc_BoardVO> listSearch(Doc_SearchCriteria cri)throws Exception;
+	
+	public int listSearchCount(Doc_SearchCriteria cri)throws Exception;
+	
 
 }

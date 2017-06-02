@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import kosta.koggiri.document.domain.Doc_BoardVO;
 import kosta.koggiri.document.domain.Doc_Criteria;
+import kosta.koggiri.document.domain.Doc_SearchCriteria;
 import kosta.koggiri.document.persistence.Doc_BoardDAO;
 
 @Service
@@ -57,6 +58,20 @@ public class Doc_BoardServiceImpl implements Doc_BoardService {
 		
 		return dao.countPaging(cri);
 	}
+
+	@Override
+	public List<Doc_BoardVO> listSearchCriteria(Doc_SearchCriteria cri) throws Exception {
+		
+		return dao.listSearch(cri);
+	}
+
+	@Override
+	public int listSearchCount(Doc_SearchCriteria cri) throws Exception {
+		
+		return dao.listSearchCount(cri);
+	}
+	
+	
 	
 	
 	
