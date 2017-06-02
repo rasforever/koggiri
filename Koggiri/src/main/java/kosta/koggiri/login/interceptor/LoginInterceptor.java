@@ -1,5 +1,7 @@
 package kosta.koggiri.login.interceptor;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -34,15 +36,15 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception { 
-HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		
 		
 		ModelMap modelmap = modelAndView.getModelMap();
 		
 		MemberVO memberVO = (MemberVO) modelmap.get("memberVO");
 		String emp_nm =(String) modelmap.get("empnm");
-		System.out.println("session: "+memberVO.toString());
-		System.out.println("session: "+ emp_nm);
+		
+		
 		if(memberVO !=null){
 			
 			
@@ -51,9 +53,17 @@ HttpSession session = request.getSession();
 			
 			session.setAttribute("mem_id", memberVO.getMem_id());// 아이디 세션 저장
 			session.setAttribute("emp_nm", emp_nm); // 세션 이름저장
-			System.out.println(emp_nm + " " + memberVO.getMem_id());
+
 			Object dest = session.getAttribute("dest");
 			response.sendRedirect(dest !=null ? (String)dest:"/");
+		}else{
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('로그인이 실패하였습니다.');");
+			out.println("location.href='/login';");
+			out.println("</script>");
+			out.close();
 		}
 
 
