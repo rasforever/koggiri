@@ -25,7 +25,7 @@
 
 						<div class="form-group">
 							<label for="exampleInputEmail1">작성자</label> <input type="text"
-								name="f_emp_id" class="form-control" placeholder="작성자를 입력하세요...">
+								value="${mem_id }" name="f_emp_id" class="form-control" readonly="readonly">
 						</div>
 
 

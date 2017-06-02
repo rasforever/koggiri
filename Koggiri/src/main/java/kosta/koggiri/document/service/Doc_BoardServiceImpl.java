@@ -41,24 +41,7 @@ public class Doc_BoardServiceImpl implements Doc_BoardService {
 		dao.delete(f_id);
 	}
 
-	@Override
-	public List<Doc_BoardVO> listAll() throws Exception {
-
-		return dao.listAll();
-	}
-
-	@Override
-	public List<Doc_BoardVO> listCriteria(Doc_Criteria cri) throws Exception {
-		
-		return dao.listCriteria(cri);
-	}
-
-	@Override
-	public int listCountCriteria(Doc_Criteria cri) throws Exception {
-		
-		return dao.countPaging(cri);
-	}
-
+	
 	@Override
 	public List<Doc_BoardVO> listSearchCriteria(Doc_SearchCriteria cri) throws Exception {
 		

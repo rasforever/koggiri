@@ -46,23 +46,6 @@ public class Doc_BoardDAOImpl implements Doc_BoardDAO {
 
 	}
 
-	@Override
-	public List<Doc_BoardVO> listAll() throws Exception {
-
-		return session.selectList(namespace + ".listAll");
-	}
-
-	@Override
-	public List<Doc_BoardVO> listCriteria(Doc_Criteria cri) throws Exception {
-		
-		return session.selectList(namespace + ".listCriteria", cri, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
-	}
-
-	@Override
-	public int countPaging(Doc_Criteria cri) throws Exception {
-		
-		return session.selectOne(namespace + ".countPaging", cri);
-	}
 
 	@Override
 	public List<Doc_BoardVO> listSearch(Doc_SearchCriteria cri) throws Exception {

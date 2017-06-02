@@ -8,6 +8,7 @@ public class Doc_BoardVO {
 	private String f_title;
 	private String f_content;
 	private String f_emp_id;
+	private String f_emp_nm;
 	private Date f_date;
 	private int f_hit;
 	public Integer getF_id() {
@@ -46,12 +47,18 @@ public class Doc_BoardVO {
 	public void setF_hit(int f_hit) {
 		this.f_hit = f_hit;
 	}
-	
+	public String getF_emp_nm() {
+		return f_emp_nm;
+	}
+	public void setF_emp_nm(String f_emp_nm) {
+		this.f_emp_nm = f_emp_nm;
+	}
 	@Override
 	public String toString() {
 		return "Doc_BoardVO [f_id=" + f_id + ", f_title=" + f_title + ", f_content=" + f_content + ", f_emp_id="
-				+ f_emp_id + ", f_date=" + f_date + ", f_hit=" + f_hit + "]";
+				+ f_emp_id + ", f_emp_nm=" + f_emp_nm + ", f_date=" + f_date + ", f_hit=" + f_hit + "]";
 	}
+	
 	
 	
 	

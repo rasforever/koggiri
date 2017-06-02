@@ -16,12 +16,6 @@ public interface Doc_BoardDAO {
 	
 	public void delete(Integer f_id)throws Exception;
 	
-	public List<Doc_BoardVO> listAll()throws Exception;
-	
-	public List<Doc_BoardVO> listCriteria (Doc_Criteria cri)throws Exception;
-	
-	public int countPaging(Doc_Criteria cri)throws Exception;
-	
 	public List<Doc_BoardVO> listSearch(Doc_SearchCriteria cri)throws Exception;
 	
 	public int listSearchCount(Doc_SearchCriteria cri)throws Exception;
