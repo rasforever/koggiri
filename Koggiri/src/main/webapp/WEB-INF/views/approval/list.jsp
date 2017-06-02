@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 
+<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 
 <!-- Main content -->
 <section class="content">
