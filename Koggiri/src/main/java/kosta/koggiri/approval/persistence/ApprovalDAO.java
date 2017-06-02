@@ -3,6 +3,7 @@ package kosta.koggiri.approval.persistence;
 import java.util.List;
 
 import kosta.koggiri.approval.domain.AppTypeVO;
+import kosta.koggiri.approval.domain.ApprovalSearchVO;
 import kosta.koggiri.approval.domain.ApprovalVO;
 import kosta.koggiri.approval.domain.DeptVO;
 import kosta.koggiri.approval.domain.Emp_InfoVO;
@@ -25,9 +26,9 @@ public interface ApprovalDAO {
 
 	public Emp_InfoVO einfo_select(String emp_id) throws Exception; // 개인정보 가져오기
 
-	public List<ApprovalVO> listSearch(SearchCriteria cri) throws Exception;
+	public List<ApprovalVO> listSearch(ApprovalSearchVO search) throws Exception;
 
-	public int listSearchCount(SearchCriteria cri) throws Exception;
+	public int listSearchCount(ApprovalSearchVO search) throws Exception;
 
 	public void addAttach(String fullName, String app_id) throws Exception;
 

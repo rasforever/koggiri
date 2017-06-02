@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kosta.koggiri.approval.domain.AppTypeVO;
+import kosta.koggiri.approval.domain.ApprovalSearchVO;
 import kosta.koggiri.approval.domain.ApprovalVO;
 import kosta.koggiri.approval.domain.DeptVO;
 import kosta.koggiri.approval.domain.Emp_InfoVO;
@@ -74,14 +75,14 @@ public class ApprovalDAOImpl implements ApprovalDAO {
 	}
 
 	@Override
-	public List<ApprovalVO> listSearch(SearchCriteria cri) throws Exception {
-		return session.selectList(namespace + ".listSearch", cri,
-				new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+	public List<ApprovalVO> listSearch(ApprovalSearchVO search) throws Exception {
+		return session.selectList(namespace + ".listSearch", search,
+				new RowBounds(search.getPageStart(), search.getPerPageNum()));
 	}
 
 	@Override
-	public int listSearchCount(SearchCriteria cri) throws Exception {
-		return session.selectOne(namespace + ".listSearchCount", cri);
+	public int listSearchCount(ApprovalSearchVO search) throws Exception {
+		return session.selectOne(namespace + ".listSearchCount", search);
 	}
 
 	@Override

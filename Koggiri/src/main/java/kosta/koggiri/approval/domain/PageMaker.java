@@ -89,9 +89,17 @@ public class PageMaker {
               UriComponentsBuilder.newInstance()
               .queryParam("page", page)
               .queryParam("perPageNum", cri.getPerPageNum())
-              .queryParam("searchType", ((SearchCriteria)cri).getSearchType())
-              .queryParam("keyword", encoding(((SearchCriteria)cri).getKeyword()))
-              .build();             
+              .queryParam("searchType", ((ApprovalSearchVO)cri).getSearchType())
+              .queryParam("app_pro_cd", encoding(((ApprovalSearchVO)cri).getApp_pro_cd()))
+              .queryParam("app_id", encoding(((ApprovalSearchVO)cri).getApp_id()))
+              .queryParam("app_type", encoding(((ApprovalSearchVO)cri).getApp_type()))
+              .queryParam("dept_cd", encoding(((ApprovalSearchVO)cri).getDept_cd()))
+              .queryParam("draft_emp_id", encoding(((ApprovalSearchVO)cri).getDraft_emp_id()))
+              .queryParam("app_emp_id", encoding(((ApprovalSearchVO)cri).getApp_emp_id()))
+              .queryParam("draft_s_dt", encoding(((ApprovalSearchVO)cri).getDraft_s_dt()))
+              .queryParam("draft_e_dt", encoding(((ApprovalSearchVO)cri).getDraft_e_dt()))
+              .build();   
+    
     
     return uriComponents.toUriString();
   } 
