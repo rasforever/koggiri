@@ -79,18 +79,17 @@ public class Doc_PageMaker {
 	    return uriComponents.toUriString();
 	  }
 	  
-  /*	  
+	  
 	  public String makeSearch(int page){
 	    
 	    UriComponents uriComponents =
 	              UriComponentsBuilder.newInstance()
 	              .queryParam("page", page)
 	              .queryParam("perPageNum", cri.getPerPageNum())
-	              .queryParam("searchType", ((SearchCriteria)cri).getSearchType())
-	              .queryParam("keyword", ((SearchCriteria)cri).getKeyword())
+	              .queryParam("searchType", ((Doc_SearchCriteria)cri).getSearchType())
+	              .queryParam("keyword", ((Doc_SearchCriteria)cri).getKeyword())
 	              .build();             
 	    
 	    return uriComponents.toUriString();
-	  } 
-*/
+	  }
 }

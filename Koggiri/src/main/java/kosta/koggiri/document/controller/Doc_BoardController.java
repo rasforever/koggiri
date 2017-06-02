@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import kosta.koggiri.document.domain.Doc_BoardVO;
 import kosta.koggiri.document.domain.Doc_Criteria;
 import kosta.koggiri.document.domain.Doc_PageMaker;
+import kosta.koggiri.document.domain.Doc_SearchCriteria;
 import kosta.koggiri.document.service.Doc_BoardService;
 
 @Controller
@@ -36,7 +37,7 @@ public class Doc_BoardController {
 		rttr.addFlashAttribute("msg", "success");
 		
 		//return "/document/success";
-		return "redirect:/document/listAll";
+		return "redirect:/document/list";
 	}
 	
 	@RequestMapping(value="/listAll", method=RequestMethod.GET)
@@ -133,6 +134,20 @@ public class Doc_BoardController {
 		return "redirect:/document/listPage";
 	}
 	
+	//
+	
+	@RequestMapping(value="/list", method=RequestMethod.GET)
+	public void listPage(@ModelAttribute("cri") Doc_SearchCriteria cri, Model model)throws Exception{
+		
+		model.addAttribute("list", service.listCriteria(cri));
+		
+		Doc_PageMaker pageMaker = new Doc_PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.listCountCriteria(cri));
+		
+		model.addAttribute("pageMaker", pageMaker);
+		
+	}
 
 	
 }
