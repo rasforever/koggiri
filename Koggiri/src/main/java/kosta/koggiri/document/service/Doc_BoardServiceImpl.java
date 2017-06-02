@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import kosta.koggiri.document.domain.Doc_BoardVO;
+import kosta.koggiri.document.domain.Doc_Criteria;
 import kosta.koggiri.document.persistence.Doc_BoardDAO;
 
 @Service
@@ -44,5 +45,21 @@ public class Doc_BoardServiceImpl implements Doc_BoardService {
 
 		return dao.listAll();
 	}
+
+	@Override
+	public List<Doc_BoardVO> listCriteria(Doc_Criteria cri) throws Exception {
+		
+		return dao.listCriteria(cri);
+	}
+
+	@Override
+	public int listCountCriteria(Doc_Criteria cri) throws Exception {
+		
+		return dao.countPaging(cri);
+	}
+	
+	
+	
+	
 
 }
