@@ -1,11 +1,10 @@
-package kosta.koggiri.login.dto;
+package kosta.koggiri.login.domain;
 
-public class LoginDTO {
-	
+import java.io.Serializable;
+
+public class MemberVO implements Serializable{
 	private String mem_id;
 	private String mem_pw;
-	private boolean useCookie;
-	
 	
 	public String getMem_id() {
 		return mem_id;
@@ -19,18 +18,15 @@ public class LoginDTO {
 	public void setMem_pw(String mem_pw) {
 		this.mem_pw = mem_pw;
 	}
-	public boolean isUseCookie() {
-		return useCookie;
-	}
-	public void setUseCookie(boolean useCookie) {
-		this.useCookie = useCookie;
-	}
+	 public boolean matchPassword(String pwd){
+		 return mem_pw.equals(pwd);
+	 }
 	@Override
 	public String toString() {
-		return "LoginDTO [mem_id=" + mem_id + ", mem_pw=" + mem_pw + ", useCookie=" + useCookie + "]";
+		return "Member [mem_id=" + mem_id + ", mem_pw=" + mem_pw + "]";
 	}
 	
 	
 	
-
+	
 }
