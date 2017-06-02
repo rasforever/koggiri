@@ -80,8 +80,10 @@ public class ApprovalController {
 	
 	@RequestMapping(value="/modifyPage", method= RequestMethod.GET)
 	public void modifyPagingGET(@RequestParam("app_id")String app_id,@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
-		
+
+		model.addAttribute("einfo", service.einfo_select("k15010201"));
 		model.addAttribute(service.read(app_id));
+
 	}
 	
 	@RequestMapping(value="/modifyPage", method= RequestMethod.POST)

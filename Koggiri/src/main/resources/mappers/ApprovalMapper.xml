@@ -126,6 +126,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		and a.app_id = #{app_id}
 	</select>
 	
+	<update id="update">
+		update approval set
+		app_emp_id = #{app_emp_id}, app_title = #{app_title},
+		app_context =
+		#{app_context}, draft_dt = #{draft_dt},
+		chg_emp_id = #{chg_emp_id},
+		chg_sysdt = SYSDATE where app_id = #{app_id}
+	</update>
+
+	<delete id="delete">
+		delete from approval
+		where app_id = #{app_id}
+	</delete>
+	
+	
 	<insert id="addAttach">
 		insert into approval_attach(FULLNAME, app_id) values (#{fullName}, #{app_id})
 	</insert>

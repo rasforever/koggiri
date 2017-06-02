@@ -151,7 +151,7 @@ $(document).ready(function(){
 	console.log(formObj);
 	
 	$("#modifyBtn").on("click", function(){
-		formObj.attr("action", "/sboard/modifyPage");
+		formObj.attr("action", "/approval/modifyPage");
 		formObj.attr("method", "get");		
 		formObj.submit();
 	});
@@ -182,7 +182,7 @@ $(document).ready(function(){
 	var app_id = ${approvalVO.app_id};
 	var template = Handlebars.compile($("#templateAttach").html());
 	
-	$.getJSON("/sboard/getAttach/"+app_id,function(list){
+	$.getJSON("/approval/getAttach/"+app_id,function(list){
 		$(list).each(function(){
 			
 			var fileInfo = getFileInfo(this);
