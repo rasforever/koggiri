@@ -68,7 +68,7 @@ $(document).ready(function(){
 	
 	$(".btn-primary").on("click", function(){
 		formObj.attr("method", "get");
-		formObj.attr("action", "/document/listPage");
+		formObj.attr("action", "/document/list");
 		formObj.submit();
 	});
 	

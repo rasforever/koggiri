@@ -38,8 +38,8 @@
 
 					</select> <input type="text" name='keyword' id="keywordInput"
 						value='${cri.keyword }'>
-					<button id='searchBtn'>검색</button>
-					<button id='newBtn'>글 작성</button>
+					<button id='searchBtn' class="pagination">검색</button>
+					<button id='newBtn' class="pagination">글 작성</button>
 
 				</div>
 			</div>

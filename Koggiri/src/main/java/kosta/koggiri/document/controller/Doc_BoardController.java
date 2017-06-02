@@ -112,7 +112,7 @@ public class Doc_BoardController {
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addFlashAttribute("msg", "success");
 		
-		return "redirect:/document/listPage";
+		return "redirect:/document/list";
 		
 	}
 	
@@ -131,7 +131,7 @@ public class Doc_BoardController {
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addFlashAttribute("msg", "success");
 		
-		return "redirect:/document/listPage";
+		return "redirect:/document/list";
 	}
 	
 	//
@@ -139,11 +139,13 @@ public class Doc_BoardController {
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public void listPage(@ModelAttribute("cri") Doc_SearchCriteria cri, Model model)throws Exception{
 		
-		model.addAttribute("list", service.listCriteria(cri));
+		//model.addAttribute("list", service.listCriteria(cri));
+		model.addAttribute("list", service.listSearchCriteria(cri));
 		
 		Doc_PageMaker pageMaker = new Doc_PageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(service.listCountCriteria(cri));
+		//pageMaker.setTotalCount(service.listCountCriteria(cri));
+		pageMaker.setTotalCount(service.listSearchCount(cri));
 		
 		model.addAttribute("pageMaker", pageMaker);
 		

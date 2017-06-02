@@ -11,7 +11,7 @@ public class Doc_PageMaker {
 	  private boolean prev;
 	  private boolean next;
 
-	  private int displayPageNum = 3; //화면에 보여지는 페이지번호의 숫자를 의미하는 변수 3이라고 하면 화면밑에 3개의 번호가 뜸
+	  private int displayPageNum = 5; //화면에 보여지는 페이지번호의 숫자를 의미하는 변수 3이라고 하면 화면밑에 3개의 번호가 뜸
 
 	  private Doc_Criteria cri;
 
