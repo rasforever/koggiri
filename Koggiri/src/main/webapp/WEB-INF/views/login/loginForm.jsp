@@ -5,14 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" href="resources/Content/themes/real/login.css" />
+<link rel="stylesheet" href="/resources/Content/themes/real/login.css" />
 <title>Insert title here</title>
 </head>
 <body>
 <div id="login_outer" align="center" valign="middle">
-	<form action="loginform.login" method="post">
+	<form action="/login/check" method="post">
 	<div id="login">
-	<img src="resources/img/log_koggiri.PNG">
+	<img src="/resources/img/log_koggiri.PNG">
 		<table id="logtable">
 		<tr>
 		<td><input type="text" name="mem_id" maxlength="15" placeholder="아이디를 입력하세요" class="idpw"></td>
@@ -21,6 +21,8 @@
 		<tr>
 		<td><input type="password" name="mem_pw" maxlength="15" placeholder="비밀번호를 입력하세요" class="idpw"></td>
 		</tr>
+		
+			</div>
 		</table>
 	</div>
 	</form>
