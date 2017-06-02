@@ -31,7 +31,7 @@
 <body class="sub">
 <div id="wrap">
 <div id="main_header">
-<%-- 	<jsp:include page="header.jsp" /> --%><!--  이거 경로 찾아서 수정해주세여 -->
+<jsp:include page="../header.jsp" />
 </div>
 
 <div class="container_wrap">		
@@ -59,6 +59,7 @@
 <!-- 본문 내용 -->              
 </div>
 		</div>
+		
 	</div>
 <hr />
 <!-- 본문 끝 -->
@@ -67,7 +68,7 @@
 </script>
 
 <div id="main_footer">
-	<%-- <jsp:include page="footer.jsp" /> --%>
+	<jsp:include page="../footer.jsp" />
 </div>
 
 <!-- 좌측 탭 -->

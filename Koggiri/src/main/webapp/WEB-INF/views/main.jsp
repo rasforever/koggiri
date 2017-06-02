@@ -38,6 +38,9 @@
 </div>
 
 <!-- 본문 시작 -->
+     <!-- ************************************* -->
+<a class="log_out" href="#">로그아웃</a>
+     <!-- ************************************* -->
  <h2 class="hidden">본문</h2>
       <div class="container_wrap">
          <!-- container : s -->
@@ -48,7 +51,13 @@
    <div class="service">
       
       <h3 class="hidden">고객센터</h3>
-      <div class="customer_center"><a href="/HelpDesk/Faq/Index"><span>고객센터 전화번호 0502-538-1500 팩스번호 0502-538-1509 운영 시간 10시 ~ 13시 / 14시 ~ 18시 (연중무휴, 365일 운영)</span></a></div>
+      
+     <!-- ************************************* -->
+      <div class="customer_center"> 
+      <a href="#"> 아이디값 들어가는 부분 ~~~</a>
+      </div>
+     <!-- ************************************* --> 
+     
      <div class="remote_support" style="width: 226px; height: 206px; background: white;" align="center">
     
       <input type="submit" class="on_btn" value="" style="margin: 20px 0px 5px 0px;">

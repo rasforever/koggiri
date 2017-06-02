@@ -261,7 +261,7 @@ textarea.contents{resize:none;overflow-y:auto;padding:10px}
 .main #content .service .notice .more>a{display:block;width:32px;height:32px}
 
 /*customer_center*/
-.main #content .service>div.customer_center a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_customer_center.gif) no-repeat 0 0; width:469px;}
+.main #content .service>div.customer_center a{background-color:#ffffff; width:469px;}
 
 
 
