@@ -6,7 +6,10 @@
 
  <typeAliases>
  	<package name="kosta.koggiri.document.domain"/>
+
  	<package name="kosta.koggiri.approval.domain"/>
+
+ 	<package name="kosta.koggiri.calendar.domain"/>
  </typeAliases>
  
 

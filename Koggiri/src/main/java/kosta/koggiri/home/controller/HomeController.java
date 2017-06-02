@@ -33,6 +33,8 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
+		//  return "login/loginForm";    로그인기능 완성 되면 활성화
+		
 		return "main";
 	}
 	

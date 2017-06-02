@@ -111,7 +111,7 @@ textarea.contents{resize:none;overflow-y:auto;padding:10px}
 
 /* logo */
 #header .logo{float:left;padding-top:30px}
-#header .logo a{width:250px;height:46px;display:block;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/logo.gif) no-repeat 0 0}
+#header .logo a{width:20px;height:46px;display:block;}
 
 /*gnb*/
 #header .gnb{float:right;margin-top:5px}
