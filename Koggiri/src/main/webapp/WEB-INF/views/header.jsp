@@ -18,7 +18,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
 <link rel="stylesheet" href="resources/Content/themes/real/ui_main.css" />
 <script src="http://js.nx.com/s1/da/playlog.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="Scripts/ui.js"></script>
+<script type="text/javascript" src="resources/Scripts/ui.js"></script>
 <link href="resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 </head>
 <script type="text/javascript">

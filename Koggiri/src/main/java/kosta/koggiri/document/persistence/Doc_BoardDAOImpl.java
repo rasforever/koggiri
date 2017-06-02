@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kosta.koggiri.document.domain.Doc_BoardVO;
+import kosta.koggiri.document.domain.Doc_Criteria;
 
 @Repository
 public class Doc_BoardDAOImpl implements Doc_BoardDAO {
@@ -48,5 +50,24 @@ public class Doc_BoardDAOImpl implements Doc_BoardDAO {
 
 		return session.selectList(namespace + ".listAll");
 	}
+
+	@Override
+	public List<Doc_BoardVO> listCriteria(Doc_Criteria cri) throws Exception {
+		
+		return session.selectList(namespace + ".listCriteria", cri, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+	}
+
+	@Override
+	public int countPaging(Doc_Criteria cri) throws Exception {
+		
+		return session.selectOne(namespace + ".countPaging", cri);
+	}
+	
+	
+	
+	
+
+	
+	
 
 }
