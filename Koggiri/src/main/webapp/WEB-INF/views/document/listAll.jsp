@@ -21,11 +21,11 @@
 				
 <table class="table table-bordered" border="1">
 	<tr>
-		<th style="width: 10px">BNO</th>
-		<th>TITLE</th>
-		<th>WRITER</th>
-		<th>REGDATE</th>
-		<th style="width: 40px">VIEWCNT</th>
+		<th style="width: 10px">글번호</th>
+		<th>제목</th>
+		<th>작성자</th>
+		<th>작성일</th>
+		<th style="width: 40px">조회수</th>
 	</tr>
 
 
@@ -63,7 +63,7 @@
     
     var result = '${msg}';
     
-    if(result == 'SUCCESS'){
+    if(result == 'success'){
     	alert("처리가 완료되었습니다.");
     }
     
