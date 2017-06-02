@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import kosta.koggiri.document.domain.Doc_BoardVO;
 import kosta.koggiri.document.domain.Doc_Criteria;
 import kosta.koggiri.document.domain.Doc_PageMaker;
+import kosta.koggiri.document.domain.Doc_SearchCriteria;
 import kosta.koggiri.document.service.Doc_BoardService;
 
 @Controller
@@ -36,7 +37,7 @@ public class Doc_BoardController {
 		rttr.addFlashAttribute("msg", "success");
 		
 		//return "/document/success";
-		return "redirect:/document/listAll";
+		return "redirect:/document/list";
 	}
 	
 	@RequestMapping(value="/listAll", method=RequestMethod.GET)
@@ -47,7 +48,7 @@ public class Doc_BoardController {
 	}
 	
 	@RequestMapping(value="/readPage", method=RequestMethod.GET)
-	public void read(@RequestParam("f_id")int f_id,@ModelAttribute("cri") Doc_Criteria cri, Model model)throws Exception{
+	public void read(@RequestParam("f_id")int f_id, @ModelAttribute("cri") Doc_SearchCriteria cri, Model model)throws Exception{
 		System.out.println("리드페이지로 넘어와버리기~");
 		
 		model.addAttribute(service.read(f_id));//조회된 게시물 jsp로 전달하기위해 모델객체 사용
@@ -103,36 +104,58 @@ public class Doc_BoardController {
 	}
 	
 	@RequestMapping(value="/removePage", method=RequestMethod.POST)
-	public String remove(@RequestParam("f_id")int f_id, Doc_Criteria cri, RedirectAttributes rttr)throws Exception{
+	public String remove(@RequestParam("f_id")int f_id, Doc_SearchCriteria cri, RedirectAttributes rttr)throws Exception{
 		
 		service.remove(f_id);
 		
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		
+		
 		rttr.addFlashAttribute("msg", "success");
 		
-		return "redirect:/document/listPage";
+		return "redirect:/document/list";
 		
 	}
 	
 	@RequestMapping(value="/modifyPage", method=RequestMethod.GET)
-	public void modifyPagingGET(@RequestParam("f_id")int f_id, @ModelAttribute("cri") Doc_Criteria cri, Model model)throws Exception{
+	public void modifyPagingGET(@RequestParam("f_id")int f_id, @ModelAttribute("cri") Doc_SearchCriteria cri, Model model)throws Exception{
 		
 		model.addAttribute(service.read(f_id));
 	}
 	
 	@RequestMapping(value="/modifyPage", method=RequestMethod.POST)
-	public String modifyPagingPOST(Doc_BoardVO board, Doc_Criteria cri, RedirectAttributes rttr)throws Exception{
+	public String modifyPagingPOST(Doc_BoardVO board, Doc_SearchCriteria cri, RedirectAttributes rttr)throws Exception{
 		
 		service.modify(board);
 		
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 		rttr.addFlashAttribute("msg", "success");
 		
-		return "redirect:/document/listPage";
+		return "redirect:/document/list";
 	}
 	
+	//
+	
+	@RequestMapping(value="/list", method=RequestMethod.GET)
+	public void listPage(@ModelAttribute("cri") Doc_SearchCriteria cri, Model model)throws Exception{
+		
+		//model.addAttribute("list", service.listCriteria(cri));
+		model.addAttribute("list", service.listSearchCriteria(cri));
+		
+		Doc_PageMaker pageMaker = new Doc_PageMaker();
+		pageMaker.setCri(cri);
+		//pageMaker.setTotalCount(service.listCountCriteria(cri));
+		pageMaker.setTotalCount(service.listSearchCount(cri));
+		
+		model.addAttribute("pageMaker", pageMaker);
+		
+	}
 
 	
 }

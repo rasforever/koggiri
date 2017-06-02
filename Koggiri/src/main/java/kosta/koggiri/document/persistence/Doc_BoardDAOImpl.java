@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import kosta.koggiri.document.domain.Doc_BoardVO;
 import kosta.koggiri.document.domain.Doc_Criteria;
+import kosta.koggiri.document.domain.Doc_SearchCriteria;
 
 @Repository
 public class Doc_BoardDAOImpl implements Doc_BoardDAO {
@@ -62,6 +63,20 @@ public class Doc_BoardDAOImpl implements Doc_BoardDAO {
 		
 		return session.selectOne(namespace + ".countPaging", cri);
 	}
+
+	@Override
+	public List<Doc_BoardVO> listSearch(Doc_SearchCriteria cri) throws Exception {
+		
+		return session.selectList(namespace + ".listSearch", cri, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+	}
+
+	@Override
+	public int listSearchCount(Doc_SearchCriteria cri) throws Exception {
+		
+		return session.selectOne(namespace + ".listSearchCount", cri);
+	}
+	
+	
 	
 	
 	

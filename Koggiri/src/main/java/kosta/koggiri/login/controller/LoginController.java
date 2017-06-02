@@ -1,10 +1,10 @@
 package kosta.koggiri.login.controller;
 
-import java.io.PrintWriter;
+
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -24,8 +24,15 @@ public class LoginController {
 	@Inject
 	private LoginService service;
 	
-	@RequestMapping(value= "", method = RequestMethod.GET)
-	public String loginpage(@ModelAttribute("dto") LoginDTO dto)throws Exception{
+	@RequestMapping(value= {"","/logout"}, method = RequestMethod.GET) // 다중매핑
+	public String loginpage(@ModelAttribute("dto") LoginDTO dto, HttpServletRequest request)throws Exception{
+		System.out.println("loginpage");
+		HttpSession session = request.getSession(false);
+		  if(session != null){  // logout시 세션 삭제
+
+		      session.invalidate(); 
+
+		     }
 		
 		return "/login/loginForm";
 	}
@@ -49,4 +56,6 @@ public class LoginController {
 		model.addAttribute("empnm", empnm);
 		
 	}
+	
+	
 }
