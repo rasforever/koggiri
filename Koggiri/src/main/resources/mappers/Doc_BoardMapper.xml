@@ -97,6 +97,10 @@
 		<include refid="search"></include>
 	</select>
 
+	<update id="updateViewCnt">
+		update documentboard set f_hit = f_hit + 1 
+			where f_id = #{f_id}
+	</update>
 
 
 

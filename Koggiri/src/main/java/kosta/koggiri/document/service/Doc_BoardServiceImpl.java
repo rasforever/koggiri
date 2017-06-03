@@ -5,6 +5,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import kosta.koggiri.document.domain.Doc_BoardVO;
 import kosta.koggiri.document.domain.Doc_Criteria;
@@ -23,9 +25,10 @@ public class Doc_BoardServiceImpl implements Doc_BoardService {
 		dao.create(board);
 	}
 
+	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
 	public Doc_BoardVO read(Integer f_id) throws Exception {
-
+		dao.updateViewCnt(f_id);
 		return dao.read(f_id);
 	}
 

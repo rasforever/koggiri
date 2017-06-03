@@ -20,5 +20,7 @@ public interface Doc_BoardDAO {
 	
 	public int listSearchCount(Doc_SearchCriteria cri)throws Exception;
 	
+	public void updateViewCnt(Integer f_id)throws Exception;
+	
 
 }
