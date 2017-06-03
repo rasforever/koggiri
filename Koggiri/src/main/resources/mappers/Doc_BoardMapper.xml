@@ -32,32 +32,6 @@
 		delete from documentboard where f_id = #{f_id}
 	</delete>
 
-	<select id="listAll" resultType="Doc_BoardVO">
- 		<![CDATA[
-			 select 
-			   f_id, f_title, f_content, f_emp_id, f_date, f_hit
-			 from 
-			 	documentboard			   
-			 where f_id > 0
-		]]>  	 
-			 
-			 
-		<![CDATA[	  
-			 order by f_id desc, f_date desc
- 		]]>
-	</select>
-
-	<select id="listPage" resultType="Doc_BoardVO">
-  		<![CDATA[
- 			select 
-   				f_id, f_title, f_content, f_emp_id, f_date, f_hit 
- 			from 
-  				documentboard
-			 where f_id > 0 
- 				order by f_id desc, f_date desc
- 			
- 		]]>
-	</select>
 
 	<select id="listCriteria" resultType="Doc_BoardVO">
     <![CDATA[
@@ -99,9 +73,11 @@
 
 	<select id="listSearch" resultType="Doc_BoardVO" parameterType="Doc_SearchCriteria">
    <![CDATA[  
-     select * 
-     from documentboard
-     where f_id > 0   
+     select 
+   				d.f_id, d.f_title, d.f_content, d.f_emp_id, d.f_date, d.f_hit, e.emp_nm as f_emp_nm
+ 			from 
+  				documentboard d, emp e
+			 where f_id > 0 and d.f_emp_id = e.emp_id  
    ]]>
 
 		<include refid="search"></include>
@@ -121,6 +97,14 @@
 		<include refid="search"></include>
 	</select>
 
+	<update id="updateViewCnt">
+		update documentboard set f_hit = f_hit + 1 
+			where f_id = #{f_id}
+	</update>
+	
+	<insert id="addAttach" parameterType="Doc_FileVO">
+      insert into documentboard_attach(fullname, f_id) values (#{fullName}, DOC_SEQ.currval)
+   </insert>
 
 
 

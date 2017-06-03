@@ -5,6 +5,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import kosta.koggiri.document.domain.Doc_BoardVO;
 import kosta.koggiri.document.domain.Doc_Criteria;
@@ -17,15 +19,25 @@ public class Doc_BoardServiceImpl implements Doc_BoardService {
 	@Inject
 	private Doc_BoardDAO dao;
 
+	@Transactional
 	@Override
 	public void regist(Doc_BoardVO board) throws Exception {
 		
 		dao.create(board);
+		
+		String []files = board.getFiles();
+		
+		if(files == null){return;}
+		
+		for(String fileName : files){
+			dao.addAttach(fileName);
+		}
 	}
 
+	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
 	public Doc_BoardVO read(Integer f_id) throws Exception {
-
+		dao.updateViewCnt(f_id);
 		return dao.read(f_id);
 	}
 
@@ -41,24 +53,7 @@ public class Doc_BoardServiceImpl implements Doc_BoardService {
 		dao.delete(f_id);
 	}
 
-	@Override
-	public List<Doc_BoardVO> listAll() throws Exception {
-
-		return dao.listAll();
-	}
-
-	@Override
-	public List<Doc_BoardVO> listCriteria(Doc_Criteria cri) throws Exception {
-		
-		return dao.listCriteria(cri);
-	}
-
-	@Override
-	public int listCountCriteria(Doc_Criteria cri) throws Exception {
-		
-		return dao.countPaging(cri);
-	}
-
+	
 	@Override
 	public List<Doc_BoardVO> listSearchCriteria(Doc_SearchCriteria cri) throws Exception {
 		

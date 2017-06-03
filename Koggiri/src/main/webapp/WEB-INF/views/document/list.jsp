@@ -67,7 +67,7 @@
 									href='/document/readPage${pageMaker.makeSearch(pageMaker.cri.page) }&f_id=${boardVO.f_id}'>
 										${boardVO.f_title}
 								</a></td>
-								<td>${boardVO.f_emp_id}</td>
+								<td>${boardVO.f_emp_nm}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 										value="${boardVO.f_date}" /></td>
 								<td><span class="badge bg-red">${boardVO.f_hit}</span></td>

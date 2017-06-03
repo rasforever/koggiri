@@ -47,41 +47,30 @@ public class Doc_BoardDAOImpl implements Doc_BoardDAO {
 	}
 
 	@Override
-	public List<Doc_BoardVO> listAll() throws Exception {
-
-		return session.selectList(namespace + ".listAll");
-	}
-
-	@Override
-	public List<Doc_BoardVO> listCriteria(Doc_Criteria cri) throws Exception {
-		
-		return session.selectList(namespace + ".listCriteria", cri, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
-	}
-
-	@Override
-	public int countPaging(Doc_Criteria cri) throws Exception {
-		
-		return session.selectOne(namespace + ".countPaging", cri);
-	}
-
-	@Override
 	public List<Doc_BoardVO> listSearch(Doc_SearchCriteria cri) throws Exception {
-		
-		return session.selectList(namespace + ".listSearch", cri, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+
+		return session.selectList(namespace + ".listSearch", cri,
+				new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
 	}
 
 	@Override
 	public int listSearchCount(Doc_SearchCriteria cri) throws Exception {
-		
+
 		return session.selectOne(namespace + ".listSearchCount", cri);
 	}
-	
-	
-	
-	
-	
-	
 
+	@Override
+	public void updateViewCnt(Integer f_id) throws Exception {
+
+		session.update(namespace + ".updateViewCnt", f_id);
+	}
+
+	@Override
+	public void addAttach(String fullName) throws Exception {
+		
+		session.insert(namespace + ".addAttach", fullName);
+		
+	}
 	
 	
 
