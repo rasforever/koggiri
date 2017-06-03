@@ -56,7 +56,7 @@ public class ApprovalController {
 			model.addAttribute("list", service.listSearchCriteria(search));
 
 			PageMaker pageMaker = new PageMaker();
-			pageMaker.setCri(search);
+			pageMaker.setSearch(search);
 
 			pageMaker.setTotalCount(service.listSearchCount(search));
 			model.addAttribute("pageMaker", pageMaker);
@@ -71,7 +71,7 @@ public class ApprovalController {
 		model.addAttribute("list", service.listSearchCriteria(search));
 
 		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCri(search);
+		pageMaker.setSearch(search);
 
 		pageMaker.setTotalCount(service.listSearchCount(search));
 		model.addAttribute("pageMaker", pageMaker);
@@ -81,27 +81,26 @@ public class ApprovalController {
 	
 
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
-	public void read(@RequestParam("app_id") String app_id, @ModelAttribute("cri") SearchCriteria cri, Model model)
+	public void read(@RequestParam("app_id") String app_id, @ModelAttribute("search") ApprovalSearchVO search, Model model)
 			throws Exception {
 
 		model.addAttribute(service.read(app_id));
 	}
 
 	@RequestMapping(value = "/removePage", method = RequestMethod.POST)
-	public String remove(@RequestParam("app_id") String app_id, SearchCriteria cri, RedirectAttributes rttr)
+	public String remove(@RequestParam("app_id") String app_id, ApprovalSearchVO search, RedirectAttributes rttr)
 			throws Exception {
 
 		service.remove(app_id);
-		rttr.addAttribute("page", cri.getPage());
-		rttr.addAttribute("perPageNum", cri.getPerPageNum());
-		rttr.addAttribute("searchType", cri.getSearchType());
-		rttr.addAttribute("keyword", cri.getKeyword());
+		rttr.addAttribute("page", search.getPage());
+		rttr.addAttribute("perPageNum", search.getPerPageNum());
+		rttr.addAttribute("searchType", search.getSearchType());
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		return "redirect:/approval/list";
 	}
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
-	public void modifyPagingGET(@RequestParam("app_id") String app_id, @ModelAttribute("cri") SearchCriteria cri,
+	public void modifyPagingGET(@RequestParam("app_id") String app_id, @ModelAttribute("search") ApprovalSearchVO search,
 			Model model) throws Exception {
 
 		model.addAttribute("einfo", service.einfo_select("k15010201"));
@@ -110,13 +109,12 @@ public class ApprovalController {
 	}
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
-	public String modifyPagingPOST(ApprovalVO approval, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
+	public String modifyPagingPOST(ApprovalVO approval, ApprovalSearchVO search, RedirectAttributes rttr) throws Exception {
 
 		service.modify(approval);
-		rttr.addAttribute("page", cri.getPage());
-		rttr.addAttribute("perPageNum", cri.getPerPageNum());
-		rttr.addAttribute("searchType", cri.getSearchType());
-		rttr.addAttribute("keyword", cri.getKeyword());
+		rttr.addAttribute("page", search.getPage());
+		rttr.addAttribute("perPageNum", search.getPerPageNum());
+		rttr.addAttribute("searchType", search.getSearchType());
 		rttr.addFlashAttribute("msg", "SUCCESS");
 
 		return "redirect:/approval/list";

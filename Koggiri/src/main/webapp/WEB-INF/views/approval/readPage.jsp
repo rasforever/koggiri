@@ -58,10 +58,9 @@
 				<form role="form" action="modifyPage" method="post">
 
 					<input type='hidden' name='app_id' value="${approvalVO.app_id}">
-					<input type='hidden' name='page' value="${cri.page}"> <input
-						type='hidden' name='perPageNum' value="${cri.perPageNum}">
-					<input type='hidden' name='searchType' value="${cri.searchType}">
-					<input type='hidden' name='keyword' value="${cri.keyword}">
+					<input type='hidden' name='page' value="${search.page}"> <input
+						type='hidden' name='perPageNum' value="${search.perPageNum}">
+					<input type='hidden' name='searchType' value="${search.searchType}">
 
 				</form>
 

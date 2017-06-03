@@ -27,12 +27,6 @@ public class ApprovalDAOImpl implements ApprovalDAO {
 
 	@Override
 	public void create(ApprovalVO vo) throws Exception {
-		System.out.println(vo.getApp_type_cd());
-		System.out.println(vo.getDraft_emp_id());
-		System.out.println(vo.getApp_emp_id());
-		System.out.println(vo.getDraft_dt());
-		System.out.println(vo.getApp_title());
-		System.out.println(vo.getApp_context());
 		session.insert(namespace + ".create", vo);
 
 	}

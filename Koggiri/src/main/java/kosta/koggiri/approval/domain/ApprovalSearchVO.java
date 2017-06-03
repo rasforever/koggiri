@@ -6,7 +6,7 @@ public class ApprovalSearchVO extends Criteria{
 	private String[] area;
 	private String searchType;				//내가받은-보낸
 	private String app_pro_cd;				//문서상태
-	private String app_id; 					//문서번호 검색
+	private String search_app_id; 			//문서번호 검색
 	private String app_type;				//문서 타입 검색
 	private String dept_cd;					//부서 코드
 	private String draft_emp_id;			//기안자 
@@ -31,11 +31,12 @@ public class ApprovalSearchVO extends Criteria{
 	public void setApp_pro_cd(String app_pro_cd) {
 		this.app_pro_cd = app_pro_cd;
 	}
-	public String getApp_id() {
-		return app_id;
+	
+	public String getSearch_app_id() {
+		return search_app_id;
 	}
-	public void setApp_id(String app_id) {
-		this.app_id = app_id;
+	public void setSearch_app_id(String search_app_id) {
+		this.search_app_id = search_app_id;
 	}
 	public String getApp_type() {
 		return app_type;
@@ -76,10 +77,11 @@ public class ApprovalSearchVO extends Criteria{
 	@Override
 	public String toString() {
 		return "ApprovalSearchVO [area=" + Arrays.toString(area) + ", searchType=" + searchType + ", app_pro_cd="
-				+ app_pro_cd + ", app_id=" + app_id + ", app_type=" + app_type + ", dept_cd=" + dept_cd
+				+ app_pro_cd + ", search_app_id=" + search_app_id + ", app_type=" + app_type + ", dept_cd=" + dept_cd
 				+ ", draft_emp_id=" + draft_emp_id + ", app_emp_id=" + app_emp_id + ", draft_s_dt=" + draft_s_dt
 				+ ", draft_e_dt=" + draft_e_dt + "]";
 	}
+	
 	
 	
 
