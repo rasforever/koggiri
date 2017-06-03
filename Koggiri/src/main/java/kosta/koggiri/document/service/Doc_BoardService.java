@@ -20,5 +20,7 @@ public interface Doc_BoardService {
 	
 	public int listSearchCount(Doc_SearchCriteria cri)throws Exception;
 	
+	
+	
 
 }

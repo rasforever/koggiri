@@ -65,4 +65,13 @@ public class Doc_BoardDAOImpl implements Doc_BoardDAO {
 		session.update(namespace + ".updateViewCnt", f_id);
 	}
 
+	@Override
+	public void addAttach(String fullName) throws Exception {
+		
+		session.insert(namespace + ".addAttach", fullName);
+		
+	}
+	
+	
+
 }
