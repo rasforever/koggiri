@@ -71,6 +71,14 @@ public class Doc_BoardDAOImpl implements Doc_BoardDAO {
 		session.insert(namespace + ".addAttach", fullName);
 		
 	}
+
+	@Override
+	public List<String> getAttach(Integer f_id) throws Exception {
+		
+		return session.selectList(namespace + ".getAttach", f_id);
+	}
+	
+	
 	
 	
 
