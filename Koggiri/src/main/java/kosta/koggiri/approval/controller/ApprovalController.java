@@ -3,6 +3,7 @@ package kosta.koggiri.approval.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,9 +33,10 @@ public class ApprovalController {
 
 	// 입력 GET방식
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public void registerGET(ApprovalVO approval, Model model) throws Exception {
+	public void registerGET(ApprovalVO approval, Model model, HttpSession session) throws Exception {
 		logger.info("register get......");
-		model.addAttribute("einfo", service.einfo_select("k15010201"));
+		String mem_id = (String) session.getAttribute("mem_id");
+		model.addAttribute("einfo", service.einfo_select(mem_id));
 		model.addAttribute("applist", service.appty_select());
 	}
 
@@ -52,12 +54,13 @@ public class ApprovalController {
 	
 	// LIST 보낸 결재 조회
 		@RequestMapping(value = "/lists", method = RequestMethod.GET)
-		public void listsPage(@ModelAttribute("search") ApprovalSearchVO search, Model model) throws Exception {
+		public void listsPage(@ModelAttribute("search") ApprovalSearchVO search, Model model, HttpSession session) throws Exception {
 			logger.info(search.toString());
 
 			model.addAttribute("applist", service.appty_select());
 			model.addAttribute("deptlist", service.dept_select());
-			search.setDraft_emp_id("k15010201");	
+			String mem_id = (String) session.getAttribute("mem_id");
+			search.setDraft_emp_id(mem_id);	
 			search.setSearchType("s");		
 	      
 			if (search.getApp_pro_cd() == null){
@@ -91,12 +94,13 @@ public class ApprovalController {
 
 	// LIST 받은 결재 조회
 	@RequestMapping(value = "/listr", method = RequestMethod.GET)
-	public void listrPage(@ModelAttribute("search") ApprovalSearchVO search, Model model) throws Exception {
+	public void listrPage(@ModelAttribute("search") ApprovalSearchVO search, Model model, HttpSession session) throws Exception {
 		logger.info(search.toString());
 
 		model.addAttribute("applist", service.appty_select());
 		model.addAttribute("deptlist", service.dept_select());
-		search.setApp_emp_id("k15010201");	
+		String mem_id = (String) session.getAttribute("mem_id");
+		search.setApp_emp_id(mem_id);	
 		search.setSearchType("r");
       
 		if (search.getApp_pro_cd() == null){
@@ -134,9 +138,11 @@ public class ApprovalController {
 	
 
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
-	public void read(@RequestParam("app_id") String app_id, @ModelAttribute("search") ApprovalSearchVO search, Model model)
+	public void read(@RequestParam("app_id") String app_id, @ModelAttribute("search") ApprovalSearchVO search, Model model, HttpSession session)
 			throws Exception {
 
+		String mem_id = (String) session.getAttribute("mem_id");
+		model.addAttribute("mem_id", mem_id);
 		model.addAttribute(service.read(app_id));
 	}
 
@@ -163,9 +169,10 @@ public class ApprovalController {
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
 	public void modifyPagingGET(@RequestParam("app_id") String app_id, @ModelAttribute("search") ApprovalSearchVO search,
-			Model model) throws Exception {
+			Model model, HttpSession session) throws Exception {
 
-		model.addAttribute("einfo", service.einfo_select("k15010201"));
+		String mem_id = (String) session.getAttribute("mem_id");
+		model.addAttribute("einfo", service.einfo_select(mem_id));
 		model.addAttribute(service.read(app_id));
 
 	}

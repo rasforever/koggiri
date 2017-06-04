@@ -46,7 +46,7 @@
 							<h3>Approval</h3>
 							<br> <br> <input type="hidden" name="dept_cd"
 								value="${einfo.dept_id }"> <input type="hidden"
-								name="draft_emp_id" value="k15010201"> <input type="hidden"
+								name="draft_emp_id" value="${einfo.emp_id }"> <input type="hidden"
 								name="app_id" value="${approvalVO.app_id }">
 
 							<table width="1100" id="app_table" align="center">

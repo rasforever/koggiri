@@ -92,7 +92,7 @@
 					
  					<c:if test="${search.searchType == 'r' }">
 		 				<c:if test="${approvalVO.app_pro_cd.equals('0') }">
-		 					<c:if test="${approvalVO.app_emp_id == 'k15010201' }">					
+		 					<c:if test="${approvalVO.app_emp_id == mem_id }">					
 							<button type="submit" class="btn btn-warning" id="recBtn">승인</button>
 							<button type="submit" class="btn btn-danger" id="votBtn">부결</button>
 							</c:if>

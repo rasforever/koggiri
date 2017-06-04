@@ -35,6 +35,7 @@
 						<button id='c_searchBtn'>완료</button>
 						<button id='n_searchBtn'>부결</button>
 						<input type='hidden' name='app_pro_cd' id='app_pro_cd' value="${search.app_pro_cd}">
+						<input type='hidden' name='draft_emp_id' id='draft_emp_id' value="${search.draft_emp_id}">
 					</tr>
 					<tr>
 						<td><input type="checkbox" name="chk_app_id" id="chk_app_id" value="app_id"
@@ -204,7 +205,7 @@
 									+ "&app_pro_cd=" + ck_app_type_cd
 									+ "&search_app_id=" + s_app_id
 									+ "&app_type=" + $('#app_type').val()
-									+ "&draft_emp_id=k15010201"
+									+ "&draft_emp_id=" +$('#draft_emp_id').val()
 									+ "&app_emp_id=" + s_app_emp_id
 									+ "&draft_s_dt=" + s_dt
 									+ "&draft_e_dt=" + e_dt;
@@ -246,7 +247,7 @@
 									+ "&app_pro_cd=%20"
 									+ "&search_app_id=" + s_app_id
 									+ "&app_type=" + $('#app_type').val()
-									+ "&draft_emp_id=k15010201"
+									+ "&draft_emp_id=" +$('#draft_emp_id').val()
 									+ "&app_emp_id=" + s_app_emp_id
 									+ "&draft_s_dt=" + s_dt
 									+ "&draft_e_dt=" + e_dt;
@@ -289,7 +290,7 @@
 									+ "&app_pro_cd=0"
 									+ "&search_app_id=" + s_app_id
 									+ "&app_type=" + $('#app_type').val()
-									+ "&draft_emp_id=k15010201"
+									+ "&draft_emp_id=" +$('#draft_emp_id').val()
 									+ "&app_emp_id=" + s_app_emp_id
 									+ "&draft_s_dt=" + s_dt
 									+ "&draft_e_dt=" + e_dt;
@@ -332,7 +333,7 @@
 									+ "&app_pro_cd=1"
 									+ "&search_app_id=" + s_app_id
 									+ "&app_type=" + $('#app_type').val()
-									+ "&draft_emp_id=k15010201"
+									+ "&draft_emp_id=" +$('#draft_emp_id').val()
 									+ "&app_emp_id=" + s_app_emp_id
 									+ "&draft_s_dt=" + s_dt
 									+ "&draft_e_dt=" + e_dt;
@@ -375,7 +376,7 @@
 									+ "&app_pro_cd=2"
 									+ "&search_app_id=" + s_app_id
 									+ "&app_type=" + $('#app_type').val()
-									+ "&draft_emp_id=k15010201"
+									+ "&draft_emp_id=" +$('#draft_emp_id').val()
 									+ "&app_emp_id=" + s_app_emp_id
 									+ "&draft_s_dt=" + s_dt
 									+ "&draft_e_dt=" + e_dt;

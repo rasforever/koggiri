@@ -35,6 +35,7 @@
 						<button id='c_searchBtn'>완료</button>
 						<button id='n_searchBtn'>부결</button>
 						<input type='hidden' name='app_pro_cd' id='app_pro_cd' value="${search.app_pro_cd}">
+						<input type='hidden' name='app_emp_id' id='app_emp_id' value="${search.app_emp_id}">
 					</tr>
 					 <tr>
 						<td><input type="checkbox" name="area" value="app_id" onclick="dis_chg(this)">결재문서번호</input></td>
@@ -212,7 +213,7 @@
 									+ "&app_type=" + $('#app_type').val()
 									+ "&dept_cd=" + $('#dept_cd').val()
 									+ "&draft_emp_id=" + s_draft_emp_id
-									+ "&app_emp_id=k15010201" 
+									+ "&app_emp_id=" + $('#app_emp_id').val() 
 									+ "&draft_s_dt=" + s_dt
 									+ "&draft_e_dt=" + e_dt;
 
@@ -255,7 +256,7 @@
 									+ "&app_type=" + $('#app_type').val()
 									+ "&dept_cd=" + $('#dept_cd').val()
 									+ "&draft_emp_id=" + s_draft_emp_id
-									+ "&app_emp_id=k15010201" 
+									+ "&app_emp_id=" + $('#app_emp_id').val() 
 									+ "&draft_s_dt=" + s_dt
 									+ "&draft_e_dt=" + e_dt;
 			
@@ -298,7 +299,7 @@
 									+ "&app_type=" + $('#app_type').val()
 									+ "&dept_cd=" + $('#dept_cd').val()
 									+ "&draft_emp_id=" + s_draft_emp_id
-									+ "&app_emp_id=k15010201" 
+									+ "&app_emp_id=" + $('#app_emp_id').val() 
 									+ "&draft_s_dt=" + s_dt
 									+ "&draft_e_dt=" + e_dt;
 			
@@ -341,7 +342,7 @@
 									+ "&app_type=" + $('#app_type').val()
 									+ "&dept_cd=" + $('#dept_cd').val()
 									+ "&draft_emp_id=" + s_draft_emp_id
-									+ "&app_emp_id=k15010201" 
+									+ "&app_emp_id=" + $('#app_emp_id').val() 
 									+ "&draft_s_dt=" + s_dt
 									+ "&draft_e_dt=" + e_dt;
 			
@@ -384,7 +385,7 @@
 									+ "&app_type=" + $('#app_type').val()
 									+ "&dept_cd=" + $('#dept_cd').val()
 									+ "&draft_emp_id=" + s_draft_emp_id
-									+ "&app_emp_id=k15010201" 
+									+ "&app_emp_id=" + $('#app_emp_id').val() 
 									+ "&draft_s_dt=" + s_dt
 									+ "&draft_e_dt=" + e_dt;
 			
