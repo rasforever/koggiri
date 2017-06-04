@@ -185,104 +185,102 @@
 
 					var template = Handlebars.compile($("#template").html());
 
-					$(".fileDrop").on("dragenter dragover", function(event) {
+
+					$(".fileDrop").on("dragenter dragover", function(event){
 						event.preventDefault();
 					});
 
-					$(".fileDrop").on("drop", function(event) {
+
+					$(".fileDrop").on("drop", function(event){
 						event.preventDefault();
-
+						
 						var files = event.originalEvent.dataTransfer.files;
-
+						
 						var file = files[0];
 
 						//console.log(file);
-
+						
 						var formData = new FormData();
-
-						formData.append("file", file);
-
+						
+						formData.append("file", file);	
+						
 						$.ajax({
-							url : '/uploadAjax',
-							data : formData,
-							dataType : 'text',
-							processData : false,
-							contentType : false,
-							type : 'POST',
-							success : function(data) {
-
-								var fileInfo = getFileInfo(data);
-
-								var html = template(fileInfo);
-
-								$(".uploadedList").append(html);
-							}
-						});
+							  url: '/uploadAjax',
+							  data: formData,
+							  dataType:'text',
+							  processData: false,
+							  contentType: false,
+							  type: 'POST',
+							  success: function(data){
+								  
+								  var fileInfo = getFileInfo(data);
+								  
+								  var html = template(fileInfo);
+								  
+								  $(".uploadedList").append(html);
+							  }
+							});	
 					});
 
-					$(".uploadedList").on("click", ".delbtn", function(event) {
 
+					$(".uploadedList").on("click", ".delbtn", function(event){
+						
 						event.preventDefault();
-
+						
 						var that = $(this);
-
+						 
 						$.ajax({
-							url : "/deleteFile",
-							type : "post",
-							data : {
-								fileName : $(this).attr("href")
-							},
-							dataType : "text",
-							success : function(result) {
-								if (result == 'deleted') {
-									that.closest("li").remove();
-								}
-							}
-						});
+						   url:"/deleteFile",
+						   type:"post",
+						   data: {fileName:$(this).attr("href")},
+						   dataType:"text",
+						   success:function(result){
+							   if(result == 'deleted'){
+								   that.closest("li").remove();
+							   }
+						   }
+					   });
 					});
 
-					var app_id = $
-					{
-						approvalVO.app_id
-					};
+
+					var app_id = ${approvalVO.app_id};
 					var template = Handlebars.compile($("#template").html());
 
-					$.getJSON("/approval/getAttach/" + app_id, function(list) {
-						$(list).each(function() {
-
+					$.getJSON("/approval/getAttach/"+app_id,function(list){
+						$(list).each(function(){
+							
 							var fileInfo = getFileInfo(this);
-
+							
 							var html = template(fileInfo);
-
-							$(".uploadedList").append(html);
-
+							
+							 $(".uploadedList").append(html);
+							
 						});
 					});
 
-					$(".uploadedList").on("click",
-							".mailbox-attachment-info a", function(event) {
-
-								var fileLink = $(this).attr("href");
-
-								if (checkImageType(fileLink)) {
-
-									event.preventDefault();
-
-									var imgTag = $("#popup_img");
-									imgTag.attr("src", fileLink);
-
-									console.log(imgTag.attr("src"));
-
-									$(".popup").show('slow');
-									imgTag.addClass("show");
-								}
-							});
-
-					$("#popup_img").on("click", function() {
-
-						$(".popup").hide('slow');
-
+					$(".uploadedList").on("click", ".mailbox-attachment-info a", function(event){
+						
+						var fileLink = $(this).attr("href");
+						
+						if(checkImageType(fileLink)){
+							
+							event.preventDefault();
+									
+							var imgTag = $("#popup_img");
+							imgTag.attr("src", fileLink);
+							
+							console.log(imgTag.attr("src"));
+									
+							$(".popup").show('slow');
+							imgTag.addClass("show");		
+						}	
 					});
+
+					$("#popup_img").on("click", function(){
+						
+						$(".popup").hide('slow');
+						
+					});	
 				</script>
 
 

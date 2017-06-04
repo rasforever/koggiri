@@ -1,5 +1,7 @@
 package kosta.koggiri.approval.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -7,9 +9,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.approval.domain.ApprovalSearchVO;
@@ -204,6 +208,12 @@ public class ApprovalController {
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
 		return "redirect:/approval/listr";
+	}
+	
+	@RequestMapping("getAttach/{app_id}")
+	@ResponseBody
+	public List<String> getAttach(@PathVariable("app_id")String app_id)throws Exception{
+		return service.getAttach(app_id);
 	}
 
 }
