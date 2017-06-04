@@ -54,7 +54,7 @@
 					<h3 class="box-title">READ BOARD</h3>
 				</div>
 				<!-- /.box-header -->
-
+				
 				<form role="form" action="modifyPage" method="post">
 
 					<input type='hidden' name='app_id' value="${approvalVO.app_id}">
@@ -89,6 +89,16 @@
 						<th>결재일</th>
 						<td>${approvalVO.app_dt }</td>
 					</tr>
+					
+ 					<c:if test="${search.searchType == 'r' }">
+		 				<c:if test="${approvalVO.app_pro_cd.equals('0') }">
+		 					<c:if test="${approvalVO.app_emp_id == 'k15010201' }">					
+							<button type="submit" class="btn btn-warning" id="recBtn">승인</button>
+							<button type="submit" class="btn btn-danger" id="votBtn">부결</button>
+							</c:if>
+						 </c:if>
+					</c:if>
+					
 					<tr>
 						<th>제목</th>
 						<td colspan="3">${approvalVO.app_title }</td>
@@ -109,8 +119,15 @@
 
 					<ul class="mailbox-attachments clearfix uploadedList">
 					</ul>
-					<button type="submit" class="btn btn-warning" id="modifyBtn">Modify</button>
-					<button type="submit" class="btn btn-danger" id="removeBtn">REMOVE</button>
+					
+ 					<c:if test="${search.searchType == 's' }">
+		 				<c:if test="${approvalVO.app_pro_cd.equals('0') }">
+		 					<c:if test="${approvalVO.draft_emp_id == 'k15010201' }">
+								<button type="submit" class="btn btn-warning" id="modifyBtn">Modify</button>
+								<button type="submit" class="btn btn-danger" id="removeBtn">REMOVE</button>
+							</c:if>
+						 </c:if>
+					 </c:if>
 					<button type="submit" class="btn btn-primary" id="goListBtn">GO
 						LIST</button>
 				</div>
@@ -142,6 +159,7 @@
 
 
 <script type="text/javascript" >
+$()
 
 $(document).ready(function(){
 	
@@ -172,6 +190,20 @@ $(document).ready(function(){
 		formObj.submit();
 	});	
 	
+	$("#recBtn").on("click", function(){		
+			
+		formObj.attr("action", "/approval/updatePage");
+		formObj.append("<input type='hidden' name='app_pro_cd' value='1'>");
+		formObj.submit();
+	});	
+	
+	$("#votBtn").on("click", function(){		
+				
+		formObj.attr("action", "/approval/updatePage");
+		formObj.append("<input type='hidden' name='app_pro_cd' value='2'>");
+		formObj.submit();
+	});	
+		
 	$("#goListBtn ").on("click", function(){
 		formObj.attr("method", "get");
 		formObj.attr("action", "/approval/list");

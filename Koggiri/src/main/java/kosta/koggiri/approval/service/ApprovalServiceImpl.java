@@ -99,4 +99,9 @@ public class ApprovalServiceImpl implements ApprovalService {
 		return dao.getAttach(emp_id);
 	}
 
+	@Override
+	public void update(ApprovalVO approval) throws Exception {
+		dao.updateAPP(approval);		
+	}
+
 }

@@ -1,10 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
+<script type="text/javascript" src="/resources/js/approval.js"></script>
 
 <!-- Main content -->
 <section class="content">
@@ -22,21 +29,20 @@
 				<div class='box-body'>
 
 					 <tr>
-						<td><input type="checkbox" name="area" value="app_id"
-							onclick="dis_chg(this)">결재문서번호</input></td>
-						<td><input type="text" name="search_app_id" id="search_app_id"
-							size="30" disabled></input></td>
-						<td><input type="checkbox" name="area" value="app_type_cd"
-							onclick="dis_chg(this)">결재구분</input></td>
-						<td><select id="app_type_cd" name="app_type_cd" disabled>
+						<td><input type="checkbox" name="area" value="app_id" onclick="dis_chg(this)">결재문서번호</input></td>
+						<td><input type="text" name="search_app_id" id="search_app_id" size="30" disabled></input></td>
+						<td><input type="checkbox" name="area" value="app_type_cd" onclick="dis_chg(this)">결재구분</input></td>
+						<td><select id="app_type" name="app_type" disabled>
+									<option value=" ">--전체--
 								<c:forEach var="apptypeVO" items="${applist}">
 									<option value="${apptypeVO.app_type_cd}">${apptypeVO.app_type_nm}
 									</option>
 								</c:forEach>
 						</select></td>
-						<td><input type="checkbox" name="area" value="dept_id"
+						<td><input type="checkbox" name="area" value="dept_cd"
 							onclick="dis_chg(this)">관리부서</input></td>
-						<td><select id="dept_id" name="dept_id" disabled>
+						<td><select id="dept_cd" name="dept_cd" disabled>
+									<option value=" ">--전체--
 								<c:forEach var="deptVO" items="${deptlist}">
 									<option value="${deptVO.dept_id}">${deptVO.dept_nm}</option>
 								</c:forEach>
@@ -47,10 +53,6 @@
 							onclick="dis_chg(this)">기안자</td>
 						<td><input type="text" name="draft_emp_id"
 								id="draft_emp_id" size="30" disabled></td>
-						<td><input type="checkbox" name="area" value="app_emp_id"
-							onclick="dis_chg(this)">결재자</td>
-						<td><input type="text" name="app_emp_id"
-							id="app_emp_id" size="30" disabled></td>
 						<td><input type="checkbox" name="area" value="draft_dt"
 							onclick="dis_chg(this)">제안일</td>
 						<td><input type="text" name="draft_s_dt" id="draft_s_dt"
@@ -162,32 +164,57 @@
 				$('#searchBtn').on(
 						"click",
 						function(event) {
-
+							var s_dt;
+							var e_dt;
+							var s_app_id;
+							var s_draft_emp_id;
+							if ($('#draft_s_dt').val() == ""){
+								s_dt = "0001/01/01";
+							} else {
+								s_dt = $('#draft_s_dt').val();								
+							}
+							if ($('#draft_e_dt').val() == ""){
+								e_dt = "9999/12/31";
+							} else {
+								e_dt = $('#draft_e_dt').val();								
+							}
+							if ($('#search_app_id').val() == ""){
+								s_app_id = " ";
+							} else {
+								s_app_id = $('#search_app_id').val();								
+							}
+							if ($('#draft_emp_id').val() == ""){
+								s_draft_emp_id = " ";
+							} else {
+								s_draft_emp_id = $('#draft_emp_id').val();								
+							}
+							
+						
 							self.location = "listr"
 									+ '${pageMaker.makeQuery(1)}'
 									+ "&searchType=r"
-									+ "&app_pro_cd="+
-									+ "&search_app_id=" + $('#keywordInput').val();
-									+ "&app_type=" + $('#keywordInput').val();
-									+ "&draft_emp_id=" + $('#keywordInput').val();
-									+ "&app_emp_id=" + $('#keywordInput').val();
-									+ "&draft_s_dt=" + $('#keywordInput').val();
-									+ "&draft_e_dt=" + $('#keywordInput').val();
+									+ "&app_pro_cd=%20"
+									+ "&search_app_id=" + s_app_id
+									+ "&app_type=" + $('#app_type').val()
+									+ "&dept_cd=" + $('#dept_cd').val()
+									+ "&draft_emp_id=" + s_draft_emp_id
+									+ "&app_emp_id=k15010201" 
+									+ "&draft_s_dt=" + s_dt
+									+ "&draft_e_dt=" + e_dt;
 
 						});				
 			});
+	
 	function dis_chg(obj) {
 		if (obj.checked == true) {
 			if ($(obj).val() == "app_id") {
-				$('#app_id').attr("disabled", false);
+				$('#search_app_id').attr("disabled", false);
 			} else if ($(obj).val() == "app_type_cd") {
-				$('#app_type_cd').attr("disabled", false);
-			} else if ($(obj).val() == "dept_id") {
-				$('#dept_id').attr("disabled", false);
+				$('#app_type').attr("disabled", false);
+			} else if ($(obj).val() == "dept_cd") {
+				$('#dept_cd').attr("disabled", false);
 			} else if ($(obj).val() == "draft_emp_id") {
 				$('#draft_emp_id').attr("disabled", false);
-			} else if ($(obj).val() == "app_emp_id") {
-				$('#app_emp_id').attr("disabled", false);
 			} else if ($(obj).val() == "draft_dt") {
 				$('#draft_s_dt').attr("disabled", false);
 				$('#draft_e_dt').attr("disabled", false);
@@ -195,15 +222,13 @@
 
 		} else if (obj.checked == false) {
 			if ($(obj).val() == "app_id") {
-				$('#app_id').attr("disabled", true);
+				$('#search_app_id').attr("disabled", true);
 			} else if ($(obj).val() == "app_type_cd") {
-				$('#app_type_cd').attr("disabled", true);
-			} else if ($(obj).val() == "dept_id") {
-				$('#dept_id').attr("disabled", true);
+				$('#app_type').attr("disabled", true);
+			} else if ($(obj).val() == "dept_cd") {
+				$('#dept_cd').attr("disabled", true);
 			} else if ($(obj).val() == "draft_emp_id") {
 				$('#draft_emp_id').attr("disabled", true);
-			} else if ($(obj).val() == "app_emp_id") {
-				$('#app_emp_id').attr("disabled", true);
 			} else if ($(obj).val() == "draft_dt") {
 				$('#draft_s_dt').attr("disabled", true);
 				$('#draft_e_dt').attr("disabled", true);

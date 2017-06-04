@@ -18,6 +18,8 @@ public interface ApprovalService {
 	public List<AppTypeVO> appty_select() throws Exception; 		//입력시 문서 종류 가져오기
 	public List<DeptVO> dept_select() throws Exception; 			//입력시 부서 가져오기 
 	public Emp_InfoVO einfo_select(String emp_id) throws Exception; //개인정보 가져오기
+
+	public void update(ApprovalVO approval) throws Exception;		//승인-부결
 	
 	public List<ApprovalVO> listSearchCriteria(ApprovalSearchVO search) throws Exception;
 	public int listSearchCount(ApprovalSearchVO search) throws Exception;

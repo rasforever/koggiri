@@ -121,4 +121,8 @@ public class ApprovalDAOImpl implements ApprovalDAO {
 
 	}
 
+	@Override
+	public void updateAPP(ApprovalVO vo) throws Exception {
+		session.update(namespace + ".updateAPP", vo);		
+	}
 }

@@ -24,6 +24,8 @@ public interface ApprovalDAO {
 
 	public Emp_InfoVO einfo_select(String emp_id) throws Exception; // 개인정보 가져오기
 
+	public void updateAPP(ApprovalVO vo) throws Exception; //승인-부결
+
 	public List<ApprovalVO> listSearch(ApprovalSearchVO search) throws Exception;
 
 	public int listSearchCount(ApprovalSearchVO search) throws Exception;

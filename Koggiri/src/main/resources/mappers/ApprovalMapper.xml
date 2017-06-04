@@ -59,11 +59,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         inner join emp ea
         on a.app_emp_id =	ea.emp_id        
         and a.DRAFT_EMP_ID = #{draft_emp_id}
-        and (a.app_pro_cd = #{app_pro_cd} or #{app_pro_cd} = #{app_pro_cd})
-        and (a.APP_TYPE_CD = #{app_type} or #{app_type} = #{app_type}) 
-        and (a.app_id =	#{search_app_id} or  #{search_app_id} = #{search_app_id})
-        and (a.APP_EMP_ID = #{app_emp_id} or #{app_emp_id} = #{app_emp_id}) 
-        and ((a.DRAFT_DT between	#{draft_s_dt} and #{draft_e_dt}) or #{draft_s_dt} = #{draft_s_dt})                   
+        and (a.app_pro_cd = #{app_pro_cd} or ' ' = #{app_pro_cd})
+        and (a.APP_TYPE_CD = #{app_type} or ' ' = #{app_type}) 
+        and (a.app_id =	#{search_app_id} or  ' ' = #{search_app_id})
+        and (a.APP_EMP_ID = #{app_emp_id} or ' ' = #{app_emp_id}) 
+        and a.DRAFT_DT between	#{draft_s_dt} and #{draft_e_dt}                       
         order by a.app_id desc
 		]]>
 	</select>
@@ -83,14 +83,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         inner join emp ea
         on a.app_emp_id =	ea.emp_id        
         and a.DRAFT_EMP_ID = #{draft_emp_id}
-        and (a.app_pro_cd = #{app_pro_cd} or #{app_pro_cd} = #{app_pro_cd})
-        and (a.APP_TYPE_CD = #{app_type} or #{app_type} = #{app_type}) 
-        and (a.app_id =	#{search_app_id} or  #{search_app_id} = #{search_app_id})
-        and (a.APP_EMP_ID = #{app_emp_id} or #{app_emp_id} = #{app_emp_id}) 
-        and ((a.DRAFT_DT between	#{draft_s_dt} and #{draft_e_dt}) or #{draft_s_dt} = #{draft_s_dt})          
+        and (a.app_pro_cd = #{app_pro_cd} or ' ' = #{app_pro_cd})
+        and (a.APP_TYPE_CD = #{app_type} or ' ' = #{app_type}) 
+        and (a.app_id =	#{search_app_id} or  ' ' = #{search_app_id})
+        and (a.APP_EMP_ID = #{app_emp_id} or ' ' = #{app_emp_id}) 
+        and a.DRAFT_DT between	#{draft_s_dt} and #{draft_e_dt}       
         order by a.app_id desc
 		]]>
-
 	</select>
 	
 	<select id="listrSearch" resultType="ApprovalVO">
@@ -114,12 +113,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         inner join emp ea
         on a.app_emp_id =	ea.emp_id        
         and a.APP_EMP_ID = #{app_emp_id}
-        and (a.app_pro_cd = #{app_pro_cd} or #{app_pro_cd} = #{app_pro_cd})
-        and (a.APP_TYPE_CD = #{app_type} or #{app_type} = #{app_type}) 
-        and (a.app_id =	#{search_app_id} or #{search_app_id} = #{search_app_id})
-        and (a.dept_id = #{dept_cd} or #{dept_cd} = #{dept_cd})
-        and (a.DRAFT_EMP_ID = #{draft_emp_id} or #{draft_emp_id} = #{draft_emp_id}) 
-        and ((a.DRAFT_DT between	#{draft_s_dt} and #{draft_e_dt}) or #{draft_s_dt} = #{draft_s_dt})        
+        and (a.app_pro_cd = #{app_pro_cd} or ' ' = #{app_pro_cd})
+        and (a.APP_TYPE_CD = #{app_type} or ' ' = #{app_type}) 
+        and (a.app_id =	#{search_app_id} or ' ' = #{search_app_id})
+        and (a.dept_id = #{dept_cd} or ' ' = #{dept_cd})
+        and (a.DRAFT_EMP_ID = #{draft_emp_id} or ' ' = #{draft_emp_id}) 
+        and a.DRAFT_DT between	#{draft_s_dt} and #{draft_e_dt}                      
         order by a.app_id desc
 		]]>
 	</select>
@@ -139,12 +138,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         inner join emp ea
         on a.app_emp_id =	ea.emp_id       
         and a.APP_EMP_ID = #{app_emp_id}
-        and (a.app_pro_cd = #{app_pro_cd} or #{app_pro_cd} = #{app_pro_cd})
-        and (a.APP_TYPE_CD = #{app_type} or #{app_type} = #{app_type}) 
-        and (a.app_id =	#{search_app_id} or #{search_app_id} = #{search_app_id})
-        and (a.dept_id = #{dept_cd} or #{dept_cd} = #{dept_cd})
-        and (a.DRAFT_EMP_ID = #{draft_emp_id} or #{draft_emp_id} = #{draft_emp_id}) 
-        and ((a.DRAFT_DT between	#{draft_s_dt} and #{draft_e_dt}) or #{draft_s_dt} = #{draft_s_dt})          
+        and (a.app_pro_cd = #{app_pro_cd} or ' ' = #{app_pro_cd})
+        and (a.APP_TYPE_CD = #{app_type} or ' ' = #{app_type}) 
+        and (a.app_id =	#{search_app_id} or ' ' = #{search_app_id})
+        and (a.dept_id = #{dept_cd} or ' ' = #{dept_cd})
+        and (a.DRAFT_EMP_ID = #{draft_emp_id} or ' ' = #{draft_emp_id}) 
+        and a.DRAFT_DT between	#{draft_s_dt} and #{draft_e_dt}            
         order by a.app_id desc
 		]]>
 
@@ -153,7 +152,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="read" parameterType="String" resultType="ApprovalVO">
 		select
 		a.app_id as app_id, at.app_type_nm as app_type_nm, d.dept_nm as
-		dept_nm, ap.app_pro_nm as app_pro_nm,
+		dept_nm, ap.app_pro_nm as app_pro_nm,  a.app_pro_cd as app_pro_cd,
 		ed.emp_nm as draft_emp_nm,
 		a.draft_emp_id as draft_emp_id, ea.emp_nm as
 		app_emp_nm, a.app_emp_id
@@ -185,9 +184,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		app_emp_id = #{app_emp_id},
 		app_title = #{app_title},
 		app_context =
-		#{app_context}, draft_dt =
-		#{draft_dt},
-		chg_emp_id = #{chg_emp_id},
+		#{app_context}, 
+		chg_emp_id = #{draft_emp_id},
+		chg_sysdt = SYSDATE where
+		app_id = #{app_id}
+	</update>
+	
+	<update id="updateAPP">
+		update approval set
+		app_pro_cd = #{app_pro_cd},
+		chg_emp_id = app_emp_id,
+		APP_DT = SYSDATE,
 		chg_sysdt = SYSDATE where
 		app_id = #{app_id}
 	</update>

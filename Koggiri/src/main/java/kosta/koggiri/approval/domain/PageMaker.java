@@ -83,56 +83,31 @@ public class PageMaker {
 	}
 
 	public String makeSearch(int page) {
-		
-		if (search.getApp_pro_cd() == null || search.getApp_pro_cd().equals("")){
-			search.setApp_pro_cd("%20");
-		} 
-		if (search.getApp_type() == null || search.getApp_type().equals("")){
-			search.setApp_type("%20");				
-		} 
-		if (search.getSearch_app_id() == null || search.getSearch_app_id().equals("")){
-			search.setSearch_app_id("%20");
-		}
-		if (search.getApp_emp_id() == null || search.getApp_emp_id().equals("")){
-			search.setApp_emp_id("%20");
-		} 
-		if (search.getDraft_e_dt() == null || search.getDraft_e_dt().equals("")){
-			search.setDraft_e_dt("%20");
-		} 
-		if (search.getDraft_s_dt() == null || search.getDraft_s_dt().equals("")){
-			search.setDraft_s_dt("%20");
-		}
-		if (search.getDraft_emp_id() == null || search.getDraft_emp_id().equals("")){
-			search.setDraft_emp_id("%20");
-		} 
-		if (search.getDept_cd() == null || search.getDept_cd().equals("")){
-			search.setDept_cd("%20");
-		} 
 
 		UriComponents uriComponents = UriComponentsBuilder.newInstance().queryParam("page", page)
 				.queryParam("perPageNum", search.getPerPageNum())
-				.queryParam("searchType", ((ApprovalSearchVO) search).getSearchType())
-				.queryParam("app_pro_cd", ((ApprovalSearchVO) search).getApp_pro_cd())
-				.queryParam("search_app_id", ((ApprovalSearchVO) search).getSearch_app_id())
-				.queryParam("app_type", ((ApprovalSearchVO) search).getApp_type())
-				.queryParam("dept_cd", ((ApprovalSearchVO) search).getDept_cd())
-				.queryParam("draft_emp_id", ((ApprovalSearchVO) search).getDraft_emp_id())
-				.queryParam("app_emp_id", ((ApprovalSearchVO) search).getApp_emp_id())
-				.queryParam("draft_s_dt", ((ApprovalSearchVO) search).getDraft_s_dt())
-				.queryParam("draft_e_dt", ((ApprovalSearchVO) search).getDraft_e_dt()).build();
+				.queryParam("searchType", encoding(((ApprovalSearchVO) search).getSearchType()))
+				.queryParam("app_pro_cd", encoding(((ApprovalSearchVO) search).getApp_pro_cd()))
+				.queryParam("search_app_id", encoding(((ApprovalSearchVO) search).getSearch_app_id()))
+				.queryParam("app_type", encoding(((ApprovalSearchVO) search).getApp_type()))
+				.queryParam("dept_cd", encoding(((ApprovalSearchVO) search).getDept_cd()))
+				.queryParam("draft_emp_id", encoding(((ApprovalSearchVO) search).getDraft_emp_id()))
+				.queryParam("app_emp_id", encoding(((ApprovalSearchVO) search).getApp_emp_id()))
+				.queryParam("draft_s_dt", encoding(((ApprovalSearchVO) search).getDraft_s_dt()))
+				.queryParam("draft_e_dt", encoding(((ApprovalSearchVO) search).getDraft_e_dt())).build();
 
 		return uriComponents.toUriString();
 	}
 
 	private String encoding(String keyword) {
 		if (keyword == null || keyword.trim().length() == 0) {
-			return "";
+			return "%20";
 		}
 
 		try {
 			return URLEncoder.encode(keyword, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
-			return "";
+			return "%20";
 		}
 	}
 }

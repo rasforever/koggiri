@@ -153,11 +153,8 @@ public class ApprovalController {
 		rttr.addAttribute("draft_s_dt", search.getDraft_s_dt());
 		rttr.addAttribute("draft_e_dt", search.getDraft_e_dt());	
 		rttr.addFlashAttribute("msg", "SUCCESS");
-		if( search.getSearchType().equals("s")){
-			return "redirect:/approval/lists";
-		}else{
-			return "redirect:/approval/listr";			
-		}
+		
+		return "redirect:/approval/lists";
 	}
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
@@ -185,11 +182,28 @@ public class ApprovalController {
 		rttr.addAttribute("draft_s_dt", search.getDraft_s_dt());
 		rttr.addAttribute("draft_e_dt", search.getDraft_e_dt());	
 		rttr.addFlashAttribute("msg", "SUCCESS");
-		if( search.getSearchType().equals("s")){
-			return "redirect:/approval/lists";
-		}else{
-			return "redirect:/approval/listr";			
-		}
+		return "redirect:/approval/lists";
+	}
+	
+	@RequestMapping(value = "/updatePage", method = RequestMethod.POST)
+	public String update(ApprovalVO approval, ApprovalSearchVO search, RedirectAttributes rttr)
+			throws Exception {
+
+		service.update(approval);
+		rttr.addAttribute("page", search.getPage());
+		rttr.addAttribute("perPageNum", search.getPerPageNum());
+		rttr.addAttribute("searchType", search.getSearchType());
+		rttr.addAttribute("app_pro_cd", search.getApp_pro_cd());
+		rttr.addAttribute("search_app_id", search.getSearch_app_id());
+		rttr.addAttribute("app_type", search.getApp_type());
+		rttr.addAttribute("dept_cd", search.getDept_cd());
+		rttr.addAttribute("draft_emp_id", search.getDraft_emp_id());
+		rttr.addAttribute("app_emp_id", search.getApp_emp_id());
+		rttr.addAttribute("draft_s_dt", search.getDraft_s_dt());
+		rttr.addAttribute("draft_e_dt", search.getDraft_e_dt());	
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		
+		return "redirect:/approval/listr";
 	}
 
 }
