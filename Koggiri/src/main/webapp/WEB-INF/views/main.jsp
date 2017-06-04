@@ -79,9 +79,7 @@ int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
 </div>
 
 <!-- 본문 시작 -->
-     <!-- ************************************* -->
-<a class="log_out" href="/login/logout">로그아웃</a>
-     <!-- ************************************* -->
+
  <h2 class="hidden">본문</h2>
       <div class="container_wrap">
          <!-- container : s -->
@@ -95,7 +93,8 @@ int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
       
      <!-- ************************************* -->
       <div class="customer_center"> 
-      <a href="#"> ${mem_id}</a>
+      <ul><il><a href="#"> ${mem_id}</a></il></ul>
+      
       </div>
      <!-- ************************************* --> 
      
