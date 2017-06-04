@@ -28,6 +28,14 @@
 
 
 				<div class='box-body'>
+				<table>
+					<tr>	
+						<button id='AllsearchBtn'>전체</button>	
+						<button id='a_searchBtn'>기안중</button>
+						<button id='c_searchBtn'>완료</button>
+						<button id='n_searchBtn'>부결</button>
+						<input type='hidden' name='app_pro_cd' id='app_pro_cd' value="${search.app_pro_cd}">
+					</tr>
 					<tr>
 						<td><input type="checkbox" name="chk_app_id" id="chk_app_id" value="app_id"
 							onclick="dis_chg(this)">결재문서번호</input></td>
@@ -55,6 +63,7 @@
 							type="text" name="draft_e_dt" id="draft_e_dt" class="datepicker"
 							disabled size="14"></td>
 					</tr>					
+				</table>
 					<button id='searchBtn'>Search</button>
 				</div>
 			</div>
@@ -158,6 +167,53 @@
 				$('#searchBtn').on(
 						"click",
 						function(event) {
+							var ck_app_type_cd;
+							var s_dt;
+							var e_dt;
+							var s_app_id;
+							var s_app_emp_id;
+							if ($('#draft_s_dt').val() == ""){
+								s_dt = "0001/01/01";
+							} else {
+								s_dt = $('#draft_s_dt').val();								
+							}
+							if ($('#draft_e_dt').val() == ""){
+								e_dt = "9999/12/31";
+							} else {
+								e_dt = $('#draft_e_dt').val();								
+							}
+							if ($('#search_app_id').val() == ""){
+								s_app_id = " ";
+							} else {
+								s_app_id = $('#search_app_id').val();								
+							}
+							if ($('#app_emp_id').val() == ""){
+								s_app_emp_id = " ";
+							} else {
+								s_app_emp_id = $('#app_emp_id').val();								
+							}
+							if ($('#app_pro_cd').val() == ""){
+								ck_app_type_cd = "%20";
+							} else {
+								ck_app_type_cd = $('#app_pro_cd').val();								
+							}
+							
+							self.location = "lists"
+									+ '${pageMaker.makeQuery(1)}'
+									+ "&searchType=s"
+									+ "&app_pro_cd=" + ck_app_type_cd
+									+ "&search_app_id=" + s_app_id
+									+ "&app_type=" + $('#app_type').val()
+									+ "&draft_emp_id=k15010201"
+									+ "&app_emp_id=" + s_app_emp_id
+									+ "&draft_s_dt=" + s_dt
+									+ "&draft_e_dt=" + e_dt;
+
+						});
+				$('#AllsearchBtn').on(
+						"click",
+						function(event) {
+							var ck_app_type_cd;
 							var s_dt;
 							var e_dt;
 							var s_app_id;
@@ -183,6 +239,7 @@
 								s_app_emp_id = $('#app_emp_id').val();								
 							}
 							
+							
 							self.location = "lists"
 									+ '${pageMaker.makeQuery(1)}'
 									+ "&searchType=s"
@@ -195,6 +252,136 @@
 									+ "&draft_e_dt=" + e_dt;
 
 						});
+
+				$('#a_searchBtn').on(
+						"click",
+						function(event) {
+							var ck_app_type_cd;
+							var s_dt;
+							var e_dt;
+							var s_app_id;
+							var s_app_emp_id;
+							if ($('#draft_s_dt').val() == ""){
+								s_dt = "0001/01/01";
+							} else {
+								s_dt = $('#draft_s_dt').val();								
+							}
+							if ($('#draft_e_dt').val() == ""){
+								e_dt = "9999/12/31";
+							} else {
+								e_dt = $('#draft_e_dt').val();								
+							}
+							if ($('#search_app_id').val() == ""){
+								s_app_id = " ";
+							} else {
+								s_app_id = $('#search_app_id').val();								
+							}
+							if ($('#app_emp_id').val() == ""){
+								s_app_emp_id = " ";
+							} else {
+								s_app_emp_id = $('#app_emp_id').val();								
+							}
+							
+							
+							self.location = "lists"
+									+ '${pageMaker.makeQuery(1)}'
+									+ "&searchType=s"
+									+ "&app_pro_cd=0"
+									+ "&search_app_id=" + s_app_id
+									+ "&app_type=" + $('#app_type').val()
+									+ "&draft_emp_id=k15010201"
+									+ "&app_emp_id=" + s_app_emp_id
+									+ "&draft_s_dt=" + s_dt
+									+ "&draft_e_dt=" + e_dt;
+
+						});
+
+				$('#c_searchBtn').on(
+						"click",
+						function(event) {
+							var ck_app_type_cd;
+							var s_dt;
+							var e_dt;
+							var s_app_id;
+							var s_app_emp_id;
+							if ($('#draft_s_dt').val() == ""){
+								s_dt = "0001/01/01";
+							} else {
+								s_dt = $('#draft_s_dt').val();								
+							}
+							if ($('#draft_e_dt').val() == ""){
+								e_dt = "9999/12/31";
+							} else {
+								e_dt = $('#draft_e_dt').val();								
+							}
+							if ($('#search_app_id').val() == ""){
+								s_app_id = " ";
+							} else {
+								s_app_id = $('#search_app_id').val();								
+							}
+							if ($('#app_emp_id').val() == ""){
+								s_app_emp_id = " ";
+							} else {
+								s_app_emp_id = $('#app_emp_id').val();								
+							}
+							
+							
+							self.location = "lists"
+									+ '${pageMaker.makeQuery(1)}'
+									+ "&searchType=s"
+									+ "&app_pro_cd=1"
+									+ "&search_app_id=" + s_app_id
+									+ "&app_type=" + $('#app_type').val()
+									+ "&draft_emp_id=k15010201"
+									+ "&app_emp_id=" + s_app_emp_id
+									+ "&draft_s_dt=" + s_dt
+									+ "&draft_e_dt=" + e_dt;
+
+						});
+
+				$('#n_searchBtn').on(
+						"click",
+						function(event) {
+							var ck_app_type_cd;
+							var s_dt;
+							var e_dt;
+							var s_app_id;
+							var s_app_emp_id;
+							if ($('#draft_s_dt').val() == ""){
+								s_dt = "0001/01/01";
+							} else {
+								s_dt = $('#draft_s_dt').val();								
+							}
+							if ($('#draft_e_dt').val() == ""){
+								e_dt = "9999/12/31";
+							} else {
+								e_dt = $('#draft_e_dt').val();								
+							}
+							if ($('#search_app_id').val() == ""){
+								s_app_id = " ";
+							} else {
+								s_app_id = $('#search_app_id').val();								
+							}
+							if ($('#app_emp_id').val() == ""){
+								s_app_emp_id = " ";
+							} else {
+								s_app_emp_id = $('#app_emp_id').val();								
+							}
+							
+							
+							self.location = "lists"
+									+ '${pageMaker.makeQuery(1)}'
+									+ "&searchType=s"
+									+ "&app_pro_cd=2"
+									+ "&search_app_id=" + s_app_id
+									+ "&app_type=" + $('#app_type').val()
+									+ "&draft_emp_id=k15010201"
+									+ "&app_emp_id=" + s_app_emp_id
+									+ "&draft_s_dt=" + s_dt
+									+ "&draft_e_dt=" + e_dt;
+
+						});
+
 
 			});
 
