@@ -6,12 +6,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.task.domain.TaskPageMaker;
+import kosta.koggiri.task.domain.TaskSearchCriteria;
+import kosta.koggiri.approval.domain.PageMaker;
+import kosta.koggiri.approval.domain.SearchCriteria;
+import kosta.koggiri.document.domain.Doc_PageMaker;
+import kosta.koggiri.document.domain.Doc_SearchCriteria;
 import kosta.koggiri.task.domain.TaskCriteria;
 import kosta.koggiri.task.domain.TaskVO;
 
@@ -46,22 +52,24 @@ public class TaskController {
 	      rttr.addFlashAttribute("msg","SUCCESS");
 	      
 	    // return "/task/success";
-	      return "redirect:/task/listAll";
+	      return "redirect:/task/list";
 
 	   }
-	   
-	   @RequestMapping(value="/listAll", method= RequestMethod.GET)
-	   public void listAll(Model model)throws Exception{
-		   
-		   logger.info("show all list....................");
-		   System.out.println(service.listAll().get(0));
-		   model.addAttribute("list", service.listAll());
-	   }
+	
 	   
 	   @RequestMapping(value="/read", method= RequestMethod.GET)
 	   public void read(@RequestParam("ta_seq")int ta_seq, Model model)
 	   throws Exception{
 		   
+		   
+		   model.addAttribute(service.read(ta_seq));
+	   }
+	   
+	   @RequestMapping(value="/readPage", method=RequestMethod.GET)
+	   public void read(@RequestParam("ta_seq") int ta_seq,
+			   @ModelAttribute("cri") TaskCriteria cri,
+			   Model model)throws Exception{
+		 
 		   model.addAttribute(service.read(ta_seq));
 	   }
 	   
@@ -71,9 +79,26 @@ public class TaskController {
 		   
 		   service.remove(ta_seq);
 		   
+		   
 		   rttr.addFlashAttribute("msg", "SUCCESS");
 		   
-		   return "redirect:/task/listAll";
+		   return "redirect:/task/list";
+	   }
+	   
+	   @RequestMapping(value="/removePage", method=RequestMethod.POST)
+	   public String remove(@RequestParam("ta_seq") int ta_seq,
+			   TaskCriteria cri, 
+			   RedirectAttributes rttr)throws Exception{
+		   
+		   
+		
+		   service.remove(ta_seq);
+		   
+		   rttr.addAttribute("page",cri.getPage());
+		   rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		   rttr.addFlashAttribute("msg", "SUCCESS");
+		   
+		   return "redirect:/task/list";
 	   }
 	   
 	   @RequestMapping(value="/modify", method= RequestMethod.GET)
@@ -91,30 +116,43 @@ public class TaskController {
 		   service.modify(task);
 		   rttr.addFlashAttribute("msg", "SUCCESS");
 		   
-		   return "redirect:/task/listAll";
+		   return "redirect:/task/list";
 	   }
 	   
-	   @RequestMapping(value ="/listCri", method= RequestMethod.GET)
-	   public void listAll(TaskCriteria cri, Model model)throws Exception{
+	   @RequestMapping(value="/modifyPage", method= RequestMethod.GET)
+	   public void modifyPagingGET(@RequestParam("ta_seq") int ta_seq,
+			   @ModelAttribute("cri") TaskCriteria cri,
+			   Model model)throws Exception{
 		   
-		   logger.info("show list Page with Criteria..........");
-		   
-		   model.addAttribute("list", service.listCriteria(cri));
-
+		   model.addAttribute(service.read(ta_seq));
 	   }
 	   
-	   @RequestMapping(value="/listPage", method= RequestMethod.GET)
-	   public void listPage(TaskCriteria cri, Model model)throws Exception{
+	   @RequestMapping(value="/modifyPage", method=RequestMethod.POST)
+	   public String modifyPagingPOST(TaskVO task, TaskCriteria cri, RedirectAttributes rttr)
+	   throws Exception{
 		   
-		   logger.info(cri.toString());
+		   service.modify(task);
 		   
-		   model.addAttribute("list",service.listCriteria(cri));
-		   TaskPageMaker pageMaker = new TaskPageMaker();
-		   pageMaker.setCri(cri);
-		   pageMaker.setTotalCount(36);
+		   rttr.addAttribute("page",cri.getPage());
+		   rttr.addAttribute("perPageNum",cri.getPerPageNum());
+		   rttr.addFlashAttribute("msg","SUCCESS");
 		   
-		   model.addAttribute("pageMaker",pageMaker);
-
+		   return "redirect:/task/list";
 	   }
+
+		@RequestMapping(value="/list", method=RequestMethod.GET)
+		public void listPage(@ModelAttribute("cri") TaskSearchCriteria cri, Model model)throws Exception{
+			
+			//model.addAttribute("list", service.listCriteria(cri));
+			model.addAttribute("list", service.listSearchCriteria(cri));
+			
+			TaskPageMaker pageMaker = new TaskPageMaker();
+			pageMaker.setCri(cri);
+			//pageMaker.setTotalCount(service.listCountCriteria(cri));
+			pageMaker.setTotalCount(service.listSearchCount(cri));
+			
+			model.addAttribute("pageMaker", pageMaker);
+			
+		}
 
 }

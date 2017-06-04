@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Repository;
 
 import kosta.koggiri.task.domain.TaskCriteria;
+import kosta.koggiri.task.domain.TaskSearchCriteria;
 import kosta.koggiri.task.domain.TaskVO;
 import kosta.koggiri.task.persistence.TaskDAO;
 
@@ -39,23 +40,18 @@ public class TaskServiceImpl implements TaskService {
 	}
 
 	@Override
-	public List<TaskVO> listAll() throws Exception {
-		return dao.listAll();
-	}
-
-    @Override
-	public List<TaskVO> listCriteria(TaskCriteria cri) throws Exception {
-		return dao.listCriteria(cri);
-	}
-
-	@Override
-	public List<TaskVO> listPage(int page) throws Exception {
-		return dao.listPage(page);
-	}
-
-	@Override
 	public int listCountCriteria(TaskCriteria cri) throws Exception {
 		return dao.countPaging(cri);
+	}
+
+	@Override
+	public List<TaskVO> listSearchCriteria(TaskSearchCriteria cri) throws Exception {
+		return dao.listSearch(cri);
+	}
+
+	@Override
+	public int listSearchCount(TaskSearchCriteria cri) throws Exception {
+		return dao.listSearchCount(cri);
 	}
 	
 	

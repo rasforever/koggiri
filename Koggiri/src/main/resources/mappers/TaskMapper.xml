@@ -71,5 +71,48 @@ order by ta_seq desc, ta_regdate desc
     ]]>
     
 	</select>
+	
+
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and f_title like '%'|| #{keyword}||'%'
+			</if>
+			<if test="searchType == 'c'.toString()">
+				and f_content like '%'|| #{keyword}||'%'
+			</if>
+			<if test="searchType == 'w'.toString()">
+				and f_emp_id like '%'|| #{keyword}||'%'
+
+
+			</if>
+		</if>
+	</sql>
+
+	<select id="listSearch" resultType="TaskVO" parameterType="TaskSearchCriteria">
+   <![CDATA[  
+     select *
+     from task
+     where ta_seq > 0
+   ]]>
+   
+   <include refid="search"></include>
+     
+   <![CDATA[    
+     order by ta_seq desc     
+   ]]>
+   
+	</select>
+
+
+	<select id="listSearchCount" resultType="int" parameterType="TaskSearchCriteria">
+   <![CDATA[  
+     select count(ta_seq) 
+     from task 
+     where ta_seq > 0 
+   ]]>
+   
+   <include refid="search"></include>
+	</select>
 
 </mapper>

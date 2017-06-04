@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kosta.koggiri.task.domain.TaskCriteria;
+import kosta.koggiri.task.domain.TaskSearchCriteria;
 import kosta.koggiri.task.domain.TaskVO;
 
 @Repository
@@ -69,6 +70,17 @@ public int countPaging(TaskCriteria cri) throws Exception {
 	
 	
 	return session.selectOne(namespace+".countPaging");
+}
+
+@Override
+public List<TaskVO> listSearch(TaskSearchCriteria cri) throws Exception {
+	return session.selectList(namespace + ".listSearch", cri,
+			new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+}
+
+@Override
+public int listSearchCount(TaskSearchCriteria cri) throws Exception {
+	return session.selectOne(namespace + ".listSearchCount", cri);
 }
 
 

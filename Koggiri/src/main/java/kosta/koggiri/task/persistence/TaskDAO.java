@@ -2,7 +2,10 @@ package kosta.koggiri.task.persistence;
 
 import java.util.List;
 
+import kosta.koggiri.document.domain.Doc_BoardVO;
+import kosta.koggiri.document.domain.Doc_SearchCriteria;
 import kosta.koggiri.task.domain.TaskCriteria;
+import kosta.koggiri.task.domain.TaskSearchCriteria;
 import kosta.koggiri.task.domain.TaskVO;
 
 public interface TaskDAO {
@@ -22,5 +25,9 @@ public interface TaskDAO {
    public List<TaskVO> listCriteria(TaskCriteria cri)throws Exception;
    
    public int countPaging(TaskCriteria cri)throws Exception;
+   
+	public List<TaskVO> listSearch(TaskSearchCriteria cri)throws Exception;
+	
+	public int listSearchCount(TaskSearchCriteria cri)throws Exception;
 
 }
