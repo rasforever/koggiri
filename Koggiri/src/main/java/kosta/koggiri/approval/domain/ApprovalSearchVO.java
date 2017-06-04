@@ -3,7 +3,6 @@ package kosta.koggiri.approval.domain;
 import java.util.Arrays;
 
 public class ApprovalSearchVO extends Criteria{
-	private String[] area;
 	private String searchType;				//내가받은-보낸
 	private String app_pro_cd;				//문서상태
 	private String search_app_id; 			//문서번호 검색
@@ -13,12 +12,7 @@ public class ApprovalSearchVO extends Criteria{
 	private String app_emp_id;				//결재자
 	private String draft_s_dt;				//작성시작일
 	private String draft_e_dt;				//작성종료일
-	public String[] getArea() {
-		return area;
-	}
-	public void setArea(String[] area) {
-		this.area = area;
-	}
+	
 	public String getSearchType() {
 		return searchType;
 	}
@@ -76,7 +70,7 @@ public class ApprovalSearchVO extends Criteria{
 	}
 	@Override
 	public String toString() {
-		return "ApprovalSearchVO [area=" + Arrays.toString(area) + ", searchType=" + searchType + ", app_pro_cd="
+		return "ApprovalSearchVO [searchType=" + searchType + ", app_pro_cd="
 				+ app_pro_cd + ", search_app_id=" + search_app_id + ", app_type=" + app_type + ", dept_cd=" + dept_cd
 				+ ", draft_emp_id=" + draft_emp_id + ", app_emp_id=" + app_emp_id + ", draft_s_dt=" + draft_s_dt
 				+ ", draft_e_dt=" + draft_e_dt + "]";

@@ -43,7 +43,7 @@ public class ApprovalController {
 		service.regist(approval);
 		rttr.addFlashAttribute("msg", "SUCCESS");
 
-		return "redirect:/approval/list";
+		return "redirect:/approval/lists";
 	}
 	
 	// LIST 보낸 결재 조회
@@ -53,6 +53,28 @@ public class ApprovalController {
 
 			model.addAttribute("applist", service.appty_select());
 			model.addAttribute("deptlist", service.dept_select());
+			search.setDraft_emp_id("k15010201");	
+			search.setSearchType("s");		
+	      
+			if (search.getApp_pro_cd() == null){
+				search.setApp_pro_cd(" ");
+			} 
+			if (search.getApp_type() == null){
+				search.setApp_type(" ");				
+			} 
+			if (search.getSearch_app_id() == null){
+				search.setSearch_app_id(" ");
+			}
+			if (search.getApp_emp_id() == null){
+				search.setApp_emp_id(" ");
+			} 
+			if (search.getDraft_s_dt() == null){
+				search.setDraft_s_dt("0001/01/01");
+			} 
+			if (search.getDraft_e_dt() == null){
+				search.setDraft_e_dt("9999/12/31");
+			}			 
+			
 			model.addAttribute("list", service.listSearchCriteria(search));
 
 			PageMaker pageMaker = new PageMaker();
@@ -68,6 +90,33 @@ public class ApprovalController {
 	public void listrPage(@ModelAttribute("search") ApprovalSearchVO search, Model model) throws Exception {
 		logger.info(search.toString());
 
+		model.addAttribute("applist", service.appty_select());
+		model.addAttribute("deptlist", service.dept_select());
+		search.setApp_emp_id("k15010201");	
+		search.setSearchType("r");
+      
+		if (search.getApp_pro_cd() == null){
+			search.setApp_pro_cd(" ");
+		} 
+		if (search.getApp_type() == null){
+			search.setApp_type(" ");				
+		} 
+		if (search.getSearch_app_id() == null){
+			search.setSearch_app_id(" ");
+		}
+		if (search.getDraft_emp_id() == null){
+			search.setDraft_emp_id(" ");
+		} 
+		if (search.getDept_cd() == null){
+			search.setDept_cd(" ");
+		} 
+		if (search.getDraft_s_dt() == null){
+			search.setDraft_s_dt("0001/01/01");
+		} 
+		if (search.getDraft_e_dt() == null){
+			search.setDraft_e_dt("9999/12/31");
+		}					 
+		
 		model.addAttribute("list", service.listSearchCriteria(search));
 
 		PageMaker pageMaker = new PageMaker();
@@ -95,8 +144,20 @@ public class ApprovalController {
 		rttr.addAttribute("page", search.getPage());
 		rttr.addAttribute("perPageNum", search.getPerPageNum());
 		rttr.addAttribute("searchType", search.getSearchType());
+		rttr.addAttribute("app_pro_cd", search.getApp_pro_cd());
+		rttr.addAttribute("search_app_id", search.getSearch_app_id());
+		rttr.addAttribute("app_type", search.getApp_type());
+		rttr.addAttribute("dept_cd", search.getDept_cd());
+		rttr.addAttribute("draft_emp_id", search.getDraft_emp_id());
+		rttr.addAttribute("app_emp_id", search.getApp_emp_id());
+		rttr.addAttribute("draft_s_dt", search.getDraft_s_dt());
+		rttr.addAttribute("draft_e_dt", search.getDraft_e_dt());	
 		rttr.addFlashAttribute("msg", "SUCCESS");
-		return "redirect:/approval/list";
+		if( search.getSearchType().equals("s")){
+			return "redirect:/approval/lists";
+		}else{
+			return "redirect:/approval/listr";			
+		}
 	}
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
@@ -115,9 +176,20 @@ public class ApprovalController {
 		rttr.addAttribute("page", search.getPage());
 		rttr.addAttribute("perPageNum", search.getPerPageNum());
 		rttr.addAttribute("searchType", search.getSearchType());
+		rttr.addAttribute("app_pro_cd", search.getApp_pro_cd());
+		rttr.addAttribute("search_app_id", search.getSearch_app_id());
+		rttr.addAttribute("app_type", search.getApp_type());
+		rttr.addAttribute("dept_cd", search.getDept_cd());
+		rttr.addAttribute("draft_emp_id", search.getDraft_emp_id());
+		rttr.addAttribute("app_emp_id", search.getApp_emp_id());
+		rttr.addAttribute("draft_s_dt", search.getDraft_s_dt());
+		rttr.addAttribute("draft_e_dt", search.getDraft_e_dt());	
 		rttr.addFlashAttribute("msg", "SUCCESS");
-
-		return "redirect:/approval/list";
+		if( search.getSearchType().equals("s")){
+			return "redirect:/approval/lists";
+		}else{
+			return "redirect:/approval/listr";			
+		}
 	}
 
 }

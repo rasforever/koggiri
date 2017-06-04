@@ -18,8 +18,6 @@ public interface ApprovalDAO {
 
 	public void delete(String app_id) throws Exception;
 
-	public List<ApprovalVO> listAll() throws Exception;
-
 	public List<AppTypeVO> appty_select() throws Exception; // 입력시 문서 종류 가져오기
 
 	public List<DeptVO> dept_select() throws Exception; // 입력시 부서 가져오기

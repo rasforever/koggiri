@@ -49,11 +49,6 @@ public class ApprovalDAOImpl implements ApprovalDAO {
 	}
 
 	@Override
-	public List<ApprovalVO> listAll() throws Exception {
-		return session.selectList(namespace + ".listAll");
-	}
-
-	@Override
 	public List<AppTypeVO> appty_select() throws Exception {
 		return session.selectList(namespace + ".appty_select");
 	}
@@ -69,14 +64,28 @@ public class ApprovalDAOImpl implements ApprovalDAO {
 	}
 
 	@Override
-	public List<ApprovalVO> listSearch(ApprovalSearchVO search) throws Exception {
-		return session.selectList(namespace + ".listSearch", search,
-				new RowBounds(search.getPageStart(), search.getPerPageNum()));
+	public List<ApprovalVO> listSearch(ApprovalSearchVO search) throws Exception {	
+		if(search.getSearchType().equals("s")){
+			return session.selectList(namespace + ".listsSearch", search,
+					new RowBounds(search.getPageStart(), search.getPerPageNum()));			
+		}else if (search.getSearchType().equals("r")){
+			return session.selectList(namespace + ".listrSearch", search,
+					new RowBounds(search.getPageStart(), search.getPerPageNum()));			
+		}else {
+			return session.selectList(namespace + ".listsSearch", search,
+					new RowBounds(search.getPageStart(), search.getPerPageNum()));	
+		}
 	}
 
 	@Override
 	public int listSearchCount(ApprovalSearchVO search) throws Exception {
-		return session.selectOne(namespace + ".listSearchCount", search);
+		if(search.getSearchType().equals("s")){
+			return session.selectOne(namespace + ".listsSearchCount", search);
+		}else if (search.getSearchType().equals("r")){
+			return session.selectOne(namespace + ".listrSearchCount", search);
+		}else {
+			return session.selectOne(namespace + ".listsSearchCount", search);
+		}
 	}
 
 	@Override

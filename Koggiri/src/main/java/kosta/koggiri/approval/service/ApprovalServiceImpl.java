@@ -68,12 +68,7 @@ public class ApprovalServiceImpl implements ApprovalService {
 		dao.deleteAttach(app_id);
 		dao.delete(app_id);
 	}
-
-	@Override
-	public List<ApprovalVO> listAll() throws Exception {
-		return dao.listAll();
-	}
-
+	
 	@Override
 	public List<AppTypeVO> appty_select() throws Exception {
 		return dao.appty_select();
@@ -103,7 +98,5 @@ public class ApprovalServiceImpl implements ApprovalService {
 	public List<String> getAttach(String emp_id) throws Exception {
 		return dao.getAttach(emp_id);
 	}
-
-	
 
 }

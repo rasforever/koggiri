@@ -65,7 +65,7 @@
 										value="${einfo.dept_nm }" disabled></td>
 									<th>직급</th>
 									<td><input type="text" name="pos_nm"
-										"${einfo.pos_nm }" disabled></td>
+										value="${einfo.pos_nm }" disabled></td>
 								</tr>
 								<tr>
 									<th>기안일</th>

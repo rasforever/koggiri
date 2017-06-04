@@ -32,26 +32,14 @@
 							size="30" disabled></input></td>
 						<td><input type="checkbox" name="area" value="app_type_cd"
 							onclick="dis_chg(this)">결재구분</input></td>
-						<td><select id="app_type_cd" name="app_type_cd" disabled>
+						<td><select id="app_type" name="app_type" disabled>
 								<c:forEach var="apptypeVO" items="${applist}">
 									<option value="${apptypeVO.app_type_cd}">${apptypeVO.app_type_nm}
 									</option>
 								</c:forEach>
-						</select></td>
-						<td><input type="checkbox" name="area" value="dept_id"
-							onclick="dis_chg(this)">관리부서</input></td>
-						<td><select id="dept_id" name="dept_id" disabled>
-								<c:forEach var="deptVO" items="${deptlist}">
-									<option value="${deptVO.dept_id}">${deptVO.dept_nm}</option>
-								</c:forEach>
-						</select></td>
+						</select></td>					
 					</tr>
-					<tr>
-						<td><input type="checkbox" name="area" value="draft_emp_id"
-							onclick="dis_chg(this)">기안자</td>
-						<td><input type="text" name="draft_emp_id
-								id="
-							draft_emp_id" size="30" disabled></td>
+					<tr>						
 						<td><input type="checkbox" name="area" value="app_emp_id"
 							onclick="dis_chg(this)">결재자</td>
 						<td><input type="text" name="app_emp_id"
@@ -62,6 +50,8 @@
 							class="datepicker" disabled size="14"> ~ <input
 							type="text" name="draft_e_dt" id="draft_e_dt" class="datepicker"
 							disabled size="14"></td>
+					</tr>					
+					<button id='searchBtn'>Search</button>
 				</div>
 			</div>
 
@@ -118,20 +108,20 @@
 
 							<c:if test="${pageMaker.prev}">
 								<li><a
-									href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+									href="lists${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
 							</c:if>
 
 							<c:forEach begin="${pageMaker.startPage }"
 								end="${pageMaker.endPage }" var="idx">
 								<li
 									<c:out value="${pageMaker.search.page == idx?'class =active':''}"/>>
-									<a href="list${pageMaker.makeSearch(idx)}">${idx}</a>
+									<a href="lists${pageMaker.makeSearch(idx)}">${idx}</a>
 								</li>
 							</c:forEach>
 
 							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 								<li><a
-									href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+									href="lists${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
 							</c:if>
 
 						</ul>
@@ -161,19 +151,31 @@
 <script>
 	$(document).ready(
 			function() {
+				var s_dt;
+				var d_dt;
+				if ($('#draft_s_dt').val() == null){
+					s_dt = '0001/01/01';
+				} else {
+					s_dt = $('#draft_s_dt').val();
+					
+				}
 
 				$('#searchBtn').on(
 						"click",
 						function(event) {
 
-							self.location = "list"
+							self.location = "lists"
 									+ '${pageMaker.makeQuery(1)}'
-									+ "&searchType="
-									+ $("select option:selected").val()
-									+ "&keyword=" + $('#keywordInput').val();
+									+ "&searchType=s"
+									+ "&app_pro_cd=%20"
+									+ "&search_app_id=" + $('#search_app_id').val()
+									+ "&app_type=" + $('#app_type').val()
+									+ "&draft_emp_id=k15010201"
+									+ "&app_emp_id=" + $('#app_emp_id').val()
+									+ "&draft_s_dt=" + $('#draft_s_dt').val()
+									+ "&draft_e_dt=" + $('#draft_e_dt').val();
 
 						});
-
 			
 
 			});
@@ -181,13 +183,9 @@
 	function dis_chg(obj) {
 		if (obj.checked == true) {
 			if ($(obj).val() == "app_id") {
-				$('#app_id').attr("disabled", false);
+				$('#search_app_id').attr("disabled", false);
 			} else if ($(obj).val() == "app_type_cd") {
 				$('#app_type_cd').attr("disabled", false);
-			} else if ($(obj).val() == "dept_id") {
-				$('#dept_id').attr("disabled", false);
-			} else if ($(obj).val() == "draft_emp_id") {
-				$('#draft_emp_id').attr("disabled", false);
 			} else if ($(obj).val() == "app_emp_id") {
 				$('#app_emp_id').attr("disabled", false);
 			} else if ($(obj).val() == "draft_dt") {
@@ -197,13 +195,9 @@
 
 		} else if (obj.checked == false) {
 			if ($(obj).val() == "app_id") {
-				$('#app_id').attr("disabled", true);
+				$('#search_app_id').attr("disabled", true);
 			} else if ($(obj).val() == "app_type_cd") {
 				$('#app_type_cd').attr("disabled", true);
-			} else if ($(obj).val() == "dept_id") {
-				$('#dept_id').attr("disabled", true);
-			} else if ($(obj).val() == "draft_emp_id") {
-				$('#draft_emp_id').attr("disabled", true);
 			} else if ($(obj).val() == "app_emp_id") {
 				$('#app_emp_id').attr("disabled", true);
 			} else if ($(obj).val() == "draft_dt") {

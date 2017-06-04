@@ -19,7 +19,6 @@
 					<h3 class="box-title">Board List</h3>
 				</div>
 
-
 				<div class='box-body'>
 
 					 <tr>
@@ -46,9 +45,8 @@
 					<tr>
 						<td><input type="checkbox" name="area" value="draft_emp_id"
 							onclick="dis_chg(this)">기안자</td>
-						<td><input type="text" name="draft_emp_id
-								id="
-							draft_emp_id" size="30" disabled></td>
+						<td><input type="text" name="draft_emp_id"
+								id="draft_emp_id" size="30" disabled></td>
 						<td><input type="checkbox" name="area" value="app_emp_id"
 							onclick="dis_chg(this)">결재자</td>
 						<td><input type="text" name="app_emp_id"
@@ -59,6 +57,8 @@
 							class="datepicker" disabled size="14"> ~ <input
 							type="text" name="draft_e_dt" id="draft_e_dt" class="datepicker"
 							disabled size="14"></td>
+					</tr>								
+					<button id='searchBtn'>Search</button>
 				</div>
 			</div>
 
@@ -115,20 +115,20 @@
 
 							<c:if test="${pageMaker.prev}">
 								<li><a
-									href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+									href="listr${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
 							</c:if>
 
 							<c:forEach begin="${pageMaker.startPage }"
 								end="${pageMaker.endPage }" var="idx">
 								<li
 									<c:out value="${pageMaker.search.page == idx?'class =active':''}"/>>
-									<a href="list${pageMaker.makeSearch(idx)}">${idx}</a>
+									<a href="listr${pageMaker.makeSearch(idx)}">${idx}</a>
 								</li>
 							</c:forEach>
 
 							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 								<li><a
-									href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+									href="listr${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
 							</c:if>
 
 						</ul>
@@ -163,16 +163,18 @@
 						"click",
 						function(event) {
 
-							self.location = "list"
+							self.location = "listr"
 									+ '${pageMaker.makeQuery(1)}'
-									+ "&searchType="
-									+ $("select option:selected").val()
-									+ "&keyword=" + $('#keywordInput').val();
+									+ "&searchType=r"
+									+ "&app_pro_cd="+
+									+ "&search_app_id=" + $('#keywordInput').val();
+									+ "&app_type=" + $('#keywordInput').val();
+									+ "&draft_emp_id=" + $('#keywordInput').val();
+									+ "&app_emp_id=" + $('#keywordInput').val();
+									+ "&draft_s_dt=" + $('#keywordInput').val();
+									+ "&draft_e_dt=" + $('#keywordInput').val();
 
-						});
-
-			
-
+						});				
 			});
 	function dis_chg(obj) {
 		if (obj.checked == true) {
