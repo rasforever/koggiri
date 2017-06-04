@@ -38,8 +38,7 @@
 							<h3>Approval</h3>
 							<br> <br> <input type="hidden" name="dept_id"
 								value="${einfo.dept_id }"> <input type="hidden"
-								name="draft_emp_id" value="${einfo.emp_id }"><input type="hidden"
-								name="app_type_cd" value="10">
+								name="draft_emp_id" value="${einfo.emp_id }">
 
 							<table width="1100" id="app_table" align="center">
 								<tr>
@@ -62,7 +61,7 @@
 									<th>기안일</th>
 									<td><input type="text" name="draft_dt" class="datepicker"></td>
 									<th>신청종류</th>
-									<td><select id="app_type" name="app_type"
+									<td><select id="app_type_cd" name="app_type_cd"
 										onchange="typesel(this)">
 											<c:forEach items="${applist}" var="apptypeVO">
 												<option value="${apptypeVO.app_type_cd }">${apptypeVO.app_type_nm }

@@ -36,8 +36,8 @@
 
 				<form role="form" action="modifyPage" method="post">
 
-					<input type='hidden' name='page' value="${search.page}"> <input
-						type='hidden' name='perPageNum' value="${search.perPageNum}">
+					<input type='hidden' name='page' value="${search.page}"> 
+					<input type='hidden' name='perPageNum' value="${search.perPageNum}">
 					<input type='hidden' name='searchType' value="${search.searchType}">
 
 					<div class="box-body">
@@ -172,13 +172,7 @@
 														"click",
 														function() {
 															self.location = "/approval/lists?page=${search.page}&perPageNum=${search.perPageNum}"
-																	+ "&searchType=s&app_pro_cd=${search.app_pro_cd}"
-																	+ "&search_app_id=${search.search_app_id}"
-															+ "&app_type=${search.app_type}"
-															+ "&draft_emp_id=${search.draft_emp_id}"
-															+ "&app_emp_id=${search.app_emp_id}"
-															+ "&draft_s_dt=${search.draft_s_dt}"
-															+ "&draft_e_dt=${search.draft_e_dt}";
+																	+ "&searchType=s";
 														});
 
 									});
