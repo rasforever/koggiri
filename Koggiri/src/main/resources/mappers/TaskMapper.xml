@@ -76,8 +76,8 @@ order by ta_seq desc, ta_regdate desc
 
 
 	<sql id="search">
-		<if test="keyword != null">
-				and ta_date like '%'|| #{keyword}||'%'
+		<if test="keyword != '' and keyword != null ">
+				and ta_date = #{keyword}
 		</if>
 	</sql>
 
@@ -106,5 +106,10 @@ order by ta_seq desc, ta_regdate desc
 
 		<include refid="search"></include>
 	</select>
+	
+	<update id="updateViewCnt">
+		update task set ta_hitcount = ta_hitcount + 1 
+			where ta_seq = #{ta_seq}
+	</update>
 
 </mapper>

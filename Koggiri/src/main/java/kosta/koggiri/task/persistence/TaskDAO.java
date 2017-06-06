@@ -30,4 +30,6 @@ public interface TaskDAO {
 	
 	public int listSearchCount(TaskSearchCriteria cri)throws Exception;
 
+	public void updateViewCnt(Integer ta_seq)throws Exception;
+
 }

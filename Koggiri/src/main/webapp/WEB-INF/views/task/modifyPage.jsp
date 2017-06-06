@@ -18,6 +18,7 @@
 
 					<input type='hidden' name='page' value="${cri.page}"> <input
 						type='hidden' name='perPageNum' value="${cri.perPageNum}">
+						 <input type='hidden' name='keyword' value="${cri.keyword}">
 
 				
 					<div class="box-body">

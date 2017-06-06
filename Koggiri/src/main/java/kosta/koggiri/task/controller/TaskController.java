@@ -150,7 +150,7 @@ public class TaskController {
 			pageMaker.setCri(cri);
 			//pageMaker.setTotalCount(service.listCountCriteria(cri));
 			pageMaker.setTotalCount(service.listSearchCount(cri));
-			cri.getKeyword();
+			System.out.println(cri.getKeyword());
 			
 			model.addAttribute("pageMaker", pageMaker);
 			

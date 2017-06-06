@@ -83,6 +83,12 @@ public int listSearchCount(TaskSearchCriteria cri) throws Exception {
 	return session.selectOne(namespace + ".listSearchCount", cri);
 }
 
+@Override
+public void updateViewCnt(Integer ta_seq) throws Exception {
+	session.update(namespace + ".updateViewCnt", ta_seq);
+	
+}
+
 
  
  
