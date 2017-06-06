@@ -40,7 +40,6 @@
 		<textarea class="form-control" name="ta_nextresult" rows="3" cols="40"
 			readonly="readonly">${taskVO.ta_nextresult}</textarea>
 		<br> <br>
-		 ta seq : ${taskVO.ta_seq}
 	</div>
   </div><!-- /.box-body -->
 
@@ -72,7 +71,7 @@ $(document).ready(function(){
 	
 	$(".btn-primary").on("click", function(){
 		formObj.attr("method", "get");
-		formObj.attr("action", "/task/listPage");
+		formObj.attr("action", "/task/list");
 		formObj.submit();
 	});
 	

@@ -5,20 +5,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kosta.koggiri.mapper.TaskMapper">
 
-<insert id="create" parameterType="kosta.koggiri.task.domain.TaskVO">
-insert into task(ta_seq, emp_id, ta_date, ta_weekresult, ta_nextresult, ta_regdate, ta_hitcount)
-values(task_ta_seq.nextval, #{emp_id}, #{ta_date},#{ta_weekresult},#{ta_nextresult}, SYSDATE, 0)
-</insert>
+	<insert id="create" parameterType="kosta.koggiri.task.domain.TaskVO">
+		insert into task(ta_seq, emp_id, ta_date, ta_weekresult, ta_nextresult,
+		ta_regdate, ta_hitcount)
+		values(task_ta_seq.nextval, #{emp_id}, #{ta_date},#{ta_weekresult},#{ta_nextresult}, SYSDATE, 0)
+	</insert>
 
-<select id="read" resultType="kosta.koggiri.task.domain.TaskVO">
-select
-ta_seq, ta_date, ta_weekresult, ta_nextresult
-from
-TASK
-where ta_seq = #{ta_seq}
-</select>
+	<select id="read" resultType="kosta.koggiri.task.domain.TaskVO">
+		select
+		ta_seq, ta_date, ta_weekresult, ta_nextresult
+		from
+		TASK
+		where ta_seq = #{ta_seq}
+	</select>
 
-<select id="listAll" resultType="kosta.koggiri.task.domain.TaskVO">
+	<select id="listAll" resultType="kosta.koggiri.task.domain.TaskVO">
 	<![CDATA[
 			 select 
 			  ta_seq, ta_date, ta_weekresult, ta_nextresult, ta_regdate, ta_hitcount
@@ -30,19 +31,20 @@ where ta_seq = #{ta_seq}
 			 
 		<![CDATA[	  
 			 order by ta_seq desc, ta_regdate desc
- 		]]>  
-</select>
+ 		]]>
+	</select>
 
-<update id="update">
-update task set ta_date = #{ta_date}, ta_weekresult = #{ta_weekresult}, ta_nextresult = #{ta_nextresult}
-where ta_seq = #{ta_seq}
-</update>
+	<update id="update">
+		update task set ta_date = #{ta_date}, ta_weekresult = #{ta_weekresult},
+		ta_nextresult = #{ta_nextresult}
+		where ta_seq = #{ta_seq}
+	</update>
 
-<delete id="delete">
-delete from task where ta_seq = #{ta_seq}
-</delete>
+	<delete id="delete">
+		delete from task where ta_seq = #{ta_seq}
+	</delete>
 
-<select id="listPage" resultType="TaskVO">
+	<select id="listPage" resultType="TaskVO">
 <![CDATA[	
 select
 ta_seq, ta_date, ta_weekresult, ta_nextresult, ta_regdate, ta_hitcount
@@ -50,10 +52,10 @@ from
 task
 where ta_seq > 0
 order by ta_seq desc, ta_regdate desc
-]]>  
-</select>
+]]>
+	</select>
 
-<select id="listCri" resultType="TaskVO">
+	<select id="listCri" resultType="TaskVO">
 <![CDATA[
 select
 ta_seq, ta_date, ta_weekresult, ta_nextresult, ta_regdate, ta_hitcount
@@ -61,31 +63,21 @@ from
 task
 where ta_seq > 0
 order by ta_seq desc, ta_regdate desc	
-]]>  
-</select>
+]]>
+	</select>
 
-<select id="countPaging" resultType="int">
+	<select id="countPaging" resultType="int">
  	
  	<![CDATA[ 
  	select count(*) from Task where ta_seq > 0
     ]]>
-    
+
 	</select>
-	
+
 
 	<sql id="search">
-		<if test="searchType != null">
-			<if test="searchType == 't'.toString()">
-				and f_title like '%'|| #{keyword}||'%'
-			</if>
-			<if test="searchType == 'c'.toString()">
-				and f_content like '%'|| #{keyword}||'%'
-			</if>
-			<if test="searchType == 'w'.toString()">
-				and f_emp_id like '%'|| #{keyword}||'%'
-
-
-			</if>
+		<if test="keyword != null">
+				and ta_date like '%'|| #{keyword}||'%'
 		</if>
 	</sql>
 
@@ -95,13 +87,13 @@ order by ta_seq desc, ta_regdate desc
      from task
      where ta_seq > 0
    ]]>
-   
-   <include refid="search"></include>
+
+		<include refid="search"></include>
      
    <![CDATA[    
      order by ta_seq desc     
    ]]>
-   
+
 	</select>
 
 
@@ -111,8 +103,8 @@ order by ta_seq desc, ta_regdate desc
      from task 
      where ta_seq > 0 
    ]]>
-   
-   <include refid="search"></include>
+
+		<include refid="search"></include>
 	</select>
 
 </mapper>

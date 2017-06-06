@@ -3,6 +3,8 @@ package kosta.koggiri.task.domain;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import kosta.koggiri.approval.domain.SearchCriteria;
+
 public class TaskPageMaker {
 
   private int totalCount;
@@ -89,16 +91,15 @@ public String toString() {
   }
   
   
-/*  public String makeSearch(int page){
+  public String makeSearch(int page){
     
     UriComponents uriComponents =
               UriComponentsBuilder.newInstance()
               .queryParam("page", page)
               .queryParam("perPageNum", cri.getPerPageNum())
-              .queryParam("searchType", ((SearchCriteria)cri).getSearchType())
-              .queryParam("keyword", ((SearchCriteria)cri).getKeyword())
+              .queryParam("keyword", ((TaskSearchCriteria)cri).getKeyword())
               .build();             
     
     return uriComponents.toUriString();
-  } */
+  } 
 }

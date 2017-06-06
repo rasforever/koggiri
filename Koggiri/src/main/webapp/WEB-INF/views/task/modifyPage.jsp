@@ -63,7 +63,7 @@
 											.on(
 													"click",
 													function() {
-														self.location = "/task/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}";
+														self.location = "/task/list?page=${cri.page}&perPageNum=${cri.perPageNum}";
 													});
 
 									$(".btn-primary").on("click", function() {

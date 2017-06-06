@@ -2,16 +2,9 @@ package kosta.koggiri.task.domain;
 
 public class TaskSearchCriteria extends TaskCriteria {
 	
-	private String searchType;
 	private String keyword;
 	
-	
-	public String getSearchType() {
-		return searchType;
-	}
-	public void setSearchType(String searchType) {
-		this.searchType = searchType;
-	}
+
 	public String getKeyword() {
 		return keyword;
 	}
@@ -20,7 +13,7 @@ public class TaskSearchCriteria extends TaskCriteria {
 	}
 	@Override
 	public String toString() {
-		return "TaskSearchCriteria [searchType=" + searchType + ", keyword=" + keyword + "]";
+		return "TaskSearchCriteria [keyword=" + keyword + "]";
 	}
 	
 	
