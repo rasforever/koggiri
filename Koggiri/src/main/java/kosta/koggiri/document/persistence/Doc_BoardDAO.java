@@ -32,4 +32,8 @@ public interface Doc_BoardDAO {
 	//특정 게시물의 첨부파일을 시간 순서대로 가져오는 기능
 	public List<String> getAttach(Integer f_id)throws Exception;
 	
+	//기존첨부파일 삭제하고 새로운 파일을 첨부하기
+	public void deleteAttach(Integer f_id)throws Exception;
+	public void replaceAttach(String fullName, Integer f_id)throws Exception;
+	
 }

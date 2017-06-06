@@ -42,12 +42,29 @@
 <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 </head>
 
-<ul class="mailbox-attachments clearfix uploadedList"></ul>
 
 
+    <style type="text/css">
+    .popup {position: absolute;}
+    .back { background-color: gray; opacity:0.5; width: 100%; height: 300%; overflow:hidden;  z-index:1101;}
+    .front { 
+       z-index:1110; opacity:1; boarder:1px; margin: auto; 
+      }
+     .show{
+       position:relative;
+       max-width: 1200px; 
+       max-height: 800px; 
+       overflow: auto;       
+     } 
+  	
+    </style>
+
+    <div class='popup back' style="display:none;"></div>
+    <div id="popup_front" class='popup front' style="display:none;">
+     <img id="popup_img">
+    </div>
+    
 <!-- Main content -->
-
-
 <section class="content">
 	<div class="row">
 		<!-- left column -->
@@ -55,7 +72,7 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3 class="box-title">READ BOARD</h3>
+					<h3 class="box-title">문서게시판</h3>
 				</div>
 				<!-- /.box-header -->
 
@@ -70,27 +87,31 @@
 
 				<div class="box-body">
 					<div class="form-group">
-						<label for="exampleInputEmail1">Title</label> <input type="text"
+						<label for="exampleInputEmail1">제목</label> <input type="text"
 							name='f_title' class="form-control"
 							value="${doc_BoardVO.f_title}" readonly="readonly">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputPassword1">Content</label>
+						<label for="exampleInputPassword1">내용</label>
 						<textarea class="form-control" name="f_content" rows="3"
 							readonly="readonly">${doc_BoardVO.f_content}</textarea>
 					</div>
 					<div class="form-group">
-						<label for="exampleInputEmail1">Writer</label> <input type="text"
+						<label for="exampleInputEmail1">작성자</label> <input type="text"
 							name="f_emp_id" class="form-control"
 							value="${doc_BoardVO.f_emp_id}" readonly="readonly">
 					</div>
+					
+					
+                   <ul class="mailbox-attachments clearfix uploadedList"></ul>
+				
 				</div>
 				<!-- /.box-body -->
 
 				<div class="box-footer">
-					<button type="submit" class="btn btn-warning">Modify</button>
-					<button type="submit" class="btn btn-danger">REMOVE</button>
-					<button type="submit" class="btn btn-primary">GO LIST</button>
+					<button type="submit" class="btn btn-warning">수정하기</button>
+					<button type="submit" class="btn btn-danger">삭제하기</button>
+					<button type="submit" class="btn btn-primary">목록</button>
 				</div>
 
 			</div>
@@ -107,10 +128,15 @@
 </div>
 <!-- /.content-wrapper -->
 
-
-
-
-
+<script id="templateAttach" type="text/x-handlebars-template">
+<li data-src='{{fullName}}'>
+  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+  <div class="mailbox-attachment-info">
+	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+	</span>
+  </div>
+</li>                
+</script> 
 
 <script>
 	$(document).ready(function() {
@@ -136,14 +162,10 @@
 			formObj.submit();
 		});
 
-		var f_id = $
-		{
-			doc_BoardVO.f_id
-		}
-		;
+		var f_id = ${doc_BoardVO.f_id};
 		var template = Handlebars.compile($("#templateAttach").html());
 
-		$.getJSON("/document/getAttach/" + f_id, function(list) {
+		$.getJSON("/document/getAttach/"+f_id, function(list) {
 			$(list).each(function() {
 
 				var fileInfo = getFileInfo(this);
@@ -154,6 +176,50 @@
 
 			});
 		});
+		
+		
+		$("#removeBtn").on("click", function(){
+	
+			var arr = [];
+			$(".uploadedList li").each(function(index){
+				 arr.push($(this).attr("data-src"));
+			});
+			
+			if(arr.length > 0){
+				$.post("/deleteAllFiles",{files:arr}, function(){
+					
+				});
+			}
+			
+			formObj.attr("action", "/document/removePage");
+			formObj.submit();
+		});	
+		
+		
+		
+		$(".uploadedList").on("click", ".mailbox-attachment-info a", function(event){
+			
+			var fileLink = $(this).attr("href");
+			
+			if(checkImageType(fileLink)){
+				
+				event.preventDefault();//기본이벤트 해제.
+						
+				var imgTag = $("#popup_img"); // 현재 클릭한 이미지의 경로를 id속성값이 popup_img인 요소에 추가.
+				imgTag.attr("src", fileLink);
+				
+				console.log(imgTag.attr("src"));
+						
+				$(".popup").show('slow'); // 추가된 뒤 화면에 보이도록 jQuery의 show호출.
+				imgTag.addClass("show"); // 필요한 CSS추가.	
+			}	
+		});
+		
+		$("#popup_img").on("click", function(){
+			
+			$(".popup").hide('slow'); //화면에 원본 이미지가 보여진 후 다시 한 번 클릭하면 이미지가 사라지는 효과
+			
+		});	
 	});
 </script>
 
