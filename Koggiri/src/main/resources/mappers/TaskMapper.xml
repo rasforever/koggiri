@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kosta.koggiri.mapper.TaskMapper">
+
+	<insert id="create" parameterType="kosta.koggiri.task.domain.TaskVO">
+		insert into task(ta_seq, emp_id, ta_date, ta_weekresult, ta_nextresult,
+		ta_regdate, ta_hitcount)
+		values(task_ta_seq.nextval, #{emp_id}, #{ta_date},#{ta_weekresult},#{ta_nextresult}, SYSDATE, 0)
+	</insert>
+
+	<select id="read" resultType="kosta.koggiri.task.domain.TaskVO">
+		select
+		ta_seq, ta_date, ta_weekresult, ta_nextresult
+		from
+		TASK
+		where ta_seq = #{ta_seq}
+	</select>
+
+	<select id="listAll" resultType="kosta.koggiri.task.domain.TaskVO">
+	<![CDATA[
+			 select 
+			  ta_seq, ta_date, ta_weekresult, ta_nextresult, ta_regdate, ta_hitcount
+			 from 
+			 	task			   
+			 where ta_seq > 0
+		]]>  	 
+			 
+			 
+		<![CDATA[	  
+			 order by ta_seq desc, ta_regdate desc
+ 		]]>
+	</select>
+
+	<update id="update">
+		update task set ta_date = #{ta_date}, ta_weekresult = #{ta_weekresult},
+		ta_nextresult = #{ta_nextresult}
+		where ta_seq = #{ta_seq}
+	</update>
+
+	<delete id="delete">
+		delete from task where ta_seq = #{ta_seq}
+	</delete>
+
+	<select id="listPage" resultType="TaskVO">
+<![CDATA[	
+select
+ta_seq, ta_date, ta_weekresult, ta_nextresult, ta_regdate, ta_hitcount
+from
+task
+where ta_seq > 0
+order by ta_seq desc, ta_regdate desc
+]]>
+	</select>
+
+	<select id="listCri" resultType="TaskVO">
+<![CDATA[
+select
+ta_seq, ta_date, ta_weekresult, ta_nextresult, ta_regdate, ta_hitcount
+from
+task
+where ta_seq > 0
+order by ta_seq desc, ta_regdate desc	
+]]>
+	</select>
+
+	<select id="countPaging" resultType="int">
+ 	
+ 	<![CDATA[ 
+ 	select count(*) from Task where ta_seq > 0
+    ]]>
+
+	</select>
+
+
+	<sql id="search">
+		<if test="keyword != null">
+				and ta_date like '%'|| #{keyword}||'%'
+		</if>
+	</sql>
+
+	<select id="listSearch" resultType="TaskVO" parameterType="TaskSearchCriteria">
+   <![CDATA[  
+     select *
+     from task
+     where ta_seq > 0
+   ]]>
+
+		<include refid="search"></include>
+     
+   <![CDATA[    
+     order by ta_seq desc     
+   ]]>
+
+	</select>
+
+
+	<select id="listSearchCount" resultType="int" parameterType="TaskSearchCriteria">
+   <![CDATA[  
+     select count(ta_seq) 
+     from task 
+     where ta_seq > 0 
+   ]]>
+
+		<include refid="search"></include>
+	</select>
+
+</mapper>
