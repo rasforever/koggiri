@@ -103,7 +103,20 @@
 	</update>
 	
 	<insert id="addAttach" parameterType="Doc_FileVO">
-      insert into documentboard_attach(fullname, f_id) values (#{fullName}, DOC_SEQ.currval)
+      insert into document_attach(fullname, f_id) values (#{fullName}, DOC_SEQ.currval)
+    </insert>
+   
+   <select id="getAttach" resultType="string">
+   		select fullname from document_attach where f_id = #{f_id}
+   			order by f_date
+   </select>
+   
+   <delete id="deleteAttach">
+   	 	delete from document_attach where f_id = #{f_id}
+   </delete>
+   
+   <insert id="replaceAttach">
+   		insert into document_attach(fullname, f_id) values (#{fullName},#{f_id})
    </insert>
 
 

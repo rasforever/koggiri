@@ -1,14 +1,23 @@
 package kosta.koggiri.document.controller;
 
+import java.io.File;
+import java.util.List;
+
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.document.domain.Doc_BoardVO;
@@ -16,6 +25,7 @@ import kosta.koggiri.document.domain.Doc_Criteria;
 import kosta.koggiri.document.domain.Doc_PageMaker;
 import kosta.koggiri.document.domain.Doc_SearchCriteria;
 import kosta.koggiri.document.service.Doc_BoardService;
+import kosta.koggiri.document.util.MediaUtils;
 
 @Controller
 @RequestMapping("/document/*")
@@ -23,6 +33,9 @@ public class Doc_BoardController {
 	
 	@Inject
 	private Doc_BoardService service;
+	
+	@Resource(name = "uploadPath") // 다운로드 경로
+	private String uploadPath;
 	
 	@RequestMapping(value="/register", method=RequestMethod.GET)
 	public void registGET(Doc_BoardVO board, Model model, HttpSession session)throws Exception{
@@ -105,6 +118,40 @@ public class Doc_BoardController {
 		
 		model.addAttribute("pageMaker", pageMaker);
 		
+	}
+	
+	@RequestMapping(value="/getAttach/{f_id}")
+	@ResponseBody
+	public List<String>getAttach(@PathVariable("f_id")Integer f_id)throws Exception{
+		
+		return service.getAttach(f_id);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/deleteAllFiles", method = RequestMethod.POST)
+	public ResponseEntity<String> deleteFile(@RequestParam("files[]") String[] files) {// 여러개의 파일 이름을 받을 수 있도록 String[]로 작성.
+
+
+		if (files == null || files.length == 0) {
+			return new ResponseEntity<String>("deleted", HttpStatus.OK);
+		}
+
+		for (String fileName : files) {
+			String formatName = fileName.substring(fileName.lastIndexOf(".") + 1);
+
+			MediaType mType = MediaUtils.getMediaType(formatName);
+
+			if (mType != null) {
+
+				String front = fileName.substring(0, 12);
+				String end = fileName.substring(14);
+				new File(uploadPath + (front + end).replace('/', File.separatorChar)).delete();
+			}
+
+			new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
+		}
+
+		return new ResponseEntity<String>("deleted", HttpStatus.OK);
 	}
 
 	

@@ -16,7 +16,7 @@
 			<!-- general form elements -->
 			<div class='box'>
 				<div class="box-header with-border">
-					<h3 class="box-title">Board List</h3>
+					<h3 class="box-title">문서게시판</h3>
 				</div>
 
 
@@ -47,7 +47,7 @@
 
 			<div class="box">
 				<div class="box-header with-border">
-					<h3 class="box-title">LIST PAGING</h3>
+					<h3 class="box-title">글목록</h3>
 				</div>
 				<div class="box-body">
 					<table class="table table-bordered">

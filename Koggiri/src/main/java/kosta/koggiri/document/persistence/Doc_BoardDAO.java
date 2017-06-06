@@ -28,4 +28,12 @@ public interface Doc_BoardDAO {
 	
 	//첨부파일 추가 기능 (주의: 새롭게 생성된 게시물의 번호가 필요)
 	public void addAttach(String fullName)throws Exception;
+	
+	//특정 게시물의 첨부파일을 시간 순서대로 가져오는 기능
+	public List<String> getAttach(Integer f_id)throws Exception;
+	
+	//기존첨부파일 삭제하고 새로운 파일을 첨부하기
+	public void deleteAttach(Integer f_id)throws Exception;
+	public void replaceAttach(String fullName, Integer f_id)throws Exception;
+	
 }

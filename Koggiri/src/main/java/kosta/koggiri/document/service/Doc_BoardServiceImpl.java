@@ -41,15 +41,26 @@ public class Doc_BoardServiceImpl implements Doc_BoardService {
 		return dao.read(f_id);
 	}
 
+	@Transactional
 	@Override
 	public void modify(Doc_BoardVO board) throws Exception {
 
 		dao.update(board);
+		
+		Integer f_id = board.getF_id();
+		
+		String [] files = board.getFiles();
+		
+		if(files == null){ return;}
+		for(String fileName : files){
+			dao.replaceAttach(fileName, f_id);
+		}
 	}
 
+	@Transactional
 	@Override
 	public void remove(Integer f_id) throws Exception {
-
+		dao.deleteAttach(f_id);
 		dao.delete(f_id);
 	}
 
@@ -65,6 +76,14 @@ public class Doc_BoardServiceImpl implements Doc_BoardService {
 		
 		return dao.listSearchCount(cri);
 	}
+
+	@Override
+	public List<String> getAttach(Integer f_id) throws Exception {
+		
+		return dao.getAttach(f_id);
+	}
+	
+	
 	
 	
 	
