@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kosta.koggiri.approval.domain.AppTypeVO;
+import kosta.koggiri.approval.domain.ApprovalSearchVO;
 import kosta.koggiri.approval.domain.ApprovalVO;
 import kosta.koggiri.approval.domain.DeptVO;
 import kosta.koggiri.approval.domain.Emp_InfoVO;
@@ -67,12 +68,7 @@ public class ApprovalServiceImpl implements ApprovalService {
 		dao.deleteAttach(app_id);
 		dao.delete(app_id);
 	}
-
-	@Override
-	public List<ApprovalVO> listAll() throws Exception {
-		return dao.listAll();
-	}
-
+	
 	@Override
 	public List<AppTypeVO> appty_select() throws Exception {
 		return dao.appty_select();
@@ -89,18 +85,23 @@ public class ApprovalServiceImpl implements ApprovalService {
 	}
 
 	@Override
-	public List<ApprovalVO> listSearchCriteria(SearchCriteria cri) throws Exception {
-		return dao.listSearch(cri);
+	public List<ApprovalVO> listSearchCriteria(ApprovalSearchVO search) throws Exception {
+		return dao.listSearch(search);
 	}
 
 	@Override
-	public int listSearchCount(SearchCriteria cri) throws Exception {
-		return dao.listSearchCount(cri);
+	public int listSearchCount(ApprovalSearchVO search) throws Exception {
+		return dao.listSearchCount(search);
 	}
 
 	@Override
 	public List<String> getAttach(String emp_id) throws Exception {
 		return dao.getAttach(emp_id);
+	}
+
+	@Override
+	public void update(ApprovalVO approval) throws Exception {
+		dao.updateAPP(approval);		
 	}
 
 }

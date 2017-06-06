@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kosta.koggiri.mapper.ApprovalMapper"><!--경로를 뜻하는 것이 아님!!! -->
-	
+
 	<select id="appty_select" resultType="AppTypeVO">
 		<![CDATA[ 
 		select app_type_cd,
@@ -31,75 +31,128 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		e.emp_id = #{emp_id}
 	</select>
 
-	<select id="create" parameterType="ApprovalVO" statementType="CALLABLE"	 >
+	<select id="create" parameterType="ApprovalVO" statementType="CALLABLE">
 		{CALL
 		insert_approval(#{app_type_cd}, #{draft_emp_id},
 		#{app_emp_id},
 		#{draft_dt}, #{app_title}, #{app_context}, #{app_id, mode=OUT, jdbcType=VARCHAR})}
 	</select>
 
-	<select id="listSearch" resultType="ApprovalVO" >
-		select a.app_id as app_id, a.draft_dt as draft_dt, at.app_type_nm as
-		app_type_nm,
-		d.dept_nm as dept_nm, ed.emp_nm as draft_emp_nm ,
-		ea.emp_nm as app_emp_nm,
-		ap.app_pro_nm as app_pro_nm
-		from approval a
-		inner join app_type at
-		on a.app_type_cd = at.app_type_cd
-		and
-		a.draft_emp_id = 'k15010201'
-		inner join
-		app_pro_type ap
-		on a.app_pro_cd =
-		ap.app_pro_cd
-		inner join
-		dept d
-		on
-		a.dept_id = d.dept_id
-		inner join emp ed
-		on a.draft_emp_id =
-		ed.emp_id
-		inner join emp ea
-		on a.app_emp_id =
-		ea.emp_id
-		
-
-		order by a.app_id desc
+	<select id="listsSearch" resultType="ApprovalVO">
+		<![CDATA[  
+		select a.app_id	as app_id
+        , a.draft_dt as draft_dt
+        , at.app_type_nm as	app_type_nm
+        , d.dept_nm as dept_nm
+        , ed.emp_nm as draft_emp_nm 
+        , ea.emp_nm as app_emp_nm
+        , ap.app_pro_nm as app_pro_nm
+        from approval a	
+        inner join app_type at
+        on a.app_type_cd = at.app_type_cd
+        inner join app_pro_type ap
+        on a.app_pro_cd = ap.app_pro_cd
+        inner join	dept d
+        on a.dept_id = d.dept_id
+        inner join emp ed
+        on a.draft_emp_id =	ed.emp_id
+        inner join emp ea
+        on a.app_emp_id =	ea.emp_id        
+        and a.DRAFT_EMP_ID = #{draft_emp_id}
+        and (a.app_pro_cd = #{app_pro_cd} or ' ' = #{app_pro_cd})
+        and (a.APP_TYPE_CD = #{app_type} or ' ' = #{app_type}) 
+        and (a.app_id =	#{search_app_id} or  ' ' = #{search_app_id})
+        and (a.APP_EMP_ID = #{app_emp_id} or ' ' = #{app_emp_id}) 
+        and a.DRAFT_DT between	#{draft_s_dt} and #{draft_e_dt}                       
+        order by a.app_id desc
+		]]>
 	</select>
-	
-	<select id="listSearchCount" resultType="int">
+
+	<select id="listsSearchCount" resultType="int">
 		<![CDATA[  
 		 select count(a.app_id) as app_id
-		from approval a
-		inner join app_type at
-		on a.app_type_cd = at.app_type_cd
-		and
-		a.draft_emp_id = 'k15010201'
-		inner join
-		app_pro_type ap
-		on a.app_pro_cd =
-		ap.app_pro_cd
-		inner join
-		dept d
-		on
-		a.dept_id = d.dept_id
-		inner join emp ed
-		on a.draft_emp_id =
-		ed.emp_id
-		inner join emp ea
-		on a.app_emp_id =
-		ea.emp_id
-		
+		from approval a	
+        inner join app_type at
+        on a.app_type_cd = at.app_type_cd
+        inner join app_pro_type ap
+        on a.app_pro_cd = ap.app_pro_cd
+        inner join	dept d
+        on a.dept_id = d.dept_id
+        inner join emp ed
+        on a.draft_emp_id =	ed.emp_id
+        inner join emp ea
+        on a.app_emp_id =	ea.emp_id        
+        and a.DRAFT_EMP_ID = #{draft_emp_id}
+        and (a.app_pro_cd = #{app_pro_cd} or ' ' = #{app_pro_cd})
+        and (a.APP_TYPE_CD = #{app_type} or ' ' = #{app_type}) 
+        and (a.app_id =	#{search_app_id} or  ' ' = #{search_app_id})
+        and (a.APP_EMP_ID = #{app_emp_id} or ' ' = #{app_emp_id}) 
+        and a.DRAFT_DT between	#{draft_s_dt} and #{draft_e_dt}       
+        order by a.app_id desc
+		]]>
+	</select>
+	
+	<select id="listrSearch" resultType="ApprovalVO">
+		<![CDATA[  
+		select a.app_id	as app_id
+        , a.draft_dt as draft_dt
+        , at.app_type_nm as	app_type_nm
+        , d.dept_nm as dept_nm
+        , ed.emp_nm as draft_emp_nm 
+        , ea.emp_nm as app_emp_nm
+        , ap.app_pro_nm as app_pro_nm
+        from approval a	
+        inner join app_type at
+        on a.app_type_cd = at.app_type_cd
+        inner join app_pro_type ap
+        on a.app_pro_cd = ap.app_pro_cd
+        inner join	dept d
+        on a.dept_id = d.dept_id
+        inner join emp ed
+        on a.draft_emp_id =	ed.emp_id
+        inner join emp ea
+        on a.app_emp_id =	ea.emp_id        
+        and a.APP_EMP_ID = #{app_emp_id}
+        and (a.app_pro_cd = #{app_pro_cd} or ' ' = #{app_pro_cd})
+        and (a.APP_TYPE_CD = #{app_type} or ' ' = #{app_type}) 
+        and (a.app_id =	#{search_app_id} or ' ' = #{search_app_id})
+        and (a.dept_id = #{dept_cd} or ' ' = #{dept_cd})
+        and (a.DRAFT_EMP_ID = #{draft_emp_id} or ' ' = #{draft_emp_id}) 
+        and a.DRAFT_DT between	#{draft_s_dt} and #{draft_e_dt}                      
+        order by a.app_id desc
+		]]>
+	</select>
 
-		order by a.app_id desc 
+	<select id="listrSearchCount" resultType="int">
+		<![CDATA[  
+		 select count(a.app_id) as app_id
+		from approval a	
+        inner join app_type at
+        on a.app_type_cd = at.app_type_cd
+        inner join app_pro_type ap
+        on a.app_pro_cd = ap.app_pro_cd
+        inner join	dept d
+        on a.dept_id = d.dept_id
+        inner join emp ed
+        on a.draft_emp_id =	ed.emp_id
+        inner join emp ea
+        on a.app_emp_id =	ea.emp_id       
+        and a.APP_EMP_ID = #{app_emp_id}
+        and (a.app_pro_cd = #{app_pro_cd} or ' ' = #{app_pro_cd})
+        and (a.APP_TYPE_CD = #{app_type} or ' ' = #{app_type}) 
+        and (a.app_id =	#{search_app_id} or ' ' = #{search_app_id})
+        and (a.dept_id = #{dept_cd} or ' ' = #{dept_cd})
+        and (a.DRAFT_EMP_ID = #{draft_emp_id} or ' ' = #{draft_emp_id}) 
+        and a.DRAFT_DT between	#{draft_s_dt} and #{draft_e_dt}            
+        order by a.app_id desc
 		]]>
 
 	</select>
-	
+
 	<select id="read" parameterType="String" resultType="ApprovalVO">
-		select a.app_id as app_id, at.app_type_nm as app_type_nm, d.dept_nm as
-		dept_nm, ap.app_pro_nm as app_pro_nm,
+		select
+		a.app_id as app_id, at.app_type_nm as app_type_nm, d.dept_nm as
+		dept_nm, ap.app_pro_nm as app_pro_nm,  a.app_pro_cd as app_pro_cd,
 		ed.emp_nm as draft_emp_nm,
 		a.draft_emp_id as draft_emp_id, ea.emp_nm as
 		app_emp_nm, a.app_emp_id
@@ -125,36 +178,50 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		a.app_emp_id = ea.emp_id
 		and a.app_id = #{app_id}
 	</select>
-	
+
 	<update id="update">
 		update approval set
-		app_emp_id = #{app_emp_id}, app_title = #{app_title},
+		app_emp_id = #{app_emp_id},
+		app_title = #{app_title},
 		app_context =
-		#{app_context}, draft_dt = #{draft_dt},
-		chg_emp_id = #{chg_emp_id},
-		chg_sysdt = SYSDATE where app_id = #{app_id}
+		#{app_context}, 
+		chg_emp_id = #{draft_emp_id},
+		chg_sysdt = SYSDATE where
+		app_id = #{app_id}
+	</update>
+	
+	<update id="updateAPP">
+		update approval set
+		app_pro_cd = #{app_pro_cd},
+		chg_emp_id = app_emp_id,
+		APP_DT = SYSDATE,
+		chg_sysdt = SYSDATE where
+		app_id = #{app_id}
 	</update>
 
 	<delete id="delete">
 		delete from approval
 		where app_id = #{app_id}
 	</delete>
-	
-	
+
+
 	<insert id="addAttach">
-		insert into approval_attach(FULLNAME, app_id) values (#{fullName}, #{app_id})
+		insert into approval_attach(FULLNAME, app_id) values
+		(#{fullName}, #{app_id})
 	</insert>
-	
+
 	<select id="getAttach" resultType="string">
-		select fullname from approval_attach where app_id = #{app_id} order by regdate
+		select fullname from
+		approval_attach where app_id = #{app_id} order by regdate
 	</select>
-	
+
 	<delete id="deleteAttach">
 		delete from approval_attach where app_id = #{app_id}
 	</delete>
-	
+
 	<insert id="replaceAttach">
-		insert into approval_attach(fullname, app_id) values (#{fullName},#{app_id})
+		insert into approval_attach(fullname, app_id) values
+		(#{fullName},#{app_id})
 	</insert>
 
 </mapper>

@@ -23,8 +23,8 @@ a{font-family:inherit;color:#333;text-decoration:none}
 a:hover{color:#333}
 
 /* LAYOUT (_wrap 은 class)*/
-#wrap{min-width:1370px}
-#wrap, .header_wrap, .container_wrap, .footer_wrap{width:100%}
+#wrap{min-width:1370px; background-color: #ffffff;}
+#wrap, .header_wrap, .container_wrap, .footer_wrap{width:100%;}
 .header_wrap{position:relative;height:100px;border-bottom:2px #000 solid;overflow:hidden;background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_header_wrap.gif) repeat-x 0 0}
 .container_wrap{padding:42px 0 40px 0;min-height:580px;}
 .footer_wrap{}

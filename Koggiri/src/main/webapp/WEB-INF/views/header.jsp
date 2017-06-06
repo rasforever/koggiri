@@ -42,6 +42,13 @@
 </head>
 <body class="main">
    <div id="wrap">
+        <!-- ************************************* -->
+        <div class="my_information">
+        <a class="my_name">${mem_id} 님이 접속하셨습니다.</a> │
+        <a class="my_modify" href="#">내 정보 수정</a> │
+<a class="log_out" href="/login/logout">로그아웃</a>
+	</div>
+     <!-- ************************************* -->
       <h1 class="hidden">Koggiri 메인 페이지</h1>
       <div class="header_wrap">
          <!-- skipNavi : s -->
