@@ -20,6 +20,9 @@ public interface Doc_BoardService {
 	
 	public int listSearchCount(Doc_SearchCriteria cri)throws Exception;
 	
+	public List<String>getAttach(Integer f_id)throws Exception;
+	
+	
 	
 	
 

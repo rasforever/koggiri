@@ -65,6 +65,14 @@ public class Doc_BoardServiceImpl implements Doc_BoardService {
 		
 		return dao.listSearchCount(cri);
 	}
+
+	@Override
+	public List<String> getAttach(Integer f_id) throws Exception {
+		
+		return dao.getAttach(f_id);
+	}
+	
+	
 	
 	
 	

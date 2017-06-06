@@ -1,14 +1,18 @@
 package kosta.koggiri.document.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.document.domain.Doc_BoardVO;
@@ -105,6 +109,13 @@ public class Doc_BoardController {
 		
 		model.addAttribute("pageMaker", pageMaker);
 		
+	}
+	
+	@RequestMapping(value="/getAttach/{f_id}")
+	@ResponseBody
+	public List<String>getAttach(@PathVariable("f_id")Integer f_id)throws Exception{
+		
+		return service.getAttach(f_id);
 	}
 
 	
