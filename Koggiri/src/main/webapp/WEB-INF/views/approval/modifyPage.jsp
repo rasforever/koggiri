@@ -126,7 +126,7 @@
   <div class="mailbox-attachment-info">
 	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
 	<a href="{{fullName}}" 
-     class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
+     class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove">x</i></a>
 	</span>
   </div>
 </li>                
