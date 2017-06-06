@@ -18,8 +18,6 @@
 
 					<input type='hidden' name='page' value="${cri.page}"> <input
 						type='hidden' name='perPageNum' value="${cri.perPageNum}">
-						 <input type='hidden' name='keyword' value="${cri.keyword}">
-
 				
 					<div class="box-body">
 
@@ -31,7 +29,8 @@
 
 		<div class="form-group">
 			<label for="ta_date">업무기간</label> <input type="text"
-				name='ta_date' class="form-control" value="${taskVO.ta_date}">
+				name='ta_date' class="form-control" value="${taskVO.ta_date}" readonly="readonly"  style="background-color: gainsboro;">
+				session id:	${mem_id}
 		</div>
 		<div class="form-group">
 			<label for="ta_weekresult">금주업무실적</label>

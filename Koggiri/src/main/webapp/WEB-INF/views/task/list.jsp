@@ -57,6 +57,7 @@
 							<th>차주업무계획</th>
 							<th>작성일자</th>
 							<th style="width: 40px">조회수</th>
+								session id:	${mem_id}
 						</tr>
 
 						<c:forEach items="${list}" var="taskVO">

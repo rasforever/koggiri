@@ -75,6 +75,7 @@ function applyWeeklyHighlight() {
 			<label for="weekresult">차주업무계획</label><br>
 			<textarea class="form-control" name="ta_nextresult" cols="50" rows="10"
 				placeholder="차주 업무 계획을 등록해주세요"></textarea>
+				session id:	${mem_id}
 	    </div>
 		</div>
 

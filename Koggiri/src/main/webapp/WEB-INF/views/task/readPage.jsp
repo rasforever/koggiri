@@ -33,6 +33,7 @@
 		<label for="ta_weekresult">금주업무실적</label><br>
 		<textarea class="form-control" name="ta_weekresult" rows="3" cols="40"
 			readonly="readonly">${taskVO.ta_weekresult}</textarea>
+			session id:	${mem_id}
 
 	</div> 
 	<div class="form-group">

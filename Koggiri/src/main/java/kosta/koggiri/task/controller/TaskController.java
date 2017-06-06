@@ -1,6 +1,7 @@
 package kosta.koggiri.task.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,8 +34,10 @@ public class TaskController {
 	private TaskService service;
 	
 	@RequestMapping(value="/register", method= RequestMethod.GET)
-	   public String registerGET(TaskVO task, Model model) throws Exception{
+	   public String registerGET(TaskVO task, Model model, HttpSession session) throws Exception{
 	      
+		String mem_id = (String) session.getAttribute("mem_id");
+		model.addAttribute("mem_id", mem_id);
 	      logger.info("register get..........");
 	      return "/task/register";
 	   }
@@ -43,8 +46,6 @@ public class TaskController {
 	   public String registPOST(TaskVO task, RedirectAttributes rttr)
 			   throws Exception{
 	      logger.info("task_regist post...........");
-	      System.out.println(task.toString());
-	      task.setEmp_id("k15010201");
 	      service.regist(task);
 	      
 	      //model.addAttribute("result","success");
@@ -68,8 +69,10 @@ public class TaskController {
 	   @RequestMapping(value="/readPage", method=RequestMethod.GET)
 	   public void read(@RequestParam("ta_seq") int ta_seq,
 			   @ModelAttribute("cri") TaskCriteria cri,
-			   Model model)throws Exception{
+			   Model model, HttpSession session)throws Exception{
 		 
+			String mem_id = (String) session.getAttribute("mem_id");
+			model.addAttribute("mem_id", mem_id);
 		   model.addAttribute(service.read(ta_seq));
 	   }
 	   
@@ -122,8 +125,10 @@ public class TaskController {
 	   @RequestMapping(value="/modifyPage", method= RequestMethod.GET)
 	   public void modifyPagingGET(@RequestParam("ta_seq") int ta_seq,
 			   @ModelAttribute("cri") TaskCriteria cri,
-			   Model model)throws Exception{
+			   Model model, HttpSession session)throws Exception{
 		   
+		   String mem_id = (String) session.getAttribute("mem_id");
+			model.addAttribute("mem_id", mem_id);
 		   model.addAttribute(service.read(ta_seq));
 	   }
 	   
@@ -141,8 +146,10 @@ public class TaskController {
 	   }
 
 		@RequestMapping(value="/list", method=RequestMethod.GET)
-		public void listPage(@ModelAttribute("cri") TaskSearchCriteria cri, Model model)throws Exception{
+		public void listPage(@ModelAttribute("cri") TaskSearchCriteria cri, Model model, HttpSession session)throws Exception{
 			
+			 String mem_id = (String) session.getAttribute("mem_id");
+			model.addAttribute("mem_id", mem_id);
 			//model.addAttribute("list", service.listCriteria(cri));
 			model.addAttribute("list", service.listSearchCriteria(cri));
 			
