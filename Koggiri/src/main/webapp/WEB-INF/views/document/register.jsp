@@ -64,7 +64,7 @@
 		</div>
 		<div class="form-group">
 			<label for="exampleInputPassword1">내용</label>
-			<textarea class="form-control" name="content" rows="3"
+			<textarea class="form-control" name="f_content" rows="3"
 				placeholder="내용을 입력하세요"></textarea>
 					<script type="text/javascript">
 								CKEDITOR
@@ -84,7 +84,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="exampleInputEmail1">File DROP Here</label>
+			<label for="exampleInputEmail1">파일첨부하기</label>
 			<div class="fileDrop"></div>
 		</div>
 	</div>
@@ -99,7 +99,7 @@
 		<ul class="mailbox-attachments clearfix uploadedList">
 		</ul>
 
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">등록하기</button>
 
 	</div>
 </form>
