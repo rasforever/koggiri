@@ -49,6 +49,8 @@ public class Doc_BoardServiceImpl implements Doc_BoardService {
 		
 		Integer f_id = board.getF_id();
 		
+		dao.deleteAttach(f_id);
+		
 		String [] files = board.getFiles();
 		
 		if(files == null){ return;}
