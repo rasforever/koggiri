@@ -44,16 +44,9 @@ public class TaskServiceImpl implements TaskService {
 	}
 
 	@Override
-	public int listCountCriteria(TaskCriteria cri) throws Exception {
-		return dao.countPaging(cri);
-	}
-
-	@Override
 	public List<TaskVO> listSearchCriteria(TaskSearchCriteria cri) throws Exception {
 		return dao.listSearch(cri);
-		
-		
-	
+
 	}
 
 	@Override

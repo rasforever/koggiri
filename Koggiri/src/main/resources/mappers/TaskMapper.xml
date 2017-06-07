@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			  ta_seq, ta_date, ta_weekresult, ta_nextresult, ta_regdate, ta_hitcount
 			 from 
 			 	task			   
-			 where ta_seq > 0
+			 where ta_seq > 0 
 		]]>  	 
 			 
 			 
@@ -50,7 +50,7 @@ select
 ta_seq, ta_date, ta_weekresult, ta_nextresult, ta_regdate, ta_hitcount
 from
 task
-where ta_seq > 0
+where ta_seq > 0 and emp_id = #{emp_id}
 order by ta_seq desc, ta_regdate desc
 ]]>
 	</select>

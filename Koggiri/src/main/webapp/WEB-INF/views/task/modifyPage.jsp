@@ -53,44 +53,48 @@
 				<!-- /.box-body -->
 			</form>
 
+			<div>
 
-			<div class="box-footer">
-				<button type="submit" class="btn btn-primary">SAVE</button>
-				<button type="submit" class="btn btn-warning">CANCEL</button>
-			</div>
+				<c:if test="emp_id=='${mem_id}">
+				<div class="box-footer">
+					<button type="submit" class="btn btn-primary">SAVE</button>
+					<button type="submit" class="btn btn-warning">CANCEL</button>
+				</div>
+				</c:if>
 
-			<script>
-				$(document)
-						.ready(
-								function() {
+				<script>
+					$(document)
+							.ready(
+									function() {
 
-									var formObj = $("form[role='form']");
+										var formObj = $("form[role='form']");
 
-									console.log(formObj);
+										console.log(formObj);
 
-									$(".btn-warning")
-											.on(
-													"click",
-													function() {
-														self.location = "/task/list?page=${cri.page}&perPageNum=${cri.perPageNum}";
-													});
+										$(".btn-warning")
+												.on(
+														"click",
+														function() {
+															self.location = "/task/list?page=${cri.page}&perPageNum=${cri.perPageNum}";
+														});
 
-									$(".btn-primary").on("click", function() {
-										formObj.submit();
+										$(".btn-primary").on("click",
+												function() {
+													formObj.submit();
+												});
+
 									});
-
-								});
-			</script>
+				</script>
 
 
 
 
+			</div>
+			<!-- /.box -->
 		</div>
-		<!-- /.box -->
-	</div>
-	<!--/.col (left) -->
+		<!--/.col (left) -->
 
-	<!-- /.row -->
+		<!-- /.row -->
 </section>
 <!-- /.content -->
 <!-- /.content-wrapper -->
