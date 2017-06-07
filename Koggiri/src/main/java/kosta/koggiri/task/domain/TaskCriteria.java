@@ -1,6 +1,6 @@
 package kosta.koggiri.task.domain;
 
-public class TaskCriteria {
+public class TaskCriteria extends TaskVO{
 
 	  private int page;
 	  private int perPageNum;

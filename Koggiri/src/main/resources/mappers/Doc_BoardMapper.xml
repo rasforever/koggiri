@@ -64,7 +64,7 @@
 				and f_content like '%'|| #{keyword}||'%'
 			</if>
 			<if test="searchType == 'w'.toString()">
-				and f_emp_id like '%'|| #{keyword}||'%'
+				and (f_emp_id like '%'|| #{keyword}||'%' or e.emp_nm like '%'|| #{keyword}||'%')
 
 
 			</if>
@@ -77,7 +77,8 @@
    				d.f_id, d.f_title, d.f_content, d.f_emp_id, d.f_date, d.f_hit, e.emp_nm as f_emp_nm
  			from 
   				documentboard d, emp e
-			 where f_id > 0 and d.f_emp_id = e.emp_id  
+			 where f_id > 0 and d.f_emp_id = e.emp_id 
+			  
    ]]>
 
 		<include refid="search"></include>
@@ -91,8 +92,8 @@
 	<select id="listSearchCount" resultType="int" parameterType="Doc_SearchCriteria">
    <![CDATA[  
      select count(f_id) 
-     from documentboard 
-     where f_id > 0 
+     from documentboard d, emp e
+			 where f_id > 0 and d.f_emp_id = e.emp_id 
    ]]>
 		<include refid="search"></include>
 	</select>

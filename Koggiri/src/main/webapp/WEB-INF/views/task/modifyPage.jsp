@@ -1,87 +1,100 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 
 
 <!-- Main content -->
 <section class="content">
-		<!-- left column -->
-		<div class="col-md-12">
-			<!-- general form elements -->
-			<div class="box box-primary">
-				<div class="box-header">
-					<h3 class="box-title">MODIFY TASK</h3>
-				</div>
-				<!-- /.box-header -->
-
-				<form role="form" action="modifyPage" method="post">
-
-					<input type='hidden' name='page' value="${cri.page}"> <input
-						type='hidden' name='perPageNum' value="${cri.perPageNum}">
-
-				
-					<div class="box-body">
-
-		<div class="form-group">
-			<label for="exampleInputEmail1">글번호</label>
-			<input type="text" name='ta_seq' class="form-control" value="${taskVO.ta_seq}"
-				readonly="readonly">
-		</div>
-
-		<div class="form-group">
-			<label for="ta_date">업무기간</label> <input type="text"
-				name='ta_date' class="form-control" value="${taskVO.ta_date}">
-		</div>
-		<div class="form-group">
-			<label for="ta_weekresult">금주업무실적</label>
-			<textarea class="form-control" name="ta_weekresult" rows="3">${taskVO.ta_weekresult}</textarea>
-		</div>
-		<div class="form-group">
-			<label for="ta_nextresult">차주업무계획</label>
-			<textarea class="form-control" name="ta_nextresult" rows="3">${taskVO.ta_nextresult}</textarea>
-		</div>
-	</div>
-	<!-- /.box-body -->
-</form>
-				
-				
-			<div class="box-footer">
-				<button type="submit" class="btn btn-primary">SAVE</button>
-				<button type="submit" class="btn btn-warning">CANCEL</button>
+	<!-- left column -->
+	<div class="col-md-12">
+		<!-- general form elements -->
+		<div class="box box-primary">
+			<div class="box-header">
+				<h3 class="box-title">업무 수정</h3>
 			</div>
+			<!-- /.box-header -->
 
-			<script>
-				$(document)
-						.ready(
-								function() {
+			<form role="form" action="modifyPage" method="post">
 
-									var formObj = $("form[role='form']");
+				<input type='hidden' name='page' value="${cri.page}"> <input
+					type='hidden' name='perPageNum' value="${cri.perPageNum}">
 
-									console.log(formObj);
+				<div class="box-body">
 
-									$(".btn-warning")
-											.on(
-													"click",
-													function() {
-														self.location = "/task/list?page=${cri.page}&perPageNum=${cri.perPageNum}";
-													});
+					<div class="form-group">
+						<label for="exampleInputEmail1">글번호</label> <input type="text"
+							name='ta_seq' class="form-control" value="${taskVO.ta_seq}"
+							readonly="readonly">
+					</div>
 
-									$(".btn-primary").on("click", function() {
-										formObj.submit();
+					<div class="form-group">
+						<label for="emp_id">작성자</label> <br> <input type="text"
+							name='emp_id' class="form-control" value="${taskVO.emp_nm}" size="23"
+							readonly="readonly">
+					</div>
+
+					<div class="form-group">
+						<label for="ta_date">업무기간</label> <input type="text"
+							name='ta_date' class="form-control" value="${taskVO.ta_date}"
+							readonly="readonly">
+					</div>
+
+					<div class="form-group">
+						<label for="ta_weekresult">금주업무실적</label>
+						<textarea class="form-control" name="ta_weekresult" rows="3">${taskVO.ta_weekresult}</textarea>
+					</div>
+					<div class="form-group">
+						<label for="ta_nextresult">차주업무계획</label>
+						<textarea class="form-control" name="ta_nextresult" rows="3">${taskVO.ta_nextresult}</textarea>
+					</div>
+				</div>
+				<!-- /.box-body -->
+			</form>
+
+			<div>
+
+				<c:if test="emp_id=='${mem_id}">
+				<div class="box-footer">
+					<button type="submit" class="btn btn-primary">SAVE</button>
+					<button type="submit" class="btn btn-warning">CANCEL</button>
+				</div>
+				</c:if>
+
+				<script>
+					$(document)
+							.ready(
+									function() {
+
+										var formObj = $("form[role='form']");
+
+										console.log(formObj);
+
+										$(".btn-warning")
+												.on(
+														"click",
+														function() {
+															self.location = "/task/list?page=${cri.page}&perPageNum=${cri.perPageNum}";
+														});
+
+										$(".btn-primary").on("click",
+												function() {
+													formObj.submit();
+												});
+
 									});
-
-								});
-			</script>
+				</script>
 
 
 
 
+			</div>
+			<!-- /.box -->
 		</div>
-		<!-- /.box -->
-	</div>
-	<!--/.col (left) -->
+		<!--/.col (left) -->
 
-	<!-- /.row -->
+		<!-- /.row -->
 </section>
 <!-- /.content -->
 <!-- /.content-wrapper -->
