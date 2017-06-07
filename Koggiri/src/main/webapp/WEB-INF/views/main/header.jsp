@@ -8,17 +8,17 @@
 
 <!-- script link -->
 
-<script type="text/javascript" src="resources/Scripts/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="resources/Scripts/ui.js"></script>
-<script type="text/javascript" src="resources/Scripts/jquery-ui-min.js"></script>
-<script type="text/javascript" src="resources/Scripts/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/resources/Scripts/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="/resources/Scripts/ui.js"></script>
+<script type="text/javascript" src="/resources/Scripts/jquery-ui-min.js"></script>
+<script type="text/javascript" src="/resources/Scripts/jquery.easing.1.3.js"></script>
 
 
 <!--  css link -->
-<link href="resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" type="image/x-icon" href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
-<link rel="stylesheet" href="resources/Content/themes/real/ui_main.css" />
-<link rel="stylesheet" href="resources/Content/themes/real/common.css" />
+<link rel="stylesheet" href="/resources/Content/themes/real/ui_main.css" />
+<link rel="stylesheet" href="/resources/Content/themes/real/common.css" />
 
 </head>
 <!-- ----------------------------------------------------------------------- -->
