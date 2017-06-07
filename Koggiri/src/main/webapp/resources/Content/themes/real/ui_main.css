@@ -537,11 +537,13 @@ table.vertical th.detail{background:#f0f4f6;vertica}
 .menu_a{
 font-weight: bold;
  font-size: 20px;
+
 }
 .menu_a:HOVER{
    color: #0080ff;
    
 }
+
 
 .weather{
    width: 470px;
@@ -560,8 +562,7 @@ font-weight: bold;
     position: relative;
 }
 .my_information{
-	background-color: #ffffff;
-	font-size: 17px;
+	padding-top:4px;
 	position: relative;
-	left:1500px;
+	left:800px;
 }
