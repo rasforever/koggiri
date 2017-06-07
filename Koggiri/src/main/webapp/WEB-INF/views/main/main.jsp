@@ -1,5 +1,3 @@
-
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -40,43 +38,31 @@
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<!-- html start -->
 <html>
 <head>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-<link href="resources/Content/themes/real/clock.css" rel="stylesheet" type="text/css" />
-<link type="text/css" rel="stylesheet"
-	href="resources/Content/themes/real/cal.css" />
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="robots" content="index,follow" />
-<meta name="subject" content="NEXON PC방 홈페이지에 오신것을 환영합니다." />
-<meta name="author" content="NEXON Networks" />
-<meta name="keywords" content="NEXON PC방, NEXON, PC방 " />
-<meta name="copyright" content="copyrights 2011 NEXON Networks" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>Koggiri</title>
-
-
-<script type="text/javascript"
-	src="resources/Scripts/jquery-1.11.2.min.js"></script>
-<!-- <script type="text/javascript" src="Scripts/jquery-ui.min.js"></script> -->
-<script type="text/javascript"
-	src="resources/Scripts/jquery.easing.1.3.js"></script>
-<!-- <script type="text/javascript" src="Scripts/jquery.bxslider.min.js"></script> -->
-<!-- <script type="text/javascript" src="Scripts/jquery.paging.min.js"></script> -->
-<!-- <script type="text/javascript" src="Scripts/ajaxOverSsl.js"></script> -->
-<script type="text/javascript" src="resources/Scripts/common.js"></script>
-<!-- <script type="text/javascript" src="Scripts/common.formatNumber-1.0.0.js"></script>
-<script type="text/javascript" src="Scripts/jquery.validate.min.js"></script>
-<script type="text/javascript" src="Scripts/jquery.validate.unobtrusive.min.js"></script> -->
-<link rel="shortcut icon" type="image/x-icon"
-	href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
+<!-- script link -->
+<!-- 메뉴바 플러그인 js -->
+<!-- <script type="text/javascript" src="resources/Scripts/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="resources/Scripts/ui.js"></script> -->
+<!--  퀵메뉴 플러그인 js -->
+<script type="text/javascript" src="resources/Scripts/jquery.easing.1.3.js"></script>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<!-- css link -->
+<link href="resources/Content/themes/real/clock.css" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="resources/Content/themes/real/cal.css" />
+<link rel="shortcut icon" type="image/x-icon" href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
 <link rel="stylesheet" href="resources/Content/themes/real/ui_main.css" />
-<script src="http://js.nx.com/s1/da/playlog.min.js"
-	type="text/javascript"></script>
-<script type="text/javascript" src="resources/Scripts/ui.js"></script>
-<link href="resources/Content/themes/base/jquery-ui.min.css"
-	rel="stylesheet" type="text/css" />
+<link href="resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body class="main">
@@ -100,7 +86,7 @@
 			<div id="content">
 				<div class="service">
 
-					<h3 class="hidden">고객센터</h3>
+					<h3 class="hidden">마이 페이지</h3>
 
 					<!-- ************************************* -->
 					<div class="customer_center">
@@ -128,12 +114,15 @@
 							<li><a href="#">를 불러와야 합니다.^^*</a></li>
 						</ul>
 					</div>
+					
 					<!-- ************************************* -->
-
+					
+					<h3 class="hidden">출,퇴근 근태확인</h3>
+					
 					<div class="remote_support"
 						style="width: 226px; height: 206px; background: white;"
 						align="center">
- 
+
 						<input type="submit" class="on_btn" value=""
 							style="margin: 20px 0px 5px 0px;"> <input type="submit"
 							class="off_btn" value="" style="margin: 7px;"> <input
@@ -141,39 +130,34 @@
 							style="width: 120px; height: 35px; border: 0px; background: gray; margin: 7px;">
 					</div>
 
-					<h3 class="hidden">고객센터</h3>
+					<h3 class="hidden">업무</h3>
 					<div class="event_apply">
-						<a href="/Promotion/Event/Ing"><span>이벤트신청 진행 중인 이벤트를
-								확인 및 신청하실 수 있습니다.</span></a>
+						<a href="#"></a> <!--  업무 리스트로 이동 -->
 					</div>
 					<hr />
 
+						<h3 class="hidden">공지사항</h3>
 					<div class="notice">
 						<img src="resources/img/notice_t.png" style="margin-bottom: 10px">
 						<ul>
 
-							<li><a href="/HelpDesk/Notify/Detail?sn=2456">서든어택 네트워크
-									공격 행위(일명 ‘누킹’) 66차~69차 대응 안내 <img
+							<li><a href="/HelpDesk/Notify/Detail?sn=2456">공지합니다 <img
 									src="http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_new.gif"
 									alt="새글" />
 							</a><span>2017-05-29</span></li>
 
 
-							<li><a href="/HelpDesk/Notify/Detail?sn=2455">테일즈런너
-									넥슨PC방 서비스 종료 안내</a><span>2017-05-22</span></li>
+							<li><a href="/HelpDesk/Notify/Detail?sn=2455"> 공지사항 세션을 넣어주세요</a><span>2017-05-22</span></li>
 
 
-							<li><a href="/HelpDesk/Notify/EventDetail?sn=484">서든어택
-									PC방 대회 06월 대상 매장</a><span>2017-05-17</span></li>
+							<li><a href="/HelpDesk/Notify/EventDetail?sn=484">글번호가 제일 높은 순서대로 나열</a><span>2017-05-17</span></li>
 
 
-							<li><a href="/HelpDesk/Notify/Detail?sn=2454">(완료)
-									05/09(화) 가상계좌 결제 서비스 오류 안내(수정)</a><span>2017-05-09</span></li>
+							<li><a href="/HelpDesk/Notify/Detail?sn=2454">하시면 될것 같아요</a><span>2017-05-09</span></li>
 
 						</ul>
-						<span class="more"><a href="/HelpDesk/Notify"><img
-								src="http://s.nx.com/S2/billing/pcbang/real/homepage/btn/btn_more.gif"
-								alt="더보기" /></a></span>
+						<span class="more"><a href="#"><img src="http://s.nx.com/S2/billing/pcbang/real/homepage/btn/btn_more.gif"
+								alt="더보기" /></a></span> <!-- + 버튼 누르면 공지사항 리트스 바로가기 -->
 					</div>
 
 					<h3 class="hidden">받은 메일함</h3>
@@ -182,37 +166,35 @@
 							style="margin-bottom: 10px">
 						<ul>
 
-							<li><a href="/HelpDesk/Notify/Detail?sn=2456">서든어택 네트워크
-									공격 행위(일명 ‘누킹’) 66차~69차 대응 안내 <img
+							<li><a href="/HelpDesk/Notify/Detail?sn=2456">받은 메일함 입니다,<img
 									src="http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_new.gif"
 									alt="새글" />
 							</a><span>2017-05-29</span></li>
 
 
-							<li><a href="/HelpDesk/Notify/Detail?sn=2455">테일즈런너
-									넥슨PC방 서비스 종료 안내</a><span>2017-05-22</span></li>
+							<li><a href="/HelpDesk/Notify/Detail?sn=2455"> 받은 메일 순서대로 나열</a><span>2017-05-22</span></li>
 
 
-							<li><a href="/HelpDesk/Notify/EventDetail?sn=484">서든어택
-									PC방 대회 06월 대상 매장</a><span>2017-05-17</span></li>
+							<li><a href="/HelpDesk/Notify/EventDetail?sn=484">하시면 될것 같아요</a><span>2017-05-17</span></li>
 
 
-							<li><a href="/HelpDesk/Notify/Detail?sn=2454">(완료)
-									05/09(화) 가상계좌 결제 서비스 오류 안내(수정)</a><span>2017-05-09</span></li>
+							<li><a href="/HelpDesk/Notify/Detail?sn=2454">받은 메일 세션을 넣어주세요</a><span>2017-05-09</span></li>
 
 						</ul>
-						<span class="more"><a href="/HelpDesk/Notify"><img
-								src="http://s.nx.com/S2/billing/pcbang/real/homepage/btn/btn_more.gif"
-								alt="더보기" /></a></span>
+						
+						<span class="more"><a href="#"><img src="http://s.nx.com/S2/billing/pcbang/real/homepage/btn/btn_more.gif"
+								alt="더보기" /></a></span> <!-- + 버튼 누르면 받은 메일함 바로가기  -->
 					</div>
+					
+					<h3 class="hidden">결재</h3>
 					<div class="game_play">
-						<a href="/MyPC/Usage/ChargeHistory"><span>게임이용조회 게임 이용
-								내역을 확인하실 수 있습니다.</span></a>
+						<a href="#"></a> <!-- 결제 리스트로 이동 -->
 					</div>
 				</div>
 
 
 			</div>
+			<!-- ----------------------------------------------------------------------- -->
 			<script type="text/javascript">
 				$(document).ready(function() {
 					$('.main #content div>a').on({
@@ -229,51 +211,64 @@
 					});
 				});
 			</script>
+
+			<!-- ------------------------------------------------------------------------ -->
 			
-	<!-- ------------------------------------------------------------------------ -->
-	
-	
-	
-	<script type="text/javascript">
-$(document).ready(function() {
-// Create two variable with the names of the months and days in an array
-var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; 
-var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+			<!-- 시계 script -->
+			<script type="text/javascript">
+				$(document).ready(
+						function() {
+							// Create two variable with the names of the months and days in an array
+							var monthNames = [ "January", "February", "March",
+									"April", "May", "June", "July", "August",
+									"September", "October", "November",
+									"December" ];
+							var dayNames = [ "Sunday", "Monday", "Tuesday",
+									"Wednesday", "Thursday", "Friday",
+									"Saturday" ]
 
-// Create a newDate() object
-var newDate = new Date();
-// Extract the current date from Date object
-newDate.setDate(newDate.getDate());
-// Output the day, date, month and year   
-$('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+							// Create a newDate() object
+							var newDate = new Date();
+							// Extract the current date from Date object
+							newDate.setDate(newDate.getDate());
+							// Output the day, date, month and year   
+							$('#Date').html(
+									dayNames[newDate.getDay()] + " "
+											+ newDate.getDate() + ' '
+											+ monthNames[newDate.getMonth()]
+											+ ' ' + newDate.getFullYear());
 
-setInterval( function() {
-	// Create a newDate() object and extract the seconds of the current time on the visitor's
-	var seconds = new Date().getSeconds();
-	// Add a leading zero to seconds value
-	$("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
-	},1000);
-	
-setInterval( function() {
-	// Create a newDate() object and extract the minutes of the current time on the visitor's
-	var minutes = new Date().getMinutes();
-	// Add a leading zero to the minutes value
-	$("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
-    },1000);
-	
-setInterval( function() {
-	// Create a newDate() object and extract the hours of the current time on the visitor's
-	var hours = new Date().getHours();
-	// Add a leading zero to the hours value
-	$("#hours").html(( hours < 10 ? "0" : "" ) + hours);
-    }, 1000);	
-});
-</script>
+							setInterval(function() {
+								// Create a newDate() object and extract the seconds of the current time on the visitor's
+								var seconds = new Date().getSeconds();
+								// Add a leading zero to seconds value
+								$("#sec").html(
+										(seconds < 10 ? "0" : "") + seconds);
+							}, 1000);
 
-<!-- ------------------------------------------------------------------------------------------- -->
+							setInterval(function() {
+								// Create a newDate() object and extract the minutes of the current time on the visitor's
+								var minutes = new Date().getMinutes();
+								// Add a leading zero to the minutes value
+								$("#min").html(
+										(minutes < 10 ? "0" : "") + minutes);
+							}, 1000);
+
+							setInterval(function() {
+								// Create a newDate() object and extract the hours of the current time on the visitor's
+								var hours = new Date().getHours();
+								// Add a leading zero to the hours value
+								$("#hours").html(
+										(hours < 10 ? "0" : "") + hours);
+							}, 1000);
+						});
+			</script>
+
+			<!-- ------------------------------------------------------------------------------------------- -->
+			
 			<div class="weather">
-				<input type="text" value="날씨 api 가져오기"
-					style="position: relative; bottom: 669px;">
+			<!--  이곳에 api 적용하면 됩니다 -->
+				<input type="text" value="날씨 api 가져오기" style="position: relative; bottom: 669px;">
 			</div>
 			<div class="calendar_main">
 				<form name="calendarFrm" id="calendarFrm" action="" method="post">
@@ -338,15 +333,14 @@ setInterval( function() {
 													color = "#529dbc"; //파랑색
 												} else {
 													color = "BLACK";
-												} ;
+												}
+												;
 
 												String sUseDate = Integer.toString(year);
 
-												sUseDate += Integer.toString(month + 1).length() == 1
-														? "0" + Integer.toString(month + 1)
+												sUseDate += Integer.toString(month + 1).length() == 1 ? "0" + Integer.toString(month + 1)
 														: Integer.toString(month + 1);
-												sUseDate += Integer.toString(index).length() == 1
-														? "0" + Integer.toString(index)
+												sUseDate += Integer.toString(index).length() == 1 ? "0" + Integer.toString(index)
 														: Integer.toString(index);
 
 												int iUseDate = Integer.parseInt(sUseDate);
@@ -389,24 +383,21 @@ setInterval( function() {
 					</div>
 				</form>
 			</div>
-				<div class="clock">
-<div id="Date"></div>
+			<div class="clock">
+				<div id="Date"></div>
 
-<br>
-<div id="clock_c">
-      <label id="hours"></label>
-      <label id="point">:</label>
-      <label id="min"></label>
-      <label id="point">:</label>
-      <label id="sec"></label>
-</div>
- 
+				<br>
+				<div id="clock_c">
+					<label id="hours"></label> <label id="point">:</label> <label
+						id="min"></label> <label id="point">:</label> <label id="sec"></label>
+				</div>
 
-</div>
-			
+
+			</div>
+
 		</div>
-		
-		
+
+
 		<hr />
 
 		<!-- 본문 끝 -->
@@ -415,102 +406,22 @@ setInterval( function() {
 		<jsp:include page="footer.jsp" />
 	</div>
 
-	<script type="text/javascript">
-	<!--
-		$(document)
-				.ready(
-						function() {
-							$
-									.ajax({
-										type : "post",
-										dataType : "json",
-										data : {},
-										url : "/Home/FooterGameList",
-										success : function(data) {
-											var gamelist = "";
-											$(".relation_site > ul").empty();
-
-											for (var i = 0; i < data.length; i++) {
-												gamelist += "<li><a onclick=\"javascript:goLink('"
-														+ data[i].Link
-														+ "', '"
-														+ data[i].GameName
-														+ "');\" title=\"새 창 열림\">"
-														+ data[i].GameName
-														+ "</a></li>";
-											}
-
-											$(".relation_site > ul").append(
-													gamelist);
-										}
-									});
-
-							// 원격 지원 팝업 지원
-							$("#lnb a,.gnb a,.sitemap a,.remote_support a")
-									.filter(
-											function() {
-												return $(this).attr("href")
-														.toLowerCase() == "/helpdesk/remote";
-											})
-									.click(
-											function() {
-												window
-														.open("https://113366.com/nexonnetworks");
-
-												return false;
-											});
-
-							// Tab 첫번째 항목 Background 없애기
-							$('.tab>ul>li:first, .tab3>ul>li:first').css(
-									'background', 'none');
-						});
-
-		function goLink(link, gameName) {
-			$("#linkName").text(gameName);
-			$("#linkUrl").attr("href", link);
-			$(".relation_site > ul").css("display", "none");
-		}
-
-		$("#imgPrivacyAgreement").click(
-				function() {
-					openPopupFocus("/Home/PrivacyAgreement",
-							"PrivacyAgreement", 720, 650, "yes");
-
-					return false;
-				});
-
-		$("#imgServiceAgreement").click(
-				function() {
-					openPopupFocus("/Home/ServiceAgreement",
-							"ServiceAgreement", 720, 580, "yes");
-
-					return false;
-				});
-
-		$(window).resize(function() {
-			var docH = $(document).height();
-			$('.faq_wrap').css('height', docH - 100);
-			$('.search_result_wrap').css('height', docH - 258);
-			$('.search_result, .search_faq_best').css('height', docH - 258);
-		}).resize();
-
-		//    $("#btnAlliance").click(function () {
-		//        openPopup("/Home/Alliance", "Alliance", 650, 700);
-
-		//        return false;
-		//    });
-
-		//    $(".fsGo > a").click(function () {
-		//        if ($("#ddlGameLink").val() != "") {
-		//            var value = $("#ddlGameLink option:selected").val();
-		//            var text = $("#ddlGameLink option:selected").text();
-		//            window.open(value).focus();
-		//        }
-
-		//        return false;
-		//    });
-	//-->
-	</script>
 
 </body>
 </html>
+
+
+
+
+
+
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script> -->
+<!-- <script type="text/javascript" src="resources/Scripts/common.js"></script> --> <!--  필요할지 모르나 없어도 아직까지 문제없음 -->
+<!-- <script src="http://js.nx.com/s1/da/playlog.min.js" type="text/javascript"></script> -->
+<!-- <script type="text/javascript" src="Scripts/common.formatNumber-1.0.0.js"></script>
+<script type="text/javascript" src="Scripts/jquery.validate.min.js"></script>
+<script type="text/javascript" src="Scripts/jquery.validate.unobtrusive.min.js"></script> -->
+<!-- <script type="text/javascript" src="Scripts/jquery-ui.min.js"></script> -->
+<!-- <script type="text/javascript" src="Scripts/jquery.bxslider.min.js"></script> -->
+<!-- <script type="text/javascript" src="Scripts/jquery.paging.min.js"></script> -->
+<!-- <script type="text/javascript" src="Scripts/ajaxOverSsl.js"></script> -->
