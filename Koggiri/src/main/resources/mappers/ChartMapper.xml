@@ -5,10 +5,10 @@
 
 <mapper namespace="kosta.koggiri.mapper.ChartMapper">
 
-	<select id="MM" resultType="ChartVO">
+	<select id="list" parameterType="String" resultType="ChartVO">
 		select e.dept_id, e.emp_nm, e.emp_id, e.sex_id, s.sex_nm, p.pos_nm, e.tel_no, e.e_mail, e.join_dt, e.pos_id from EMP e, POS p, SEX s
 		where e.pos_id = p.pos_id and e.sex_id = s.sex_id
-		and e.dept_id = 'MM'
+		and e.dept_id = #{dept_id}
 	</select>
 
 	<select id="read" parameterType="String" resultType="ChartVO">
@@ -26,7 +26,8 @@
 	    inner join SEX s
 		on e.sex_id = s.sex_id
 		and e.emp_id = #{emp_id}
-    
 	</select>
+	
+	
 
 </mapper>  

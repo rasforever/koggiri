@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class MemberVO implements Serializable{
 	private String mem_id;
 	private String mem_pw;
+	private String dept_id;
 	private String e_mail1;
 	private String e_mail2;
 	
@@ -30,7 +31,15 @@ public class MemberVO implements Serializable{
 	public void setMem_pw(String mem_pw) {
 		this.mem_pw = mem_pw;
 	}
-	 public boolean matchPassword(String pwd){
+	
+	
+	 public String getDept_id() {
+		return dept_id;
+	}
+	public void setDept_id(String dept_id) {
+		this.dept_id = dept_id;
+	}
+	public boolean matchPassword(String pwd){
 		 return mem_pw.equals(pwd);
 	 }
 	public String getE_mail() {
@@ -97,11 +106,12 @@ public class MemberVO implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "MemberVO [mem_id=" + mem_id + ", mem_pw=" + mem_pw + ", e_mail1=" + e_mail1 + ", e_mail2=" + e_mail2
-				+ ", e_mail=" + e_mail + ", tel_no=" + tel_no + ", addr=" + addr + ", addr1=" + addr1 + ", addr2="
+		return "MemberVO [mem_id=" + mem_id + ", mem_pw=" + mem_pw + ", dept_id=" + dept_id + ", e_mail1=" + e_mail1
+				+ ", e_mail2=" + e_mail2 + ", e_mail=" + e_mail + ", tel_no=" + tel_no + ", telno1=" + telno1
+				+ ", telno2=" + telno2 + ", telno3=" + telno3 + ", addr=" + addr + ", addr1=" + addr1 + ", addr2="
 				+ addr2 + "]";
 	}
-	
+
 	
 	
 	
