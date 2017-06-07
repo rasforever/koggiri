@@ -8,7 +8,9 @@
 	<cache />
 	
 	<select id="login" resultType="MemberVO">
-		select mem_id,mem_pw from member where
+		select mem_id,mem_pw, dept_id from member m inner join emp e
+		on m.mem_id = e.emp_id
+		where 
 		mem_id= #{mem_id} and mem_pw=#{mem_pw}
 	</select>
 	
