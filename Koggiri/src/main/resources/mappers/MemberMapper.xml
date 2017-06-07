@@ -11,12 +11,26 @@
 		select mem_id,mem_pw from member where
 		mem_id= #{mem_id} and mem_pw=#{mem_pw}
 	</select>
+	
+	
 	<select id="get_emp_nm" parameterType="MemberVO" resultType="String">
 		select emp_nm from emp where
 		emp_id = #{mem_id}
 		
 	</select>
 	
+	<update id="mem_update" parameterType="MemberVO">
+		update emp set e_mail = #{e_mail}, tel_no= #{tel_no}, addr = #{addr}
+		where emp_id = #{mem_id} 
+	</update>
+	
+	<update id="mem_pass" parameterType="MemberVO">
+		update member set mem_pw=#{mem_pw} where mem_id = #{mem_id}
+	</update>
+	
+	<select id="detail_mem" resultType="MemberVO">
+		select e_mail,tel_no,addr from emp where emp_id = #{mem_id}
+	</select>
 </mapper>
 
 

@@ -41,29 +41,29 @@
 
 </head>
 <body class="main">
-   <div id="wrap">
-        <!-- ************************************* -->
-        <div class="my_information">
-        <a class="my_name">${mem_id} 님이 접속하셨습니다.</a> │
-        <a class="my_modify" href="#">내 정보 수정</a> │
-<a class="log_out" href="/login/logout">로그아웃</a>
-	</div>
+
      <!-- ************************************* -->
       <h1 class="hidden">Koggiri 메인 페이지</h1>
       <div class="header_wrap">
+               <div id="container">
+                 <div class="my_information">
+        <a class="my_name">${emp_nm} 님이 접속하셨습니다.</a> │
+        <a class="my_modify" href="/login/passcheck">내 정보 수정</a> │
+<a class="log_out" href="/login/logout">로그아웃</a>
+</div>
          <!-- skipNavi : s -->
          <div id="skipNavi"><a href="#header">주메뉴 바로가기</a><a href="#container">본문 바로가기</a></div>
          <!-- skipNavi : e -->
 
          <!-- header : s -->
          <div id="header">
-          <div class="logo">
-               <a  class="back_for_main" href="#"><img src="resources/img/koggiri.PNG" style="width:200px;"><span class="hidden">코끼리 로고</span></a>
+          <div class="logo" style="padding-top:13px;">
+               <a  class="back_for_main" href="#"><img src="resources/img/koggiri.PNG" style="width:200px; "><span class="hidden">코끼리 로고</span></a>
             </div>
             <div class="gnb">
    <ul>
         <!-- 1depth : s -->
-      <li class="menu01 "><a href="#"  class="menu_a"  >공지</a>
+      <li class="menu01 "><a href="#"  class="menu_a"  style="padding-top:10px;">공지</a>
             <!-- 2depth : s -->
             <ul>
                 <li class=""><a href="sub_notice.jsp">공지 사항</a>
@@ -74,7 +74,7 @@
             </ul>
         </li>
         <!-- 1depth : s -->
-      <li class="menu02 "><a href="#" class="menu_a" >전자문서</a>
+      <li class="menu02 "><a href="#" class="menu_a" style="padding-top:10px;">전자문서</a>
             <!-- 2depth : s -->
             <ul>
                     <li class=""><a href="sub_document.jsp">업무 보고</a>
@@ -86,7 +86,7 @@
             </ul>
         </li>
         <!-- 1depth : s -->
-      <li class="menu03 "><a href="#" class="menu_a">일정</a>
+      <li class="menu03 "><a href="#" class="menu_a" style="padding-top:10px;">일정</a>
             <!-- 2depth : s -->
             <ul>
                     <li class=""><a href="sub_calender.jsp">일정</a>
@@ -94,7 +94,7 @@
             </ul>
         </li>
         <!-- 1depth : s -->
-      <li class="menu04 "><a href="#" class="menu_a">메일</a>
+      <li class="menu04 "><a href="#" class="menu_a" style="padding-top:10px;">메일</a>
             <!-- 2depth : s -->
             <ul>
                   <li class=""><a href="sub_mail.jsp">메일쓰기</a>
@@ -111,7 +111,7 @@
                     </li>
             </ul>
         </li>
-        <li class="menu05 "><a href="#" class="menu_a">회사정보</a>
+        <li class="menu05 "><a href="#" class="menu_a" style="padding-top:10px;">회사정보</a>
             <!-- 2depth : s -->
             <ul>
                     <li class=""><a href="sub_information.jsp">Koggiri란?</a>

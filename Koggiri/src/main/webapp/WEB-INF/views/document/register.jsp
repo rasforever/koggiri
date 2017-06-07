@@ -57,6 +57,7 @@
 				<!-- /.box-header -->
 
 <form id='registerForm' role="form" method="post">
+	<input type="hidden" name = "f_emp_id" value = "${mem_id}">
 	<div class="box-body">
 		<div class="form-group">
 			<label for="exampleInputEmail1">제목</label> <input type="text"
@@ -80,7 +81,7 @@
 		</div>
 		<div class="form-group">
 			<label for="exampleInputEmail1">작성자</label> <input type="text"
-				value ="${mem_id}" name="f_emp_id" class="form-control" placeholder="Enter Writer" readonly="readonly"> 
+				value ="${emp_nm }" name="f_emp_nm" class="form-control" placeholder="Enter Writer" readonly="readonly"> 
 		</div>
 
 		<div class="form-group">

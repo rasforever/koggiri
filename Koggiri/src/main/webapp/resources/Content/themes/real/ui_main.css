@@ -244,7 +244,7 @@ textarea.contents{resize:none;overflow-y:auto;padding:10px}
 .main #content .service>div.event_apply a{background:#fff url(../../../img/task_img.png) no-repeat 0 0}
 .main #content .service>div.refund_apply a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/160721/bg_refund_apply.gif) no-repeat 0 0}
 .main #content .service>div.remote_support a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_remote_supply.gif) no-repeat 0 0}
-.main #content .service>div.game_play,
+.main #content .service>div.game_play{background-color: #eef1f2; margin-right: 0;}
 .main #content .service>div.remote_support{margin-right:0}
 .main #content .service>div.faq{margin:0}
 .main #content .service>div.faq a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_faq.gif) no-repeat 0 0}
@@ -537,11 +537,13 @@ table.vertical th.detail{background:#f0f4f6;vertica}
 .menu_a{
 font-weight: bold;
  font-size: 20px;
+
 }
 .menu_a:HOVER{
    color: #0080ff;
    
 }
+
 
 .weather{
    width: 470px;
@@ -560,8 +562,7 @@ font-weight: bold;
     position: relative;
 }
 .my_information{
-	background-color: #ffffff;
-	font-size: 17px;
+	padding-top:4px;
 	position: relative;
-	left:1500px;
+	left:800px;
 }

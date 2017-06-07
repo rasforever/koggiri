@@ -41,13 +41,16 @@ public class Doc_BoardController {
 	public void registGET(Doc_BoardVO board, Model model, HttpSession session)throws Exception{
 		
 		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String)session.getAttribute("emp_nm");
 		model.addAttribute("mem_id", mem_id);
+		model.addAttribute("emp_nm", emp_nm);
 		System.out.println("컨트롤러 성공적으로 들어옴");
 	}
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public String registerPOST(Doc_BoardVO board, RedirectAttributes rttr)throws Exception{
 		
+		board.getF_emp_id();
 		service.regist(board);
 		
 		rttr.addFlashAttribute("msg", "success");
@@ -85,8 +88,10 @@ public class Doc_BoardController {
 	
 	@RequestMapping(value="/modifyPage", method=RequestMethod.GET)
 	public void modifyPagingGET(@RequestParam("f_id")int f_id, @ModelAttribute("cri") Doc_SearchCriteria cri, Model model)throws Exception{
+
+			model.addAttribute(service.read(f_id));
 		
-		model.addAttribute(service.read(f_id));
+	
 	}
 	
 	@RequestMapping(value="/modifyPage", method=RequestMethod.POST)
