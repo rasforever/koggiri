@@ -13,9 +13,10 @@
 <link rel='stylesheet'
 	href='/resources/plugins/fullcalendar/fullcalendar.css' />
 <script src='/resources/plugins/fullcalendar/moment.min.js'></script>
+
 <script src='/resources/plugins/fullcalendar/fullcalendar.js'
 	charset="euc-kr"></script>
-<script src='/resources/plugins/fullcalendar/ko.js'></script>
+<!-- <script src='/resources/plugins/fullcalendar/ko.js'></script> -->
 
 <link type="text/css" rel="stylesheet"
 	href="/resources/plugins/fullcalendar/jquery.qtip.min.css" />
@@ -25,6 +26,7 @@
 	rel="stylesheet" />
 <script src="/resources/plugins/fullcalendar/ssi-modal.min.js"></script>
 <script src='/resources/plugins/fullcalendar/json2.js'></script>
+
 <script type="text/javascript">
 	$(document)
 			.ready(
@@ -65,7 +67,7 @@
 											header : {
 												left : 'prev,next today',
 												center : 'title'/* ,
-															right: 'month,agendaWeek,agendaDay' */
+																											right: 'month,agendaWeek,agendaDay' */
 											},
 
 											events : { // 데이터 받고 뿌려주기
@@ -535,6 +537,7 @@
 		return '{' + results.join(', ') + '}';
 	}
 </script>
+
 <style type="text/css">
 body {
 	margin: 40px 10px;
@@ -551,14 +554,13 @@ body {
 
 </head>
 <body>
-	<div id="main_header">
-		<jsp:include page="../header.jsp" />
-	</div>
+<%-- <div id="main_header">
+		<jsp:include page="../main/header.jsp" />
+	</div> --%>
+	
 	<div id='calendar'></div>
 
-	<div id="main_footer">
-		<jsp:include page="../footer.jsp" />
-	</div>
 
 </body>
+
 </html>
