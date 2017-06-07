@@ -110,16 +110,16 @@
 							<li><a href="#">사진</a></li>
 						</ul>
 						<ul>
-							<li><a href="#">이름</a></li>
+							<li><a href="#">${empVO.emp_nm}</a></li>
 						</ul>
 						<ul>
-							<li><a href="#">직급</a></li>
+							<li><a href="#">${empVO.pos_nm }</a></li>
 						</ul>
 						<ul>
-							<li><a href="#">부서</a></li>
+							<li><a href="#">${empVO.dept_nm }</a></li>
 						</ul>
 						<ul>
-							<li><a href="#">핸드폰 번호</a></li>
+							<li><a href="#">${empVO.tel_no }</a></li>
 						</ul>
 
 						<ul>

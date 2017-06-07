@@ -9,4 +9,11 @@ public interface LoginService {
 	
 	public String getEmpnmbyMemid(MemberVO vo)throws Exception;
 	
+	public void mem_update(MemberVO vo)throws Exception;
+	
+	public MemberVO detail_mem(String mem_id )throws Exception;
+	
+	public void mem_pass(MemberVO vo)throws Exception;
+	
+	
 }

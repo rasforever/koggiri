@@ -9,7 +9,9 @@
  	<package name="kosta.koggiri.approval.domain"/>
  	<package name="kosta.koggiri.calendar.domain"/>
  	<package name="kosta.koggiri.login.domain"/>
+ 	<package name="kosta.koggiri.admin_emp.domain"/>
  	<package name="kosta.koggiri.task.domain"/>
+
  </typeAliases>
  
 
