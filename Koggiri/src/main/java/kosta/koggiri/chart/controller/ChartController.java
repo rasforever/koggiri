@@ -17,10 +17,9 @@ public class ChartController {
 	@Inject
 	private ChartService service;
 	
-	@RequestMapping(value="/MM", method=RequestMethod.GET)
-	public void MM(Model model)throws Exception{
-		
-		model.addAttribute("list",service.MM());
+	@RequestMapping(value="/list", method=RequestMethod.GET)
+	public void list(@RequestParam("dept_id")String dept_id, Model model)throws Exception{
+		model.addAttribute("list",service.list(dept_id));
 	}
 	
 	@RequestMapping(value="/read", method=RequestMethod.GET)

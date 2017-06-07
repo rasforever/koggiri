@@ -19,8 +19,9 @@ public class ChartDAOImpl implements ChartDAO {
 	private static String namespace = "kosta.koggiri.mapper.ChartMapper";
 
 	@Override
-	public List<ChartVO> MM() throws Exception {
-		return session.selectList(namespace + ".MM");
+	public List<ChartVO> list(String dept_id) throws Exception {
+
+		return session.selectList(namespace + ".list", dept_id);
 	}
 
 	@Override
