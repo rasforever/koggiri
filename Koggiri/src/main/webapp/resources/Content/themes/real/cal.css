@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+
+.cal_content{
+	height: 160px;
+}
+
+.cal_all{
+	width: 220px;
+}
+.cal_top{
+	width: 220px;
+	height: 50px;
+}
+
+.table_top{
+	width: 220px;
+    height: 50px;
+    position: relative;
+    top: -446px;
+    font-weight: bold;
+        margin-bottom: 0px;
+    border-bottom-width: 0px;
+    border-top-width: 0px;
+}
+
+.table_content{
+    height: 160px;
+    width: 220px;
+    position: relative;
+    top: -400px;
+    margin-bottom: 0px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    
+}
+.table_content  td{
+	text-align:center;
+	width: 27px;
+	height:27px;
+	padding: 0px;
+	border: 0px;
+}
+
+#calendarFrm{
+	    width: 220px;
+    position: relative;
+    left: 3.2px;
+    bottom: 4px;
+}

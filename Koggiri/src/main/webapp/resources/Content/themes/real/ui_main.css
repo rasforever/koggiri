@@ -234,7 +234,7 @@ textarea.contents{resize:none;overflow-y:auto;padding:10px}
 .login_ip_chrome .login:after{content:'';display:block;visibility:hidden;height:0;clear:both}
 
 /*main service*/
-.main #content .service>div{float:left;margin:0 17px 17px 0;height:206px;overflow:hidden}
+.main #content .service>div{float:left;margin:0 17px 17px 0;height:206px;overflow:hidden; background-color: #ffffff;}
 .main #content .service>div>a{position:relative;display:block;width:226px;height:412px}
 .main #content .service>div>a>span{text-indent:-9999px;position:absolute;top:-9999px;left:-9999px;height:0}
 .main #content .service>div.ip_manage a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_ip_manage.gif) no-repeat 0 0}
@@ -244,7 +244,7 @@ textarea.contents{resize:none;overflow-y:auto;padding:10px}
 .main #content .service>div.event_apply a{background:#fff url(../../../img/task_img.png) no-repeat 0 0}
 .main #content .service>div.refund_apply a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/160721/bg_refund_apply.gif) no-repeat 0 0}
 .main #content .service>div.remote_support a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_remote_supply.gif) no-repeat 0 0}
-.main #content .service>div.game_play,
+.main #content .service>div.game_play{background-color: #eef1f2; margin-right: 0;}
 .main #content .service>div.remote_support{margin-right:0}
 .main #content .service>div.faq{margin:0}
 .main #content .service>div.faq a{background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/main/bg_faq.gif) no-repeat 0 0}
@@ -479,7 +479,7 @@ table th .tbl_info{position:relative;display:inline-block}
 table th .tbl_info:after{content:'';display:block;visibility:hidden;height:0;clear:both}
 table th a.btn_info{position:relative;margin-left:5px;vertical-align: middle}
 table th a.btn_info img{vertical-align: baseline}
-table td{vertical-align:middle;background:#fff;border-bottom:1px #e3e3e3 solid;text-align:center;padding:8px 0;letter-spacing:-1px;line-height:160%;color:#555}
+table td{vertical-align:middle;border-bottom:1px #e3e3e3 solid;text-align:center;padding:8px 0;letter-spacing:-1px;line-height:160%;color:#555}
 table td.article{text-align:left}
 table td input[type="text"]{padding:5px;border:1px #bdbdbd solid;font-size:13px}
 table td input[type="password"]{padding:5px;border:1px #bdbdbd solid;font-size:13px}
@@ -537,11 +537,13 @@ table.vertical th.detail{background:#f0f4f6;vertica}
 .menu_a{
 font-weight: bold;
  font-size: 20px;
+
 }
 .menu_a:HOVER{
    color: #0080ff;
    
 }
+
 
 .weather{
    width: 470px;
@@ -553,9 +555,14 @@ font-weight: bold;
 }
 
 .calendar_main{
-   width: 470px;
-    height: 430px;
-    background-color: orange;
+   width: 226px;
+    height: 206px;
+    background-color: #ffffff;
     left: 730px;
     position: relative;
+}
+.my_information{
+	padding-top:4px;
+	position: relative;
+	left:800px;
 }

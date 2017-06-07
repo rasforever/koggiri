@@ -3,8 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
-
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 <!-- Main content -->
 <section class="content">
@@ -16,16 +16,30 @@
 			<!-- general form elements -->
 			<div class='box'>
 				<div class="box-header with-border">
-					<h3 class="box-title">Board List</h3>
+					<h3 class="box-title">문서게시판</h3>
 				</div>
 
 
 				<div class='box-body'>
 
-					 <input type="text" name='keyword' id="keywordInput"
+					<select name="searchType">
+						<option value="n"
+							<c:out value="${cri.searchType == null?'selected':''}"/>>
+							---</option>
+						<option value="t"
+							<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+							제목</option>
+						<option value="c"
+							<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
+							내용</option>
+						<option value="w"
+							<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+							작성자</option>
+
+					</select> <input type="text" name='keyword' id="keywordInput"
 						value='${cri.keyword }'>
-					<button id='searchBtn'>Search</button>
-					<button id='newBtn'>New Board</button>
+					<button id='searchBtn' class="pagination">검색</button>
+					<button id='newBtn' class="pagination">글 작성</button>
 
 				</div>
 			</div>
@@ -33,35 +47,30 @@
 
 			<div class="box">
 				<div class="box-header with-border">
-					<h3 class="box-title">LIST PAGING</h3>
+					<h3 class="box-title">글목록</h3>
 				</div>
 				<div class="box-body">
 					<table class="table table-bordered">
 						<tr>
-							<th>결재문서번호</th>
-							<th>제안일</th>
-							<th>결재구분</th>
-							<th>관리부서</th>
-							<th>기안자</th>
-							<th>결재자</th>
-							<th>진행상태</th>
+							<th style="width: 10px">글번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>작성일</th>
+							<th style="width: 40px">조회수</th>
 						</tr>
 
-						<c:forEach items="${list}" var="approvalVO">
+						<c:forEach items="${list}" var="boardVO">
 
 							<tr>
+								<td>${boardVO.f_id}</td>
 								<td><a
-									href='/approval/readPage${pageMaker.makeSearch(pageMaker.cri.page) }&app_id=${approvalVO.app_id}'>
-										${approvalVO.app_id} 
-								</a></td>								
-								<td>${approvalVO.draft_dt}"</td>
-								<td>${approvalVO.app_type_nm}</td>	
-								<td>${approvalVO.dept_nm}</td>	
-								<td>${approvalVO.draft_emp_nm}</td>	
-								<td>${approvalVO.app_emp_nm}</td>		
-								<td>${approvalVO.app_pro_nm}</td>	
-										
-								
+									href='/document/readPage${pageMaker.makeSearch(pageMaker.cri.page) }&f_id=${boardVO.f_id}'>
+										${boardVO.f_title}
+								</a></td>
+								<td>${boardVO.f_emp_nm}</td>
+								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+										value="${boardVO.f_date}" /></td>
+								<td><span class="badge bg-red">${boardVO.f_hit}</span></td>
 							</tr>
 
 						</c:forEach>
@@ -112,7 +121,7 @@
 <script>
 	var result = '${msg}';
 
-	if (result == 'SUCCESS') {
+	if (result == 'success') {
 		alert("처리가 완료되었습니다.");
 		location.replace(self.location);
 	}

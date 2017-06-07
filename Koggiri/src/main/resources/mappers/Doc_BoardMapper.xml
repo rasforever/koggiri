@@ -32,32 +32,6 @@
 		delete from documentboard where f_id = #{f_id}
 	</delete>
 
-	<select id="listAll" resultType="Doc_BoardVO">
- 		<![CDATA[
-			 select 
-			   f_id, f_title, f_content, f_emp_id, f_date, f_hit
-			 from 
-			 	documentboard			   
-			 where f_id > 0
-		]]>  	 
-			 
-			 
-		<![CDATA[	  
-			 order by f_id desc, f_date desc
- 		]]>
-	</select>
-
-	<select id="listPage" resultType="Doc_BoardVO">
-  		<![CDATA[
- 			select 
-   				f_id, f_title, f_content, f_emp_id, f_date, f_hit 
- 			from 
-  				documentboard
-			 where f_id > 0 
- 				order by f_id desc, f_date desc
- 			
- 		]]>
-	</select>
 
 	<select id="listCriteria" resultType="Doc_BoardVO">
     <![CDATA[
@@ -81,6 +55,69 @@
  ]]>
 	</select>
 
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and f_title like '%'|| #{keyword}||'%'
+			</if>
+			<if test="searchType == 'c'.toString()">
+				and f_content like '%'|| #{keyword}||'%'
+			</if>
+			<if test="searchType == 'w'.toString()">
+				and f_emp_id like '%'|| #{keyword}||'%'
+
+
+			</if>
+		</if>
+	</sql>
+
+	<select id="listSearch" resultType="Doc_BoardVO" parameterType="Doc_SearchCriteria">
+   <![CDATA[  
+     select 
+   				d.f_id, d.f_title, d.f_content, d.f_emp_id, d.f_date, d.f_hit, e.emp_nm as f_emp_nm
+ 			from 
+  				documentboard d, emp e
+			 where f_id > 0 and d.f_emp_id = e.emp_id  
+   ]]>
+
+		<include refid="search"></include>
+     
+   <![CDATA[    
+     order by f_id desc     
+   ]]>
+	</select>
+
+
+	<select id="listSearchCount" resultType="int" parameterType="Doc_SearchCriteria">
+   <![CDATA[  
+     select count(f_id) 
+     from documentboard 
+     where f_id > 0 
+   ]]>
+		<include refid="search"></include>
+	</select>
+
+	<update id="updateViewCnt">
+		update documentboard set f_hit = f_hit + 1 
+			where f_id = #{f_id}
+	</update>
+	
+	<insert id="addAttach" parameterType="Doc_FileVO">
+      insert into document_attach(fullname, f_id) values (#{fullName}, DOC_SEQ.currval)
+    </insert>
+   
+   <select id="getAttach" resultType="string">
+   		select fullname from document_attach where f_id = #{f_id}
+   			order by f_date
+   </select>
+   
+   <delete id="deleteAttach">
+   	 	delete from document_attach where f_id = #{f_id}
+   </delete>
+   
+   <insert id="replaceAttach">
+   		insert into document_attach(fullname, f_id) values (#{fullName},#{f_id})
+   </insert>
 
 
 

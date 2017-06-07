@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kosta.koggiri.approval.domain.AppTypeVO;
+import kosta.koggiri.approval.domain.ApprovalSearchVO;
 import kosta.koggiri.approval.domain.ApprovalVO;
 import kosta.koggiri.approval.domain.DeptVO;
 import kosta.koggiri.approval.domain.Emp_InfoVO;
@@ -26,12 +27,6 @@ public class ApprovalDAOImpl implements ApprovalDAO {
 
 	@Override
 	public void create(ApprovalVO vo) throws Exception {
-		System.out.println(vo.getApp_type_cd());
-		System.out.println(vo.getDraft_emp_id());
-		System.out.println(vo.getApp_emp_id());
-		System.out.println(vo.getDraft_dt());
-		System.out.println(vo.getApp_title());
-		System.out.println(vo.getApp_context());
 		session.insert(namespace + ".create", vo);
 
 	}
@@ -54,11 +49,6 @@ public class ApprovalDAOImpl implements ApprovalDAO {
 	}
 
 	@Override
-	public List<ApprovalVO> listAll() throws Exception {
-		return session.selectList(namespace + ".listAll");
-	}
-
-	@Override
 	public List<AppTypeVO> appty_select() throws Exception {
 		return session.selectList(namespace + ".appty_select");
 	}
@@ -74,14 +64,28 @@ public class ApprovalDAOImpl implements ApprovalDAO {
 	}
 
 	@Override
-	public List<ApprovalVO> listSearch(SearchCriteria cri) throws Exception {
-		return session.selectList(namespace + ".listSearch", cri,
-				new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+	public List<ApprovalVO> listSearch(ApprovalSearchVO search) throws Exception {	
+		if(search.getSearchType().equals("s")){
+			return session.selectList(namespace + ".listsSearch", search,
+					new RowBounds(search.getPageStart(), search.getPerPageNum()));			
+		}else if (search.getSearchType().equals("r")){
+			return session.selectList(namespace + ".listrSearch", search,
+					new RowBounds(search.getPageStart(), search.getPerPageNum()));			
+		}else {
+			return session.selectList(namespace + ".listsSearch", search,
+					new RowBounds(search.getPageStart(), search.getPerPageNum()));	
+		}
 	}
 
 	@Override
-	public int listSearchCount(SearchCriteria cri) throws Exception {
-		return session.selectOne(namespace + ".listSearchCount", cri);
+	public int listSearchCount(ApprovalSearchVO search) throws Exception {
+		if(search.getSearchType().equals("s")){
+			return session.selectOne(namespace + ".listsSearchCount", search);
+		}else if (search.getSearchType().equals("r")){
+			return session.selectOne(namespace + ".listrSearchCount", search);
+		}else {
+			return session.selectOne(namespace + ".listsSearchCount", search);
+		}
 	}
 
 	@Override
@@ -117,4 +121,8 @@ public class ApprovalDAOImpl implements ApprovalDAO {
 
 	}
 
+	@Override
+	public void updateAPP(ApprovalVO vo) throws Exception {
+		session.update(namespace + ".updateAPP", vo);		
+	}
 }

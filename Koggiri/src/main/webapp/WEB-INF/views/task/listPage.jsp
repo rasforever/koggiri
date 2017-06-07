@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
-<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 
 <!-- Main content -->
 <section class="content">
@@ -13,10 +12,10 @@
 			<!-- general form elements -->
 			<div class='box'>
 				<div class="box-header with-border">
-					<h3 class="box-title">Board List</h3>
+					<h3 class="box-title">Task List</h3>
 				</div>
 				<div class='box-body'>
-					<button id='newBtn'>New Board</button>
+					<button id='newBtn'>New Task</button>
 				</div>
 			</div>
 			<div class="box">
@@ -24,26 +23,28 @@
 					<h3 class="box-title">LIST PAGING</h3>
 				</div>
 				<div class="box-body">
-					<table class="table table-bordered">
+					<table class="table table-bordered" border="1">
 						<tr>
-							<th style="width: 10px">BNO</th>
-							<th>TITLE</th>
-							<th>WRITER</th>
-							<th>REGDATE</th>
-							<th style="width: 40px">VIEWCNT</th>
+							<th style="width: 10px">글번호</th>
+							<th>제목</th>
+							<th>금주업무실적</th>
+							<th>차주업무계획</th>
+							<th>작성일</th>
+							<th style="width: 40px">조회수</th>
 						</tr>
 
-						<c:forEach items="${list}" var="boardVO">
+
+						<c:forEach items="${list}" var="TaskVO">
 
 							<tr>
-								<td>${boardVO.f_id}</td>
-								<td><a
-									href='/document/readPage${pageMaker.makeQuery(pageMaker.cri.page) }&f_id=${boardVO.f_id}'>
-										${boardVO.f_title}</a></td>
-								<td>${boardVO.f_emp_id}</td>
+								<td>${TaskVO.ta_seq}</td>
+								<td><a href='/task/readPage${pageMaker.makeQuery(pageMaker.cri.page) }&ta_seq=${TaskVO.ta_seq}'>
+								${TaskVO.ta_date}</a></td>
+								<td>${TaskVO.ta_weekresult}</td>
+								<td>${TaskVO.ta_nextresult}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-										value="${boardVO.f_date}" /></td>
-								<td><span class="badge bg-red">${boardVO.f_hit}</span></td>
+										value="${TaskVO.ta_regdate}" /></td>
+								<td><span class="badge bg-red">${TaskVO.ta_hitcount }</span></td>
 							</tr>
 
 						</c:forEach>
@@ -55,7 +56,7 @@
 
 				<div class="box-footer">
 
-					<div class="text-center" >
+					<div class="text-center">
 						<ul class="pagination">
 
 							<c:if test="${pageMaker.prev}">
@@ -92,8 +93,8 @@
 <!-- /.content -->
 
 <form id="jobForm">
-  <input type='hidden' name="page" value=${pageMaker.cri.perPageNum}>
-  <input type='hidden' name="perPageNum" value=${pageMaker.cri.perPageNum}>
+	<input type='hidden' name="page" value=${pageMaker.cri.perPageNum}>
+	<input type='hidden' name="perPageNum" value=${pageMaker.cri.perPageNum}>
 </form>
 
 
@@ -103,17 +104,16 @@
 	if (result == 'success') {
 		alert("처리가 완료되었습니다.");
 	}
-	
-	$(".pagination li a").on("click", function(event){
-		
-		event.preventDefault(); 
-		
+
+	$(".pagination li a").on("click", function(event) {
+
+		event.preventDefault();
+
 		var targetPage = $(this).attr("href");
-		
+
 		var jobForm = $("#jobForm");
 		jobForm.find("[name='page']").val(targetPage);
-		jobForm.attr("action","/document/listPage").attr("method", "get");
+		jobForm.attr("action", "/task/listPage").attr("method", "get");
 		jobForm.submit();
 	});
-	
 </script>

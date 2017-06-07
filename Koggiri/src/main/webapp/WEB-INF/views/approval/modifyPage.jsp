@@ -36,18 +36,17 @@
 
 				<form role="form" action="modifyPage" method="post">
 
-					<input type='hidden' name='page' value="${cri.page}"> <input
-						type='hidden' name='perPageNum' value="${cri.perPageNum}">
-					<input type='hidden' name='searchType' value="${cri.searchType}">
-					<input type='hidden' name='keyword' value="${cri.keyword}">
+					<input type='hidden' name='page' value="${search.page}"> 
+					<input type='hidden' name='perPageNum' value="${search.perPageNum}">
+					<input type='hidden' name='searchType' value="${search.searchType}">
 
 					<div class="box-body">
 
 						<div id="approval" align="center">
 							<h3>Approval</h3>
-							<br> <br> <input type="hidden" name="dept_id"
+							<br> <br> <input type="hidden" name="dept_cd"
 								value="${einfo.dept_id }"> <input type="hidden"
-								name="emp_id" value="k15010201"> <input type="hidden"
+								name="draft_emp_id" value="${einfo.emp_id }"> <input type="hidden"
 								name="app_id" value="${approvalVO.app_id }">
 
 							<table width="1100" id="app_table" align="center">
@@ -65,7 +64,7 @@
 										value="${einfo.dept_nm }" disabled></td>
 									<th>직급</th>
 									<td><input type="text" name="pos_nm"
-										"${einfo.pos_nm }" disabled></td>
+										value="${einfo.pos_nm }" disabled></td>
 								</tr>
 								<tr>
 									<th>기안일</th>
@@ -127,7 +126,7 @@
   <div class="mailbox-attachment-info">
 	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
 	<a href="{{fullName}}" 
-     class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
+     class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove">x</i></a>
 	</span>
   </div>
 </li>                
@@ -172,112 +171,110 @@
 												.on(
 														"click",
 														function() {
-															self.location = "/approval/list?page=${cri.page}&perPageNum=${cri.perPageNum}"
-																	+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
+															self.location = "/approval/lists?page=${search.page}&perPageNum=${search.perPageNum}"
+																	+ "&searchType=s";
 														});
 
 									});
 
 					var template = Handlebars.compile($("#template").html());
 
-					$(".fileDrop").on("dragenter dragover", function(event) {
+
+					$(".fileDrop").on("dragenter dragover", function(event){
 						event.preventDefault();
 					});
 
-					$(".fileDrop").on("drop", function(event) {
+
+					$(".fileDrop").on("drop", function(event){
 						event.preventDefault();
-
+						
 						var files = event.originalEvent.dataTransfer.files;
-
+						
 						var file = files[0];
 
 						//console.log(file);
-
+						
 						var formData = new FormData();
-
-						formData.append("file", file);
-
+						
+						formData.append("file", file);	
+						
 						$.ajax({
-							url : '/uploadAjax',
-							data : formData,
-							dataType : 'text',
-							processData : false,
-							contentType : false,
-							type : 'POST',
-							success : function(data) {
-
-								var fileInfo = getFileInfo(data);
-
-								var html = template(fileInfo);
-
-								$(".uploadedList").append(html);
-							}
-						});
+							  url: '/uploadAjax',
+							  data: formData,
+							  dataType:'text',
+							  processData: false,
+							  contentType: false,
+							  type: 'POST',
+							  success: function(data){
+								  
+								  var fileInfo = getFileInfo(data);
+								  
+								  var html = template(fileInfo);
+								  
+								  $(".uploadedList").append(html);
+							  }
+							});	
 					});
 
-					$(".uploadedList").on("click", ".delbtn", function(event) {
 
+					$(".uploadedList").on("click", ".delbtn", function(event){
+						
 						event.preventDefault();
-
+						
 						var that = $(this);
-
+						 
 						$.ajax({
-							url : "/deleteFile",
-							type : "post",
-							data : {
-								fileName : $(this).attr("href")
-							},
-							dataType : "text",
-							success : function(result) {
-								if (result == 'deleted') {
-									that.closest("li").remove();
-								}
-							}
-						});
+						   url:"/deleteFile",
+						   type:"post",
+						   data: {fileName:$(this).attr("href")},
+						   dataType:"text",
+						   success:function(result){
+							   if(result == 'deleted'){
+								   that.closest("li").remove();
+							   }
+						   }
+					   });
 					});
 
-					var app_id = $
-					{
-						approvalVO.app_id
-					};
+
+					var app_id = ${approvalVO.app_id};
 					var template = Handlebars.compile($("#template").html());
 
-					$.getJSON("/approval/getAttach/" + app_id, function(list) {
-						$(list).each(function() {
-
+					$.getJSON("/approval/getAttach/"+app_id,function(list){
+						$(list).each(function(){
+							
 							var fileInfo = getFileInfo(this);
-
+							
 							var html = template(fileInfo);
-
-							$(".uploadedList").append(html);
-
+							
+							 $(".uploadedList").append(html);
+							
 						});
 					});
 
-					$(".uploadedList").on("click",
-							".mailbox-attachment-info a", function(event) {
-
-								var fileLink = $(this).attr("href");
-
-								if (checkImageType(fileLink)) {
-
-									event.preventDefault();
-
-									var imgTag = $("#popup_img");
-									imgTag.attr("src", fileLink);
-
-									console.log(imgTag.attr("src"));
-
-									$(".popup").show('slow');
-									imgTag.addClass("show");
-								}
-							});
-
-					$("#popup_img").on("click", function() {
-
-						$(".popup").hide('slow');
-
+					$(".uploadedList").on("click", ".mailbox-attachment-info a", function(event){
+						
+						var fileLink = $(this).attr("href");
+						
+						if(checkImageType(fileLink)){
+							
+							event.preventDefault();
+									
+							var imgTag = $("#popup_img");
+							imgTag.attr("src", fileLink);
+							
+							console.log(imgTag.attr("src"));
+									
+							$(".popup").show('slow');
+							imgTag.addClass("show");		
+						}	
 					});
+
+					$("#popup_img").on("click", function(){
+						
+						$(".popup").hide('slow');
+						
+					});	
 				</script>
 
 

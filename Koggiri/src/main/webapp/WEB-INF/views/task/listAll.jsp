@@ -4,9 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 
-
-
-<!-- Main content -->
 <section class="content">
 	<div class="row">
 		<!-- left column -->
@@ -17,38 +14,36 @@
 				<div class="box-header with-border">
 					<h3 class="box-title">LIST ALL PAGE</h3>
 				</div>
-				<div class="box-body">
+
 				
 <table class="table table-bordered" border="1">
 	<tr>
 		<th style="width: 10px">글번호</th>
-		<th>제목</th>
-		<th>작성자</th>
-		<th>작성일</th>
+		<th>업무일자</th>
+		<th>금주업무실적</th>
+		<th>차주업무계획</th>
+		<th>작성일자</th>
 		<th style="width: 40px">조회수</th>
 	</tr>
 
+<c:forEach items="${list}" var="TaskVO">
 
-<c:forEach items="${list}" var="boardVO">
 
 	<tr>
-		<td>${boardVO.f_id}</td>
-		<td><a href='/document/read?f_id=${boardVO.f_id}'>${boardVO.f_title}</a></td>
-		<td>${boardVO.f_emp_id}</td>
+		<td>${TaskVO.ta_seq}</td>
+		<td><a href='/task/read?ta_seq=${TaskVO.ta_seq}'>${TaskVO.ta_date}</a></td>
+		<td>${TaskVO.ta_weekresult}</td>
+		<td>${TaskVO.ta_nextresult}</td>
 		<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-				value="${boardVO.f_date}" /></td>
-		<td><span class="badge bg-red">${boardVO.f_hit }</span></td>
+				value="${TaskVO.ta_regdate}" /></td>
+		<td><span class="badge bg-red">${TaskVO.ta_hitcount }</span></td>
 	</tr>
 
 </c:forEach>
 
 </table>
 
-				</div>
-				<!-- /.box-body -->
-				<div class="box-footer">Footer</div>
-				<!-- /.box-footer-->
-			</div>
+</div>
 		</div>
 		<!--/.col (left) -->
 
@@ -56,14 +51,12 @@
 	<!-- /.row -->
 </section>
 <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
 
 <script>
     
     var result = '${msg}';
     
-    if(result == 'success'){
+    if(result == 'SUCCESS'){
     	alert("처리가 완료되었습니다.");
     }
     
