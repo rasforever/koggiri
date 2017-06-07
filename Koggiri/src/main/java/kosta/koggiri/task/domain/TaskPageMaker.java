@@ -13,7 +13,7 @@ public class TaskPageMaker {
   private boolean prev;
   private boolean next;
 
-  private int displayPageNum = 10;
+  private int displayPageNum = 5;
 
   private TaskCriteria cri;
 

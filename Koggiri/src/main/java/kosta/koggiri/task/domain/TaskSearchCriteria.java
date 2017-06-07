@@ -11,6 +11,8 @@ public class TaskSearchCriteria extends TaskCriteria {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "TaskSearchCriteria [keyword=" + keyword + "]";

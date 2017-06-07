@@ -30,16 +30,16 @@
     font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
     font-size: 17px;
     text-align: center;
-    text-shadow: 0 0 5px #ff8040;
+    /* text-shadow: 0 0 5px #004e73; */
     position: relative;
-    top: -200px;
-    color:white;
+    top: -170px;
+    color:#666666;
 }
 #clock_c{
     position: relative;
     width: 226px;
     height: 206px;
-    top: -180px;
+    top: -175px;
     text-align: center;
     font-size: 34px;
     color: white;
@@ -49,8 +49,10 @@ label {
     font-size: 10em;
     text-align: center;
     font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
-    text-shadow: 0 0 5px #400080;
+     text-shadow: 0 0 5px #000080; 
+     color: #000000;
     font-size: 20px;
+    font-weight: bold;
 }
 
 #point {
@@ -66,7 +68,7 @@ label {
 /* Simple Animation */
 @-webkit-keyframes mymove {
     0% {opacity: 1.0;
-    text-shadow: 0 0 20px #0000a0;
+   /*  text-shadow: 0 0 20px #808080; */
 }
 
 50% {
@@ -83,7 +85,7 @@ label {
 @-moz-keyframes mymove {
     0% {
         opacity: 1.0;
-        text-shadow: 0 0 20px #0000a0;
+       /*  text-shadow: 0 0 20px #0000a0; */
     }
 
     50% {

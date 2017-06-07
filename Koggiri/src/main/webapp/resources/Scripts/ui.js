@@ -164,7 +164,7 @@ $(function() {
 		$('.total_page').html(TotalNum);
 
 
-		slider = $('.slider').bxSlider({
+		/*slider = $('.slider').bxSlider({
 			auto: true,
 			control:false,
 			pager:false,
@@ -221,7 +221,7 @@ $(function() {
 			mouseleave:function() { 
 				slider.startAuto();
 			}
-		});
+		});*/
 		// 濡ㅻ쭅諛곕꼫 : e //
 
 		// LNB�곸뿭
