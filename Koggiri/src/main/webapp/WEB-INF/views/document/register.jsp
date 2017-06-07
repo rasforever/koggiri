@@ -111,7 +111,7 @@
 							<hr>
 						</div>
 
-						<ul class="mailbox-attachments clearfix uploadedList">
+						<ul class="mailbox-attachments clearfix uploadedList"  >
 						</ul>
 
 						<button type="submit" class="btn btn-primary">등록하기</button>
@@ -149,72 +149,76 @@
 </script>
 
 <script>
+	var template = Handlebars.compile($("#template").html());
 
-var template = Handlebars.compile($("#template").html());
+	$(".fileDrop").on("dragenter dragover", function(event) {
+		event.preventDefault();
+	});
 
-$(".fileDrop").on("dragenter dragover", function(event){
-	event.preventDefault();
-});
+	$(".fileDrop").on("drop", function(event) {
+		event.preventDefault();
 
+		var files = event.originalEvent.dataTransfer.files;
 
-$(".fileDrop").on("drop", function(event){
-	event.preventDefault();
-	
-	var files = event.originalEvent.dataTransfer.files;
-	
-	var file = files[0];
+		var file = files[0];
 
-	var formData = new FormData();
-	
-	formData.append("file", file);	
-	
-	
-	$.ajax({
-		  url: '/uploadAjax',
-		  data: formData,
-		  dataType:'text',
-		  processData: false,
-		  contentType: false,
-		  type: 'POST',
-		  success: function(data){
-			  
-			  var fileInfo = getFileInfo(data);
-			  
-			  var html = template(fileInfo);
-			  
-			  $(".uploadedList").append(html);
-		  }
-		});	
-});
+		var formData = new FormData();
 
+		formData.append("file", file);
 
+		$.ajax({
+			url : '/uploadAjax',
+			data : formData,
+			dataType : 'text',
+			processData : false,
+			contentType : false,
+			type : 'POST',
+			success : function(data) {
 
-$("#registerForm").submit(function(event){ //최종적인 submit이 일어나게 되면 서버에는 사용자가 업로드한 파일의 정보를 같이 전송해줘야 함.
-	
-	event.preventDefault();//기본이벤트 해제
-	
-	if($('#title').val().length == 0){ // 이름 길이가 0 이면 
-		alert("제목은 필수 입력사항입니다"); 
-		$('#title').focus(); 
-		return; 
-		} 
-	
-	
-	var that = $(this);
-	
-	var str ="";
-	$(".uploadedList .delbtn").each(function(index){
-		 str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
-	}); //현재까지 업로드 된 파일들을 form태그의 내부에 히든타입으로 추가한다. 
-		//각 파일은 files[0]과 같은 이름으로 추가되는데 이 배열 표시를 이용해서 컨트롤러에서는 BoardVO의 files 파라미터를 수집하게 된다.
-		//모든 파일의 정보를 폼태그의 히든타입으로 생성한 후에는 폼태그의 데이터의 submit()을 호출해서 서버를 호출.
-	that.append(str);
+				var fileInfo = getFileInfo(data);
 
-	that.get(0).submit(); // get(0)은 순수한 DOM객체를 얻어내기 위함.
-	
+				var html = template(fileInfo);
 
-});
+				$(".uploadedList").append(html);
+				
 
+			}
+		});
+	});
 
+	$("#registerForm").submit(
+			function(event) { //최종적인 submit이 일어나게 되면 서버에는 사용자가 업로드한 파일의 정보를 같이 전송해줘야 함.
 
+				event.preventDefault();//기본이벤트 해제
+
+				if ($('#title').val().length == 0) { // 이름 길이가 0 이면 
+					alert("제목은 필수 입력사항입니다");
+					$('#title').focus();
+					return;
+				}
+
+				var that = $(this);
+
+				var str = "";
+				$(".uploadedList .delbtn").each(
+						function(index) {
+							
+							str += "<input type='hidden' name='files[" + index
+									+ "]' value='" + $(this).attr("href")
+									+ "'> ";
+						}); //현재까지 업로드 된 파일들을 form태그의 내부에 히든타입으로 추가한다. 
+				//각 파일은 files[0]과 같은 이름으로 추가되는데 이 배열 표시를 이용해서 컨트롤러에서는 BoardVO의 files 파라미터를 수집하게 된다.
+				//모든 파일의 정보를 폼태그의 히든타입으로 생성한 후에는 폼태그의 데이터의 submit()을 호출해서 서버를 호출.
+				
+				if(str==""){//파일이 첨부되지않으면 경고창 띄우기
+					alert("첨부된 파일이 존재하지 않습니다.");
+					return;
+				}else{
+					alert("파일을 첨부합니다.");
+				}
+				that.append(str);
+
+				that.get(0).submit(); // get(0)은 순수한 DOM객체를 얻어내기 위함.
+
+			});
 </script>
