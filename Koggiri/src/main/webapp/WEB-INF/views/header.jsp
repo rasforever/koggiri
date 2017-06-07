@@ -48,7 +48,7 @@
                <div id="container">
                  <div class="my_information">
         <a class="my_name">${emp_nm} 님이 접속하셨습니다.</a> │
-        <a class="my_modify" href="#">내 정보 수정</a> │
+        <a class="my_modify" href="/login/passcheck">내 정보 수정</a> │
 <a class="log_out" href="/login/logout">로그아웃</a>
 </div>
          <!-- skipNavi : s -->

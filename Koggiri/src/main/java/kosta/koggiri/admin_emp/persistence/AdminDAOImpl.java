@@ -50,4 +50,10 @@ public class AdminDAOImpl implements AdminDAO {
 		session.update(namespace+".tempPassUpdate", advo);
 	}
 
+	@Override
+	public EmpVO mainEmp(EmpVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+".mainEmp", vo);
+	}
+
 }

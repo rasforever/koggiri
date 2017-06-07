@@ -48,4 +48,10 @@ public class AdminServiceImpl implements AdminService {
 		dao.tempPassUpdate(advo);
 	}
 
+	@Override
+	public EmpVO mainEmp(EmpVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.mainEmp(vo);
+	}
+	
 }

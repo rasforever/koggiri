@@ -50,7 +50,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			
 			
 			session.setAttribute(LOGIN, memberVO); // 로그인 정보 저장
-			
+			System.out.println(emp_nm);
 			session.setAttribute("mem_id", memberVO.getMem_id());// 아이디 세션 저장
 			session.setAttribute("emp_nm", emp_nm); // 세션 이름저장
 			
