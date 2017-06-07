@@ -1,10 +1,15 @@
 package kosta.koggiri.document.controller;
 
+import java.io.File;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,6 +25,7 @@ import kosta.koggiri.document.domain.Doc_Criteria;
 import kosta.koggiri.document.domain.Doc_PageMaker;
 import kosta.koggiri.document.domain.Doc_SearchCriteria;
 import kosta.koggiri.document.service.Doc_BoardService;
+import kosta.koggiri.document.util.MediaUtils;
 
 @Controller
 @RequestMapping("/document/*")
@@ -28,17 +34,23 @@ public class Doc_BoardController {
 	@Inject
 	private Doc_BoardService service;
 	
+	@Resource(name = "uploadPath") // 다운로드 경로
+	private String uploadPath;
+	
 	@RequestMapping(value="/register", method=RequestMethod.GET)
 	public void registGET(Doc_BoardVO board, Model model, HttpSession session)throws Exception{
 		
 		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String)session.getAttribute("emp_nm");
 		model.addAttribute("mem_id", mem_id);
-		System.out.println("컨트롤러 성공적으로 들어옴");
+		model.addAttribute("emp_nm", emp_nm);
+	
 	}
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public String registerPOST(Doc_BoardVO board, RedirectAttributes rttr)throws Exception{
 		
+		board.getF_emp_id();
 		service.regist(board);
 		
 		rttr.addFlashAttribute("msg", "success");
@@ -49,7 +61,7 @@ public class Doc_BoardController {
 	
 	@RequestMapping(value="/readPage", method=RequestMethod.GET)
 	public void read(@RequestParam("f_id")int f_id, @ModelAttribute("cri") Doc_SearchCriteria cri, Model model)throws Exception{
-		System.out.println("리드페이지로 넘어와버리기~");
+	
 		
 		model.addAttribute(service.read(f_id));//조회된 게시물 jsp로 전달하기위해 모델객체 사용
 		//addAttribute()작업할 때 아무런 이름 없이 데이터를 넣으면 자동으로 클래스의 이름을 소문자로 시작해서 사용.
@@ -76,8 +88,10 @@ public class Doc_BoardController {
 	
 	@RequestMapping(value="/modifyPage", method=RequestMethod.GET)
 	public void modifyPagingGET(@RequestParam("f_id")int f_id, @ModelAttribute("cri") Doc_SearchCriteria cri, Model model)throws Exception{
+
+			model.addAttribute(service.read(f_id));
 		
-		model.addAttribute(service.read(f_id));
+	
 	}
 	
 	@RequestMapping(value="/modifyPage", method=RequestMethod.POST)
@@ -116,6 +130,33 @@ public class Doc_BoardController {
 	public List<String>getAttach(@PathVariable("f_id")Integer f_id)throws Exception{
 		
 		return service.getAttach(f_id);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/deleteAllFiles", method = RequestMethod.POST)
+	public ResponseEntity<String> deleteFile(@RequestParam("files[]") String[] files) {// 여러개의 파일 이름을 받을 수 있도록 String[]로 작성.
+
+
+		if (files == null || files.length == 0) {
+			return new ResponseEntity<String>("deleted", HttpStatus.OK);
+		}
+
+		for (String fileName : files) {
+			String formatName = fileName.substring(fileName.lastIndexOf(".") + 1);
+
+			MediaType mType = MediaUtils.getMediaType(formatName);
+
+			if (mType != null) {
+
+				String front = fileName.substring(0, 12);
+				String end = fileName.substring(14);
+				new File(uploadPath + (front + end).replace('/', File.separatorChar)).delete();
+			}
+
+			new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
+		}
+
+		return new ResponseEntity<String>("deleted", HttpStatus.OK);
 	}
 
 	

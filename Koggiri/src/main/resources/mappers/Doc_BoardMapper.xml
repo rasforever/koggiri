@@ -15,11 +15,11 @@
 
 	<select id="read" resultType="Doc_BoardVO">
 		select
-		f_id, f_title, f_content,
-		f_emp_id, f_date, f_hit
+		d.f_id, d.f_title, d.f_content,
+		d.f_emp_id, d.f_date, d.f_hit, e.emp_nm as f_emp_nm
 		from
-		documentboard
-		where f_id = #{f_id}
+		documentboard d, emp e
+		where d.f_id = #{d.f_id} and e.emp_id = d.f_emp_id
 	</select>
 
 	<update id="update" parameterType="Doc_BoardVO">
@@ -110,6 +110,14 @@
    		select fullname from document_attach where f_id = #{f_id}
    			order by f_date
    </select>
+   
+   <delete id="deleteAttach">
+   	 	delete from document_attach where f_id = #{f_id}
+   </delete>
+   
+   <insert id="replaceAttach">
+   		insert into document_attach(fullname, f_id) values (#{fullName},#{f_id})
+   </insert>
 
 
 

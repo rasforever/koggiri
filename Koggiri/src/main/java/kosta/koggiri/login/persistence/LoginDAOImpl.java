@@ -19,6 +19,7 @@ public class LoginDAOImpl implements LoginDAO {
 	@Override
 	public MemberVO login(LoginDTO dto)throws Exception {
 		// TODO Auto-generated method stub
+		System.out.println(dto.toString());
 		return session.selectOne(namespace+".login", dto);
 	}
 
@@ -28,4 +29,22 @@ public class LoginDAOImpl implements LoginDAO {
 		return session.selectOne(namespace+".get_emp_nm", vo);
 	}
 
+	@Override
+	public void mem_update(MemberVO vo) throws Exception {
+		session.update(namespace+".mem_update", vo);
+		
+	}
+
+	@Override
+	public MemberVO detail_mem(String mem_id) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+".detail_mem", mem_id);
+	}
+
+	@Override
+	public void mem_pass(MemberVO vo) throws Exception {
+		session.update(namespace+".mem_pass", vo);
+	}
+	
+	
 }

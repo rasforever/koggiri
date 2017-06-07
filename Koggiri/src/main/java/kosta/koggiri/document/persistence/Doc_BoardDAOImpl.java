@@ -1,6 +1,8 @@
 package kosta.koggiri.document.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -77,6 +79,29 @@ public class Doc_BoardDAOImpl implements Doc_BoardDAO {
 		
 		return session.selectList(namespace + ".getAttach", f_id);
 	}
+
+	@Override
+	public void deleteAttach(Integer f_id) throws Exception {
+	
+		session.delete(namespace + ".deleteAttach", f_id);
+		
+	}
+
+	@Override
+	public void replaceAttach(String fullName, Integer f_id) throws Exception {
+		
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		
+		paramMap.put("f_id", f_id);
+		paramMap.put("fullName", fullName);
+		
+		session.insert(namespace + ".replaceAttach", paramMap);
+		
+	}
+	
+	
+	
+	
 	
 	
 	
