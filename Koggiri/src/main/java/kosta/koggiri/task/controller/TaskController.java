@@ -36,6 +36,7 @@ public class TaskController {
 	      
 		String mem_id = (String) session.getAttribute("mem_id");
 		model.addAttribute("mem_id", mem_id);
+		
 	      logger.info("register get..........");
 	      return "/task/register";
 	   }
@@ -66,6 +67,7 @@ public class TaskController {
 		 
 			String mem_id = (String) session.getAttribute("mem_id");
 			model.addAttribute("mem_id", mem_id);
+		
 		   model.addAttribute(service.read(ta_seq));
 	   }
 	   
@@ -113,9 +115,11 @@ public class TaskController {
 		@RequestMapping(value="/list", method=RequestMethod.GET)
 		public void listPage(@ModelAttribute("cri") TaskSearchCriteria cri, Model model, HttpSession session)throws Exception{
 			
-			 String mem_id = (String) session.getAttribute("mem_id");
+			String mem_id = (String) session.getAttribute("mem_id");
 			model.addAttribute("mem_id", mem_id);
-			
+	
+			cri.setEmp_id(mem_id);
+			System.out.println(cri.getEmp_id());
 			//model.addAttribute("list", service.listCriteria(cri));
 			model.addAttribute("list", service.listSearchCriteria(cri));
 			

@@ -26,7 +26,7 @@
   <div class="box-body">
      <div class="form-group">
 		<label for="emp_id">작성자</label> <br>
-	<input type="text" name='emp_id' class="form-control" value="${mem_id}"
+	<input type="text" name='emp_id' class="form-control" value="${taskVO.emp_nm}"
 			size="23" readonly="readonly">
 	</div>
 	

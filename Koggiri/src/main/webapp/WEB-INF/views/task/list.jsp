@@ -48,9 +48,8 @@
 					<table class="table table-bordered" border="1">
 						<tr>
 							<th style="width: 10px">글번호</th>
+							<th >작성자</th>
 							<th>업무일자</th>
-							<th>금주업무실적</th>
-							<th>차주업무계획</th>
 							<th>작성일자</th>
 							<th style="width: 40px">조회수</th>
 						</tr>
@@ -60,11 +59,10 @@
 
 							<tr>
 								<td>${taskVO.ta_seq}</td>
+								<td>${taskVO.emp_nm}</td>
 								<td><a
 									href='/task/readPage${pageMaker.makeSearch(pageMaker.cri.page) }&ta_seq=${taskVO.ta_seq}'>
 										${taskVO.ta_date} </a></td>
-								<td>${taskVO.ta_weekresult}</td>
-								<td>${taskVO.ta_nextresult}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 										value="${taskVO.ta_regdate}" /></td>
 								<td><span class="badge bg-red">${taskVO.ta_hitcount }</span></td>
