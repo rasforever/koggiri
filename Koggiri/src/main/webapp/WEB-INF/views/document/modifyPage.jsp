@@ -104,10 +104,9 @@
 												});
 							</script>
 						</div>
-						
 						<div class="form-group">
 							<label for="exampleInputEmail1">작성자</label> <input type="text"
-								name="f_emp_nm" class="form-control"
+								name="f_emp_id" class="form-control"
 								value="${doc_BoardVO.f_emp_nm}" readonly="readonly">
 						</div>
 

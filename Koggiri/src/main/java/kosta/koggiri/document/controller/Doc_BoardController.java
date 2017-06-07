@@ -41,7 +41,9 @@ public class Doc_BoardController {
 	public void registGET(Doc_BoardVO board, Model model, HttpSession session)throws Exception{
 		
 		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String)session.getAttribute("emp_nm");
 		model.addAttribute("mem_id", mem_id);
+		model.addAttribute("emp_nm", emp_nm);
 		System.out.println("컨트롤러 성공적으로 들어옴");
 	}
 	
