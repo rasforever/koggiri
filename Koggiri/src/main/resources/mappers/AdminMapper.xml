@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kosta.koggiri.mapper.AdminMapper"><!--경로를 뜻하는 것이 아님!!! -->
+
+<select id="selectList" parameterType="SearchVO" resultType="SearchedEmpVO">
+		
+		select e.emp_id, e.emp_nm, d.dept_nm , p.pos_nm from
+		emp e,dept d,pos p
+		where e.pos_id = p.pos_id and e.dept_id = d.dept_id
+		<if test="area=='emp_nm'">
+			and e.emp_nm like '%'|| #{searchKey}||'%'
+		</if>
+		<if test="area=='emp_id'">
+			and e.emp_id like '%'|| #{searchKey}||'%'
+		</if>		
+		<if test="area=='dept_nm'">
+			and d.dept_nm like '%'|| #{searchKey}||'%'
+		</if>
+		<if test="area=='pos_nm'">
+			and p.pos_nm like '%'|| #{searchKey}||'%'
+		</if>
+	</select>
+	
+	<insert id="insertEmp" parameterType="EmpVO">
+		insert into emp(emp_id,emp_nm,res_no,sex_id,nation_id,dept_id,pos_id,join_dt
+		,wstate_cd,input_emp_id,input_sysdt)
+		values(#{emp_id},#{emp_nm},#{res_no},#{sex_id},#{nation_id}
+		,#{dept_id},#{pos_id},#{join_dt}
+		,#{wstate_cd},#{input_emp_id},sysdate)
+	</insert>
+	
+	<select id="findEmpid" parameterType="EmpVO" resultType="String">
+		select max(emp_id) from emp
+		where join_dt = #{join_dt} 
+		
+	</select>
+	
+	<insert id="tempPass" parameterType="EmpVO">
+		insert into member(mem_id,mem_pw,mem_aut_cd)
+		values( #{emp_id},#{mem_pw},'A')
+		
+	</insert>
+	
+	<update id="tempPassUpdate" parameterType="Admin_MemberVO">
+		update member set mem_pw = #{mem_pw}
+		where mem_id = #{mem_id}
+		
+	</update>
+
+</mapper>

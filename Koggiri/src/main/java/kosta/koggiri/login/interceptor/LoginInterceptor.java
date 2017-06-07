@@ -2,6 +2,7 @@ package kosta.koggiri.login.interceptor;
 
 import java.io.PrintWriter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -26,7 +27,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		System.out.println("login prehandler");
 		if (session.getAttribute(LOGIN) != null) {
 			logger.info("clear login data before");
-			System.out.println(" iflogin prehandler");
 			session.removeAttribute(LOGIN);
 		}
 
@@ -53,7 +53,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			
 			session.setAttribute("mem_id", memberVO.getMem_id());// 아이디 세션 저장
 			session.setAttribute("emp_nm", emp_nm); // 세션 이름저장
-
+			
+		/*	if(request.getParameter("useCookie") != null){ // 자동로그인 쿠키저장
+				logger.info("remember me");
+				Cookie loginCookie = new Cookie("loginCookie", session.getId()); // loginCookie 값으로 세션아이디
+																				// 값 보관 세션아이디= 쿠키값
+				loginCookie.setPath("/"); // 쿠키의 접근경로 지정 모든경로에서 접근가능하도록
+				loginCookie.setMaxAge(60*60*24*7); //쿠키 유지기간 일주일
+				response.addCookie(loginCookie); // 쿠키 저장
+				
+			}*/
+			
 			Object dest = session.getAttribute("dest");
 			response.sendRedirect(dest !=null ? (String)dest:"/");
 		}else{

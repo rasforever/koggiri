@@ -8,4 +8,11 @@ public interface LoginDAO {
 	public MemberVO login(LoginDTO dto)throws Exception;
 	
 	public String get_emp_nm(MemberVO vo)throws Exception;
+	
+	public void mem_update(MemberVO vo)throws Exception;
+	
+	public MemberVO detail_mem(String mem_id)throws Exception;
+	
+	public void mem_pass(MemberVO vo)throws Exception;
+	
 }
