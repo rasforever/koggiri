@@ -85,7 +85,7 @@ public class Doc_BoardController {
 	}
 	
 	@RequestMapping(value="/modifyPage", method=RequestMethod.GET)
-	public void modifyPagingGET(@RequestParam("f_id")int f_id, @ModelAttribute("cri") Doc_SearchCriteria cri, Model model, HttpSession session, RedirectAttributes rttr)throws Exception{
+	public void modifyPagingGET(@RequestParam("f_id")int f_id, @ModelAttribute("cri") Doc_SearchCriteria cri, Model model)throws Exception{
 
 			model.addAttribute(service.read(f_id));
 		

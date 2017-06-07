@@ -5,9 +5,8 @@
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="/resources/js/upload.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+
 
 <head>
 
@@ -40,8 +39,6 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 </head>
 
 
@@ -107,32 +104,34 @@
 							name='f_title' class="form-control"
 							value="${doc_BoardVO.f_title}" readonly="readonly">
 					</div>
+					
 					<div class="form-group">
 						<label for="exampleInputPassword1">내용</label>
 
 						<div class="form-control"
 							style="width: auto; height: 400; overflow-y: auto;"
 							readonly="readonly">${doc_BoardVO.f_content}</div>
-
-
 					</div>
+					
 					<div class="form-group">
 						<label for="exampleInputEmail1">작성자</label> <input type="text"
 							name="f_emp_id" class="form-control"
 							value="${doc_BoardVO.f_emp_id}" readonly="readonly">
 					</div>
 
-
-					<ul class="mailbox-attachments clearfix uploadedList"></ul>
-
 				</div>
+				
+				
+				<ul class="mailbox-attachments clearfix uploadedList"></ul>
+				
 				<!-- /.box-body -->
 
 				<div class="box-footer">
+		
+				
 		 			<c:if test="${doc_BoardVO.f_emp_id == mem_id or mem_id=='master'}">
 							<button type="submit" class="btn btn-warning">수정하기</button>
-							<button type="submit" class="btn btn-danger">삭제하기</button>
-						
+							<button type="submit" class="btn btn-danger">삭제하기</button>	
 					</c:if>
 					<button type="submit" class="btn btn-primary">목록</button>
 				</div>
@@ -151,6 +150,9 @@
 </div>
 <!-- /.content-wrapper -->
 
+<script type="text/javascript" src="/resources/js/upload.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
 <script id="templateAttach" type="text/x-handlebars-template">
 <li data-src='{{fullName}}'>
   <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
@@ -161,15 +163,6 @@
 </li>                
 </script>
 
-
-<!-- <script>
-	var result = '${failMsg}';
-
-	if (result == 'fail') {
-		alert("다른 작성자의 글이므로 수정 및 삭제가 불가능합니다.");
-		location.replace(self.location);
-	}
-</script> -->
 
 <script>
 	$(document).ready(
@@ -196,11 +189,7 @@
 					formObj.submit();
 				});
 
-				var f_id = $
-				{
-					doc_BoardVO.f_id
-				}
-				;
+				var f_id = ${doc_BoardVO.f_id};
 				var template = Handlebars.compile($("#templateAttach").html());
 
 				$.getJSON("/document/getAttach/" + f_id, function(list) {
