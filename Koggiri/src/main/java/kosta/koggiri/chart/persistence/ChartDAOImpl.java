@@ -28,4 +28,10 @@ public class ChartDAOImpl implements ChartDAO {
 	public ChartVO read(String emp_id) throws Exception {		
 		return session.selectOne(namespace + ".read", emp_id);
 	}
+
+	@Override
+	public ChartVO listAll() throws Exception {
+		return session.selectOne(namespace + ".listAll");
+	}
+
 }

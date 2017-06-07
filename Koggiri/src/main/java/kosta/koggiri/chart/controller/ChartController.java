@@ -1,6 +1,7 @@
 package kosta.koggiri.chart.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,8 +18,15 @@ public class ChartController {
 	@Inject
 	private ChartService service;
 	
+	@RequestMapping(value="/listAll", method=RequestMethod.GET)
+	public void listAll()throws Exception{
+
+	}
+	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public void list(@RequestParam("dept_id")String dept_id, Model model)throws Exception{
+	public void list(Model model, HttpSession session )throws Exception{
+		String dept_id = "MT";
+		System.out.println(dept_id);
 		model.addAttribute("list",service.list(dept_id));
 	}
 	

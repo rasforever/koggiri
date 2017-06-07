@@ -9,4 +9,6 @@ public interface ChartDAO {
 	public List<ChartVO> list(String dept_id)throws Exception;
 
 	public ChartVO read(String emp_id)throws Exception;
+	
+	public ChartVO listAll() throws Exception;
 }

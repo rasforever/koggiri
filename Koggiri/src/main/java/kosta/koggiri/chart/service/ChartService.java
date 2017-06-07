@@ -10,4 +10,5 @@ public interface ChartService {
 	
 	public ChartVO read(String emp_id) throws Exception;
 	
+	public ChartVO listAll() throws Exception;
 }

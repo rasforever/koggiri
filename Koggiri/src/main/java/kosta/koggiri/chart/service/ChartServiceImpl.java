@@ -25,5 +25,11 @@ public class ChartServiceImpl implements ChartService {
 
 		return dao.read(emp_id);
 	}
+	
+	@Override
+	public ChartVO listAll() throws Exception {
+
+		return dao.listAll();
+	}
 
 }

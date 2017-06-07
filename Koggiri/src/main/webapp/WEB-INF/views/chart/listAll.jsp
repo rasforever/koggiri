@@ -38,19 +38,8 @@
 <div id="main_header">
 <%-- 	<jsp:include page="../header.jsp" /> --%>
 </div>
-
-
- <form role="form" action="read" method="get">
-    <input type='hidden' name='emp_id' value ="${ChartVO.emp_id}">
- </form>
- 
-<form role="form" method="get">
-    <input type='hidden' name='dept_id' value ="${ChartVO.dept_id}">
- </form>
- 
    
-<div class="container_wrap">		
-<!-- 소제목 -->
+<span class="container_wrap">		
 <div id="container">
 <div id="lnb">
 	<div class="lnb01">
@@ -73,7 +62,7 @@
                 </li>
            </ul>
 	</div>
-</div>
+</span>
 
 <!-- 본문 시작 -->
 <div id="content">
@@ -88,15 +77,15 @@
 	</div>
 <hr />
 
-<table>
-      <c:forEach var = "ChartVO" items = "${list}">
-       <c:if test="${ChartVO.dept_id} == ${dept_id}">
-         <tr><td>
-            <a href='/chart/read?emp_id=${ChartVO.emp_id}'> ${ChartVO.emp_nm } ${ChartVO.pos_nm } </a>
-         </td></tr>
-         </c:if>
-      </c:forEach>
-</table>
+<div>
+	<a href="/chart/list?dept_id=MM">경영팀</a>
+	<a href="/chart/list?dept_id=PL">인사팀</a>
+	<a href="/chart/list?dept_id=MT">관리팀</a>
+	<a href="/chart/list?dept_id=SN">솔루션팀</a>
+	<a href="/chart/list?dept_id=BS">영업팀</a>
+	<a href="/chart/list?dept_id=MG">마게팅팀</a>
+	
+</div>
 
 <!-- 본문 끝 -->
 

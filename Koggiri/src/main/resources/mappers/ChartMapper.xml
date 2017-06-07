@@ -26,7 +26,8 @@
 	    inner join SEX s
 		on e.sex_id = s.sex_id
 		and e.emp_id = #{emp_id}
-    
 	</select>
+	
+	
 
 </mapper>  
