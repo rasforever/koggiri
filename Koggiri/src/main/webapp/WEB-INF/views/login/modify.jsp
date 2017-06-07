@@ -86,7 +86,7 @@
 		</label><br> <input type="button" onclick="sample6_execDaumPostcode()"
 			value="林家 茫扁"><br> <input type="text" id="addr1"
 			name="addr1" placeholder="林家"> <input type="text" id="addr2"
-			name="addr2" placeholder="惑技林家"> <input type="submit"
+			name="addr2" placeholder="惑技林家"> <br><input type="submit"
 			value="荐沥" /> <input type="button" value="秒家"
 			onclick="history.go(-2)" />
 	</form>

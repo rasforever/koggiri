@@ -47,8 +47,8 @@
       <div class="header_wrap">
                <div id="container">
                  <div class="my_information">
-        <a class="my_name">${emp_nm} 님이 접속하셨습니다.</a> │
-        <a class="my_modify" href="/login/passcheck">내 정보 수정</a> │
+        <a class="my_name">${emp_nm} 님이 접속하셨습니다.</a> 
+        <a class="my_modify" href="#" onclick='window.open("/login/passcheck","_blank","height=210.4px,width=469.6px, status=yes,toolbar=no,menubar=no,location=no");return false'>내 정보 수정</a> 
 <a class="log_out" href="/login/logout">로그아웃</a>
 </div>
          <!-- skipNavi : s -->
@@ -89,7 +89,7 @@
       <li class="menu03 "><a href="#" class="menu_a" style="padding-top:10px;">일정</a>
             <!-- 2depth : s -->
             <ul>
-                    <li class=""><a href="sub_calender.jsp">일정</a>
+                    <li class=""><a href="/calendar/index">일정</a>
                     </li>
             </ul>
         </li>
