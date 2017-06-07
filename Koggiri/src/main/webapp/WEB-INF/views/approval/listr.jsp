@@ -10,12 +10,27 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 <!--  -->
-<%@ include file="/WEB-INF/views/sidebar/approval_sidebar.jsp"%>
-<%@ include file="/WEB-INF/views/sidebar/approval_sidebar.jsp"%>
-<%@ include file="/WEB-INF/views/sidebar/approval_sidebar.jsp"%>
+<%@ include file="/WEB-INF/views/main/header.jsp"%>
 
+<%@ include file="/WEB-INF/views/sidebar/approval_sidebar.jsp"%>
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="/resources/js/approval.js"></script>
+
+
+<script type="text/javascript"
+	src="resources/Scripts/jquery-1.11.2.min.js"></script>
+<script type="text/javascript"
+	src="resources/Scripts/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/resources/Scripts/common.js"></script>
+<link rel="shortcut icon" type="/image/x-icon"
+	href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
+<link rel="stylesheet" href="/resources/Content/themes/real/ui_main.css" />
+<script src="http://js.nx.com/s1/da/playlog.min.js"
+	type="text/javascript"></script>
+<script type="text/javascript" src="/resources/Scripts/ui.js"></script>
+<link href="/resources/Content/themes/base/jquery-ui.min.css"
+	rel="stylesheet" type="text/css" />
+
 
 <!-- Main content -->
 <section class="content">
@@ -161,6 +176,7 @@
 </section>
 <!-- /.content -->
 
+<%@ include file="/WEB-INF/views/main/footer.jsp"%>
 
 <script>
 	var result = '${msg}';
