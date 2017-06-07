@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kosta.koggiri.mapper.ChartMapper">
+
+	<select id="MM" resultType="ChartVO">
+		select e.dept_id, e.emp_nm, e.emp_id, e.sex_id, s.sex_nm, p.pos_nm, e.tel_no, e.e_mail, e.join_dt, e.pos_id from EMP e, POS p, SEX s
+		where e.pos_id = p.pos_id and e.sex_id = s.sex_id
+		and e.dept_id = 'MM'
+	</select>
+
+	<select id="read" parameterType="String" resultType="ChartVO">
+		select e.emp_id as emp_id
+		from EMP e, POS p, SEX s
+		where e.pos_id = p.pos_id and e.sex_id = s.sex_id
+		and e.emp_id = #{emp_id}
+	</select>
+
+</mapper>  
