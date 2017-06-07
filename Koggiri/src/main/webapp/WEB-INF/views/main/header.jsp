@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Koggiri</title>
 <script type="text/javascript" src="resources/Scripts/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="resources/Scripts/jquery-1.6.4.min.js"></script>
 <!-- <script type="text/javascript" src="Scripts/jquery-ui.min.js"></script> -->
 <script type="text/javascript" src="resources/Scripts/jquery.easing.1.3.js"></script>
 <!-- <script type="text/javascript" src="Scripts/jquery.bxslider.min.js"></script> -->
