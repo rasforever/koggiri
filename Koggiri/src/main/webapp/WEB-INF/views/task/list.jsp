@@ -54,8 +54,11 @@
 							<th style="width: 40px">조회수</th>
 						</tr>
 
-						<c:forEach items="${list}" var="taskVO">
 
+
+						<c:forEach items="${list}" var="taskVO">
+                          <c:if test="${taskVO.emp_id==mem_id  or mem_id == 'master'}">
+                          
 
 							<tr>
 								<td>${taskVO.ta_seq}</td>
@@ -67,7 +70,7 @@
 										value="${taskVO.ta_regdate}" /></td>
 								<td><span class="badge bg-red">${taskVO.ta_hitcount }</span></td>
 							</tr>
-
+						</c:if>
 						</c:forEach>
 
 					</table>

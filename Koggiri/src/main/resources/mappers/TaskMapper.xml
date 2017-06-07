@@ -14,18 +14,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<select id="read" resultType="kosta.koggiri.task.domain.TaskVO">
-		select t.ta_seq, t.ta_date, t.ta_weekresult, t.ta_nextresult, e.emp_nm,
+		select t.ta_seq, t.ta_date,
+		t.ta_weekresult, t.ta_nextresult, e.emp_nm,
 		t.ta_regdate, t.ta_hitcount
 		from task t , emp e
 		where e.emp_id = t.EMP_ID AND ta_seq >0
-	    AND ta_seq = #{ta_seq}
+		AND ta_seq = #{ta_seq}
 	</select>
 
 	<update id="update">
 		update task set ta_date = #{ta_date}, ta_weekresult =
 		#{ta_weekresult},
 		ta_nextresult = #{ta_nextresult}
-		where ta_seq = #{ta_seq}
+		where ta_seq =
+		#{ta_seq}
 	</update>
 
 	<delete id="delete">
@@ -48,32 +50,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</sql>
 
 	<select id="listSearch" resultType="TaskVO" parameterType="TaskSearchCriteria">
-   <![CDATA[  
-     select
-     e.emp_id, t.ta_seq, t.ta_date, t.ta_weekresult, t.ta_nextresult, e.emp_nm, t.ta_regdate, t.ta_hitcount
-     from
-      task t , emp e 
-      where e.emp_id = t.EMP_ID
-     AND ta_seq >0
-     AND e.emp_id = #{emp_id}
-   ]]>
 
+		select
+		e.emp_id, t.ta_seq, t.ta_date, t.ta_weekresult, t.ta_nextresult, e.emp_nm,
+		t.ta_regdate, t.ta_hitcount
+		from
+		task t , emp e
+		where e.emp_id = t.EMP_ID
+		AND ta_seq >0
+		<if test="emp_id!='master'">
+			AND e.emp_id = #{emp_id}
+		</if>
+		<if test="emp_id=='master'">
+		</if>
 		<include refid="search"></include>
-     
-   <![CDATA[    
-     order by ta_seq desc     
-   ]]>
+
+
+		order by ta_seq desc
+
 
 	</select>
 
 
 	<select id="listSearchCount" resultType="int" parameterType="TaskSearchCriteria">
-   <![CDATA[  
+    
      select count(ta_seq) 
      from task 
      where ta_seq > 0 
-     AND emp_id = #{emp_id}
-   ]]>
+     <if test="emp_id!='master'">
+			AND emp_id = #{emp_id}
+		</if>
+		<if test="emp_id=='master'">
+		</if>
 
 		<include refid="search"></include>
 	</select>
