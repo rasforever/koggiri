@@ -15,10 +15,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.task.domain.TaskPageMaker;
 import kosta.koggiri.task.domain.TaskSearchCriteria;
-import kosta.koggiri.approval.domain.PageMaker;
-import kosta.koggiri.approval.domain.SearchCriteria;
-import kosta.koggiri.document.domain.Doc_PageMaker;
-import kosta.koggiri.document.domain.Doc_SearchCriteria;
 import kosta.koggiri.task.domain.TaskCriteria;
 import kosta.koggiri.task.domain.TaskVO;
 
@@ -43,9 +39,11 @@ public class TaskController {
 	   }
 	   
 	   @RequestMapping(value="/register", method= RequestMethod.POST)
-	   public String registPOST(TaskVO task, RedirectAttributes rttr)
+	   public String registPOST(TaskVO task, RedirectAttributes rttr,HttpSession session)
 			   throws Exception{
 	      logger.info("task_regist post...........");
+	      task.setEmp_id( (String) session.getAttribute("mem_id"));
+	      System.out.println(task.toString());
 	      service.regist(task);
 	      
 	      //model.addAttribute("result","success");

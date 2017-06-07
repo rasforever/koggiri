@@ -77,7 +77,7 @@
       <li class="menu02 "><a href="#" class="menu_a" >전자문서</a>
             <!-- 2depth : s -->
             <ul>
-                    <li class=""><a href="sub_document.jsp">업무 보고</a>
+                    <li class=""><a href="task/register">업무 보고</a>
                     </li>
                     <li class=""><a href="#">전자 결제</a>
                     </li>

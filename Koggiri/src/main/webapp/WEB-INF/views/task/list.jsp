@@ -9,13 +9,10 @@
 <script src="../resources/js/jquery.js"></script>
 <script type="text/javascript" src="../resources/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="../resources/Scripts/Week.js"></script> 
-
+<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
  	<link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css">
 
-<!--
 
-//-->
-</script>
 
 <!-- Main content -->
 <section class="content">
@@ -27,14 +24,14 @@
 			<!-- general form elements -->
 			<div class='box'>
 				<div class="box-header with-border">
-					<h3 class="box-title">Task List</h3>
+					<h3 class="box-title">업무 목록</h3>
 				</div>
 
 
 				<div class='box-body'>
 
 					<input type="text" name='keyword' class="keywordInput"
-						id="week-picker" placeholder="업무기간을 선택하세요" value='${cri.keyword }'>
+						id="week-picker" placeholder="업무일자를 선택해주세요" value='${cri.keyword }'>
 					<button id='searchBtn' class="pagination"
 					onclick="myfunction();">검색</button>
 					<button id='newBtn' class="pagination"
@@ -46,7 +43,6 @@
 
 			<div class="box">
 				<div class="box-header with-border">
-					<h3 class="box-title">LIST PAGING</h3>
 				</div>
 				<div class="box-body">
 					<table class="table table-bordered" border="1">
@@ -57,7 +53,6 @@
 							<th>차주업무계획</th>
 							<th>작성일자</th>
 							<th style="width: 40px">조회수</th>
-								session id:	${mem_id}
 						</tr>
 
 						<c:forEach items="${list}" var="taskVO">
