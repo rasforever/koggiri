@@ -9,6 +9,8 @@ CKEDITOR.editorConfig = function( config ) {
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
 
 	// The toolbar groups arrangement, optimized for two toolbar rows.
+	config.enterMode = CKEDITOR.ENTER_BR;
+	
 	config.toolbarGroups = [
 		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
 		{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
@@ -23,7 +25,8 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
 		{ name: 'styles' },
 		{ name: 'colors' },
-		{ name: 'about' }
+		{ name: 'about' },
+	
 	];
 
 	// Remove some buttons, provided by the standard plugins, which we don't
