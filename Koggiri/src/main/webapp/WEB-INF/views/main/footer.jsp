@@ -9,7 +9,7 @@
 
 
 <!-- css link -->
-
+<link rel="stylesheet" href="resources/Content/themes/real/common.css" />
 </head>
 <body>
 <div class="footer_wrap">

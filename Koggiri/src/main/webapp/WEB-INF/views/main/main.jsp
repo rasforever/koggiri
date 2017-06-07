@@ -52,10 +52,17 @@
 <title>Koggiri</title>
 <!-- script link -->
 <!-- 메뉴바 플러그인 js -->
-<!-- <script type="text/javascript" src="resources/Scripts/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="resources/Scripts/ui.js"></script> -->
+<script type="text/javascript" src="resources/Scripts/jquery-1.11.2.min.js"></script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+
+
 <!--  퀵메뉴 플러그인 js -->
 <script type="text/javascript" src="resources/Scripts/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="resources/Scripts/jquery-ui-min.js"></script>
+
+
+
 <!-- --------------------------------------------------------------------------------------------------------------- -->
 <!-- css link -->
 <link href="resources/Content/themes/real/clock.css" rel="stylesheet" type="text/css" />
@@ -63,6 +70,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
 <link rel="stylesheet" href="resources/Content/themes/real/ui_main.css" />
 <link href="resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="resources/Content/themes/real/common.css" />
 </head>
 
 <body class="main">
@@ -413,15 +421,13 @@
 
 
 
-
-
-<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script> -->
-<!-- <script type="text/javascript" src="resources/Scripts/common.js"></script> --> <!--  필요할지 모르나 없어도 아직까지 문제없음 -->
+<!-- <script type="text/javascript" src="resources/Scripts/ui.js"></script> -->
+<!-- <script type="text/javascript" src="resources/Scripts/common.js"></script> -->
 <!-- <script src="http://js.nx.com/s1/da/playlog.min.js" type="text/javascript"></script> -->
-<!-- <script type="text/javascript" src="Scripts/common.formatNumber-1.0.0.js"></script>
-<script type="text/javascript" src="Scripts/jquery.validate.min.js"></script>
-<script type="text/javascript" src="Scripts/jquery.validate.unobtrusive.min.js"></script> -->
-<!-- <script type="text/javascript" src="Scripts/jquery-ui.min.js"></script> -->
-<!-- <script type="text/javascript" src="Scripts/jquery.bxslider.min.js"></script> -->
-<!-- <script type="text/javascript" src="Scripts/jquery.paging.min.js"></script> -->
-<!-- <script type="text/javascript" src="Scripts/ajaxOverSsl.js"></script> -->
+ <<!-- script type="text/javascript" src="Scripts/common.formatNumber-1.0.0.js"></script>
+<script type="text/javascript" src="Scripts/jquery.validate.min.js"></script >
+<script type="text/javascript" src="Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+ <script type="text/javascript" src="Scripts/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="Scripts/jquery.paging.min.js"></script>
+<script type="text/javascript" src="Scripts/ajaxOverSsl.js"></script> -->
