@@ -83,8 +83,13 @@ int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
  <h2 class="hidden">본문</h2>
       <div class="container_wrap">
          <!-- container : s -->
+         
          <div id="container">
-            
+         
+               <div id="wrap">
+        <!-- ************************************* -->
+
+	</div>
             <hr />
                 <div id="content">
    <div class="service">
