@@ -48,6 +48,7 @@ public class Doc_BoardController {
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public String registerPOST(Doc_BoardVO board, RedirectAttributes rttr)throws Exception{
 		
+		board.getF_emp_id();
 		service.regist(board);
 		
 		rttr.addFlashAttribute("msg", "success");
@@ -84,9 +85,11 @@ public class Doc_BoardController {
 	}
 	
 	@RequestMapping(value="/modifyPage", method=RequestMethod.GET)
-	public void modifyPagingGET(@RequestParam("f_id")int f_id, @ModelAttribute("cri") Doc_SearchCriteria cri, Model model)throws Exception{
+	public void modifyPagingGET(@RequestParam("f_id")int f_id, @ModelAttribute("cri") Doc_SearchCriteria cri, Model model, HttpSession session, RedirectAttributes rttr)throws Exception{
+
+			model.addAttribute(service.read(f_id));
 		
-		model.addAttribute(service.read(f_id));
+	
 	}
 	
 	@RequestMapping(value="/modifyPage", method=RequestMethod.POST)
