@@ -5,39 +5,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Koggiri</title>
+
+<!-- script link -->
+
 <script type="text/javascript" src="resources/Scripts/jquery-1.11.2.min.js"></script>
-<!-- <script type="text/javascript" src="Scripts/jquery-ui.min.js"></script> -->
+<script type="text/javascript" src="resources/Scripts/ui.js"></script>
+<script type="text/javascript" src="resources/Scripts/jquery-ui-min.js"></script>
 <script type="text/javascript" src="resources/Scripts/jquery.easing.1.3.js"></script>
-<!-- <script type="text/javascript" src="Scripts/jquery.bxslider.min.js"></script> -->
-<!-- <script type="text/javascript" src="Scripts/jquery.paging.min.js"></script> -->
-<!-- <script type="text/javascript" src="Scripts/ajaxOverSsl.js"></script> -->
-<script type="text/javascript" src="resources/Scripts/common.js"></script>
-<!-- <script type="text/javascript" src="Scripts/common.formatNumber-1.0.0.js"></script>
-<script type="text/javascript" src="Scripts/jquery.validate.min.js"></script>
-<script type="text/javascript" src="Scripts/jquery.validate.unobtrusive.min.js"></script> -->
+
+
+<!--  css link -->
+<link href="resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" type="image/x-icon" href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
 <link rel="stylesheet" href="resources/Content/themes/real/ui_main.css" />
-<script src="http://js.nx.com/s1/da/playlog.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="resources/Scripts/ui.js"></script>
-<link href="resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="resources/Content/themes/real/common.css" />
+
 </head>
-<script type="text/javascript">
-    function sendClickLog(id, url, target, features) {
-        var ret = $h.a2s.sendClickLog("PCBANG_BANNER", "{\"BannerID\":\"" + id + "\"}");
-        var lowerTarget = target.toLowerCase();
+<!-- ----------------------------------------------------------------------- -->
 
-        if (lowerTarget == "_blank" || lowerTarget == "_popup") {
-            // popup 일 경우만 features 를 넣어 window.open 함수를 호출을 한다.
-            var win = window.open(url, "nexonpcbang_popup_" + id, lowerTarget == "_popup" ? features : "");
+<!-- ----------------------------------------------------------------------- -->
+			
 
-            if (win != null) {
-                win.focus();
-            }
-        } else {
-            location.href = url;
-        }
-    }
-</script>
 
 </head>
 <body class="main">
@@ -129,3 +117,21 @@
      </div>
 </body>
 </html>
+
+
+
+
+
+<!-- <script type="text/javascript" src="resources/Scripts/common.js"></script> -->
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script> -->
+
+<!-- <script type="text/javascript" src="resources/Scripts/common.js"></script> -->
+<!-- <script src="http://js.nx.com/s1/da/playlog.min.js" type="text/javascript"></script> -->
+
+<!-- <script type="text/javascript" src="Scripts/common.formatNumber-1.0.0.js"></script>
+<script type="text/javascript" src="Scripts/jquery.validate.min.js"></script>
+<script type="text/javascript" src="Scripts/jquery.validate.unobtrusive.min.js"></script> -->
+<!-- <script type="text/javascript" src="Scripts/jquery-ui.min.js"></script> -->
+<!-- <script type="text/javascript" src="Scripts/jquery.bxslider.min.js"></script> -->
+<!-- <script type="text/javascript" src="Scripts/jquery.paging.min.js"></script> -->
+<!-- <script type="text/javascript" src="Scripts/ajaxOverSsl.js"></script> -->
