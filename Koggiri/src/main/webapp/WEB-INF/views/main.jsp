@@ -42,6 +42,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<link href="resources/Content/themes/real/clock.css" rel="stylesheet" type="text/css" />
 <link type="text/css" rel="stylesheet"
 	href="resources/Content/themes/real/cal.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -131,7 +133,7 @@
 					<div class="remote_support"
 						style="width: 226px; height: 206px; background: white;"
 						align="center">
-
+ 
 						<input type="submit" class="on_btn" value=""
 							style="margin: 20px 0px 5px 0px;"> <input type="submit"
 							class="off_btn" value="" style="margin: 7px;"> <input
@@ -227,6 +229,48 @@
 					});
 				});
 			</script>
+			
+	<!-- ------------------------------------------------------------------------ -->
+	
+	
+	
+	<script type="text/javascript">
+$(document).ready(function() {
+// Create two variable with the names of the months and days in an array
+var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; 
+var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+
+// Create a newDate() object
+var newDate = new Date();
+// Extract the current date from Date object
+newDate.setDate(newDate.getDate());
+// Output the day, date, month and year   
+$('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+
+setInterval( function() {
+	// Create a newDate() object and extract the seconds of the current time on the visitor's
+	var seconds = new Date().getSeconds();
+	// Add a leading zero to seconds value
+	$("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
+	},1000);
+	
+setInterval( function() {
+	// Create a newDate() object and extract the minutes of the current time on the visitor's
+	var minutes = new Date().getMinutes();
+	// Add a leading zero to the minutes value
+	$("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
+    },1000);
+	
+setInterval( function() {
+	// Create a newDate() object and extract the hours of the current time on the visitor's
+	var hours = new Date().getHours();
+	// Add a leading zero to the hours value
+	$("#hours").html(( hours < 10 ? "0" : "" ) + hours);
+    }, 1000);	
+});
+</script>
+
+<!-- ------------------------------------------------------------------------------------------- -->
 			<div class="weather">
 				<input type="text" value="날씨 api 가져오기"
 					style="position: relative; bottom: 669px;">
@@ -345,7 +389,24 @@
 					</div>
 				</form>
 			</div>
+				<div class="clock">
+<div id="Date"></div>
+
+<br>
+<div id="clock_c">
+      <label id="hours"></label>
+      <label id="point">:</label>
+      <label id="min"></label>
+      <label id="point">:</label>
+      <label id="sec"></label>
+</div>
+ 
+
+</div>
+			
 		</div>
+		
+		
 		<hr />
 
 		<!-- 본문 끝 -->
