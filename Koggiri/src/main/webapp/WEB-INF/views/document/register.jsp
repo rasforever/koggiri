@@ -3,34 +3,46 @@
 
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 
 <head>
 
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.4 -->
-    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- Ionicons -->
-    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
-    <!-- Theme style -->
-    <link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --><!-- AdminLTE Skins. Choose a skin from the css/skins 
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<!-- Bootstrap 3.3.4 -->
+<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css">
+<!-- Font Awesome Icons -->
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<!-- Ionicons -->
+<link
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+	rel="stylesheet" type="text/css">
+<!-- Theme style -->
+<link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet"
+	type="text/css">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- AdminLTE Skins. Choose a skin from the css/skins 
          folder instead of downloading all of them to reduce the load. -->
-    <link href="/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css">
+<link href="/resources/dist/css/skins/_all-skins.min.css"
+	rel="stylesheet" type="text/css">
 
-    
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-  <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script></head>
 
- <script type="text/javascript"
+<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+</head>
+
+<script type="text/javascript"
 	src="/resources/plugins/ckeditor/ckeditor.js"></script>
 
 
@@ -56,18 +68,19 @@
 				</div>
 				<!-- /.box-header -->
 
-<form id='registerForm' role="form" method="post">
-	<input type="hidden" name = "f_emp_id" value = "${mem_id}">
-	<div class="box-body">
-		<div class="form-group">
-			<label for="exampleInputEmail1">제목</label> <input type="text"
-				name='f_title' class="form-control" placeholder="제목을 입력하세요">
-		</div>
-		<div class="form-group">
-			<label for="exampleInputPassword1">내용</label>
-			<textarea class="form-control" name="f_content" rows="3"
-				placeholder="내용을 입력하세요"></textarea>
-					<script type="text/javascript">
+				<form id='registerForm' role="form" method="post">
+					<input type="hidden" name="f_emp_id" value="${mem_id}">
+					<div class="box-body">
+						<div class="form-group">
+							<label for="exampleInputEmail1">제목</label> <input type="text"
+								name='f_title' value="" id="title" class="form-control"
+								placeholder="제목을 입력하세요">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">내용</label>
+							<textarea class="form-control" name="f_content" rows="3"
+								placeholder="내용을 입력하세요"></textarea>
+							<script type="text/javascript">
 								CKEDITOR
 										.replace(
 												'f_content',
@@ -77,33 +90,34 @@
 															+ '&realDir=서버업로드될디렉토리명'
 												});
 							</script>
-							
-		</div>
-		<div class="form-group">
-			<label for="exampleInputEmail1">작성자</label> <input type="text"
-				value ="${emp_nm }" name="f_emp_nm" class="form-control" placeholder="Enter Writer" readonly="readonly"> 
-		</div>
 
-		<div class="form-group">
-			<label for="exampleInputEmail1">파일첨부하기</label>
-			<div class="fileDrop"></div>
-		</div>
-	</div>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">작성자</label> <input type="text"
+								value="${emp_nm }" name="f_emp_nm" class="form-control"
+								placeholder="Enter Writer" readonly="readonly">
+						</div>
 
-	<!-- /.box-body -->
+						<div class="form-group">
+							<label for="exampleInputEmail1">파일첨부하기</label>
+							<div class="fileDrop"></div>
+						</div>
+					</div>
 
-	<div class="box-footer">
-		<div>
-			<hr>
-		</div>
+					<!-- /.box-body -->
 
-		<ul class="mailbox-attachments clearfix uploadedList">
-		</ul>
+					<div class="box-footer">
+						<div>
+							<hr>
+						</div>
 
-		<button type="submit" class="btn btn-primary">등록하기</button>
+						<ul class="mailbox-attachments clearfix uploadedList">
+						</ul>
 
-	</div>
-</form>
+						<button type="submit" class="btn btn-primary">등록하기</button>
+
+					</div>
+				</form>
 
 
 			</div>
@@ -119,7 +133,8 @@
 <!-- /.content-wrapper -->
 
 <script type="text/javascript" src="/resources/js/upload.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <script id="template" type="text/x-handlebars-template">
 <li>
@@ -131,7 +146,7 @@
 	</span>
   </div>
 </li>                
-</script>    
+</script>
 
 <script>
 
@@ -173,8 +188,17 @@ $(".fileDrop").on("drop", function(event){
 });
 
 
+
 $("#registerForm").submit(function(event){ //최종적인 submit이 일어나게 되면 서버에는 사용자가 업로드한 파일의 정보를 같이 전송해줘야 함.
+	
 	event.preventDefault();//기본이벤트 해제
+	
+	if($('#title').val().length == 0){ // 이름 길이가 0 이면 
+		alert("제목은 필수 입력사항입니다"); 
+		$('#title').focus(); 
+		return; 
+		} 
+	
 	
 	var that = $(this);
 	
@@ -187,6 +211,8 @@ $("#registerForm").submit(function(event){ //최종적인 submit이 일어나게
 	that.append(str);
 
 	that.get(0).submit(); // get(0)은 순수한 DOM객체를 얻어내기 위함.
+	
+
 });
 
 
