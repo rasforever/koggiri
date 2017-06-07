@@ -93,13 +93,15 @@
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">내용</label>
-						<textarea class="form-control" name="f_content" rows="3"
-							readonly="readonly">${doc_BoardVO.f_content}</textarea>
+					
+						<div class="form-control" style="width:auto; height:400; overflow-y:auto;" readonly = "readonly">${doc_BoardVO.f_content}</div>
+							
+			
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">작성자</label> <input type="text"
 							name="f_emp_id" class="form-control"
-							value="${doc_BoardVO.f_emp_id}" readonly="readonly">
+							value="${doc_BoardVO.f_emp_id}">
 					</div>
 					
 					
