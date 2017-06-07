@@ -24,8 +24,7 @@ public class ChartDAOImpl implements ChartDAO {
 	}
 
 	@Override
-	public ChartVO read(String emp_id) throws Exception {
-
+	public ChartVO read(String emp_id) throws Exception {		
 		return session.selectOne(namespace + ".read", emp_id);
 	}
 }
