@@ -4,7 +4,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Calendar"%>
+<%@page import="java.util.Calendar"%> 
 <%
 	Calendar cal = Calendar.getInstance();
 
@@ -53,7 +53,6 @@
 <!-- script link -->
 <!-- 메뉴바 플러그인 js -->
 <script type="text/javascript" src="resources/Scripts/jquery-1.11.2.min.js"></script>
-
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 
 
@@ -75,7 +74,7 @@
 
 <body class="main">
 	<div id="main_header">
-		<jsp:include page="header.jsp" />
+		<jsp:include page="/WEB-INF/views/include/header.jsp" />
 	</div>
 
 	<!-- 본문 시작 -->
@@ -411,7 +410,7 @@
 		<!-- 본문 끝 -->
 	</div>
 	<div id="main_footer">
-		<jsp:include page="footer.jsp" />
+		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 	</div>
 
 
