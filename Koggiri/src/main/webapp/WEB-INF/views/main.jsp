@@ -4,7 +4,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Calendar"%>
+<%@page import="java.util.Calendar"%> 
 <%
 	Calendar cal = Calendar.getInstance();
 
@@ -52,30 +52,31 @@
 <title>Koggiri</title>
 <!-- script link -->
 <!-- 메뉴바 플러그인 js -->
-<script type="text/javascript" src="resources/Scripts/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../resources/Scripts/jquery-1.11.2.min.js"></script>
 
+<script type="text/javascript" src="../resources/Scripts/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 
 
 <!--  퀵메뉴 플러그인 js -->
-<script type="text/javascript" src="resources/Scripts/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="resources/Scripts/jquery-ui-min.js"></script>
+<script type="text/javascript" src="../resources/Scripts/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../resources/Scripts/jquery-ui-min.js"></script>
 
 
 
 <!-- --------------------------------------------------------------------------------------------------------------- -->
 <!-- css link -->
-<link href="resources/Content/themes/real/clock.css" rel="stylesheet" type="text/css" />
-<link type="text/css" rel="stylesheet" href="resources/Content/themes/real/cal.css" />
+<link href="../resources/Content/themes/real/clock.css" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="../resources/Content/themes/real/cal.css" />
 <link rel="shortcut icon" type="image/x-icon" href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
-<link rel="stylesheet" href="resources/Content/themes/real/ui_main.css" />
-<link href="resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="resources/Content/themes/real/common.css" />
+<link rel="stylesheet" href="../resources/Content/themes/real/ui_main.css" />
+<link href="../resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../resources/Content/themes/real/common.css" />
 </head>
 
 <body class="main">
 	<div id="main_header">
-		<jsp:include page="header.jsp" />
+		<jsp:include page="include/header.jsp" />
 	</div>
 
 	<!-- 본문 시작 -->
@@ -146,7 +147,7 @@
 
 						<h3 class="hidden">공지사항</h3>
 					<div class="notice">
-						<img src="resources/img/notice_t.png" style="margin-bottom: 10px">
+						<img src="../resources/img/notice_t.png" style="margin-bottom: 10px">
 						<ul>
 
 							<li><a href="/HelpDesk/Notify/Detail?sn=2456">공지합니다 <img
@@ -170,7 +171,7 @@
 
 					<h3 class="hidden">받은 메일함</h3>
 					<div class="notice">
-						<img src="resources/img/receive_mail.png"
+						<img src="../resources/img/receive_mail.png"
 							style="margin-bottom: 10px">
 						<ul>
 
@@ -411,7 +412,7 @@
 		<!-- 본문 끝 -->
 	</div>
 	<div id="main_footer">
-		<jsp:include page="footer.jsp" />
+		<jsp:include page="include/footer.jsp" />
 	</div>
 
 

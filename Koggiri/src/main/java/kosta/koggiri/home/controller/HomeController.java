@@ -1,5 +1,7 @@
 package kosta.koggiri.home.controller;
 
+import java.io.FileNotFoundException;
+import java.net.URISyntaxException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -9,6 +11,9 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -57,7 +62,8 @@ public class HomeController {
 		model.addAttribute("emp_nm", emp_nm);
 		//  return "login/loginForm";    로그인기능 완성 되면 활성화
 		
-		return "/main/main";
+		return "/main";
 	}
+	
 	
 }
