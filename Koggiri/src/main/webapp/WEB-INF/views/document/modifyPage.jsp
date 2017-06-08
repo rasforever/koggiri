@@ -11,7 +11,7 @@
 	src="/resources/plugins/ckeditor/ckeditor.js"></script>
 	
 
-<%@ include file="/WEB-INF/views/main/header.jsp"%>
+<%@ include file="../include/header.jsp"%>
 
 
 <head>
@@ -311,5 +311,5 @@
 <!-- /.content-wrapper -->
 
 
-<%@ include file="/WEB-INF/views/main/footer.jsp"%>
+<%@ include file="../include/footer.jsp"%>
 

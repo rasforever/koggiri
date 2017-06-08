@@ -10,9 +10,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 <!--  -->
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%@ include file="../include/header.jsp"%>
 
-<%@ include file="/WEB-INF/views/sidebar/approval_sidebar.jsp"%>
+<%@ include file="../sidebar/approval_sidebar.jsp"%>
 
 
 <!-- Main content -->

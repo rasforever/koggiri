@@ -6,7 +6,7 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
-<%@ include file="/WEB-INF/views/main/header.jsp"%>
+<%@ include file="../include/header.jsp"%>
 
 <head>
 
@@ -224,4 +224,4 @@
 			});
 </script>
 
-<%@ include file="/WEB-INF/views/main/footer.jsp"%>
+<%@ include file="../include/footer.jsp"%>
