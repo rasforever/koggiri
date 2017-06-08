@@ -16,15 +16,20 @@ public class ChartServiceImpl implements ChartService {
 	private ChartDAO dao;
 
 	@Override
-	public List<ChartVO> MM() throws Exception {
-		
-		return dao.MM();
+	public List<ChartVO> list(String dept_id) throws Exception {
+		return dao.list(dept_id);
 	}
 
 	@Override
 	public ChartVO read(String emp_id) throws Exception {
 
 		return dao.read(emp_id);
+	}
+	
+	@Override
+	public ChartVO listAll() throws Exception {
+
+		return dao.listAll();
 	}
 
 }

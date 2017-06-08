@@ -9,25 +9,19 @@ import kosta.koggiri.task.domain.TaskSearchCriteria;
 import kosta.koggiri.task.domain.TaskVO;
 
 public interface TaskDAO {
-   
+   //등록
    public void create(TaskVO vo)throws Exception;
-   
+   //상세보기
    public TaskVO read(Integer ta_seq)throws Exception;
-   
+   //수정
    public void update(TaskVO vo)throws Exception;
-   
+   //삭제
    public void delete(Integer ta_seq)throws Exception;
-   
-   public List<TaskVO> listAll()throws Exception;
-   
-   public List<TaskVO> listPage(int page)throws Exception;
-   
-   public List<TaskVO> listCriteria(TaskCriteria cri)throws Exception;
-   
-   public int countPaging(TaskCriteria cri)throws Exception;
-   
+   //리스트보여주고 서치작업
 	public List<TaskVO> listSearch(TaskSearchCriteria cri)throws Exception;
-	
+   //서치에서 페이징	
 	public int listSearchCount(TaskSearchCriteria cri)throws Exception;
+   //조회수 올림
+	public void updateViewCnt(Integer ta_seq)throws Exception;
 
 }

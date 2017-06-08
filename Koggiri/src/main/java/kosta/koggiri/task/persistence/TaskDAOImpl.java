@@ -44,35 +44,6 @@ public void delete(Integer ta_seq) throws Exception {
 }
 
 @Override
-public List<TaskVO> listAll() throws Exception {
-	return session.selectList(namespace+".listAll");
-}
-
-@Override
-public List<TaskVO> listPage(int page) throws Exception {
-	if(page <=0){
-		page = 1;
-	}
-	
-	page = (page - 1) * 10;
-	
-	return session.selectList(namespace + ".listPage", page);
-}
-
-@Override
-public List<TaskVO> listCriteria(TaskCriteria cri) throws Exception {
-	return session.selectList(namespace+".listCri", cri,
-			new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
-}
-
-@Override
-public int countPaging(TaskCriteria cri) throws Exception {
-	
-	
-	return session.selectOne(namespace+".countPaging");
-}
-
-@Override
 public List<TaskVO> listSearch(TaskSearchCriteria cri) throws Exception {
 	return session.selectList(namespace + ".listSearch", cri,
 			new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
@@ -81,6 +52,12 @@ public List<TaskVO> listSearch(TaskSearchCriteria cri) throws Exception {
 @Override
 public int listSearchCount(TaskSearchCriteria cri) throws Exception {
 	return session.selectOne(namespace + ".listSearchCount", cri);
+}
+
+@Override
+public void updateViewCnt(Integer ta_seq) throws Exception {
+	session.update(namespace + ".updateViewCnt", ta_seq);
+	
 }
 
 

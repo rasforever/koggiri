@@ -9,9 +9,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
+<!--  -->
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-<script type="text/javascript" src="/resources/js/approval.js"></script>
+<%@ include file="/WEB-INF/views/sidebar/approval_sidebar.jsp"%>
+
 
 <!-- Main content -->
 <section class="content">
@@ -157,6 +159,7 @@
 </section>
 <!-- /.content -->
 
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
 <script>
 	var result = '${msg}';

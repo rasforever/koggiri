@@ -1,6 +1,7 @@
 package kosta.koggiri.task.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,10 +15,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.task.domain.TaskPageMaker;
 import kosta.koggiri.task.domain.TaskSearchCriteria;
-import kosta.koggiri.approval.domain.PageMaker;
-import kosta.koggiri.approval.domain.SearchCriteria;
-import kosta.koggiri.document.domain.Doc_PageMaker;
-import kosta.koggiri.document.domain.Doc_SearchCriteria;
 import kosta.koggiri.task.domain.TaskCriteria;
 import kosta.koggiri.task.domain.TaskVO;
 
@@ -32,19 +29,25 @@ public class TaskController {
 	@Inject
 	private TaskService service;
 	
+	
+	//등록 (get방식) -세션불러와서 값을 가지고 있음
 	@RequestMapping(value="/register", method= RequestMethod.GET)
-	   public String registerGET(TaskVO task, Model model) throws Exception{
+	   public String registerGET(TaskVO task, Model model, HttpSession session) throws Exception{
 	      
+		String mem_id = (String) session.getAttribute("mem_id");
+		model.addAttribute("mem_id", mem_id);
+		
 	      logger.info("register get..........");
 	      return "/task/register";
 	   }
 	   
+	//등록(post방식) - 세션을 그대로 보내서 값을 리스트에 뿌려준다
 	   @RequestMapping(value="/register", method= RequestMethod.POST)
-	   public String registPOST(TaskVO task, RedirectAttributes rttr)
+	   public String registPOST(TaskVO task, RedirectAttributes rttr,HttpSession session)
 			   throws Exception{
 	      logger.info("task_regist post...........");
+	      task.setEmp_id( (String) session.getAttribute("mem_id"));
 	      System.out.println(task.toString());
-	      task.setEmp_id("k15010201");
 	      service.regist(task);
 	      
 	      //model.addAttribute("result","success");
@@ -55,42 +58,24 @@ public class TaskController {
 	      return "redirect:/task/list";
 
 	   }
-	
-	   
-	   @RequestMapping(value="/read", method= RequestMethod.GET)
-	   public void read(@RequestParam("ta_seq")int ta_seq, Model model)
-	   throws Exception{
-		   
-		   
-		   model.addAttribute(service.read(ta_seq));
-	   }
-	   
+
+	   //상세보기 (get방식) - 세션을 가지고 있고 그냥 상세보기 해주는 방식 
 	   @RequestMapping(value="/readPage", method=RequestMethod.GET)
 	   public void read(@RequestParam("ta_seq") int ta_seq,
 			   @ModelAttribute("cri") TaskCriteria cri,
-			   Model model)throws Exception{
+			   Model model, HttpSession session)throws Exception{
 		 
+			String mem_id = (String) session.getAttribute("mem_id");
+			model.addAttribute("mem_id", mem_id);
+		
 		   model.addAttribute(service.read(ta_seq));
 	   }
 	   
-	   @RequestMapping(value="/remove", method= RequestMethod.POST)
-	   public String remove(@RequestParam("ta_seq") int ta_seq,
-			   RedirectAttributes rttr)throws Exception{
-		   
-		   service.remove(ta_seq);
-		   
-		   
-		   rttr.addFlashAttribute("msg", "SUCCESS");
-		   
-		   return "redirect:/task/list";
-	   }
-	   
+	   //상세보기에서 삭제하는 페이지 (post방식) 
 	   @RequestMapping(value="/removePage", method=RequestMethod.POST)
 	   public String remove(@RequestParam("ta_seq") int ta_seq,
 			   TaskCriteria cri, 
 			   RedirectAttributes rttr)throws Exception{
-		   
-		   
 		
 		   service.remove(ta_seq);
 		   
@@ -101,32 +86,18 @@ public class TaskController {
 		   return "redirect:/task/list";
 	   }
 	   
-	   @RequestMapping(value="/modify", method= RequestMethod.GET)
-	   public void modifyGET(int ta_seq, Model model)throws Exception{
-		   
-		   model.addAttribute(service.read(ta_seq));
-	   }
-	   
-	   @RequestMapping(value="/modify", method= RequestMethod.POST)
-	   public String modifyPOST(TaskVO task,
-			   RedirectAttributes rttr)throws Exception{
-		   
-		   logger.info("mod post.........");
-		   
-		   service.modify(task);
-		   rttr.addFlashAttribute("msg", "SUCCESS");
-		   
-		   return "redirect:/task/list";
-	   }
-	   
+	   //상세보기에서 수정하는 페이지(get방식)
 	   @RequestMapping(value="/modifyPage", method= RequestMethod.GET)
 	   public void modifyPagingGET(@RequestParam("ta_seq") int ta_seq,
 			   @ModelAttribute("cri") TaskCriteria cri,
-			   Model model)throws Exception{
+			   Model model, HttpSession session)throws Exception{
 		   
+		   String mem_id = (String) session.getAttribute("mem_id");
+			model.addAttribute("mem_id", mem_id);
 		   model.addAttribute(service.read(ta_seq));
 	   }
 	   
+	   //상세보기에서 수정하는 페이지(post방식) 
 	   @RequestMapping(value="/modifyPage", method=RequestMethod.POST)
 	   public String modifyPagingPOST(TaskVO task, TaskCriteria cri, RedirectAttributes rttr)
 	   throws Exception{
@@ -140,9 +111,15 @@ public class TaskController {
 		   return "redirect:/task/list";
 	   }
 
+	   //리스트 서치까지 작업하는 페이지 
 		@RequestMapping(value="/list", method=RequestMethod.GET)
-		public void listPage(@ModelAttribute("cri") TaskSearchCriteria cri, Model model)throws Exception{
+		public void listPage(@ModelAttribute("cri") TaskSearchCriteria cri, Model model, HttpSession session)throws Exception{
 			
+			String mem_id = (String) session.getAttribute("mem_id");
+			model.addAttribute("mem_id", mem_id);
+	
+			cri.setEmp_id(mem_id);
+			System.out.println(cri.getEmp_id());
 			//model.addAttribute("list", service.listCriteria(cri));
 			model.addAttribute("list", service.listSearchCriteria(cri));
 			
@@ -150,7 +127,7 @@ public class TaskController {
 			pageMaker.setCri(cri);
 			//pageMaker.setTotalCount(service.listCountCriteria(cri));
 			pageMaker.setTotalCount(service.listSearchCount(cri));
-			cri.getKeyword();
+			System.out.println(cri.getKeyword());
 			
 			model.addAttribute("pageMaker", pageMaker);
 			
