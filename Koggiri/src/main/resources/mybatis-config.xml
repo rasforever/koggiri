@@ -12,6 +12,7 @@
  	<package name="kosta.koggiri.admin_emp.domain"/>
  	<package name="kosta.koggiri.task.domain"/>
  	<package name="kosta.koggiri.chart.domain"/>
+ 	<package name="kosta.koggiri.noticeboard.domain"/>
 
  </typeAliases>
  
