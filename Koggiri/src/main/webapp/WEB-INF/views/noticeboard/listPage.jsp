@@ -6,8 +6,9 @@
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
+<%@ include file="../include/header.jsp"%>
+
 <!-- Main content -->
-<section class="content">
 	<div class="row">
 		<!-- left column -->
 		<div class="col-md-12">
@@ -96,7 +97,6 @@
 		</div>
 		<!--/.col (left) -->
 	<!-- /.row -->
-</section>
 <!-- /.content-wrapper -->
 <script>
     
@@ -132,4 +132,5 @@
 			});
 </script>
 
+<%@ include file="../include/footer.jsp"%>
 
