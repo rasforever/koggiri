@@ -7,13 +7,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script> -->
+<%@ include file="/WEB-INF/views/sidebar/approval_sidebar.jsp"%>
 
 <!-- <script src='/resources/plugins/fullcalendar/ko.js'></script> -->
-
-
+<link rel='stylesheet' href='/resources/plugins/fullcalendar/fullcalendar.css' />
+<script src='/resources/plugins/fullcalendar/moment.min.js'></script>
+<script src='/resources/plugins/fullcalendar/fullcalendar.js' charset="euc-kr"></script>
+<link type="text/css" rel="stylesheet" href="/resources/plugins/fullcalendar/jquery.qtip.min.css" />
+<script type="text/javascript" src="/resources/plugins/fullcalendar/jquery.qtip.min.js"></script>
 <link href="/resources/plugins/fullcalendar/ssi-modal.min.css"
 	rel="stylesheet" />
 <script src="/resources/plugins/fullcalendar/ssi-modal.min.js"></script>
@@ -530,6 +533,7 @@
 	}
 </script>
 
+
 <style type="text/css">
 body {
 	margin: 40px 10px;
@@ -545,13 +549,10 @@ body {
 </style>
 
 </head>
-<body>
-<div id="main_header">
-		<jsp:include page="../main/header.jsp" />
-	</div>
-	
-	<div id='calendar'></div>
 
+<body>
+
+	<div id='calendar'></div>
 
 </body>
 
