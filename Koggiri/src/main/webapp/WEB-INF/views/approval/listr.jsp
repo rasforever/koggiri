@@ -10,7 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 <!--  -->
-<%@ include file="/WEB-INF/views/main/header.jsp"%>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 <%@ include file="/WEB-INF/views/sidebar/approval_sidebar.jsp"%>
 
@@ -159,7 +159,7 @@
 </section>
 <!-- /.content -->
 
-<%@ include file="/WEB-INF/views/main/footer.jsp"%>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
 <script>
 	var result = '${msg}';
