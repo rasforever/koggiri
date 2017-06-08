@@ -6,6 +6,9 @@
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
+
+<%@ include file="../include/header.jsp"%>
+
 <!-- Main content -->
 <section class="content">
 	<div class="row">
@@ -151,4 +154,6 @@
 
 			});
 </script>
+
+<%@ include file="../include/footer.jsp"%>
 

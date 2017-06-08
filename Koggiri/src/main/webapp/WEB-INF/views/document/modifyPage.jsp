@@ -9,6 +9,9 @@
 
 <script type="text/javascript"
 	src="/resources/plugins/ckeditor/ckeditor.js"></script>
+	
+
+<%@ include file="../include/header.jsp"%>
 
 
 <head>
@@ -308,5 +311,5 @@
 <!-- /.content-wrapper -->
 
 
-
+<%@ include file="../include/footer.jsp"%>
 

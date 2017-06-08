@@ -9,8 +9,14 @@
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">	
 <!--  -->
+<<<<<<< HEAD
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/sidebar/approval_sidebar.jsp"%>
+=======
+<%@ include file="../include/header.jsp"%>
+
+<%@ include file="../sidebar/approval_sidebar.jsp"%>
+>>>>>>> branch 'master' of https://github.com/rasforever/koggiri
 
 
 <!-- Main content -->
