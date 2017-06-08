@@ -2,7 +2,7 @@
   pageEncoding="UTF-8"%>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-<%@include file="../main/header.jsp"%>
+<%@include file="../include/header.jsp"%>
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -93,5 +93,5 @@ $(document).ready(function(){
  
       </div>   <!-- /.row -->
     </section><!-- /.content -->
-    <%@include file="../main/footer.jsp"%>
+    <%@include file="../include/footer.jsp"%>
   
