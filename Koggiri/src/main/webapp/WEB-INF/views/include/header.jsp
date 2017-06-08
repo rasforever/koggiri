@@ -69,7 +69,7 @@
 			<!-- header : s -->
 			<div id="header">
 				<div class="logo" style="padding-top: 13px;">
-					<a class="back_for_main" href="#"><img
+					<a class="back_for_main" href="/"><img
 						src="../resources/img/koggiri.PNG" style="width: 200px;"><span
 						class="hidden">코끼리 로고</span></a>
 				</div>
