@@ -21,9 +21,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-<link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">	
 <!--  approval -->
 
 <!--  css link -->
