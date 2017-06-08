@@ -76,7 +76,7 @@
 
 <body class="main">
 	<div id="main_header">
-		<jsp:include page="../include/header.jsp" />
+		<jsp:include page="include/header.jsp" />
 	</div>
 
 	<!-- 본문 시작 -->
@@ -412,7 +412,7 @@
 		<!-- 본문 끝 -->
 	</div>
 	<div id="main_footer">
-		<jsp:include page="../include/footer.jsp" />
+		<jsp:include page="include/footer.jsp" />
 	</div>
 
 

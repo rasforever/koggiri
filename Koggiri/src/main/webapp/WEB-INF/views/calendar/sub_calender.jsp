@@ -31,7 +31,7 @@
 <body class="sub">
 <div id="wrap">
 <div id="main_header">
-<jsp:include page="../main/header.jsp" />
+<jsp:include page="/WEB-INF/views/include/header.jsp" />
 </div>
 
 <div class="container_wrap">		
@@ -68,7 +68,7 @@
 </script>
 
 <div id="main_footer">
-	<jsp:include page="../main/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 </div>
 
 <!-- 좌측 탭 -->
