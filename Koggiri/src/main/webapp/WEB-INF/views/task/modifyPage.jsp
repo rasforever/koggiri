@@ -3,7 +3,7 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-
+<%@include file="../main/header.jsp"%>
 
 <!-- Main content -->
 <section class="content">
@@ -98,4 +98,4 @@
 </section>
 <!-- /.content -->
 <!-- /.content-wrapper -->
-
+    <%@include file="../main/footer.jsp"%>

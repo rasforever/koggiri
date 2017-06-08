@@ -11,7 +11,7 @@
 <script type="text/javascript" src="../resources/Scripts/Week.js"></script> 
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
  	<link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css">
-
+<%@include file="../main/header.jsp"%>
 
 
 <!-- Main content -->
@@ -125,3 +125,4 @@ self.location = "list" + '${pageMaker.makeQuery(1)}'
 
 			}
 </script>
+    <%@include file="../main/footer.jsp"%>
