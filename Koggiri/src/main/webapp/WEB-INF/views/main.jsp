@@ -1,8 +1,6 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
 <%
@@ -36,62 +34,27 @@
 	int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
 %>
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-
-<!-- html start -->
-<html>
-<head>
+<%@ include file="include/header.jsp"%>
 
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="imagetoolbar" content="no" />
-<meta name="robots" content="index,follow" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>Koggiri</title>
-<!-- script link -->
-<!-- 메뉴바 플러그인 js -->
-<script type="text/javascript"
-	src="../resources/Scripts/jquery-1.11.2.min.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('.main #content div>a').on({
+						mouseenter : function() {
+							$(this).stop().animate({
+								'top' : '-206px'
+							}, 500, "easeInOutCubic");
+						},
+						mouseleave : function() {
+							$(this).stop().animate({
+								'top' : '0px'
+							}, 500, "easeInOutCubic");
+						},
+					});
+				});
+			</script>
 
-<script type="text/javascript"
-	src="../resources/Scripts/jquery-1.11.2.min.js"></script>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-
-
-<!--  퀵메뉴 플러그인 js -->
-<script type="text/javascript"
-	src="../resources/Scripts/jquery.easing.1.3.js"></script>
-<script type="text/javascript"
-	src="../resources/Scripts/jquery-ui-min.js"></script>
-
-
-
-<!-- --------------------------------------------------------------------------------------------------------------- -->
-<!-- css link -->
-<link href="../resources/Content/themes/real/clock.css" rel="stylesheet"
-	type="text/css" />
-<link type="text/css" rel="stylesheet"
-	href="../resources/Content/themes/real/cal.css" />
-<link rel="shortcut icon" type="image/x-icon"
-	href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
-<link rel="stylesheet"
-	href="../resources/Content/themes/real/ui_main.css" />
-<link href="../resources/Content/themes/base/jquery-ui.min.css"
-	rel="stylesheet" type="text/css" />
-<link rel="stylesheet"
-	href="../resources/Content/themes/real/common.css" />
-
-
-
-</head>
-
-<body class="main">
-	<div id="main_header">
-		<jsp:include page="include/header.jsp" />
-	</div>
+			<!-- ------------------------------------------------------------------------ -->
 
 	<!-- 본문 시작 -->
 
@@ -231,24 +194,7 @@
 
 			</div>
 			<!-- ----------------------------------------------------------------------- -->
-			<script type="text/javascript">
-				$(document).ready(function() {
-					$('.main #content div>a').on({
-						mouseenter : function() {
-							$(this).stop().animate({
-								'top' : '-206px'
-							}, 500, "easeInOutCubic");
-						},
-						mouseleave : function() {
-							$(this).stop().animate({
-								'top' : '0px'
-							}, 500, "easeInOutCubic");
-						},
-					});
-				});
-			</script>
 
-			<!-- ------------------------------------------------------------------------ -->
 
 			<!-- 시계 script -->
 			<script type="text/javascript">
@@ -305,124 +251,37 @@
 			<div class="weather">
 				<!--  이곳에 api 적용하면 됩니다 -->
 				<!-- weather widget start -->
-				<div id="m-booked-weather-bl250-12903"
-					style="position: relative; top: -655px;">
-					<div class="booked-wzs-250-175 weather-customize"
-						style="background-color: #137AE9; min-width: 470px !important;
-	max-width: 530px !important;" id="width1">
-						<div class="booked-wzs-250-175_in">
-							<div class="booked-wzs-250-175-data">
-								<div class="booked-wzs-250-175-left-img wrz-01">
-									<a target="_blank" href="http://www.booked.net/"> <img
-										src="//s.bookcdn.com/images/letter/logo.gif" alt="booked.net" />
-									</a>
-								</div>
-								<div class="booked-wzs-250-175-right">
-									<div class="booked-wzs-day-deck">
-										<div class="booked-wzs-day-val">
-											<div class="booked-wzs-day-number">
-												<span class="plus">+</span>24
-											</div>
-											<div class="booked-wzs-day-dergee">
-												<div class="booked-wzs-day-dergee-val">&deg;</div>
-												<div class="booked-wzs-day-dergee-name">C</div>
-											</div>
-										</div>
-										<div class="booked-wzs-day">
-											<div class="booked-wzs-day-d">
-												H: <span class="plus">+</span>25&deg;
-											</div>
-											<div class="booked-wzs-day-n">
-												L: <span class="plus">+</span>14&deg;
-											</div>
-										</div>
-									</div>
-									<div class="booked-wzs-250-175-info">
-										<div class="booked-wzs-250-175-city">서울특별시</div>
-										<div class="booked-wzs-250-175-date">목요일, 08 6월</div>
-										<div class="booked-wzs-left">
-											<span class="booked-wzs-bottom-l">7일 예보 보기</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<a target="_blank" href="http://booked.kr/weather/seoul-18406">
-								<table cellpadding="0" cellspacing="0"
-									class="booked-wzs-table-250">
-									<tr>
-										<td>금</td>
-										<td>토</td>
-										<td>일</td>
-										<td>월</td>
-										<td>화</td>
-										<td>수</td>
-									</tr>
-									<tr>
-										<td class="week-day-ico">
-											<div class="wrz-sml wrzs-18"></div>
-										</td>
-										<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
-										<td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td>
-										<td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td>
-										<td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td>
-										<td class="week-day-ico"><div class="wrz-sml wrzs-01"></div></td>
-									</tr>
-
-									<tr>
-										<td class="week-day-val"><span class="plus">+</span>24&deg;</td>
-										<td class="week-day-val"><span class="plus">+</span>25&deg;</td>
-										<td class="week-day-val"><span class="plus">+</span>24&deg;</td>
-										<td class="week-day-val"><span class="plus">+</span>21&deg;</td>
-										<td class="week-day-val"><span class="plus">+</span>25&deg;</td>
-										<td class="week-day-val"><span class="plus">+</span>29&deg;</td>
-									</tr>
-
-									<tr>
-										<td class="week-day-val"><span class="plus">+</span>13&deg;</td>
-										<td class="week-day-val"><span class="plus">+</span>12&deg;</td>
-										<td class="week-day-val"><span class="plus">+</span>16&deg;</td>
-										<td class="week-day-val"><span class="plus">+</span>11&deg;</td>
-										<td class="week-day-val"><span class="plus">+</span>13&deg;</td>
-										<td class="week-day-val"><span class="plus">+</span>16&deg;</td>
+				<div class="weather_table" style="position: relative; top: -679px;">
+					<table cellpadding=0 cellspacing=0 width=500 height="216px"
+						style="font-family: Verdana; font-size: 14px;">
+						<tr>
+							<td
+								style="padding-top: 0px; padding-bottom: 0px; position: relative; top: 6px;">
+								<table width=100% cellpadding=0 cellspacing=0>
+									<tr height="56px">
+										<td width=8 height=30
+											background="https://rp5.ru/informer/htmlinfa/topshl.png"
+											bgcolor=#20a5fe></td>
+										<td width=* align=center
+											background="https://rp5.ru/informer/htmlinfa/topsh.png"
+											bgcolor=#20a5fe><a
+											style="color: #ffffff; font-family: Verdana; font-size: 18px; text-decoration: none;"
+											href="https://rp5.ru/5483/ko"><b>서울</b></a></td>
+										<td width=8 height=30
+											background="https://rp5.ru/informer/htmlinfa/topshr.png"
+											bgcolor=#20a5fe> </td>
 									</tr>
 								</table>
-							</a>
-						</div>
-					</div>
+							</td>
+						</tr>
+						<tr>
+							<td valign=top style="padding: 0; height: 140px"><iframe
+									src="https://rp5.ru/htmla.php?id=12514&lang=ko&um=00000&bg=%23ffffff&ft=%23ffffff&fc=%23209efe&c=%23000000&f=Arial&s=12&sc=2"
+									width=100% height=146 frameborder=0 scrolling=no
+									style="margin: 0; border: 0px;"></iframe></td>
+						</tr>
+					</table>
 				</div>
-				<script type="text/javascript">
-					var css_file = document.createElement("link");
-					css_file.setAttribute("rel", "stylesheet");
-					css_file.setAttribute("type", "text/css");
-					css_file
-							.setAttribute("href",
-									'https://s.bookcdn.com/css/w/booked-wzs-widget-275.css?v=0.0.1');
-					document.getElementsByTagName("head")[0]
-							.appendChild(css_file);
-					function setWidgetData(data) {
-						if (typeof (data) != 'undefined'
-								&& data.results.length > 0) {
-							for (var i = 0; i < data.results.length; ++i) {
-								var objMainBlock = document
-										.getElementById('m-booked-weather-bl250-12903');
-								if (objMainBlock !== null) {
-									var copyBlock = document
-											.getElementById('m-bookew-weather-copy-'
-													+ data.results[i].widget_type);
-									objMainBlock.innerHTML = data.results[i].html_code;
-									if (copyBlock !== null)
-										objMainBlock.appendChild(copyBlock);
-								}
-							}
-						} else {
-							alert('data=undefined||data.results is empty');
-						}
-					}
-				</script>
-				<script type="text/javascript" charset="UTF-8"
-					src="https://widgets.booked.net/weather/info?action=get_weather_info&ver=6&cityID=18406&type=3&scode=124&ltid=3458&domid=593&anc_id=17934&cmetric=1&wlangID=24&color=137AE9&wwidth=160&header_color=ffffff&text_color=333333&link_color=08488D&border_form=1&footer_color=ffffff&footer_text_color=333333&transparent=0"></script>
-				<!-- weather widget end -->
-
 			</div>
 			<div class="calendar_main">
 				<form name="calendarFrm" id="calendarFrm" action="" method="post">
@@ -556,14 +415,6 @@
 
 		<!-- 본문 끝 -->
 	</div>
-	<div id="main_footer">
-		<jsp:include page="include/footer.jsp" />
-	</div>
-
-
-</body>
-</html>
-
 
 
 

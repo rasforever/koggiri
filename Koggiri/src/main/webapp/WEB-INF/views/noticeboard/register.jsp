@@ -1,14 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
-<%@ include file="../include/header.jsp"%>
-
-<head>
+<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
@@ -34,18 +27,8 @@
 	rel="stylesheet" type="text/css">
 
 
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-</head>
-
 <script type="text/javascript"
 	src="/resources/plugins/ckeditor/ckeditor.js"></script>
-
 
 <style>
 .fileDrop {
@@ -54,7 +37,7 @@
 	border: 1px dotted gray;
 	background-color: lightslategrey;
 	margin: auto;
-}
+} 
 </style>
 
 <!-- Main content -->
@@ -65,60 +48,39 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3 class="box-title">문서게시판 등록하기</h3>
+					<h3 class="box-title">REGISTER BOARD</h3>
 				</div>
 				<!-- /.box-header -->
+<form id='registerForm' role="form" method="post">
+	<div class="box-body">
+		<div class="form-group">
+			<label for="exampleInputEmail1" >Title</label> 
+			<input type="text"
+				name='N_TITLE' class="form-control" id = "title" placeholder="Enter Title">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputPassword1">Content</label>
+			<textarea class="form-control" name="N_CONTENT" rows="3"
+				placeholder="Enter ..."></textarea>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">Writer</label> 
+			<input type="text"
+				name="N_EMP_ID" class="form-control" placeholder="Enter Writer">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">File DROP Here</label>
+		<div class="fileDrop"></div>
+	</div>
+	
+	<!-- /.box-body -->
 
-				<form id='registerForm' role="form" method="post">
-					<input type="hidden" name="f_emp_id" value="${mem_id}">
-					<div class="box-body">
-						<div class="form-group">
-							<label for="exampleInputEmail1">제목</label> <input type="text"
-								name='f_title' value="" id="title" class="form-control"
-								placeholder="제목을 입력하세요">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">내용</label>
-							<textarea class="form-control" name="f_content" rows="3"
-								placeholder="내용을 입력하세요"></textarea>
-							<script type="text/javascript">
-								CKEDITOR
-										.replace(
-												'f_content',
-												{
-													'filebrowserUploadUrl' : '/ckeditor/upload.jsp?'
-															+ 'realUrl=http://www.localhost.com/서버업로드될디렉토리명'
-															+ '&realDir=서버업로드될디렉토리명'
-												});
-							</script>
+	<div class="box-footer">
+		<ul class="mailbox-attachments clearfix uploadedList"></ul>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</div>
+</form>
 
-						</div>
-						<div class="form-group">
-							<label for="exampleInputEmail1">작성자</label> <input type="text"
-								value="${emp_nm }" name="f_emp_nm" class="form-control"
-								placeholder="Enter Writer" readonly="readonly">
-						</div>
-
-						<div class="form-group">
-							<label for="exampleInputEmail1">파일첨부하기</label>
-							<div class="fileDrop"></div>
-						</div>
-					</div>
-
-					<!-- /.box-body -->
-
-					<div class="box-footer">
-						<div>
-							<hr>
-						</div>
-
-						<ul class="mailbox-attachments clearfix uploadedList"  >
-						</ul>
-
-						<button type="submit" class="btn btn-primary">등록하기</button>
-
-					</div>
-				</form>
 
 
 			</div>
@@ -130,7 +92,6 @@
 	<!-- /.row -->
 </section>
 <!-- /.content -->
-</div>
 <!-- /.content-wrapper -->
 
 <script type="text/javascript" src="/resources/js/upload.js"></script>
@@ -181,29 +142,26 @@
 				var html = template(fileInfo);
 
 				$(".uploadedList").append(html);
-				
-
 			}
 		});
 	});
 
 	$("#registerForm").submit(
 			function(event) { //최종적인 submit이 일어나게 되면 서버에는 사용자가 업로드한 파일의 정보를 같이 전송해줘야 함.
-
 				event.preventDefault();//기본이벤트 해제
-
+				
 				if ($('#title').val().length == 0) { // 이름 길이가 0 이면 
 					alert("제목은 필수 입력사항입니다");
 					$('#title').focus();
 					return;
 				}
 
+			
 				var that = $(this);
-
+				
 				var str = "";
 				$(".uploadedList .delbtn").each(
 						function(index) {
-							
 							str += "<input type='hidden' name='files[" + index
 									+ "]' value='" + $(this).attr("href")
 									+ "'> ";
@@ -211,17 +169,10 @@
 				//각 파일은 files[0]과 같은 이름으로 추가되는데 이 배열 표시를 이용해서 컨트롤러에서는 BoardVO의 files 파라미터를 수집하게 된다.
 				//모든 파일의 정보를 폼태그의 히든타입으로 생성한 후에는 폼태그의 데이터의 submit()을 호출해서 서버를 호출.
 				
-				if(str==""){//파일이 첨부되지않으면 경고창 띄우기
-					alert("첨부된 파일이 존재하지 않습니다.");
-					return;
-				}else{
-					alert("파일을 첨부합니다.");
-				}
+						
 				that.append(str);
 
 				that.get(0).submit(); // get(0)은 순수한 DOM객체를 얻어내기 위함.
-
 			});
 </script>
 
-<%@ include file="../include/footer.jsp"%>

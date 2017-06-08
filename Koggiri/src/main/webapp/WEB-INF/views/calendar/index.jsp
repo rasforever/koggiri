@@ -548,12 +548,9 @@ body {
 }
 </style>
 
-</head>
 
-<body>
+
 
 	<div id='calendar'></div>
-
-</body>
-
-</html>
+	
+	<%@ include file="../include/footer.jsp"%>
