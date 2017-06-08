@@ -52,25 +52,25 @@
 <title>Koggiri</title>
 <!-- script link -->
 <!-- 메뉴바 플러그인 js -->
-<script type="text/javascript" src="resources/Scripts/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../resources/Scripts/jquery-1.11.2.min.js"></script>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 
 
 <!--  퀵메뉴 플러그인 js -->
-<script type="text/javascript" src="resources/Scripts/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="resources/Scripts/jquery-ui-min.js"></script>
+<script type="text/javascript" src="../resources/Scripts/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../resources/Scripts/jquery-ui-min.js"></script>
 
 
 
 <!-- --------------------------------------------------------------------------------------------------------------- -->
 <!-- css link -->
-<link href="resources/Content/themes/real/clock.css" rel="stylesheet" type="text/css" />
-<link type="text/css" rel="stylesheet" href="resources/Content/themes/real/cal.css" />
+<link href="../resources/Content/themes/real/clock.css" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="../resources/Content/themes/real/cal.css" />
 <link rel="shortcut icon" type="image/x-icon" href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
-<link rel="stylesheet" href="resources/Content/themes/real/ui_main.css" />
-<link href="resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="resources/Content/themes/real/common.css" />
+<link rel="stylesheet" href="../resources/Content/themes/real/ui_main.css" />
+<link href="../resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../resources/Content/themes/real/common.css" />
 </head>
 
 <body class="main">
@@ -146,7 +146,7 @@
 
 						<h3 class="hidden">공지사항</h3>
 					<div class="notice">
-						<img src="resources/img/notice_t.png" style="margin-bottom: 10px">
+						<img src="../resources/img/notice_t.png" style="margin-bottom: 10px">
 						<ul>
 
 							<li><a href="/HelpDesk/Notify/Detail?sn=2456">공지합니다 <img
@@ -170,7 +170,7 @@
 
 					<h3 class="hidden">받은 메일함</h3>
 					<div class="notice">
-						<img src="resources/img/receive_mail.png"
+						<img src="../resources/img/receive_mail.png"
 							style="margin-bottom: 10px">
 						<ul>
 
