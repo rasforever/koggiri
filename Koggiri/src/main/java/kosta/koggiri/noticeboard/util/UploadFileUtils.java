@@ -13,7 +13,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.FileCopyUtils;
 
-import kosta.koggiri.approval.util.ApprovalMediaUtils;
+
+
+
 
 public class UploadFileUtils {
 
@@ -34,7 +36,7 @@ public class UploadFileUtils {
 
 		String uploadedFileName = null;
 
-		if (ApprovalMediaUtils.getMediaType(formatName) != null) {
+		if (MediaUtils.getMediaType(formatName) != null) {
 			uploadedFileName = makeThumbnail(uploadPath, savedPath, savedName);
 		} else {
 			uploadedFileName = makeIcon(uploadPath, savedPath, savedName);
