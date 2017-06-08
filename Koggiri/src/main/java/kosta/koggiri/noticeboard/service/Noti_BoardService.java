@@ -2,8 +2,6 @@ package kosta.koggiri.noticeboard.service;
 
 import java.util.List;
 
-import kosta.koggiri.document.domain.Doc_BoardVO;
-import kosta.koggiri.document.domain.Doc_SearchCriteria;
 import kosta.koggiri.noticeboard.domain.Noti_BoardVO;
 import kosta.koggiri.noticeboard.domain.Noti_Criteria;
 import kosta.koggiri.noticeboard.domain.Noti_SearchCriteria;

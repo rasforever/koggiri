@@ -15,9 +15,9 @@ import org.springframework.util.FileCopyUtils;
 
 import kosta.koggiri.approval.util.ApprovalMediaUtils;
 
-public class Noti_UploadFileUtils {
+public class UploadFileUtils {
 
-	private static final Logger logger = LoggerFactory.getLogger(Noti_UploadFileUtils.class);
+	private static final Logger logger = LoggerFactory.getLogger(UploadFileUtils.class);
 	
 	public static String uploadFile(String uploadPath, String originalName, byte[] fileData) throws Exception {
 		UUID uid = UUID.randomUUID();

@@ -4,8 +4,6 @@ import java.util.List;
 
 import kosta.koggiri.noticeboard.domain.Noti_Criteria;
 import kosta.koggiri.noticeboard.domain.Noti_SearchCriteria;
-import kosta.koggiri.document.domain.Doc_BoardVO;
-import kosta.koggiri.document.domain.Doc_SearchCriteria;
 import kosta.koggiri.noticeboard.domain.Noti_BoardVO;
 
 
@@ -33,5 +31,10 @@ public interface Noti_BoardDAO {
 	public void addAttach(String fullName) throws Exception;
 	
 	public List<String> getAttach(Integer n_ID)throws Exception;
+	
+	public void deleteAttach(Integer n_ID)throws Exception;
+	public void replaceAttach(String fullName, Integer n_ID)throws Exception;
+	
+	public void updateViewCnt(Integer n_ID)throws Exception;
 
 }

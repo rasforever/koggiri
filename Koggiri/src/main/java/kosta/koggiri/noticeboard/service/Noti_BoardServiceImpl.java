@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import kosta.koggiri.noticeboard.domain.Noti_BoardVO;
@@ -23,9 +24,8 @@ public class Noti_BoardServiceImpl implements Noti_BoardService {
 	public void regist(Noti_BoardVO board) throws Exception {
 		dao.create(board);
 		
-		//String app_id = board.getApp_id();
 		String[] files = board.getFiles();
-
+		
 		if (files == null) {
 			return;
 		}
@@ -35,18 +35,34 @@ public class Noti_BoardServiceImpl implements Noti_BoardService {
 
 	}
 
+	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
 	public Noti_BoardVO read(Integer n_ID) throws Exception {
+		dao.updateViewCnt(n_ID);
 		return dao.read(n_ID);
 	}
 
+	@Transactional
 	@Override
 	public void modify(Noti_BoardVO board) throws Exception {
 		dao.update(board);
+		
+		Integer n_ID = board.getN_ID();
+		
+		dao.deleteAttach(n_ID);
+		
+		String[] files = board.getFiles();
+		
+		if(files == null){ return;}
+		for(String fileName : files){
+			dao.replaceAttach(fileName, n_ID);
+		}
 	}
 
+	@Transactional
 	@Override
 	public void remove(Integer n_ID) throws Exception {
+		dao.deleteAttach(n_ID);
 		dao.delete(n_ID);
 	}
 

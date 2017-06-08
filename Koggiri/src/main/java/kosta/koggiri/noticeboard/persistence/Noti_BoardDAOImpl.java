@@ -1,17 +1,15 @@
 package kosta.koggiri.noticeboard.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
-import kosta.koggiri.approval.domain.ApprovalVO;
-import kosta.koggiri.document.domain.Doc_BoardVO;
-import kosta.koggiri.document.domain.Doc_SearchCriteria;
 import kosta.koggiri.noticeboard.domain.Noti_BoardVO;
 import kosta.koggiri.noticeboard.domain.Noti_Criteria;
 import kosta.koggiri.noticeboard.domain.Noti_SearchCriteria;
@@ -98,6 +96,31 @@ public class Noti_BoardDAOImpl implements Noti_BoardDAO {
 	@Override
 	public List<String> getAttach(Integer n_ID) throws Exception {
 		return session.selectList(namespace + ".getAttach", n_ID);
+	}
+
+	@Override
+	public void deleteAttach(Integer n_ID) throws Exception {
+		session.insert(namespace + ".deleteAttach", n_ID);
+		
+	}
+
+	@Override
+	public void replaceAttach(String fullName, Integer n_ID) throws Exception {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		
+		paramMap.put("fullName", fullName);
+		paramMap.put("N_ID", n_ID);
+		
+		
+		System.out.println(n_ID);
+		System.out.println(fullName);
+		session.insert(namespace + ".replaceAttach", paramMap);
+		
+	}
+
+	@Override
+	public void updateViewCnt(Integer n_ID) throws Exception {
+		session.update(namespace + ".updateViewCnt", n_ID);
 	}
 
 	

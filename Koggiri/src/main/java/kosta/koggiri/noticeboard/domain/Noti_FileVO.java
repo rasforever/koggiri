@@ -4,11 +4,11 @@ public class Noti_FileVO {
 	private String FULLNAME;
 	private int N_ID;
 	
-	public String getFullName() {
+	public String getFULLNAME() {
 		return FULLNAME;
 	}
-	public void setFullName(String fullName) {
-		this.FULLNAME = fullName;
+	public void setFULLNAME(String fULLNAME) {
+		FULLNAME = fULLNAME;
 	}
 	public int getN_ID() {
 		return N_ID;
@@ -17,4 +17,5 @@ public class Noti_FileVO {
 		N_ID = n_ID;
 	}
 	
+
 }
