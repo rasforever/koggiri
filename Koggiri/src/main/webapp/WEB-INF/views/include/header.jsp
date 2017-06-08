@@ -39,10 +39,7 @@
 	href="../resources/Content/themes/real/ui_main.css" />
 <link rel="stylesheet"
 	href="../resources/Content/themes/real/common.css" />
-<link href="../resources/Content/themes/real/clock.css" rel="stylesheet"
-	type="text/css" />
-<link type="text/css" rel="stylesheet"
-	href="../resources/Content/themes/real/cal.css" />
+
 
 
 
@@ -139,7 +136,7 @@
 		<hr />
 	</div>
 <div class="container_wrap">
-
+<div id="container">
 
 
 
