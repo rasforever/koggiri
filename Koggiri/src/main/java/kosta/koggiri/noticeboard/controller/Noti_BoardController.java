@@ -21,11 +21,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import kosta.koggiri.document.util.MediaUtils;
 import kosta.koggiri.noticeboard.domain.Noti_BoardVO;
 import kosta.koggiri.noticeboard.domain.Noti_SearchCriteria;
 import kosta.koggiri.noticeboard.domain.Noti_PageMaker;
 import kosta.koggiri.noticeboard.service.Noti_BoardService;
+import kosta.koggiri.noticeboard.util.MediaUtils;
 
 @Controller
 @RequestMapping("/noticeboard/*")
