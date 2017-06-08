@@ -3,18 +3,10 @@
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-
 <script type="text/javascript"
 	src="/resources/plugins/ckeditor/ckeditor.js"></script>
-	
-
-<%@ include file="../include/header.jsp"%>
-
-
-<head>
 
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
@@ -38,18 +30,7 @@
          folder instead of downloading all of them to reduce the load. -->
 <link href="/resources/dist/css/skins/_all-skins.min.css"
 	rel="stylesheet" type="text/css">
-
-
-
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-</head>
-
+	
 <style>
 .fileDrop {
 	width: 80%;
@@ -57,9 +38,8 @@
 	border: 1px dotted gray;
 	background-color: lightslategrey;
 	margin: auto;
-}
+} 
 </style>
-
 
 <!-- Main content -->
 <section class="content">
@@ -69,77 +49,62 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3 class="box-title">글 수정</h3>
+					<h3 class="box-title">MODIFY BOARD</h3>
 				</div>
 				<!-- /.box-header -->
 
-				<form role="form" action="modifyPage" method="post">
+				<form role="form" action="modify" method="post">
 
-					<input type='hidden' name='page' value="${cri.page}"> <input
-						type='hidden' name='perPageNum' value="${cri.perPageNum}">
+					<input type='hidden' name='page' value="${cri.page}"> 
+					<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
 					<input type='hidden' name='searchType' value="${cri.searchType}">
 					<input type='hidden' name='keyword' value="${cri.keyword}">
-
+					
 					<div class="box-body">
 
 						<div class="form-group">
-							<label for="exampleInputEmail1">글번호</label> <input type="text"
-								name='f_id' class="form-control" value="${doc_BoardVO.f_id}"
+							<label for="exampleInputEmail1">BNO</label> <input type="text"
+								name='N_ID' class="form-control" value="${Noti_BoardVO.n_ID}"
 								readonly="readonly">
 						</div>
 
 						<div class="form-group">
-							<label for="exampleInputEmail1">제목</label> <input type="text"
-								name='f_title' class="form-control"
-								value="${doc_BoardVO.f_title}">
+							<label for="exampleInputEmail1">Title</label> <input type="text"
+								name='N_TITLE' class="form-control" value="${Noti_BoardVO.n_TITLE}">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputPassword1">내용</label>
-							<textarea class="form-control" name="f_content" rows="3">${doc_BoardVO.f_content}</textarea>
-							<script type="text/javascript">
-								CKEDITOR
-										.replace(
-												'f_content',
-												{
-													'filebrowserUploadUrl' : '/ckeditor/upload.jsp?'
-															+ 'realUrl=http://www.localhost.com/서버업로드될디렉토리명'
-															+ '&realDir=서버업로드될디렉토리명'
-												});
-							</script>
+							<label for="exampleInputPassword1">Content</label>
+							<textarea class="form-control" name="N_CONTENT" rows="3">${Noti_BoardVO.n_CONTENT}</textarea>			
+							
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">작성자</label> <input type="text"
-								name="f_emp_id" class="form-control"
-								value="${doc_BoardVO.f_emp_nm}" readonly="readonly">
+							<label for="exampleInputEmail1">Writer</label> <input
+								type="text" name="N_EMP_ID" class="form-control"
+								value="${Noti_BoardVO.n_EMP_ID}" readonly="readonly">
 						</div>
-
+						
 						<div class="form-group">
-							<label for="exampleInputEmail1">파일첨부하기</label>
+							<label for="exampleInputEmail1">File DROP Here</label>
 							<div class="fileDrop"></div>
 						</div>
-
+						
 					</div>
 					<!-- /.box-body -->
-
+					
 					<div class="box-footer">
-						<div>
-							<hr>
-						</div>
-
-						<ul class="mailbox-attachments clearfix uploadedList">
-						</ul>																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																												
-
-						<button type="submit" class="btn btn-primary">수정하기</button>
-						<button type="submit" class="btn btn-warning">취소</button>
-
-					</div>
+					
+					<ul class="mailbox-attachments clearfix uploadedList"></ul>
+						
+					<button type="submit" class="btn btn-primary">SAVE</button>
+					<button type="submit" class="btn btn-warning">CANCEL</button>
+				</div>
 				</form>
-
+				
 				<script type="text/javascript" src="/resources/js/upload.js"></script>
 				<script
 					src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
-				<script id="template" type="text/x-handlebars-template">
+<script id="template" type="text/x-handlebars-template">
 <li>
   <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
   <div class="mailbox-attachment-info">
@@ -159,43 +124,48 @@
 										var formObj = $("form[role='form']");
 
 										formObj
-												.submit(function(event) {
-													event.preventDefault();
+										.submit(function(event) {
+											event.preventDefault();
 
-													var that = $(this);
+											var that = $(this);
 
-													var str = "";
-													$(".uploadedList .delbtn")
-															.each(
-																	function(
-																			index) {
-																		str += "<input type='hidden' name='files["
-																				+ index
-																				+ "]' value='"
-																				+ $(
-																						this)
-																						.attr(
-																								"href")
-																				+ "'> ";
-																	});
+											var str = "";
+											$(".uploadedList .delbtn")
+													.each(
+															function(
+																	index) {
+																str += "<input type='hidden' name='files["
+																		+ index
+																		+ "]' value='"
+																		+ $(
+																				this)
+																				.attr(
+																						"href")
+																		+ "'> ";
+															});
 
-													that.append(str);
+											that.append(str);
 
-													console.log(str);
+											console.log(str);
 
-													that.get(0).submit();
-												});
+											that.get(0).submit();
+										});
 
 										$(".btn-warning")
 												.on(
 														"click",
 														function() {
-															self.location = "/document/list?page=${cri.page}&perPageNum=${cri.perPageNum}"
-																	+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
+															 self.location = "/noticeboard/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}"
+																	 +"&searchType=${cri.searchType}&keyword=${cri.keyword}";
 														});
 
-									});
+										/* $(".btn-primary").on("click",
+												function() {
+													formObj.submit();
+												}); */
 
+									});
+					
 					var template = Handlebars.compile($("#template").html());
 
 					$(".fileDrop").on("dragenter dragover", function(event) {
@@ -254,13 +224,13 @@
 						});
 					});
 
-					var f_id = $
+					var n_ID = $
 					{
-						doc_BoardVO.f_id
+						Noti_BoardVO.n_ID
 					};
 					var template = Handlebars.compile($("#template").html());
 
-					$.getJSON("/document/getAttach/" + f_id, function(list) {
+					$.getJSON("/noticeboard/getAttach/" + n_ID, function(list) {
 						$(list).each(function() {
 
 							var fileInfo = getFileInfo(this);
@@ -298,6 +268,9 @@
 					});
 				</script>
 
+
+
+
 			</div>
 			<!-- /.box -->
 		</div>
@@ -307,9 +280,7 @@
 	<!-- /.row -->
 </section>
 <!-- /.content -->
-</div>
+
 <!-- /.content-wrapper -->
 
-
-<%@ include file="../include/footer.jsp"%>
 

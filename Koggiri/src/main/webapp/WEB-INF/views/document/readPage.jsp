@@ -158,7 +158,7 @@
 <li data-src='{{fullName}}'>
   <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
   <div class="mailbox-attachment-info">
-	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+	<a href="{{getLink}}" class="mailbox-ttachment-name">{{fileName}}</a>
 	</span>
   </div>
 </li>                
