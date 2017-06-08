@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,19 +12,12 @@
 <script type="text/javascript" src="/resources/Scripts/ui.js"></script>
 <script type="text/javascript" src="/resources/Scripts/jquery-ui-min.js"></script>
 <script type="text/javascript" src="/resources/Scripts/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 
-
-
-<!-- --------------------------------------------------------------------------------------------------------------- -->
-<!-- css link -->
-<link href="resources/Content/themes/real/clock.css" rel="stylesheet" type="text/css" />
-<link type="text/css" rel="stylesheet" href="resources/Content/themes/real/cal.css" />
+<!--  css link -->
+<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" type="image/x-icon" href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
-<link rel="stylesheet" href="resources/Content/themes/real/ui_main.css" />
-<link href="resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="resources/Content/themes/real/common.css" />
-
+<link rel="stylesheet" href="/resources/Content/themes/real/ui_main.css" />
+<link rel="stylesheet" href="/resources/Content/themes/real/common.css" />
 
 </head>
 <!-- ----------------------------------------------------------------------- -->
