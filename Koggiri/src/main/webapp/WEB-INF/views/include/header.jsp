@@ -55,6 +55,7 @@
 			</div>
 			<!-- skipNavi : s -->
 			<div id="skipNavi">
+			
 				<a href="#header">주메뉴 바로가기</a><a href="#container">본문 바로가기</a>
 			</div>
 			<!-- skipNavi : e -->
@@ -72,7 +73,7 @@
 						<li class="menu01 "><a href="#" class="menu_a"
 							style="padding-top: 10px;">공지</a> <!-- 2depth : s -->
 							<ul>
-								<li class=""><a href="sub_notice.jsp">공지 사항</a></li>
+								<li class=""><a href="#">공지 사항</a></li>
 								<li class=""><a href="#">알립니다</a></li>
 							</ul></li>
 						<!-- 1depth : s -->
@@ -103,7 +104,7 @@
 						<li class="menu04 "><a href="#" class="menu_a"
 							style="padding-top: 10px;">메일</a> <!-- 2depth : s -->
 							<ul>
-								<li class=""><a href="sub_mail.jsp">메일쓰기</a></li>
+								<li class=""><a href="#">메일쓰기</a></li>
 								<li class=""><a href="#">메일함</a>
 									<div>
 										<span><img
@@ -118,7 +119,7 @@
 						<li class="menu05 "><a href="#" class="menu_a"
 							style="padding-top: 10px;">회사정보</a> <!-- 2depth : s -->
 							<ul>
-								<li class=""><a href="sub_information.jsp">Koggiri란?</a></li>
+								<li class=""><a href="#">Koggiri란?</a></li>
 								<li class=""><a href="../chat/list">조직도</a></li>
 							</ul></li>
 
