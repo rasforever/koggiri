@@ -5,7 +5,7 @@ $(function() {
 		var container_wrap = $('.container_wrap');
 		var menu1depth = $('.gnb>ul>li');
 		var menu2depth = $('.gnb>ul>li>ul>li');
-		var menu3depth_wrap = $('.gnb>ul>li>ul>li>div');
+		var menu1depth_wrap = $('.gnb>ul>li>ul>li>div');
 		var menu3depth = $('.gnb>ul>li>ul>li>div>ul>li');
 		
 		// 1Depth �쒖꽦�� 諛� GNB蹂댁씠湲�
