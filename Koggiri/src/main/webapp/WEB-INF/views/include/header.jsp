@@ -15,6 +15,16 @@
 	src="../resources/Scripts/jquery-ui-min.js"></script>
 <script type="text/javascript"
 	src="../resources/Scripts/jquery.easing.1.3.js"></script>
+	
+<!--  approval -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">	
+<!--  approval -->
 
 <!--  css link -->
 <link href="/resources/Content/themes/base/jquery-ui.min.css"
