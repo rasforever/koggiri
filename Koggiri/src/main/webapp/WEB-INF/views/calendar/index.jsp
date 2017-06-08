@@ -10,18 +10,10 @@
 
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 
-<link rel='stylesheet'
-	href='/resources/plugins/fullcalendar/fullcalendar.css' />
-<script src='/resources/plugins/fullcalendar/moment.min.js'></script>
 
-<script src='/resources/plugins/fullcalendar/fullcalendar.js'
-	charset="euc-kr"></script>
 <!-- <script src='/resources/plugins/fullcalendar/ko.js'></script> -->
 
-<link type="text/css" rel="stylesheet"
-	href="/resources/plugins/fullcalendar/jquery.qtip.min.css" />
-<script type="text/javascript"
-	src="/resources/plugins/fullcalendar/jquery.qtip.min.js"></script>
+
 <link href="/resources/plugins/fullcalendar/ssi-modal.min.css"
 	rel="stylesheet" />
 <script src="/resources/plugins/fullcalendar/ssi-modal.min.js"></script>
@@ -554,9 +546,9 @@ body {
 
 </head>
 <body>
-<%-- <div id="main_header">
+<div id="main_header">
 		<jsp:include page="../main/header.jsp" />
-	</div> --%>
+	</div>
 	
 	<div id='calendar'></div>
 

@@ -34,11 +34,8 @@
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-
-	<tx:annotation-driven />
 	
-	<!--  admin_emp <context:component-scan> -->
-	<context:component-scan base-package="kosta.koggiri.admin_emp.persistence"></context:component-scan>
+<context:component-scan base-package="kosta.koggiri.admin_emp.persistence"></context:component-scan>
 	<context:component-scan base-package="kosta.koggiri.admin_emp.service"></context:component-scan>
 	
 	<!--  approval <context:component-scan>-->

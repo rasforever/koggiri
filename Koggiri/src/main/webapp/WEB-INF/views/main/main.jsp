@@ -58,7 +58,7 @@
 
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 
-<link rel='stylesheet'
+<!-- <link rel='stylesheet'
 	href='/resources/plugins/fullcalendar/fullcalendar.css' />
 <script src='/resources/plugins/fullcalendar/moment.min.js'></script>
 <script src='/resources/plugins/fullcalendar/fullcalendar.js'
@@ -72,7 +72,7 @@
 <link href="/resources/plugins/fullcalendar/ssi-modal.min.css"
 	rel="stylesheet" />
 <script src="/resources/plugins/fullcalendar/ssi-modal.min.js"></script>
-<script src='/resources/plugins/fullcalendar/json2.js'></script>
+<script src='/resources/plugins/fullcalendar/json2.js'></script> -->
 
 
 <!-- <script type="text/javascript"

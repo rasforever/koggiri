@@ -20,6 +20,17 @@
 <script src="http://js.nx.com/s1/da/playlog.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="../../resources/Scripts/ui.js"></script>
 <link href="../../resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet"
+	href="/resources/plugins/fullcalendar/jquery.qtip.min.css" />
+<script type="text/javascript"
+	src="/resources/plugins/fullcalendar/jquery.qtip.min.js"></script>
+	<link rel='stylesheet'
+	href='/resources/plugins/fullcalendar/fullcalendar.css' />
+<script src='/resources/plugins/fullcalendar/moment.min.js'></script>
+
+<script src='/resources/plugins/fullcalendar/fullcalendar.js'
+	charset="euc-kr"></script>
+	
 </head>
 <script type="text/javascript">
     function sendClickLog(id, url, target, features) {
