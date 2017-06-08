@@ -35,7 +35,10 @@
 %>
 
 <%@ include file="include/header.jsp"%>
-
+<link href="../resources/Content/themes/real/clock.css" rel="stylesheet"
+	type="text/css" />
+<link type="text/css" rel="stylesheet"
+	href="../resources/Content/themes/real/cal.css" />
 
 			<script type="text/javascript">
 				$(document).ready(function() {
@@ -57,12 +60,6 @@
 			<!-- ------------------------------------------------------------------------ -->
 
 	<!-- 본문 시작 -->
-
-	<h2 class="hidden">본문</h2>
-	<div class="container_wrap">
-		<!-- container : s -->
-
-		<div id="container">
 
 			<div id="wrap">
 				<!-- ************************************* -->
@@ -248,6 +245,7 @@
 
 			<!-- ------------------------------------------------------------------------------------------- -->
 
+	<div class="container_wrap_main" style="background-color:#eef1f2; width: 100%; height:100%; margin:0 auto;">
 			<div class="weather">
 				<!--  이곳에 api 적용하면 됩니다 -->
 				<!-- weather widget start -->
@@ -408,15 +406,14 @@
 
 			</div>
 
-		</div>
 
 
 		<hr />
 
 		<!-- 본문 끝 -->
 	</div>
-
-
+</div>
+<%@ include file="include/footer.jsp"%>
 
 <!-- <script type="text/javascript" src="resources/Scripts/ui.js"></script> -->
 <!-- <script type="text/javascript" src="resources/Scripts/common.js"></script> -->

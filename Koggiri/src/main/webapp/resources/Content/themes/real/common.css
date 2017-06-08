@@ -30,7 +30,7 @@ a:hover{color:#333}
 .footer_wrap{}
 #header{position:relative;width:1200px;height:100px;margin:0 auto}
 #header:after{content:'';display:block;visibility:hidden;height:0;clear:both}
-#container{width:1200px;margin:0 auto}
+#container{width:1200px;margin:0 auto;}
 #container:after{content:'';display:block;visibility:hidden;height:0;clear:both}
 #lnb{float:left}
 #lnb:after{content:'';display:block;visibility:hidden;height:0;clear:both}
