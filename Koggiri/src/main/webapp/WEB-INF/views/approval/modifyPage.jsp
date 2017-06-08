@@ -22,6 +22,8 @@
 </style>
 
 
+<%@ include file="../include/header.jsp"%>
+<%@ include file="../sidebar/approval_sidebar.jsp"%>
 <!-- Main content -->
 <section class="content">
 	<div class="row">
@@ -291,6 +293,8 @@
 </section>
 <!-- /.content -->
 </div>
+
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
 <script type="text/javascript">
 	CKEDITOR.replace('app_context', {

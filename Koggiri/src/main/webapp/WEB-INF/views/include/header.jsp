@@ -90,7 +90,7 @@
 							style="padding-top: 10px;">전자문서</a> <!-- 2depth : s -->
 							<ul>
 								<li class=""><a href="../task/list">업무 보고</a></li>
-								<li class=""><a href="../approval/lists">전자 결제</a>
+								<li class=""><a href="../approval/lists">전자 결재</a>
 									<div>
 										<span><img
 											src="http://s.nx.com/S2/billing/pcbang/real/homepage/common/img_depth3_arrow.png"

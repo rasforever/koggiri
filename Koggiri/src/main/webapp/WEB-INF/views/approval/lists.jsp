@@ -1,17 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script> -->
+<!-- <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script> -->
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 
-<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-<script type="text/javascript" src="/resources/js/approval.js"></script>
+<link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">	
+<%@ include file="../include/header.jsp"%>
+
+<%@ include file="../sidebar/approval_sidebar.jsp"%>
+
 
 <!-- Main content -->
 <section class="content">
@@ -151,6 +157,9 @@
 	<!-- /.row -->
 </section>
 <!-- /.content -->
+
+
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
 
 <script>
