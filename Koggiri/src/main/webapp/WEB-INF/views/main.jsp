@@ -258,7 +258,7 @@
 	<div class="weather">
 		<!--  이곳에 api 적용하면 됩니다 -->
 		<!-- weather widget start -->
-		<div class="weather_table" style="position: relative; top: -679px;">
+		<div class="weather_table" style="position: relative; top: -679px; height: 206px;">
 			<table cellpadding=0 cellspacing=0 width=500 height="216px"
 				style="font-family: Verdana; font-size: 14px;">
 				<tr>

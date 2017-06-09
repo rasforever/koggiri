@@ -65,7 +65,7 @@ public class HomeController {
 	public String att(HttpSession session) throws Exception {
 
 		String emp_id = (String) session.getAttribute("mem_id");
-		service.insertAtt(emp_id);	
+		service.updateAtt(emp_id);	
 	
 		return "redirect:/";
 	}
