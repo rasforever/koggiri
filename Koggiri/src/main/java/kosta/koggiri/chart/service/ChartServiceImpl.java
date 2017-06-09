@@ -17,6 +17,7 @@ public class ChartServiceImpl implements ChartService {
 
 	@Override
 	public List<ChartVO> list(String dept_id) throws Exception {
+		System.out.println(dept_id);
 		return dao.list(dept_id);
 	}
 

@@ -249,6 +249,7 @@
 
 <!-- ------------------------------------------------------------------------------------------- -->
 
+<<<<<<< HEAD
 <div class="container_wrap_main"
 	style="background-color: #eef1f2; width: 100%; height: 100%; margin: 0 auto;">
 	<div class="weather">
@@ -294,6 +295,15 @@
 
 					<!--날짜 네비게이션  -->
 					<table class="table_top">
+=======
+	<div class="container_wrap_main" style="background-color:#eef1f2; width: 100%; height:100%; margin:0 auto;">
+			<div class="weather">
+				<!--  이곳에 api 적용하면 됩니다 -->
+				<!-- weather widget start -->
+				<div class="weather_table" style="position: relative; top: -679px; height: 206px;">
+					<table cellpadding=0 cellspacing=0 width=500 height="216px"
+						style="font-family: Verdana; font-size: 14px;">
+>>>>>>> branch 'master' of https://github.com/rasforever/koggiri
 						<tr>
 							<td align="center"><%=year%>년 <%=month + 1%>월</td>
 						</tr>
