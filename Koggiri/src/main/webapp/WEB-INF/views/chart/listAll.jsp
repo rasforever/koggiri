@@ -37,7 +37,7 @@
                       <li class="sub03 "><a href="/chart/list?dept_id=MT">관리팀</a></li>
                       <li class="sub01 "><a href="/chart/list?dept_id=SN">솔루션팀</a></li>
                       <li class="sub02 "><a href="/chart/list?dept_id=BS">영업팀</a></li>
-                      <li class="sub03 "><a href="/chart/list?dept_id=MG">마게팅팀</a></li>
+                      <li class="sub03 "><a href="/chart/list?dept_id=MG">마케팅팀</a></li>
                     </ul>
                 </li>
            </ul>
