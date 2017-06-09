@@ -55,12 +55,10 @@
 
 			<div>
 
-				<c:if test="emp_id=='${mem_id}">
 				<div class="box-footer">
 					<button type="submit" class="btn btn-primary">SAVE</button>
 					<button type="submit" class="btn btn-warning">CANCEL</button>
 				</div>
-				</c:if>
 
 				<script>
 					$(document)
