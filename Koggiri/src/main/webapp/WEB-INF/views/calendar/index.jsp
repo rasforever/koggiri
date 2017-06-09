@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
 <!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script> -->
 
 
