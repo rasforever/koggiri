@@ -19,6 +19,13 @@
 	src="../resources/Scripts/jquery-ui-min.js"></script>
 <script type="text/javascript"
 	src="../resources/Scripts/jquery.easing.1.3.js"></script>
+	
+<!--  approval -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<!--  approval -->
 
 
 <!--  css link -->
@@ -61,7 +68,7 @@
 			<!-- header : s -->
 			<div id="header">
 				<div class="logo" style="padding-top: 13px;">
-					<a class="back_for_main" href="#"><img
+					<a class="back_for_main" href="/"><img
 						src="../resources/img/koggiri.PNG" style="width: 200px;"><span
 						class="hidden">코끼리 로고</span></a>
 				</div>
@@ -79,7 +86,7 @@
 							style="padding-top: 10px;">전자문서</a> <!-- 2depth : s -->
 							<ul>
 								<li class=""><a href="../task/list">업무 보고</a></li>
-								<li class=""><a href="../approval/lists">전자 결제</a>
+								<li class=""><a href="../approval/lists">전자 결재</a>
 									<div>
 										<span><img
 											src="http://s.nx.com/S2/billing/pcbang/real/homepage/common/img_depth3_arrow.png"
@@ -118,7 +125,21 @@
 							style="padding-top: 10px;">회사정보</a> <!-- 2depth : s -->
 							<ul>
 								<li class=""><a href="#">Koggiri란?</a></li>
-								<li class=""><a href="../chat/list">조직도</a></li>
+								<li class=""><a href="../chart/listAll">조직도</a>
+									<div>
+										<span><img
+											src="http://s.nx.com/S2/billing/pcbang/real/homepage/common/img_depth3_arrow.png"
+											alt="" /></span>
+										<ul>
+											<li class=""><a href="/chart/list?dept_id=MM">경영팀</a></li>
+											<li class=""><a href="/chart/list?dept_id=PL">인사팀</a></li>
+											<li class=""><a href="/chart/list?dept_id=MT">관리팀</a></li>
+											<li class=""><a href="/chart/list?dept_id=SN">솔루션팀</a></li>
+											<li class=""><a href="/chart/list?dept_id=BS">영업팀</a></li>
+											<li class=""><a href="/chart/list?dept_id=MG">마게팅팀</a></li>
+										</ul>
+									</div>
+								</li>
 							</ul></li>
 
 					</ul>
@@ -127,8 +148,6 @@
 		</div>
 		<hr />
 	</div>
-<div class="container_wrap">
-<div id="container">
 
 
 
