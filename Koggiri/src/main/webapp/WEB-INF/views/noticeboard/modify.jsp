@@ -1,36 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-<script type="text/javascript"
-	src="/resources/plugins/ckeditor/ckeditor.js"></script>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="false"%>
 
-<meta
-	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-	name="viewport">
-<!-- Bootstrap 3.3.4 -->
-<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css">
-<!-- Font Awesome Icons -->
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<!-- Ionicons -->
-<link
-	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
-	rel="stylesheet" type="text/css">
-<!-- Theme style -->
-<link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet"
-	type="text/css">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- AdminLTE Skins. Choose a skin from the css/skins 
-         folder instead of downloading all of them to reduce the load. -->
-<link href="/resources/dist/css/skins/_all-skins.min.css"
-	rel="stylesheet" type="text/css">
-	
+<%@ include file="../include/header.jsp"%>
+<%-- <%@ include file="side.jsp"%> --%>
+
+<link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
+<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
+
+<div class="container_wrap" style="background-color: #ffffff;">
+<div id="container">
+
+<div id="sub_menu_title">
+<h1><img src="/resources/img/s_menu01.png"/></h1>
+<div class="sub_top">   
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="#">회사정보</a>  &gt;  <strong>조직도</strong></span>
+</div>
+</div>
+
+
+<div id="lnb">
+   <div class="lnb01">
+      <strong class="menu01"><span>회사 정보</span></strong>
+      <ul>
+                <li class="menu01 ">
+                    <a href="#">공지사항</a>
+                    <ul> </ul>
+                </li>
+                <li class="menu02 ">
+                    <a href="/chart/listAll">알립니다</a>
+                </li>
+           </ul>
+   </div>
+</div>
+
+<div id="sub_content">
+
+<!-- 본문 내용 시작 -->
+
 <style>
 .fileDrop {
 	width: 80%;
@@ -267,20 +277,15 @@
 
 					});
 				</script>
+<br><br>
+<!-- 본문 내용  끝-->
+	
+</div>
+       
+</div>
+</div>
 
 
-
-
-			</div>
-			<!-- /.box -->
-		</div>
-		<!--/.col (left) -->
-
-	</div>
-	<!-- /.row -->
-</section>
-<!-- /.content -->
-
-<!-- /.content-wrapper -->
-
-
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
+<%@ include file="../include/footer.jsp"%>
