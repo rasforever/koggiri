@@ -60,16 +60,22 @@ public class HomeController {
 		return "/main";
 	}
 	
+	//출근
 	@RequestMapping(value = "/att", method = RequestMethod.POST)
-	public String att(RedirectAttributes rttr) throws Exception {
+	public String att(HttpSession session) throws Exception {
 
+		String emp_id = (String) session.getAttribute("mem_id");
+		service.insertAtt(emp_id);	
 	
 		return "redirect:/main";
 	}
 	
+	//퇴근
 	@RequestMapping(value = "/leave", method = RequestMethod.POST)
-	public String leave(RedirectAttributes rttr) throws Exception {
-
+	public String leave(HttpSession session) throws Exception {
+		
+		String emp_id = (String) session.getAttribute("mem_id");
+		service.updateLev(emp_id);	
 	
 		return "redirect:/main";
 	}

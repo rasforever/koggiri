@@ -18,5 +18,10 @@ public List<SearchedEmpVO> selectList(SearchVO search)throws Exception;
 	
 	public void tempPassUpdate(Admin_MemberVO advo)throws Exception;
 	
-	public EmpVO mainEmp(EmpVO vo)throws Exception;
+	public EmpVO mainEmp(EmpVO vo)throws Exception;	
+
+	public void insertAtt(String emp_id)throws Exception;
+	
+	public void updateLev(String emp_id)throws Exception;
+	
 }

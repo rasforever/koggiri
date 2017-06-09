@@ -105,12 +105,18 @@
 		<div class="remote_support"
 			style="width: 226px; height: 206px; background: white;"
 			align="center">
-			
-			<input type="submit" class="on_btn" id="att_btn" value=""
-				style="margin: 20px 0px 5px 0px;"> <input type="submit"
-				 class="off_btn" id="leave_btn" value="" style="margin: 7px;"> <input
-				type="submit" value="근태확인" class="att_list"
-				style="width: 120px; height: 35px; border: 0px; background: gray; margin: 7px;">
+			<form method='post' action='att'>
+				<input type="submit" class="on_btn" id="att_btn" value="att"
+					style="margin: 20px 0px 5px 0px;">
+			</form>
+			<form method='post' action='leave'>
+				<input type="submit" class="off_btn" id="leave_btn" value="leave"
+					style="margin: 7px;">
+			</form>
+			<form method='post' action='att_list'>
+				<input type="submit" value="근태확인" class="att_list"
+					style="width: 120px; height: 35px; border: 0px; background: gray; margin: 7px;">
+			</form>
 		</div>
 
 		<h3 class="hidden">업무</h3>

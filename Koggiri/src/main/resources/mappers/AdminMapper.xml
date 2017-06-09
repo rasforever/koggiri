@@ -56,5 +56,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where mem_id = #{mem_id}
 		
 	</update>
+	
+	<insert id="insertAtt" parameterType="String">
+		insert into ATTENDANCE(EMP_ID, ATT_DT,ATT_TIME) 
+		values(#{emp_id}, to_char(sysdatem 'YYYYMMDD'), to_char(sysdate, 'HH24:MI'))
+	</insert>
+	
+	<update id='updateLev' parameterType="String">
+		update ATTENDANCE set LEV_TIME = to_char(sysdate, 'HH24:MI') WHERE EMP_ID = #{emp_id}
+	</update>
 
 </mapper>
