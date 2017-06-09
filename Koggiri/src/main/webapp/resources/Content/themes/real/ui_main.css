@@ -434,7 +434,7 @@ textarea.contents{resize:none;overflow-y:auto;padding:10px}
 
 
 /*breadcrumb*/
-.breadcrumb{position:absolute;top:14px;right:0;vertical-align:middle;font-size:13px;}
+
 .breadcrumb a,.breadcrumb strong,.breadcrumb span{display:inline-block;vertical-align:middle;font-size:13px;}
 .breadcrumb strong{color:#000;}
 .breadcrumb .home{padding-left:20px;background: url(http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_home.gif) no-repeat 0 2px;}

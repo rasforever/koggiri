@@ -8,7 +8,6 @@
 
 /*background*/
 .main{background:#eef1f2}
-.sub{background:#fff}
 
 /*align*/
 .align_l{text-align:left}
@@ -111,7 +110,6 @@ textarea.contents{resize:none;overflow-y:auto;padding:10px}
 
 /* logo */
 #header .logo{float:left;padding-top:30px}
-#header .logo a{width:250px;height:46px;display:block;background:url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/logo.gif) no-repeat 0 0}
 
 /*gnb*/
 #header .gnb{float:right;margin-top:5px}
@@ -346,7 +344,7 @@ textarea.contents{resize:none;overflow-y:auto;padding:10px}
 .lnb01 strong.menu05{background:url(../../../img/menu05.png) no-repeat 0 0;}
 
 .lnb01 ul>li.menu01>a{width:74px;background-position:0 0}
-.lnb01 ul>li.menu02>a{width:57px;background-position:-84px 0}
+.lnb01 ul>li.menu02>a{background-position:-84px 0}
 .lnb01 ul>li.menu03>a{width:57px;background-position:-151px 0}
 .lnb01 ul>li.menu04>a{width:105px;background-position:-218px 0}
 .lnb01 ul>li.menu01>a:hover, .lnb01 ul>li.menu01.on>a{background-position:0 -26px}
@@ -440,13 +438,15 @@ textarea.contents{resize:none;overflow-y:auto;padding:10px}
 
 
 /*breadcrumb*/
-.breadcrumb{position:absolute;top:14px;right:0;vertical-align:middle;font-size:13px;}
+.breadcrumb{    position: relative;
+    top: -70px;
+    left: 1020px;}
 .breadcrumb a,.breadcrumb strong,.breadcrumb span{display:inline-block;vertical-align:middle;font-size:13px;}
 .breadcrumb strong{color:#000;}
 .breadcrumb .home{padding-left:20px;background: url(http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_home.gif) no-repeat 0 2px;}
 
 /*sub content*/
-h1{border-bottom:2px #777 solid;margin-bottom:40px;padding-bottom:19px}
+h1{border-bottom:3px #777 solid;margin-bottom:40px;padding-bottom:19px; position: relative; left: 220px; width: 970px;}
 h2{font-weight:bold;color:#555;font-size:18px;margin-bottom:20px;letter-spacing:-1px}
 #content .title_info:after{content:'';display:block;visibility:hidden;height:0;clear:both}
 #content .title_info h2{float:left}
@@ -1325,3 +1325,14 @@ table.tbl_goods td>span{display:inline-block;width:42px;}
 .select_month .monthArea li {width:25%;height:28px;border:1px solid #d6d6d6;margin:5px 3px;display:inline-block;line-height: 25px;}
 .select_month .monthArea li a{display:block;}
 .select_month .monthArea li:hover, .select_month .monthArea li.on {border:1px solid #d6d6d6;background-color:#f0f4f7;}
+
+
+
+#sub_title{
+	width: 1220px;
+	height: 100px;
+}
+#lnb{
+	    position: relative;
+    top: -105px;
+}

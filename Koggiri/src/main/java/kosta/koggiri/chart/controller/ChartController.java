@@ -20,12 +20,10 @@ public class ChartController {
 	
 	@RequestMapping(value="/listAll", method=RequestMethod.GET)
 	public void listAll()throws Exception{
-
 	}
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public void list(Model model, HttpSession session )throws Exception{
-		String dept_id = "MT";
+	public void list(@RequestParam("dept_id")String dept_id, Model model, HttpSession session )throws Exception{
 		System.out.println(dept_id);
 		model.addAttribute("list",service.list(dept_id));
 	}
