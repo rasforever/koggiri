@@ -20,7 +20,7 @@ public interface AdminDAO {
 	
 	public EmpVO mainEmp(EmpVO vo)throws Exception;
 	
-	public void insertAtt(String emp_id)throws Exception;
+	public void updateAtt(String emp_id)throws Exception;
 	
 	public void updateLev(String emp_id)throws Exception;
 	
