@@ -6,7 +6,12 @@
 
 <%@ include file="../include/header.jsp"%>
 <%-- <%@ include file="side.jsp"%> --%>
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
 <link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
@@ -39,7 +44,8 @@
 
 <div id="sub_content">
 
-<!-- 본문 내용 시작 -->
+
+<!-- 본문 시작 -->
 
 <style>
 .fileDrop {
@@ -278,13 +284,14 @@
 					});
 				</script>
 <br><br>
-<!-- 본문 내용  끝-->
-	
-</div>
-       
-</div>
+
+
+<!-- 본문 끝 -->
 </div>
 
+
+</div>
+</div>
 
 <div class="footer_wrap" >
 <div id="footer" style="height: 150px">
