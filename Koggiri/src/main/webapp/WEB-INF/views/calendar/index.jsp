@@ -3,12 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
-<!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script> -->
 
 
 <%@ include file="../include/header.jsp"%>
-
-
+<%-- <%@ include file="side.jsp"%> --%>
 
 <link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
 <link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
@@ -550,6 +548,7 @@
 	}
 </script>
 
+
 <div class="container_wrap" style="background-color: #ffffff;">
 <div id="container">
 
@@ -569,7 +568,6 @@
                     <a href="#">Koggiri란?</a>
                     <ul> </ul>
                 </li>
-                
                 <li class="menu02 ">
                     <a href="/chart/listAll">조직도</a>
                     <ul>
@@ -587,16 +585,17 @@
 
 <div id="content">
 
-<!-- 본문 내용 -->
+	<div id="calendar"></div>
+       
+</div>
 
 
 
-<div id='calendar'></div>
+
+<!-- 본문 끝 -->
 
 <div class="footer_wrap" style="background-color: #ffffff;">
 <%@ include file="../include/footer.jsp"%>
-
-<!-- 본문 끝 -->
 
 
 
