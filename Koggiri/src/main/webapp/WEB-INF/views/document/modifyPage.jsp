@@ -9,7 +9,7 @@
 
 <script type="text/javascript"
 	src="/resources/plugins/ckeditor/ckeditor.js"></script>
-	
+
 
 <%@ include file="../include/header.jsp"%>
 
@@ -127,7 +127,7 @@
 						</div>
 
 						<ul class="mailbox-attachments clearfix uploadedList">
-						</ul>																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																												
+						</ul>
 
 						<button type="submit" class="btn btn-primary">수정하기</button>
 						<button type="submit" class="btn btn-warning">취소</button>
@@ -254,10 +254,7 @@
 						});
 					});
 
-					var f_id = $
-					{
-						doc_BoardVO.f_id
-					};
+					var f_id = ${doc_BoardVO.f_id};
 					var template = Handlebars.compile($("#template").html());
 
 					$.getJSON("/document/getAttach/" + f_id, function(list) {

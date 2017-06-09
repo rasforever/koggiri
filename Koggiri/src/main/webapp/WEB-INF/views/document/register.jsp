@@ -112,7 +112,7 @@
 							<hr>
 						</div>
 
-						<ul class="mailbox-attachments clearfix uploadedList"  >
+						<ul class="mailbox-attachments clearfix uploadedList">
 						</ul>
 
 						<button type="submit" class="btn btn-primary">등록하기</button>
@@ -187,9 +187,7 @@
 		});
 	});
 
-	$("#registerForm").submit(
-			function(event) { //최종적인 submit이 일어나게 되면 서버에는 사용자가 업로드한 파일의 정보를 같이 전송해줘야 함.
-
+	$("#registerForm").submit(function(event) { //최종적인 submit이 일어나게 되면 서버에는 사용자가 업로드한 파일의 정보를 같이 전송해줘야 함.
 				event.preventDefault();//기본이벤트 해제
 
 				if ($('#title').val().length == 0) { // 이름 길이가 0 이면 
@@ -201,13 +199,9 @@
 				var that = $(this);
 
 				var str = "";
-				$(".uploadedList .delbtn").each(
-						function(index) {
-							
-							str += "<input type='hidden' name='files[" + index
-									+ "]' value='" + $(this).attr("href")
-									+ "'> ";
-						}); //현재까지 업로드 된 파일들을 form태그의 내부에 히든타입으로 추가한다. 
+				$(".uploadedList .delbtn").each(function(index){
+					 str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
+				});//현재까지 업로드 된 파일들을 form태그의 내부에 히든타입으로 추가한다. 
 				//각 파일은 files[0]과 같은 이름으로 추가되는데 이 배열 표시를 이용해서 컨트롤러에서는 BoardVO의 files 파라미터를 수집하게 된다.
 				//모든 파일의 정보를 폼태그의 히든타입으로 생성한 후에는 폼태그의 데이터의 submit()을 호출해서 서버를 호출.
 				
