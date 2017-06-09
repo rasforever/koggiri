@@ -67,7 +67,7 @@ public class HomeController {
 		String emp_id = (String) session.getAttribute("mem_id");
 		service.insertAtt(emp_id);	
 	
-		return "redirect:/main";
+		return "redirect:/";
 	}
 	
 	//퇴근
@@ -77,7 +77,7 @@ public class HomeController {
 		String emp_id = (String) session.getAttribute("mem_id");
 		service.updateLev(emp_id);	
 	
-		return "redirect:/main";
+		return "redirect:/";
 	}
 	
 }
