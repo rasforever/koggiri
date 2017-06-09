@@ -129,7 +129,6 @@
 
 				<div class="box-footer">
 		
-				
 		 			<c:if test="${doc_BoardVO.f_emp_id == mem_id or mem_id=='master'}">
 							<button type="submit" class="btn btn-warning">수정하기</button>
 							<button type="submit" class="btn btn-danger">삭제하기</button>	
