@@ -61,8 +61,9 @@
 
 <!-- 본문 시작 -->
 	<!-- 본문 시작 -->
-<div class="container_wrap">
+	<div class="container_wrap" style="background-color: #eef1f2;">
 <div id="container">
+
 
 <div id="wrap">
 	<!-- ************************************* -->
@@ -422,17 +423,6 @@
 </div>
 </div>
 	
-<div class="footer_wrap">
+<div class="footer_wrap" style="background-color:#eef1f2;">
+<div id="footer" >
 <%@ include file="include/footer.jsp"%>
-
-<!-- <script type="text/javascript" src="resources/Scripts/ui.js"></script> -->
-<!-- <script type="text/javascript" src="resources/Scripts/common.js"></script> -->
-<!-- <script src="http://js.nx.com/s1/da/playlog.min.js" type="text/javascript"></script> -->
-<
-<!-- script type="text/javascript" src="Scripts/common.formatNumber-1.0.0.js"></script>
-<script type="text/javascript" src="Scripts/jquery.validate.min.js"></script >
-<script type="text/javascript" src="Scripts/jquery.validate.unobtrusive.min.js"></script>
-
- <script type="text/javascript" src="Scripts/jquery.bxslider.min.js"></script>
-<script type="text/javascript" src="Scripts/jquery.paging.min.js"></script>
-<script type="text/javascript" src="Scripts/ajaxOverSsl.js"></script> -->
