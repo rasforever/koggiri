@@ -22,38 +22,43 @@ public class AdminDAOImpl implements AdminDAO {
 	
 	@Override
 	public List<SearchedEmpVO> selectList(SearchVO search) throws Exception {
-		// TODO Auto-generated method stub
 		return session.selectList(namespace+".selectList", search);
 	}
 
 	@Override
 	public void insertEmp(EmpVO vo) throws Exception {
-		// TODO Auto-generated method stub
 		session.insert(namespace+".insertEmp", vo);
 	}
 
 	@Override
 	public String findEmpid(EmpVO vo) throws Exception {
-		// TODO Auto-generated method stub
 		return session.selectOne(namespace+".findEmpid", vo);
 	}
 
 	@Override
 	public void tempPass(EmpVO vo) throws Exception {
-		// TODO Auto-generated method stub
 		session.insert(namespace+".tempPass", vo);
 	}
 
 	@Override
 	public void tempPassUpdate(Admin_MemberVO advo) throws Exception {
-		// TODO Auto-generated method stub
 		session.update(namespace+".tempPassUpdate", advo);
 	}
 
 	@Override
 	public EmpVO mainEmp(EmpVO vo) throws Exception {
-		// TODO Auto-generated method stub
 		return session.selectOne(namespace+".mainEmp", vo);
+	}
+
+	@Override
+	public void insertAtt(String emp_id) throws Exception {
+		session.insert(namespace+".insertAtt", emp_id);
+	}
+
+	@Override
+	public void updateLev(String emp_id) throws Exception {
+		session.update(namespace+".updateLev", emp_id);
+		
 	}
 
 }
