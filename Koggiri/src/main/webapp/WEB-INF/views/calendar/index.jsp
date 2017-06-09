@@ -1,20 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="false"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script> -->
-<%@ include file="/WEB-INF/views/sidebar/approval_sidebar.jsp"%>
 
-<!-- <script src='/resources/plugins/fullcalendar/ko.js'></script> -->
-<link rel='stylesheet' href='/resources/plugins/fullcalendar/fullcalendar.css' />
-<script src='/resources/plugins/fullcalendar/moment.min.js'></script>
-<script src='/resources/plugins/fullcalendar/fullcalendar.js' charset="euc-kr"></script>
-<link type="text/css" rel="stylesheet" href="/resources/plugins/fullcalendar/jquery.qtip.min.css" />
-<script type="text/javascript" src="/resources/plugins/fullcalendar/jquery.qtip.min.js"></script>
+
+<%@ include file="../include/header.jsp"%>
+
+
+<link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
+<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
 <link href="/resources/plugins/fullcalendar/ssi-modal.min.css"
 	rel="stylesheet" />
+<link rel='stylesheet' href='/resources/plugins/fullcalendar/fullcalendar.css' />
+<link type="text/css" rel="stylesheet" href="/resources/plugins/fullcalendar/jquery.qtip.min.css" />
+<!-- <script src='/resources/plugins/fullcalendar/ko.js'></script> -->
+
+
+<script src='/resources/plugins/fullcalendar/moment.min.js'></script>
+<script src='/resources/plugins/fullcalendar/fullcalendar.js' charset="euc-kr"></script>
+<script type="text/javascript" src="/resources/plugins/fullcalendar/jquery.qtip.min.js"></script>
 <script src="/resources/plugins/fullcalendar/ssi-modal.min.js"></script>
 <script src='/resources/plugins/fullcalendar/json2.js'></script>
 
@@ -529,6 +536,60 @@
 	}
 </script>
 
+<div class="container_wrap" style="background-color: #ffffff;">
+<div id="container">
+
+<div id="sub_menu_title">
+<h1><img src="/resources/img/s_menu10.png"/></h1>
+<div class="breadcrumb">   
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="#">회사정보</a>  &gt;  <strong>조직도</strong></span>
+</div>
+</div>
+
+
+<div id="lnb">
+   <div class="lnb01">
+      <strong class="menu05"><span>회사 정보</span></strong>
+      <ul>
+                <li class="menu01 ">
+                    <a href="#">Koggiri란?</a>
+                    <ul> </ul>
+                </li>
+                
+                <li class="menu02 ">
+                    <a href="/chart/listAll">조직도</a>
+                    <ul>
+                      <li class="sub01 "><a href="/chart/list?dept_id=MM">경영팀</a></li>
+                      <li class="sub02 "><a href="/chart/list?dept_id=PL">인사팀</a></li>
+                      <li class="sub03 "><a href="/chart/list?dept_id=MT">관리팀</a></li>
+                      <li class="sub01 "><a href="/chart/list?dept_id=SN">솔루션팀</a></li>
+                      <li class="sub02 "><a href="/chart/list?dept_id=BS">영업팀</a></li>
+                      <li class="sub03 "><a href="/chart/list?dept_id=MG">마게팅팀</a></li>
+                    </ul>
+                </li>
+           </ul>
+   </div>
+</div>
+
+<div id="content">
+
+<!-- 본문 내용 -->
+
+
+
+<div id='calendar'></div>
+
+<!-- 본문 끝 -->
+
+<div class="footer_wrap" style="background-color: #ffffff;">
+<%@ include file="../include/footer.jsp"%>
+
+
+
+
+
+
+
 
 <style type="text/css">
 /* body {
@@ -544,5 +605,3 @@
 }
 </style>
 
-
-	<div id='calendar'></div>

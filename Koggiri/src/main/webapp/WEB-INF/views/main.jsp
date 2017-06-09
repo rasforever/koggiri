@@ -59,7 +59,13 @@
 
 <!-- ------------------------------------------------------------------------ -->
 
+<<<<<<< HEAD
 <!-- 본문 시작 -->
+=======
+	<!-- 본문 시작 -->
+<div class="container_wrap">
+<div id="container">
+>>>>>>> branch 'master' of https://github.com/rasforever/koggiri
 
 <div id="wrap">
 	<!-- ************************************* -->
@@ -409,6 +415,7 @@
 			</div>
 		</form>
 	</div>
+<<<<<<< HEAD
 	<div class="clock">
 		<div id="Date"></div>
 
@@ -428,6 +435,10 @@
 	<!-- 본문 끝 -->
 </div>
 </div>
+=======
+	
+<div class="footer_wrap">
+>>>>>>> branch 'master' of https://github.com/rasforever/koggiri
 <%@ include file="include/footer.jsp"%>
 
 <!-- <script type="text/javascript" src="resources/Scripts/ui.js"></script> -->

@@ -126,7 +126,21 @@
 							style="padding-top: 10px;">회사정보</a> <!-- 2depth : s -->
 							<ul>
 								<li class=""><a href="#">Koggiri란?</a></li>
-								<li class=""><a href="../chat/list">조직도</a></li>
+								<li class=""><a href="../chart/listAll">조직도</a>
+									<div>
+										<span><img
+											src="http://s.nx.com/S2/billing/pcbang/real/homepage/common/img_depth3_arrow.png"
+											alt="" /></span>
+										<ul>
+											<li class=""><a href="/chart/list?dept_id=MM">경영팀</a></li>
+											<li class=""><a href="/chart/list?dept_id=PL">인사팀</a></li>
+											<li class=""><a href="/chart/list?dept_id=MT">관리팀</a></li>
+											<li class=""><a href="/chart/list?dept_id=SN">솔루션팀</a></li>
+											<li class=""><a href="/chart/list?dept_id=BS">영업팀</a></li>
+											<li class=""><a href="/chart/list?dept_id=MG">마게팅팀</a></li>
+										</ul>
+									</div>
+								</li>
 							</ul></li>
 
 					</ul>
@@ -135,8 +149,6 @@
 		</div>
 		<hr />
 	</div>
-<div class="container_wrap">
-<div id="container">
 
 
 
