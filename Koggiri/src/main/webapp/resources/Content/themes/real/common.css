@@ -36,6 +36,7 @@ a:hover{color:#333}
 #lnb:after{content:'';display:block;visibility:hidden;height:0;clear:both}
 #content{position:relative;float:right;width:955px}
 .main #content{float:left;width:712px;border:0}
+#sub_content{float:left;width:970px;border:0}
 #footer{height: 150px; width:1200px;margin:0 auto;padding-bottom:30px;border-top:3px #000 solid}
 #footer:after{content:'';display:block;visibility:hidden;height:0;clear:both}
 

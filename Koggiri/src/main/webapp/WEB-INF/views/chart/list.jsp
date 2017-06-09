@@ -37,25 +37,15 @@
                       <li class="sub03 "><a href="/chart/list?dept_id=MT">관리팀</a></li>
                       <li class="sub01 "><a href="/chart/list?dept_id=SN">솔루션팀</a></li>
                       <li class="sub02 "><a href="/chart/list?dept_id=BS">영업팀</a></li>
-                      <li class="sub03 "><a href="/chart/list?dept_id=MG">마게팅팀</a></li>
+                      <li class="sub03 "><a href="/chart/list?dept_id=MG">마케팅팀</a></li>
                     </ul>
                 </li>
            </ul>
    </div>
 </div>
 
-<div id="content">
+<div id="sub_content">
 
-<!-- 본문 내용 -->
- <form role="form" action="read" method="get">
-    <input type='hidden' name='emp_id' value ="${ChartVO.emp_id}">
- </form>
- 
-<form role="form" method="get">
-    <input type='hidden' name='dept_id' value ="${ChartVO.dept_id}">
-</form>
-         
-<table>
       <c:forEach var = "ChartVO" items = "${list}">
        <%-- <c:if test="${ChartVO.dept_id} == ${dept_id}"> --%>
          
@@ -63,8 +53,9 @@
          
         <%--  </c:if> --%>
       </c:forEach>
-</table>
+</div>
        
+</div>
 </div>
 
 
@@ -72,5 +63,6 @@
 
 <!-- 본문 끝 -->
 
-<div class="footer_wrap" style="background-color: #ffffff;">
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
 <%@ include file="../include/footer.jsp"%>

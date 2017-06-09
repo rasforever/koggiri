@@ -439,10 +439,10 @@ textarea.contents{resize:none;overflow-y:auto;padding:10px}
 
 
 /*breadcrumb*/
-.breadcrumb{position:absolute;top:14px;right:0;vertical-align:middle;font-size:13px;}
-.breadcrumb a,.breadcrumb strong,.breadcrumb span{display:inline-block;vertical-align:middle;font-size:13px;}
-.breadcrumb strong{color:#000;}
-.breadcrumb .home{padding-left:20px;background: url(http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_home.gif) no-repeat 0 2px;}
+.sub_top{position:absolute;top:14px;right:0;vertical-align:middle;font-size:13px;}
+.sub_top a,.sub_top strong,.sub_top span{display:inline-block;vertical-align:middle;font-size:13px;}
+.sub_top strong{color:#000;}
+.sub_top .home{padding-left:20px;background: url(http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_home.gif) no-repeat 0 2px;}
 
 /*sub content*/
 h1{width:980px; border-bottom:2px #777 solid;margin-bottom:40px;padding-bottom:19px;}

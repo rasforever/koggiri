@@ -7,19 +7,16 @@
 <%@ include file="../include/header.jsp"%>
 <%-- <%@ include file="side.jsp"%> --%>
 
-<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
 <link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
+<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	
 <div class="container_wrap" style="background-color: #ffffff;">
 <div id="container">
 
 <div id="sub_menu_title">
 <h1><img src="/resources/img/s_menu10.png"/></h1>
-<div class="breadcrumb">   
+<div class="sub_top">   
     <span><a href="/main">홈</a>  <span> &gt; </span> <a href="#">회사정보</a>  &gt;  <strong>조직도</strong></span>
 </div>
 </div>
@@ -41,16 +38,16 @@
                       <li class="sub03 "><a href="/chart/list?dept_id=MT">관리팀</a></li>
                       <li class="sub01 "><a href="/chart/list?dept_id=SN">솔루션팀</a></li>
                       <li class="sub02 "><a href="/chart/list?dept_id=BS">영업팀</a></li>
-                      <li class="sub03 "><a href="/chart/list?dept_id=MG">마게팅팀</a></li>
+                      <li class="sub03 "><a href="/chart/list?dept_id=MG">마케팅팀</a></li>
                     </ul>
                 </li>
            </ul>
    </div>
 </div>
 
-<div id="content">
+<div id="sub_content">
 
-<!-- 본문 내용 -->
+<!-- 본문 내용 시작 -->
 
 <div class="row">
 		<!-- left column -->
@@ -174,13 +171,15 @@
 
 			});
 </script>
-
-
-
+	
+<!-- 본문 내용  끝-->
+	
+</div>
        
 </div>
+</div>
 
-<!-- 본문 끝 -->
 
-<div class="footer_wrap" style="background-color: #ffffff;">
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
 <%@ include file="../include/footer.jsp"%>

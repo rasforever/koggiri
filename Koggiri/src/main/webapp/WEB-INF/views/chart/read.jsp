@@ -37,16 +37,16 @@
                       <li class="sub03 "><a href="/chart/list?dept_id=MT">관리팀</a></li>
                       <li class="sub01 "><a href="/chart/list?dept_id=SN">솔루션팀</a></li>
                       <li class="sub02 "><a href="/chart/list?dept_id=BS">영업팀</a></li>
-                      <li class="sub03 "><a href="/chart/list?dept_id=MG">마게팅팀</a></li>
+                      <li class="sub03 "><a href="/chart/list?dept_id=MG">마케팅팀</a></li>
                     </ul>
                 </li>
            </ul>
    </div>
 </div>
 
-<div id="content">
+<div id="sub_content">
 
-<!-- 본문 내용 -->
+<!-- 본문 내용 시작 -->
 
 <form role="form" method="get">
 	<input type='hidden' name='emp_id' value="${chartVO.emp_id}">
@@ -61,13 +61,15 @@
 		<label>Email: </label><a>${chartVO.e_mail}</a><br>
 		<label>입사일: </label><a>${chartVO.join_dt}</a>
 	</div>
-
-
-
+	
+<!-- 본문 내용  끝-->
+	
+</div>
        
 </div>
+</div>
 
-<!-- 본문 끝 -->
 
-<div class="footer_wrap" style="background-color: #ffffff;">
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
 <%@ include file="../include/footer.jsp"%>

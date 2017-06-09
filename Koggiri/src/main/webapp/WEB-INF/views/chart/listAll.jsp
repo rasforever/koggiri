@@ -44,17 +44,17 @@
    </div>
 </div>
 
-<div id="content">
+<div id="sub_content">
 
 	<a href="/chart/list?dept_id=MM">경영팀</a>
 	<a href="/chart/list?dept_id=PL">인사팀</a>
 	<a href="/chart/list?dept_id=MT">관리팀</a>
 	<a href="/chart/list?dept_id=SN">솔루션팀</a>
 	<a href="/chart/list?dept_id=BS">영업팀</a>
-	<a href="/chart/list?dept_id=MG">마게팅팀</a>
-
-       
+	<a href="/chart/list?dept_id=MG">마게팅팀</a>   
 </div>
+
+
 </div>
 </div>
 
