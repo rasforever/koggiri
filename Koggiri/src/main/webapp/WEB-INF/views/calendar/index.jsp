@@ -3,12 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
-<!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script> -->
 
 
 <%@ include file="../include/header.jsp"%>
-
+<%-- <%@ include file="side.jsp"%> --%>
 
 <link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
 <link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
@@ -24,6 +22,20 @@
 <script type="text/javascript" src="/resources/plugins/fullcalendar/jquery.qtip.min.js"></script>
 <script src="/resources/plugins/fullcalendar/ssi-modal.min.js"></script>
 <script src='/resources/plugins/fullcalendar/json2.js'></script>
+
+<style type="text/css">
+/* body {
+	margin: 40px 10px;
+	padding: 0;
+	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+	font-size: 14px;
+} */
+
+#calendar {
+	max-width: 900px;
+	margin: 0 auto;
+}
+</style>
 
 <script type="text/javascript">
 	$(document)
@@ -536,6 +548,7 @@
 	}
 </script>
 
+
 <div class="container_wrap" style="background-color: #ffffff;">
 <div id="container">
 
@@ -555,7 +568,6 @@
                     <a href="#">Koggiri란?</a>
                     <ul> </ul>
                 </li>
-                
                 <li class="menu02 ">
                     <a href="/chart/listAll">조직도</a>
                     <ul>
@@ -573,11 +585,12 @@
 
 <div id="content">
 
-<!-- 본문 내용 -->
+	<div id="calendar"></div>
+       
+</div>
 
 
 
-<div id='calendar'></div>
 
 <!-- 본문 끝 -->
 
@@ -591,17 +604,8 @@
 
 
 
-<style type="text/css">
-/* body {
-	margin: 40px 10px;
-	padding: 0;
-	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
-	font-size: 14px;
-} */
 
-#calendar {
-	max-width: 900px;
-	margin: 0 auto;
-}
-</style>
+
+
+
 

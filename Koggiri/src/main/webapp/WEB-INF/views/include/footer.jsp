@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-</div>
-</div>
-	<div class="footer_wrap">
-		<div id="footer">
+
+
+		
 		<br>
 		<ul style="text-align:center;">
             <li >서울시 금천구 가산동 371-47 이노플렉스 1차 2층 </li>
@@ -11,17 +10,10 @@
       </ul>
       </div>
    </div>
-</div>
+
 
 </body>
 </html>
-
-
-
-
-
-
-
 <!-- <link rel="shortcut icon" type="image/x-icon" href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
 <link rel="stylesheet" href="resources/Content/themes/real/ui_main.css" />
 <link href="resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> -->

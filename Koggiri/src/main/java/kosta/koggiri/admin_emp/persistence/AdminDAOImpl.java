@@ -50,14 +50,16 @@ public class AdminDAOImpl implements AdminDAO {
 		return session.selectOne(namespace+".mainEmp", vo);
 	}
 
-	@Override
-	public void insertAtt(String emp_id) throws Exception {
-		session.insert(namespace+".insertAtt", emp_id);
-	}
-
+	
 	@Override
 	public void updateLev(String emp_id) throws Exception {
 		session.update(namespace+".updateLev", emp_id);
+		
+	}
+
+	@Override
+	public void updateAtt(String emp_id) throws Exception {
+		session.update(namespace+".updateAtt", emp_id);
 		
 	}
 
