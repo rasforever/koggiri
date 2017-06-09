@@ -10,11 +10,50 @@
 
 <%@ include file="../include/header.jsp"%>
 
-<!-- Main content -->
 
-<section class="content">
+<link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
+<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
 
-	<div class="row">
+
+
+<div class="container_wrap" style="background-color: #ffffff;">
+<div id="container">
+
+<div id="sub_menu_title">
+<h1><img src="/resources/img/s_menu10.png"/></h1>
+<div class="sub_top">   
+     <span><a href="/main">홈</a>  <span> &gt; </span> <a href="#">전자 문서</a>  &gt;  <strong>문서함</strong></span>
+</div>
+</div>
+
+
+<div id="lnb">
+   <div class="lnb01">
+      <strong class="menu05"><span>회사 정보</span></strong>
+      <ul>
+                <li class="menu01 ">
+                    <a href="#">업무보고</a>
+                    <ul> </ul>
+                </li>
+                <li class="menu02 ">
+                    <a href="/chart/listAll">전자결재</a>
+                    <ul>
+                      <li class="sub01 "><a href="#">보낸결재</a></li>
+                      <li class="sub02 "><a href="#">받은결재</a></li>
+                      <li class="sub03 "><a href="#">결제입력</a></li>
+                    </ul>
+                </li>
+                 <li class="menu03 ">
+                    <a href="/chart/listAll">문서함</a>
+  					<ul></ul>
+                </li>
+           </ul>
+   </div>
+</div>
+
+<div id="sub_content" align="center">
+
+<div class="row">
 		<!-- left column -->
 
 
@@ -119,6 +158,29 @@
 		<!--/.col (left) -->
 
 	</div>
+<!-- 본문 -->
+
+	</div>
+
+
+</div>
+</div>
+
+
+<!-- 본문 끝 -->
+
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
+<%@ include file="../include/footer.jsp"%>
+
+
+
+
+<!-- Main content -->
+
+<section class="content">
+
+	
 	<!-- /.row -->
 <!-- /.content -->
 
@@ -157,5 +219,7 @@
 			});
 </script>
 
-<%@ include file="../include/footer.jsp"%>
+
+
+
 
