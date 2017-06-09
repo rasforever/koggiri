@@ -59,13 +59,11 @@
 
 <!-- ------------------------------------------------------------------------ -->
 
-<<<<<<< HEAD
 <!-- 본문 시작 -->
 =======
 	<!-- 본문 시작 -->
 <div class="container_wrap">
 <div id="container">
->>>>>>> branch 'master' of https://github.com/rasforever/koggiri
 
 <div id="wrap">
 	<!-- ************************************* -->
@@ -255,7 +253,6 @@
 
 <!-- ------------------------------------------------------------------------------------------- -->
 
-<<<<<<< HEAD
 <div class="container_wrap_main"
 	style="background-color: #eef1f2; width: 100%; height: 100%; margin: 0 auto;">
 	<div class="weather">
@@ -301,7 +298,6 @@
 
 					<!--날짜 네비게이션  -->
 					<table class="table_top">
-=======
 	<div class="container_wrap_main" style="background-color:#eef1f2; width: 100%; height:100%; margin:0 auto;">
 			<div class="weather">
 				<!--  이곳에 api 적용하면 됩니다 -->
@@ -309,7 +305,6 @@
 				<div class="weather_table" style="position: relative; top: -679px; height: 206px;">
 					<table cellpadding=0 cellspacing=0 width=500 height="216px"
 						style="font-family: Verdana; font-size: 14px;">
->>>>>>> branch 'master' of https://github.com/rasforever/koggiri
 						<tr>
 							<td align="center"><%=year%>년 <%=month + 1%>월</td>
 						</tr>
@@ -415,7 +410,6 @@
 			</div>
 		</form>
 	</div>
-<<<<<<< HEAD
 	<div class="clock">
 		<div id="Date"></div>
 
@@ -435,10 +429,8 @@
 	<!-- 본문 끝 -->
 </div>
 </div>
-=======
 	
 <div class="footer_wrap">
->>>>>>> branch 'master' of https://github.com/rasforever/koggiri
 <%@ include file="include/footer.jsp"%>
 
 <!-- <script type="text/javascript" src="resources/Scripts/ui.js"></script> -->
