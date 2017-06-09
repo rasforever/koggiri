@@ -15,7 +15,7 @@
 
 <div id="sub_menu_title">
 <h1><img src="/resources/img/s_menu10.png"/></h1>
-<div class="breadcrumb">   
+<div class="sub_top">   
     <span><a href="/main">홈</a>  <span> &gt; </span> <a href="#">회사정보</a>  &gt;  <strong>조직도</strong></span>
 </div>
 </div>
@@ -37,24 +37,24 @@
                       <li class="sub03 "><a href="/chart/list?dept_id=MT">관리팀</a></li>
                       <li class="sub01 "><a href="/chart/list?dept_id=SN">솔루션팀</a></li>
                       <li class="sub02 "><a href="/chart/list?dept_id=BS">영업팀</a></li>
-                      <li class="sub03 "><a href="/chart/list?dept_id=MG">마게팅팀</a></li>
+                      <li class="sub03 "><a href="/chart/list?dept_id=MG">마케팅팀</a></li>
                     </ul>
                 </li>
            </ul>
    </div>
 </div>
 
-<div id="content">
+<div id="sub_content" align="center">
 
-	<a href="/chart/list?dept_id=MM">경영팀</a>
-	<a href="/chart/list?dept_id=PL">인사팀</a>
-	<a href="/chart/list?dept_id=MT">관리팀</a>
-	<a href="/chart/list?dept_id=SN">솔루션팀</a>
-	<a href="/chart/list?dept_id=BS">영업팀</a>
-	<a href="/chart/list?dept_id=MG">마게팅팀</a>
-
-       
+	<a href="/chart/list?dept_id=MM" align="left"><img src="/resources/img/chart01.png"><br><br>▶경영팀</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/chart/list?dept_id=PL" align="left"><img src="/resources/img/chart02.png"><br><br>▶인사팀</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/chart/list?dept_id=MT" align="left"><img src="/resources/img/chart03.png"><br><br>▶관리팀</a><br><br><br><br><br>
+	<a href="/chart/list?dept_id=SN" align="left"><img src="/resources/img/chart04.png"><br><br>▶솔루션팀</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/chart/list?dept_id=BS" align="left"><img src="/resources/img/chart05.png"><br><br>▶영업팀</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/chart/list?dept_id=MG" align="left"><img src="/resources/img/chart06.png"><br><br>▶마게팅팀</a>
 </div>
+
+
 </div>
 </div>
 

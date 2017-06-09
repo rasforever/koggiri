@@ -54,6 +54,7 @@
 				}, 500, "easeInOutCubic");
 			},
 		});
+		window.open('http://106.242.203.68:8082', 'Javis', 'width=300 heigth=500');
 	});
 </script>
 

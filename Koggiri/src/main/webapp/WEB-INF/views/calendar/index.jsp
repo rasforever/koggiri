@@ -553,49 +553,42 @@
 <div id="container">
 
 <div id="sub_menu_title">
-<h1><img src="/resources/img/s_menu10.png"/></h1>
-<div class="breadcrumb">   
-    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="#">회사정보</a>  &gt;  <strong>조직도</strong></span>
+<h1><img src="/resources/img/s_menu06.png"/></h1>
+<div class="sub_top">   
+    <span><a href="/">홈</a>  <span> &gt; </span> <strong>일정</strong></span>
 </div>
 </div>
 
 
 <div id="lnb">
    <div class="lnb01">
-      <strong class="menu05"><span>회사 정보</span></strong>
+      <strong class="menu03"><span>일정</span></strong>
       <ul>
                 <li class="menu01 ">
-                    <a href="#">Koggiri란?</a>
+                    <a href="#">일정</a>
                     <ul> </ul>
-                </li>
-                <li class="menu02 ">
-                    <a href="/chart/listAll">조직도</a>
-                    <ul>
-                      <li class="sub01 "><a href="/chart/list?dept_id=MM">경영팀</a></li>
-                      <li class="sub02 "><a href="/chart/list?dept_id=PL">인사팀</a></li>
-                      <li class="sub03 "><a href="/chart/list?dept_id=MT">관리팀</a></li>
-                      <li class="sub01 "><a href="/chart/list?dept_id=SN">솔루션팀</a></li>
-                      <li class="sub02 "><a href="/chart/list?dept_id=BS">영업팀</a></li>
-                      <li class="sub03 "><a href="/chart/list?dept_id=MG">마게팅팀</a></li>
-                    </ul>
                 </li>
            </ul>
    </div>
 </div>
 
-<div id="content">
-
-	<div id="calendar"></div>
-       
+<div id="sub_content">
+	<div id="calendar"></div>    
 </div>
 
 
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <!-- 본문 끝 -->
 
-<div class="footer_wrap" style="background-color: #ffffff;">
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
 <%@ include file="../include/footer.jsp"%>
+
+
+
 
 
 
