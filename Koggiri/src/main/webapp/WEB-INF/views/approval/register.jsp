@@ -28,6 +28,8 @@
 }
 </style>
 
+<%@ include file="../include/header.jsp"%>
+<%@ include file="../sidebar/approval_sidebar.jsp"%>
 <!-- Main content -->
 <section class="content">
 	<div class="row">
@@ -132,6 +134,8 @@
 </div>
 <!-- /.content-wrapper -->
 
+
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
 <script id="template" type="text/x-handlebars-template">
 <li>

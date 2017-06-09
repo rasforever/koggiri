@@ -66,7 +66,7 @@
 		});
 	}
 </script>
-
+<%@include file="../include/header.jsp"%>
 
 <!-- Main content -->
 <section class="content">
@@ -125,5 +125,5 @@
 
 
 <!-- Main content -->
-
+<%@include file="../include/footer.jsp"%>
 

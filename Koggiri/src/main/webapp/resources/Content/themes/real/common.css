@@ -26,17 +26,17 @@ a:hover{color:#333}
 #wrap{min-width:1370px; background-color: #ffffff;}
 #wrap, .header_wrap, .container_wrap, .footer_wrap{width:100%;}
 .header_wrap{position:relative;height:100px;border-bottom:2px #000 solid;overflow:hidden;background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_header_wrap.gif) repeat-x 0 0}
-.container_wrap{padding:42px 0 40px 0;min-height:580px;}
-.footer_wrap{}
+.container_wrap{padding:42px 0 40px 0; min-height:620px;}
+.footer_wrap{height: 100px;}
 #header{position:relative;width:1200px;height:100px;margin:0 auto}
 #header:after{content:'';display:block;visibility:hidden;height:0;clear:both}
-#container{width:1200px;margin:0 auto}
+#container{width:1200px;margin:0 auto;}
 #container:after{content:'';display:block;visibility:hidden;height:0;clear:both}
 #lnb{float:left}
 #lnb:after{content:'';display:block;visibility:hidden;height:0;clear:both}
 #content{position:relative;float:right;width:955px}
 .main #content{float:left;width:712px;border:0}
-#footer{width:1200px;margin:0 auto;padding-bottom:30px;border-top:3px #000 solid}
+#footer{height: 150px; width:1200px;margin:0 auto;padding-bottom:30px;border-top:3px #000 solid}
 #footer:after{content:'';display:block;visibility:hidden;height:0;clear:both}
 
 /* MODULE (button, pagination, table etc) */

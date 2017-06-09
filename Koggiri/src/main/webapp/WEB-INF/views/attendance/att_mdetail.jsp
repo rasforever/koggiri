@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><<script
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script> -->
 <!-- <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script> -->
@@ -15,12 +16,11 @@
 	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">	
 <%@ include file="../include/header.jsp"%>
 
-
+<%@ include file="../sidebar/approval_sidebar.jsp"%>
 
 
 <!-- Main content -->
-<div class="container_wrap" style="background-color: #ffffff;">
-<div id="container">
+
 
 	<div class="row">
 		<!-- left column -->
@@ -165,9 +165,7 @@
 
 <!-- /.content -->
 
-<div class="footer_wrap">
-<div id="footer">
-<%@ include file="../include/footer.jsp"%>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
 <script>
 	var result = '${msg}';

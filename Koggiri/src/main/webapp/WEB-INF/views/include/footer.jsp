@@ -1,20 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Koggiri</title>
-<!--  script link -->
 
 
-<!-- css link -->
-<link rel="stylesheet" href="../resources/Content/themes/real/common.css" />
-</head>
-<body>
-<div class="footer_wrap">
-	<div class="footer_wrap">
-		<div id="footer">
+		
 		<br>
 		<ul style="text-align:center;">
             <li >서울시 금천구 가산동 371-47 이노플렉스 1차 2층 </li>
@@ -22,16 +10,10 @@
       </ul>
       </div>
    </div>
-</div>
+
+
 </body>
 </html>
-
-
-
-
-
-
-
 <!-- <link rel="shortcut icon" type="image/x-icon" href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
 <link rel="stylesheet" href="resources/Content/themes/real/ui_main.css" />
 <link href="resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> -->

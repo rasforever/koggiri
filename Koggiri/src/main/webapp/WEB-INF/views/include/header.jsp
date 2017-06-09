@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -8,30 +12,27 @@
 
 <!-- script link -->
 
-<script type="text/javascript"
-	src="../resources/Scripts/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../resources/Scripts/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="../resources/Scripts/ui.js"></script>
-<script type="text/javascript"
-	src="../resources/Scripts/jquery-ui-min.js"></script>
-<script type="text/javascript"
-	src="../resources/Scripts/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../resources/Scripts/jquery-ui-min.js"></script>
+<script type="text/javascript" src="../resources/Scripts/jquery.easing.1.3.js"></script>
+
 
 <!--  css link -->
-<link href="/resources/Content/themes/base/jquery-ui.min.css"
-	rel="stylesheet" type="text/css" />
-<link rel="shortcut icon" type="image/x-icon"
-	href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
-<link rel="stylesheet"
-	href="../resources/Content/themes/real/ui_main.css" />
-<link rel="stylesheet"
-	href="../resources/Content/themes/real/common.css" />
+<link rel="stylesheet" href="../resources/Content/themes/real/ui_sub.css" />
+<link href="../resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" type="image/x-icon" href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
+<link rel="stylesheet" href="../resources/Content/themes/real/ui_main.css" />
+<link rel="stylesheet" href="../resources/Content/themes/real/common.css" />
+
+
+
+
 
 </head>
-<!-- ----------------------------------------------------------------------- -->
 
 <!-- ----------------------------------------------------------------------- -->
-
-
+<body class="main">
 
 
 	<!-- ************************************* -->
@@ -63,7 +64,7 @@
 						<li class="menu01 "><a href="#" class="menu_a"
 							style="padding-top: 10px;">공지</a> <!-- 2depth : s -->
 							<ul>
-								<li class=""><a href="#">공지 사항</a></li>
+								<li class=""><a href="../noticeboard/listPage">공지 사항</a></li>
 								<li class=""><a href="#">알립니다</a></li>
 							</ul></li>
 						<!-- 1depth : s -->
@@ -88,7 +89,7 @@
 						<li class="menu03 "><a href="#" class="menu_a"
 							style="padding-top: 10px;">일정</a> <!-- 2depth : s -->
 							<ul>
-								<li class=""><a href="calendar">일정</a></li>
+								<li class=""><a href="../calendar/index">일정</a></li>
 							</ul></li>
 						<!-- 1depth : s -->
 						<li class="menu04 "><a href="#" class="menu_a"
@@ -119,21 +120,3 @@
 		</div>
 		<hr />
 	</div>
-
-
-
-
-
-	<!-- <script type="text/javascript" src="resources/Scripts/common.js"></script> -->
-	<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script> -->
-
-	<!-- <script type="text/javascript" src="resources/Scripts/common.js"></script> -->
-	<!-- <script src="http://js.nx.com/s1/da/playlog.min.js" type="text/javascript"></script> -->
-
-	<!-- <script type="text/javascript" src="Scripts/common.formatNumber-1.0.0.js"></script>
-<script type="text/javascript" src="Scripts/jquery.validate.min.js"></script>
-<script type="text/javascript" src="Scripts/jquery.validate.unobtrusive.min.js"></script> -->
-	<!-- <script type="text/javascript" src="Scripts/jquery-ui.min.js"></script> -->
-	<!-- <script type="text/javascript" src="Scripts/jquery.bxslider.min.js"></script> -->
-	<!-- <script type="text/javascript" src="Scripts/jquery.paging.min.js"></script> -->
-	<!-- <script type="text/javascript" src="Scripts/ajaxOverSsl.js"></script> -->

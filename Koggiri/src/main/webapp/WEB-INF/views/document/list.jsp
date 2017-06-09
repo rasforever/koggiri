@@ -4,10 +4,16 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+
+<%@ include file="../include/header.jsp"%>
 
 <!-- Main content -->
+
 <section class="content">
+
 	<div class="row">
 		<!-- left column -->
 
@@ -65,8 +71,7 @@
 								<td>${boardVO.f_id}</td>
 								<td><a
 									href='/document/readPage${pageMaker.makeSearch(pageMaker.cri.page) }&f_id=${boardVO.f_id}'>
-										${boardVO.f_title}
-								</a></td>
+										${boardVO.f_title} </a></td>
 								<td>${boardVO.f_emp_nm}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 										value="${boardVO.f_date}" /></td>
@@ -76,6 +81,12 @@
 						</c:forEach>
 
 					</table>
+
+					<div>
+						<iframe src="http://106.242.203.68:5200/htmlPage"
+							style="width: 400px; height: 500px;"></iframe>
+
+					</div>
 				</div>
 				<!-- /.box-body -->
 
@@ -114,7 +125,6 @@
 
 	</div>
 	<!-- /.row -->
-</section>
 <!-- /.content -->
 
 
@@ -151,4 +161,6 @@
 
 			});
 </script>
+
+<%@ include file="../include/footer.jsp"%>
 

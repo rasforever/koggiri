@@ -76,7 +76,7 @@ public class ApprovalUploadController {
 		logger.info("originalName: " + uploadPath);
 		logger.info("originalName: " + file.getBytes());
 
-		return new ResponseEntity<>(ApprovalUploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes()),
+		return new ResponseEntity<String>(ApprovalUploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes()),
 				HttpStatus.CREATED);
 	}
 

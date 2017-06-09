@@ -7,6 +7,7 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
+<%@ include file="../include/header.jsp"%>
 
 <head>
 
@@ -250,7 +251,7 @@
 			});
 </script>
 
-
+<%@ include file="../include/footer.jsp"%>
 
 
 
