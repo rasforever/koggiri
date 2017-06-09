@@ -9,6 +9,10 @@
 <script type="text/javascript" src="/resources/js/upload.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+	
+<%@ include file="../include/header.jsp"%>
+<%@ include file="../sidebar/approval_sidebar.jsp"%>
+
 <!-- Main content -->
 <style type="text/css">
 .popup {
@@ -143,6 +147,9 @@
 
 </section>
 <!-- /.content -->
+
+
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
 
 <script id="templateAttach" type="text/x-handlebars-template">

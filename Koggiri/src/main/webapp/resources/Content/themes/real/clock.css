@@ -46,12 +46,11 @@
 }
 label {
     display: inline;
-    font-size: 10em;
     text-align: center;
     font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
      text-shadow: 0 0 5px #000080; 
      color: #000000;
-    font-size: 20px;
+    font-size: 35px;
     font-weight: bold;
 }
 

@@ -1,8 +1,6 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
 <%
@@ -36,70 +34,34 @@
 	int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
 %>
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-
-<!-- html start -->
-<html>
-<head>
-
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="imagetoolbar" content="no" />
-<meta name="robots" content="index,follow" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>Koggiri</title>
-<!-- script link -->
-<!-- 메뉴바 플러그인 js -->
-<script type="text/javascript"
-	src="../resources/Scripts/jquery-1.11.2.min.js"></script>
-
-<script type="text/javascript"
-	src="../resources/Scripts/jquery-1.11.2.min.js"></script>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-
-
-<!--  퀵메뉴 플러그인 js -->
-<script type="text/javascript"
-	src="../resources/Scripts/jquery.easing.1.3.js"></script>
-<script type="text/javascript"
-	src="../resources/Scripts/jquery-ui-min.js"></script>
-
-
-
-<!-- --------------------------------------------------------------------------------------------------------------- -->
-<!-- css link -->
+<%@ include file="include/header.jsp"%>
 <link href="../resources/Content/themes/real/clock.css" rel="stylesheet"
 	type="text/css" />
 <link type="text/css" rel="stylesheet"
 	href="../resources/Content/themes/real/cal.css" />
-<link rel="shortcut icon" type="image/x-icon"
-	href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
-<link rel="stylesheet"
-	href="../resources/Content/themes/real/ui_main.css" />
-<link href="../resources/Content/themes/base/jquery-ui.min.css"
-	rel="stylesheet" type="text/css" />
-<link rel="stylesheet"
-	href="../resources/Content/themes/real/common.css" />
 
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('.main #content div>a').on({
+						mouseenter : function() {
+							$(this).stop().animate({
+								'top' : '-206px'
+							}, 500, "easeInOutCubic");
+						},
+						mouseleave : function() {
+							$(this).stop().animate({
+								'top' : '0px'
+							}, 500, "easeInOutCubic");
+						},
+					});
+				});
+			</script>
 
-
-</head>
-
-<body class="main">
-	<div id="main_header">
-		<jsp:include page="include/header.jsp" />
-	</div>
+			<!-- ------------------------------------------------------------------------ -->
 
 	<!-- 본문 시작 -->
-
-	<h2 class="hidden">본문</h2>
-	<div class="container_wrap">
-		<!-- container : s -->
-
-		<div id="container">
+<div class="container_wrap">
+<div id="container">
 
 			<div id="wrap">
 				<!-- ************************************* -->
@@ -231,24 +193,7 @@
 
 			</div>
 			<!-- ----------------------------------------------------------------------- -->
-			<script type="text/javascript">
-				$(document).ready(function() {
-					$('.main #content div>a').on({
-						mouseenter : function() {
-							$(this).stop().animate({
-								'top' : '-206px'
-							}, 500, "easeInOutCubic");
-						},
-						mouseleave : function() {
-							$(this).stop().animate({
-								'top' : '0px'
-							}, 500, "easeInOutCubic");
-						},
-					});
-				});
-			</script>
 
-			<!-- ------------------------------------------------------------------------ -->
 
 			<!-- 시계 script -->
 			<script type="text/javascript">
@@ -302,10 +247,11 @@
 
 			<!-- ------------------------------------------------------------------------------------------- -->
 
+	<div class="container_wrap_main" style="background-color:#eef1f2; width: 100%; height:100%; margin:0 auto;">
 			<div class="weather">
 				<!--  이곳에 api 적용하면 됩니다 -->
 				<!-- weather widget start -->
-				<div class="weather_table" style="position: relative; top: -679px;">
+				<div class="weather_table" style="position: relative; top: -679px; height: 206px;">
 					<table cellpadding=0 cellspacing=0 width=500 height="216px"
 						style="font-family: Verdana; font-size: 14px;">
 						<tr>
@@ -462,23 +408,15 @@
 
 			</div>
 
-		</div>
 
 
 		<hr />
 
 		<!-- 본문 끝 -->
 	</div>
-	<div id="main_footer">
-		<jsp:include page="include/footer.jsp" />
-	</div>
-
-
-</body>
-</html>
-
-
-
+	
+<div class="footer_wrap">
+<%@ include file="include/footer.jsp"%>
 
 <!-- <script type="text/javascript" src="resources/Scripts/ui.js"></script> -->
 <!-- <script type="text/javascript" src="resources/Scripts/common.js"></script> -->
