@@ -28,9 +28,8 @@
 <!--  approval -->
 
 
-
-
 <!--  css link -->
+
 <link href="/resources/Content/themes/base/jquery-ui.min.css"
 	rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" type="image/x-icon"

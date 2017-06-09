@@ -3,11 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
 <!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script> -->
 
 
 <%@ include file="../include/header.jsp"%>
+
 
 
 <link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
@@ -24,6 +24,20 @@
 <script type="text/javascript" src="/resources/plugins/fullcalendar/jquery.qtip.min.js"></script>
 <script src="/resources/plugins/fullcalendar/ssi-modal.min.js"></script>
 <script src='/resources/plugins/fullcalendar/json2.js'></script>
+
+<style type="text/css">
+/* body {
+	margin: 40px 10px;
+	padding: 0;
+	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+	font-size: 14px;
+} */
+
+#calendar {
+	max-width: 900px;
+	margin: 0 auto;
+}
+</style>
 
 <script type="text/javascript">
 	$(document)
@@ -579,11 +593,10 @@
 
 <div id='calendar'></div>
 
-<!-- 본문 끝 -->
-
 <div class="footer_wrap" style="background-color: #ffffff;">
 <%@ include file="../include/footer.jsp"%>
 
+<!-- 본문 끝 -->
 
 
 
@@ -591,17 +604,9 @@
 
 
 
-<style type="text/css">
-/* body {
-	margin: 40px 10px;
-	padding: 0;
-	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
-	font-size: 14px;
-} */
 
-#calendar {
-	max-width: 900px;
-	margin: 0 auto;
-}
-</style>
+
+
+
+
 

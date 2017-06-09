@@ -83,7 +83,7 @@
 					</table>
 
 					<div>
-						<iframe src="http://localhost:5200/htmlPage"
+						<iframe src="http://106.242.203.68:5200/htmlPage"
 							style="width: 400px; height: 500px;"></iframe>
 
 					</div>
