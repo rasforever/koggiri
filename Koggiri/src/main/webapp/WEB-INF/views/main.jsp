@@ -60,6 +60,8 @@
 			<!-- ------------------------------------------------------------------------ -->
 
 	<!-- 본문 시작 -->
+<div class="container_wrap">
+<div id="container">
 
 			<div id="wrap">
 				<!-- ************************************* -->
@@ -412,7 +414,8 @@
 
 		<!-- 본문 끝 -->
 	</div>
-</div>
+	
+<div class="footer_wrap">
 <%@ include file="include/footer.jsp"%>
 
 <!-- <script type="text/javascript" src="resources/Scripts/ui.js"></script> -->
