@@ -51,7 +51,7 @@
 	<a href="/chart/list?dept_id=MT" align="left"><img src="/resources/img/chart03.png"><br><br>▶관리팀</a><br><br><br><br><br>
 	<a href="/chart/list?dept_id=SN" align="left"><img src="/resources/img/chart04.png"><br><br>▶솔루션팀</a>&nbsp;&nbsp;&nbsp;&nbsp;
 	<a href="/chart/list?dept_id=BS" align="left"><img src="/resources/img/chart05.png"><br><br>▶영업팀</a>&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href="/chart/list?dept_id=MG" align="left"><img src="/resources/img/chart06.png"><br><br>▶마게팅팀</a>
+	<a href="/chart/list?dept_id=MG" align="left"><img src="/resources/img/chart06.png"><br><br>▶마케팅팀</a>
 </div>
 
 
