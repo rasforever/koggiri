@@ -26,77 +26,18 @@
 		<!-- left column -->
 		<div class="col-md-12">
 			<!-- general form elements -->
-			<div class='box'>
-				<div class='box-body'>
-					<table>
-						<tr>
-							<td><button id='AllsearchBtn'>전체</button>
-								<button id='a_searchBtn'>기안중</button>
-								<button id='c_searchBtn'>완료</button>
-								<button id='n_searchBtn'>부결</button></td>
-							<input type='hidden' name='app_pro_cd' id='app_pro_cd'
-								value="${search.app_pro_cd}">
-							<input type='hidden' name='app_emp_id' id='app_emp_id'
-								value="${search.app_emp_id}">
-						</tr>
-						</tr>
-					</table>
-					<table>
-						<ul>
-							<li><input type="checkbox" name="area" value="app_id"
-								onclick="dis_chg(this)">결재문서번호</input> <input type="text"
-								name="search_app_id" id="search_app_id" size="30" disabled></input></li>
-							<li><input type="checkbox" name="area" value="app_type_cd"
-								onclick="dis_chg(this)">결재구분</input></li>
-							<select id="app_type" name="app_type" disabled>
-								<option value=" ">--전체--
-									<c:forEach var="apptypeVO" items="${applist}">
-										<option value="${apptypeVO.app_type_cd}">${apptypeVO.app_type_nm}
-										</option>
-									</c:forEach>
-							</select>
-							</li>
-							<li><input type="checkbox" name="area" value="dept_cd"
-								onclick="dis_chg(this)">관리부서</input> <select id="dept_cd"
-								name="dept_cd" disabled>
-									<option value=" ">--전체--
-										<c:forEach var="deptVO" items="${deptlist}">
-											<option value="${deptVO.dept_id}">${deptVO.dept_nm}</option>
-										</c:forEach>
-							</select></li>
-						</ul>
-						<ul>
-							<li><input type="checkbox" name="area" value="draft_emp_id"
-								onclick="dis_chg(this)">기안자
-							<input type="text" name="draft_emp_id" id="draft_emp_id"
-								size="30" disabled></li>
-							<li><input type="checkbox" name="area" value="draft_dt"
-								onclick="dis_chg(this)">제안일<input type="text" name="draft_s_dt"
-								id="draft_s_dt" class="datepicker" disabled size="14"> ~
-								<input type="text" name="draft_e_dt" id="draft_e_dt"
-								class="datepicker" disabled size="14"></li>
-								
-							<li><button id='searchBtn'>Search</button></li>
-						</ul>
-					</table>
-				</div>
-			</div>
-
+			
 
 			<div class="box">
 				<div class="box-header with-border">
-					<h3 class="box-title">LIST PAGING</h3>
+					<h3 class="box-title">나의 근태 기록</h3>
 				</div>
 				<div class="box-body">
 					<table class="table table-bordered">
 						<tr>
-							<th>결재문서번호</th>
-							<th>제안일</th>
-							<th>결재구분</th>
-							<th>관리부서</th>
-							<th>기안자</th>
-							<th>결재자</th>
-							<th>진행상태</th>
+							<th>근무일</th>
+							<th>출근시간</th>
+							<th>퇴근시간</th>
 						</tr>
 
 						<c:forEach items="${list}" var="approvalVO">
@@ -109,16 +50,6 @@
 									href='/approval/readPage${pageMaker.makeSearch(pageMaker.search.page) }&app_id=${approvalVO.app_id}'>${approvalVO.draft_dt}</a></td>
 								<td><a
 									href='/approval/readPage${pageMaker.makeSearch(pageMaker.search.page) }&app_id=${approvalVO.app_id}'>${approvalVO.app_type_nm}</a></td>
-								<td><a
-									href='/approval/readPage${pageMaker.makeSearch(pageMaker.search.page) }&app_id=${approvalVO.app_id}'>${approvalVO.dept_nm}</a></td>
-								<td><a
-									href='/approval/readPage${pageMaker.makeSearch(pageMaker.search.page) }&app_id=${approvalVO.app_id}'>${approvalVO.draft_emp_nm}</a></td>
-								<td><a
-									href='/approval/readPage${pageMaker.makeSearch(pageMaker.search.page) }&app_id=${approvalVO.app_id}'>${approvalVO.app_emp_nm}</a></td>
-								<td><a
-									href='/approval/readPage${pageMaker.makeSearch(pageMaker.search.page) }&app_id=${approvalVO.app_id}'>${approvalVO.app_pro_nm}</a></td>
-
-
 							</tr>
 
 						</c:forEach>
