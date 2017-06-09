@@ -15,7 +15,7 @@
 
 <div id="sub_menu_title">
 <h1><img src="/resources/img/s_menu10.png"/></h1>
-<div class="breadcrumb">   
+<div class="sub_top">   
     <span><a href="/main">홈</a>  <span> &gt; </span> <a href="#">회사정보</a>  &gt;  <strong>조직도</strong></span>
 </div>
 </div>

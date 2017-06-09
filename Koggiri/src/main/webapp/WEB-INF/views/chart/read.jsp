@@ -15,7 +15,7 @@
 
 <div id="sub_menu_title">
 <h1><img src="/resources/img/s_menu10.png"/></h1>
-<div class="breadcrumb">   
+<div class="sub_top">   
     <span><a href="/main">홈</a>  <span> &gt; </span> <a href="#">회사정보</a>  &gt;  <strong>조직도</strong></span>
 </div>
 </div>
@@ -34,7 +34,7 @@
                     <ul>
                       <li class="sub01 "><a href="/chart/list?dept_id=MM">경영팀</a></li>
                       <li class="sub02 "><a href="/chart/list?dept_id=PL">인사팀</a></li>
-                      <li class="sub03 "><a href="/chart/list?dept_id=MT">관리팀</a></li>
+                      <li class="sub03 "><a href="/chart/list?dept_id=MT">관리팀</a></li><div></div>
                       <li class="sub01 "><a href="/chart/list?dept_id=SN">솔루션팀</a></li>
                       <li class="sub02 "><a href="/chart/list?dept_id=BS">영업팀</a></li>
                       <li class="sub03 "><a href="/chart/list?dept_id=MG">마케팅팀</a></li>
