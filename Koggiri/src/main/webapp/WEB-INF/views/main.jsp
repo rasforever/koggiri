@@ -61,8 +61,9 @@
 
 <!-- 본문 시작 -->
 	<!-- 본문 시작 -->
-<div class="container_wrap">
+	<div class="container_wrap" style="background-color: #eef1f2;">
 <div id="container">
+
 
 <div id="wrap">
 	<!-- ************************************* -->
@@ -121,7 +122,7 @@
 					style="width: 120px; height: 35px; border: 0px; background: gray; margin: 7px;">
 			</form>
 		</div>
-
+		<!-- *************************************** -->
 		<h3 class="hidden">업무</h3>
 		<div class="event_apply">
 			<a href="#"></a>
@@ -252,8 +253,8 @@
 
 <!-- ------------------------------------------------------------------------------------------- -->
 
-<div class="container_wrap_main"
-	style="background-color: #eef1f2; width: 100%; height: 100%; margin: 0 auto;">
+<!-- <div class="container_wrap_main"
+	style="background-color: #eef1f2; width: 100%; height: 100%; margin: 0 auto;"> -->
 	<div class="weather">
 		<!--  이곳에 api 적용하면 됩니다 -->
 		<!-- weather widget start -->
@@ -297,13 +298,6 @@
 
 					<!--날짜 네비게이션  -->
 					<table class="table_top">
-	<div class="container_wrap_main" style="background-color:#eef1f2; width: 100%; height:100%; margin:0 auto;">
-			<div class="weather">
-				<!--  이곳에 api 적용하면 됩니다 -->
-				<!-- weather widget start -->
-				<div class="weather_table" style="position: relative; top: -679px; height: 206px;">
-					<table cellpadding=0 cellspacing=0 width=500 height="216px"
-						style="font-family: Verdana; font-size: 14px;">
 						<tr>
 							<td align="center"><%=year%>년 <%=month + 1%>월</td>
 						</tr>
@@ -429,17 +423,6 @@
 </div>
 </div>
 	
-<div class="footer_wrap">
+<div class="footer_wrap" style="background-color:#eef1f2;">
+<div id="footer" >
 <%@ include file="include/footer.jsp"%>
-
-<!-- <script type="text/javascript" src="resources/Scripts/ui.js"></script> -->
-<!-- <script type="text/javascript" src="resources/Scripts/common.js"></script> -->
-<!-- <script src="http://js.nx.com/s1/da/playlog.min.js" type="text/javascript"></script> -->
-<
-<!-- script type="text/javascript" src="Scripts/common.formatNumber-1.0.0.js"></script>
-<script type="text/javascript" src="Scripts/jquery.validate.min.js"></script >
-<script type="text/javascript" src="Scripts/jquery.validate.unobtrusive.min.js"></script>
-
- <script type="text/javascript" src="Scripts/jquery.bxslider.min.js"></script>
-<script type="text/javascript" src="Scripts/jquery.paging.min.js"></script>
-<script type="text/javascript" src="Scripts/ajaxOverSsl.js"></script> -->

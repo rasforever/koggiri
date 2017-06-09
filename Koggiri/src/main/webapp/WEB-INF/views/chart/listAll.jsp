@@ -55,11 +55,12 @@
 
        
 </div>
-
-
+</div>
+</div>
 
 
 <!-- 본문 끝 -->
 
-<div class="footer_wrap" style="background-color: #ffffff;">
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
 <%@ include file="../include/footer.jsp"%>
