@@ -106,10 +106,10 @@
 						style="width: 226px; height: 206px; background: white;"
 						align="center">
 
-						<input type="submit" class="on_btn" value=""
+						<input type="submit" class="att_btn" value=""
 							style="margin: 20px 0px 5px 0px;"> <input type="submit"
-							class="off_btn" value="" style="margin: 7px;"> <input
-							type="submit" value="근태확인"
+							class="leave_btn" value="" style="margin: 7px;"> <input
+							type="submit" value="근태확인" class="att_list"
 							style="width: 120px; height: 35px; border: 0px; background: gray; margin: 7px;">
 					</div>
 
