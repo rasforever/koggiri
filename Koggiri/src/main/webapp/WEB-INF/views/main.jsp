@@ -109,11 +109,11 @@
 			style="width: 226px; height: 206px; background: white;"
 			align="center">
 			<form method='post' action='att'>
-				<input type="submit" class="on_btn" id="att_btn" value="att"
+				<input type="submit" class="on_btn" id="att_btn" value=""
 					style="margin: 20px 0px 5px 0px;">
 			</form>
 			<form method='post' action='leave'>
-				<input type="submit" class="off_btn" id="leave_btn" value="leave"
+				<input type="submit" class="off_btn" id="leave_btn" value=""
 					style="margin: 7px;">
 			</form>
 			<form method='post' action='att_list'>
