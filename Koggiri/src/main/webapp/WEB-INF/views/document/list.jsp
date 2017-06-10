@@ -107,13 +107,13 @@
 				<div class="box-header with-border">
 					<h3 class="box-title" align="left" style="font-size: 14px">글목록</h3>
 				</div>
-				<div class="box-body">
+				<div class="box-body" style="text-align: center;">
 					<table class="table table-bordered">
 						<tr>
 							<th style="width: 60px;">글번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성일</th>
+							<th style="text-align: center;">제목</th>
+							<th style="text-align: center;">작성자</th>
+							<th style="text-align: center;">작성일</th>
 							<th style="width: 60px">조회수</th>
 						</tr>
 
