@@ -118,7 +118,7 @@
 				<input type="submit" class="off_btn" id="leave_btn" value=""
 					style="margin: 7px;">
 			</form>
-			<form method='post' action='att_list'>
+			<form method='post' action='att_dlist'>
 				<input type="submit" value="근태확인" class="att_list"
 					style="width: 120px; height: 35px; border: 0px; background: gray; margin: 7px;">
 			</form>
