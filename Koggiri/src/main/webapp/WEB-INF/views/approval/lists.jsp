@@ -43,7 +43,7 @@
                     <ul>
                       <li class="sub01 "><a href="/approval/lists">보낸 결재</a></li>
                       <li class="sub02 "><a href="/approval/listr">받은 결재</a></li>
-                      <li class="sub03 "><a href="/approval/readPage">결재 입력</a></li>
+                      <li class="sub03 "><a href="/approval/register">결재 입력</a></li>
                     </ul>
                 </li>
                  <li class="menu03 ">
