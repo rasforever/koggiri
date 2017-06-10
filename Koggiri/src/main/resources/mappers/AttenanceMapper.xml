@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kosta.koggiri.mapper.Attendance"><!--경로를 뜻하는 것이 아님!!! -->
 
-	<select id="einfo_select" parameterType="String" resultType="Emp_InfoVO">
+	<select id="einfo_select" parameterType="String" resultType="Att_Emp_InfoVO">
 		select e.emp_id as emp_id, e.emp_nm as emp_nm, e.dept_id as dept_id,
 		d.dept_nm as dept_nm, p.pos_nm as pos_nm
 		from emp e inner join dept d

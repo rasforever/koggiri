@@ -7,16 +7,7 @@ public class Emp_InfoVO {
 	private String dept_nm;
 	private String pos_nm;
 	
-	public Emp_InfoVO() {}
 	
-	public Emp_InfoVO(String emp_id, String emp_nm, String dept_id, String dept_nm, String pos_nm) {
-		super();
-		this.emp_id = emp_id;
-		this.emp_nm = emp_nm;
-		this.dept_id = dept_id;
-		this.dept_nm = dept_nm;
-		this.pos_nm = pos_nm;
-	}
 	public String getEmp_id() {
 		return emp_id;
 	}
