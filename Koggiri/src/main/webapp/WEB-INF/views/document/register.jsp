@@ -1,14 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
+<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="/resources/plugins/ckeditor/ckeditor.js"></script>
+
+<!-- Bootstrap 3.3.4 -->
+    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
 
 <%@ include file="../include/header.jsp"%>
 
 
 <link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
-<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
+<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 
 
 <style>
@@ -64,20 +76,21 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3 class="box-title">문서게시판 등록하기</h3>
+					<h3 class="box-title" align="left" style="font-size: 16px"><strong>문서게시판 등록하기</strong></h3><br><br><br>
 				</div>
 				<!-- /.box-header -->
 
 				<form id='registerForm' role="form" method="post">
 					<input type="hidden" name="f_emp_id" value="${mem_id}">
 					<div class="box-body">
-						<div class="form-group">
-							<label for="exampleInputEmail1">제목</label> <input type="text"
+						<div class="form-group" align="left" style="font-size: 14px">
+							<label for="exampleInputEmail1">제목</label><br><br>
+							 <input type="text"
 								name='f_title' value="" id="title" class="form-control"
 								placeholder="제목을 입력하세요">
 						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">내용</label>
+						<div class="form-group" align="left" style="font-size: 14px">
+							<label for="exampleInputPassword1">내용</label><br><br>
 							<textarea class="form-control" name="f_content" rows="3"
 								placeholder="내용을 입력하세요"></textarea>
 							<script type="text/javascript">
@@ -92,14 +105,15 @@
 							</script>
 
 						</div>
-						<div class="form-group">
-							<label for="exampleInputEmail1">작성자</label> <input type="text"
+						<div class="form-group" align="left" style="font-size: 14px">
+							<label for="exampleInputEmail1">작성자</label><br><br> 
+							<input type="text"
 								value="${emp_nm }" name="f_emp_nm" class="form-control"
 								placeholder="Enter Writer" readonly="readonly">
 						</div>
 
 						<div class="form-group">
-							<label for="exampleInputEmail1">파일첨부하기</label>
+							<label for="exampleInputEmail1">파일첨부하기</label><br><br>
 							<div class="fileDrop"></div>
 						</div>
 					</div>
