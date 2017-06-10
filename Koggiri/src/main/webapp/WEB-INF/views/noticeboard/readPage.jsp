@@ -80,9 +80,9 @@
       <div class="col-md-12">
         <!-- general form elements -->
         <div class="box box-primary">
-        <div class="box-header">
+        <!-- <div class="box-header">
           <h3 class="box-title">READ BOARD</h3>
-        </div>
+        </div> -->
  <!-- /.box-header -->
 
  <form role="form" action="modify" method="post">
@@ -97,17 +97,17 @@
     
   <div class="box-body">
     <div class="form-group">
-      <label for="exampleInputEmail1">Title</label>
+      <label for="exampleInputEmail1">제목<br><br></label>
       <input type="text" name='N_TITLE' class="form-control" 
          value="${Noti_BoardVO.n_TITLE}" readonly="readonly">
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Content</label>
+      <label for="exampleInputPassword1">내용<br><br></label>
       <textarea class="form-control"  name="N_CONTENT" rows="3" 
       readonly="readonly">${Noti_BoardVO.n_CONTENT}</textarea>
     </div>
     <div class="form-group">
-      <label for="exampleInputEmail1" >Writer</label>
+      <label for="exampleInputEmail1" >작성자<br><br></label>
       <input type="text" name="N_EMP_ID" class="form-control" 
         value="${Noti_BoardVO.n_EMP_ID}" readonly="readonly">
     </div>
@@ -120,9 +120,9 @@
   <div class="box-footer">
   <ul class="mailbox-attachments clearfix uploadedList"></ul>
   
-    <button type="submit" class="btn btn-warning">Modify</button>
-    <button type="submit" class="btn btn-danger">REMOVE</button>
-    <button type="submit" class="btn btn-primary">GO LIST </button>
+    <button type="submit" class="btn btn-warning">수정하기</button>
+    <button type="submit" class="btn btn-danger">삭제하기</button>
+    <button type="submit" class="btn btn-primary">목록</button>
   </div>
 
 

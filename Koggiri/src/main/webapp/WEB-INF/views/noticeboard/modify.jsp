@@ -56,9 +56,9 @@
 		<div class="col-md-12">
 			<!-- general form elements -->
 			<div class="box box-primary">
-				<div class="box-header">
+				<!-- <div class="box-header">
 					<h3 class="box-title">MODIFY BOARD</h3>
-				</div>
+				</div> -->
 				<!-- /.box-header -->
 
 				<form role="form" action="modify" method="post">
@@ -71,29 +71,29 @@
 					<div class="box-body">
 
 						<div class="form-group">
-							<label for="exampleInputEmail1">BNO</label> <input type="text"
+							<label for="exampleInputEmail1">글번호<br><br></label> <input type="text"
 								name='N_ID' class="form-control" value="${Noti_BoardVO.n_ID}"
 								readonly="readonly">
 						</div>
 
 						<div class="form-group">
-							<label for="exampleInputEmail1">Title</label> <input type="text"
+							<label for="exampleInputEmail1">제목<br><br></label> <input type="text"
 								name='N_TITLE' class="form-control" value="${Noti_BoardVO.n_TITLE}">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputPassword1">Content</label>
+							<label for="exampleInputPassword1">내용<br><br></label>
 							<textarea class="form-control" name="N_CONTENT" rows="3">${Noti_BoardVO.n_CONTENT}</textarea>			
 							
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">Writer</label> <input
+							<label for="exampleInputEmail1">작성자<br><br></label> <input
 								type="text" name="N_EMP_ID" class="form-control"
 								value="${Noti_BoardVO.n_EMP_ID}" readonly="readonly">
 						</div>
 						
 						<div class="form-group">
-							<label for="exampleInputEmail1">File DROP Here</label>
-							<div class="fileDrop"></div>
+							<label for="exampleInputEmail1">파일 첨부<br><br></label>
+							<div class="fileDrop" style="margin-left: 0px; width: 970px;"></div>
 						</div>
 						
 					</div>
@@ -103,8 +103,8 @@
 					
 					<ul class="mailbox-attachments clearfix uploadedList"></ul>
 						
-					<button type="submit" class="btn btn-primary">SAVE</button>
-					<button type="submit" class="btn btn-warning">CANCEL</button>
+					<button type="submit" class="btn btn-primary">수정하기</button>
+					<button type="submit" class="btn btn-warning">취소</button>
 				</div>
 				</form>
 				

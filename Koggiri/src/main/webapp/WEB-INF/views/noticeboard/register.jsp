@@ -67,31 +67,33 @@
 		<div class="col-md-12">
 			<!-- general form elements -->
 			<div class="box box-primary">
-				<div class="box-header">
+				<!-- <div class="box-header">
 					<h3 class="box-title">REGISTER BOARD</h3>
-				</div>
+				</div> -->
 				<!-- /.box-header -->
 <form id='registerForm' role="form" method="post">
 	<div class="box-body">
 		<div class="form-group">
-			<label for="exampleInputEmail1" >Title</label> 
+			<label for="exampleInputEmail1" >제목<br><br></label> 
 			<input type="text"
 				name='N_TITLE' class="form-control" id = "title" placeholder="Enter Title">
 		</div>
 		<div class="form-group">
-			<label for="exampleInputPassword1">Content</label>
+			<label for="exampleInputPassword1">내용<br><br></label>
 			<textarea class="form-control" name="N_CONTENT" rows="3"
 				placeholder="Enter ..."></textarea>
 		</div>
+		
 		<div class="form-group">
-			<label for="exampleInputEmail1">Writer</label> 
+			<label for="exampleInputEmail1">작성자<br><br></label> 
 			<input type="text"
 				name="N_EMP_ID" class="form-control" placeholder="Enter Writer">
 		</div>
+		
 		<div class="form-group">
-			<label for="exampleInputEmail1">File DROP Here</label>
-		<div class="fileDrop"></div>
-	</div>
+			<label for="exampleInputEmail1">파일 첨부<br><br></label>
+			<div class="fileDrop" style="margin-left: 0px; width: 970px;"></div>
+		</div>
 	
 	<!-- /.box-body -->
 
