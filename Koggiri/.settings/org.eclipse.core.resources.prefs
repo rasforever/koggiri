@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/java/kosta/koggiri/approval/controller/ApprovalController.java=UTF-8
+encoding//src/main/java/kosta/koggiri/approval/service/ApprovalService.java=UTF-8
 encoding//src/main/java/kosta/koggiri/attendance/service/AttendanceService.java=UTF-8
 encoding//src/main/java/kosta/koggiri/home/controller/HomeController.java=UTF-8
 encoding//src/main/java/kosta/koggiri/noticeboard/controller/Noti_BoardController.java=UTF-8
