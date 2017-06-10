@@ -1,51 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page session="false"%>
+
+<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<script type="text/javascript" src="/resources/plugins/ckeditor/ckeditor.js"></script>
+<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
 <%@ include file="../include/header.jsp"%>
-<%-- <%@ include file="side.jsp"%> --%>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
 <link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
-<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-
-<div class="container_wrap" style="background-color: #ffffff;">
-<div id="container">
-
-<div id="sub_menu_title">
-<h1><img src="/resources/img/s_menu01.png"/></h1>
-<div class="sub_top">   
-    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="#">회사정보</a>  &gt;  <strong>조직도</strong></span>
-</div>
-</div>
-
-
-<div id="lnb">
-   <div class="lnb01">
-      <strong class="menu01"><span>회사 정보</span></strong>
-      <ul>
-                <li class="menu01 ">
-                    <a href="#">공지사항</a>
-                    <ul> </ul>
-                </li>
-                <li class="menu02 ">
-                    <a href="/chart/listAll">알립니다</a>
-                </li>
-           </ul>
-   </div>
-</div>
-
-<div id="sub_content">
-
-
-<!-- 본문 시작 -->
+<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
 
 <style>
 .fileDrop {
@@ -57,9 +22,36 @@
 } 
 </style>
 
-<!-- Main content -->
-<section class="content">
-	<div class="row">
+<div class="container_wrap" style="background-color: #ffffff;">
+<div id="container">
+
+<div id="sub_menu_title">
+<h1><img src="/resources/img/s_menu01.png"/></h1>
+<div class="sub_top">   
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/noticeboard/listPage">공지</a>  &gt;  <strong>공지사항</strong></span>
+</div>
+</div>
+
+
+<div id="lnb">
+   <div class="lnb01">
+      <strong class="menu01"><span>회사 정보</span></strong>
+      <ul>
+                <li class="menu01 ">
+                    <a href="/noticeboard/listPage">공지사항</a>
+                    <ul> </ul>
+                </li>
+                <li class="menu02 ">
+                    <a href="#">알립니다</a>
+                </li>
+           </ul>
+   </div>
+</div>
+
+<div id="sub_content">
+
+<!-- 본문 시작 -->
+<div class="row">
 		<!-- left column -->
 		<div class="col-md-12">
 			<!-- general form elements -->
@@ -284,7 +276,8 @@
 					});
 				</script>
 <br><br>
-
+</div>
+	</div>
 
 <!-- 본문 끝 -->
 </div>
