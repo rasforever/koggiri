@@ -35,6 +35,9 @@ public class ApprovalController {
 	public void registerGET(ApprovalVO approval, Model model, HttpSession session) throws Exception {
 		logger.info("register get......");
 		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		model.addAttribute("einfo", service.einfo_select(mem_id));
 		model.addAttribute("applist", service.appty_select());
 	}
@@ -60,6 +63,9 @@ public class ApprovalController {
 		model.addAttribute("applist", service.appty_select());
 		model.addAttribute("deptlist", service.dept_select());
 		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		search.setDraft_emp_id(mem_id);
 		search.setSearchType("s");
 
@@ -101,6 +107,9 @@ public class ApprovalController {
 		model.addAttribute("applist", service.appty_select());
 		model.addAttribute("deptlist", service.dept_select());
 		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		search.setApp_emp_id(mem_id);
 		search.setSearchType("r");
 
@@ -141,6 +150,8 @@ public class ApprovalController {
 			Model model, HttpSession session) throws Exception {
 
 		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("emp_nm",emp_nm);
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute(service.read(app_id));
 	}
@@ -171,6 +182,9 @@ public class ApprovalController {
 			@ModelAttribute("search") ApprovalSearchVO search, Model model, HttpSession session) throws Exception {
 
 		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		model.addAttribute("einfo", service.einfo_select(mem_id));
 		model.addAttribute(service.read(app_id));
 
