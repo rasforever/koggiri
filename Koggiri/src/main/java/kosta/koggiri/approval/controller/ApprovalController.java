@@ -20,7 +20,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import kosta.koggiri.approval.domain.ApprovalSearchVO;
 import kosta.koggiri.approval.domain.ApprovalVO;
 import kosta.koggiri.approval.domain.PageMaker;
-import kosta.koggiri.approval.domain.SearchCriteria;
 import kosta.koggiri.approval.service.ApprovalService;
 
 @Controller

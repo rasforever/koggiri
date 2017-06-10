@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="kosta.koggiri.mapper.Attendance"><!--경로를 뜻하는 것이 아님!!! -->
+<mapper namespace="kosta.koggiri.mapper.AttendanceMapper"><!--경로를 뜻하는 것이 아님!!! -->
 
 	<select id="einfo_select" parameterType="String" resultType="Att_Emp_InfoVO">
 		select e.emp_id as emp_id, e.emp_nm as emp_nm, e.dept_id as dept_id,
