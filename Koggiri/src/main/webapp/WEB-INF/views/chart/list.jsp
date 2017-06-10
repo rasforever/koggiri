@@ -16,7 +16,7 @@
 <div id="sub_menu_title">
 <h1><img src="/resources/img/s_menu10.png"/></h1>
 <div class="sub_top">   
-    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="#">회사정보</a>  &gt;  <strong>조직도</strong></span>
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/information/index">회사정보</a>  &gt;  <strong>조직도</strong></span>
 </div>
 </div>
 
@@ -26,7 +26,7 @@
       <strong class="menu05"><span>회사 정보</span></strong>
       <ul>
                 <li class="menu01 ">
-                    <a href="#">Koggiri란?</a>
+                    <a href="/information/index">Koggiri란?</a>
                     <ul> </ul>
                 </li>
                 <li class="menu02 ">

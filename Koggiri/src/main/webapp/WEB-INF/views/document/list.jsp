@@ -4,8 +4,21 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<!-- Bootstrap 3.3.4 -->
+    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+
+
 
 
 <%@ include file="../include/header.jsp"%>
@@ -20,31 +33,31 @@
 <div id="container">
 
 <div id="sub_menu_title">
-<h1><img src="/resources/img/s_menu10.png"/></h1>
+<h1><img src="/resources/img/s_menu05.png"/></h1>
 <div class="sub_top">   
-     <span><a href="/main">홈</a>  <span> &gt; </span> <a href="#">전자 문서</a>  &gt;  <strong>문서함</strong></span>
+     <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/task/list">전자 문서</a>  &gt;  <strong>문서함</strong></span>
 </div>
 </div>
 
 
 <div id="lnb">
    <div class="lnb01">
-      <strong class="menu05"><span>회사 정보</span></strong>
+      <strong class="menu02"><span>전자결재</span></strong>
       <ul>
-                <li class="menu01 ">
-                    <a href="#">업무보고</a>
+                <li class="menu01">
+                    <a href="/task/list">업무보고</a>
                     <ul> </ul>
                 </li>
                 <li class="menu02 ">
-                    <a href="/chart/listAll">전자결재</a>
+                    <a href="/approval/lists">전자결재</a>
                     <ul>
-                      <li class="sub01 "><a href="#">보낸결재</a></li>
-                      <li class="sub02 "><a href="#">받은결재</a></li>
-                      <li class="sub03 "><a href="#">결제입력</a></li>
+                      <li class="sub01 "><a href="/approval/lists">보낸 결재</a></li>
+                      <li class="sub02 "><a href="/approval/listr">받은 결재</a></li>
+                      <li class="sub03 "><a href="/approval/register">결재 입력</a></li>
                     </ul>
                 </li>
                  <li class="menu03 ">
-                    <a href="/chart/listAll">문서함</a>
+                    <a href="/document/list">문서함</a>
   					<ul></ul>
                 </li>
            </ul>
@@ -61,7 +74,7 @@
 			<!-- general form elements -->
 			<div class='box'>
 				<div class="box-header with-border">
-					<h3 class="box-title">문서게시판</h3>
+					<h3 class="box-title" align="left" style="font-size: 16px"><strong>문서게시판</strong></h3><br><br><br>
 				</div>
 
 
@@ -92,16 +105,16 @@
 
 			<div class="box">
 				<div class="box-header with-border">
-					<h3 class="box-title">글목록</h3>
+					<h3 class="box-title" align="left" style="font-size: 14px">글목록</h3>
 				</div>
-				<div class="box-body">
+				<div class="box-body" style="text-align: center;">
 					<table class="table table-bordered">
 						<tr>
-							<th style="width: 10px">글번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성일</th>
-							<th style="width: 40px">조회수</th>
+							<th style="width: 60px;">글번호</th>
+							<th style="text-align: center;">제목</th>
+							<th style="text-align: center;">작성자</th>
+							<th style="text-align: center;">작성일</th>
+							<th style="width: 60px">조회수</th>
 						</tr>
 
 						<c:forEach items="${list}" var="boardVO">

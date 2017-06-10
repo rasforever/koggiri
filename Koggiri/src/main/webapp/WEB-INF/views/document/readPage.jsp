@@ -6,6 +6,21 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
+<!-- Bootstrap 3.3.4 -->
+    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
 <%@ include file="../include/header.jsp"%>
 
 
@@ -49,31 +64,31 @@
 <div id="container">
 
 <div id="sub_menu_title">
-<h1><img src="/resources/img/s_menu10.png"/></h1>
+<h1><img src="/resources/img/s_menu05.png"/></h1>
 <div class="sub_top">   
-    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="#">전자 문서</a>  &gt;  <strong>문서함</strong></span>
+     <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/task/list">전자 문서</a>  &gt;  <strong>문서함</strong></span>
 </div>
 </div>
 
 
 <div id="lnb">
    <div class="lnb01">
-      <strong class="menu02"><span>전자문서</span></strong>
+      <strong class="menu02"><span>전자결재</span></strong>
       <ul>
                 <li class="menu01">
-                    <a href="#">업무보고</a>
+                    <a href="/task/list">업무보고</a>
                     <ul> </ul>
                 </li>
                 <li class="menu02 ">
-                    <a href="/chart/listAll">전자결재</a>
+                    <a href="/approval/lists">전자결재</a>
                     <ul>
-                      <li class="sub01 "><a href="#">보낸결재</a></li>
-                      <li class="sub02 "><a href="#">받은결재</a></li>
-                      <li class="sub03 "><a href="#">결제입력</a></li>
+                      <li class="sub01 "><a href="/approval/lists">보낸 결재</a></li>
+                      <li class="sub02 "><a href="/approval/listr">받은 결재</a></li>
+                      <li class="sub03 "><a href="/approval/register">결재 입력</a></li>
                     </ul>
                 </li>
                  <li class="menu03 ">
-                    <a href="/chart/listAll">문서함</a>
+                    <a href="/document/list">문서함</a>
   					<ul></ul>
                 </li>
            </ul>
@@ -90,7 +105,7 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3 class="box-title">문서게시판</h3>
+					<h3 class="box-title" align="left" style="font-size: 16px"><strong>문서게시판</strong></h3><br><br><br>
 				</div>
 				<!-- /.box-header -->
 
@@ -104,22 +119,24 @@
 				</form>
 
 				<div class="box-body">
-					<div class="form-group">
-						<label for="exampleInputEmail1">제목</label> <input type="text"
+					<div class="form-group" align="left" style="font-size: 14px">
+						<label for="exampleInputEmail1">제목</label><br><br>
+						<input type="text"
 							name='f_title' class="form-control"
-							value="${doc_BoardVO.f_title}" readonly="readonly">
+							value="${doc_BoardVO.f_title}" readonly="readonly" style="font-weight:bolder;  ">
 					</div>
 					
-					<div class="form-group">
-						<label for="exampleInputPassword1">내용</label>
+					<div class="form-group" align="left" style="font-size: 14px">
+						<label for="exampleInputPassword1" >내용</label><br><br>
 
 						<div class="form-control"
-							style="width: auto; height: 400; overflow-y: auto;"
+							style="width: auto; height:auto; overflow-y: auto;"
 							readonly="readonly">${doc_BoardVO.f_content}</div>
 					</div>
 					
-					<div class="form-group">
-						<label for="exampleInputEmail1">작성자</label> <input type="text"
+					<div class="form-group" align="left" style="font-size: 14px">
+						<label for="exampleInputEmail1">작성자</label><br><br> 
+						<input type="text"
 							name="f_emp_nm" class="form-control"
 							value="${doc_BoardVO.f_emp_nm}" readonly="readonly">
 					</div>
@@ -131,7 +148,7 @@
 				
 				<!-- /.box-body -->
 
-				<div class="box-footer">
+				<div class="box-footer" align="left" style="font-size: 14px">
 		
 		 			<c:if test="${doc_BoardVO.f_emp_id == mem_id or mem_id=='master'}">
 							<button type="submit" class="btn btn-warning">수정하기</button>
