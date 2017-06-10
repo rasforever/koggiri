@@ -4,8 +4,21 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<!-- Bootstrap 3.3.4 -->
+    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+
+
 
 
 <%@ include file="../include/header.jsp"%>
@@ -61,7 +74,7 @@
 			<!-- general form elements -->
 			<div class='box'>
 				<div class="box-header with-border">
-					<h3 class="box-title">문서게시판</h3>
+					<h3 class="box-title" align="left" style="font-size: 16px"><strong>문서게시판</strong></h3><br><br><br>
 				</div>
 
 
@@ -92,16 +105,16 @@
 
 			<div class="box">
 				<div class="box-header with-border">
-					<h3 class="box-title">글목록</h3>
+					<h3 class="box-title" align="left" style="font-size: 14px">글목록</h3>
 				</div>
 				<div class="box-body">
 					<table class="table table-bordered">
 						<tr>
-							<th style="width: 10px">글번호</th>
+							<th style="width: 60px;">글번호</th>
 							<th>제목</th>
 							<th>작성자</th>
 							<th>작성일</th>
-							<th style="width: 40px">조회수</th>
+							<th style="width: 60px">조회수</th>
 						</tr>
 
 						<c:forEach items="${list}" var="boardVO">
