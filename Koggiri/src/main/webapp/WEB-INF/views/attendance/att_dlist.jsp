@@ -18,7 +18,7 @@
 <div id="sub_menu_title">
 <h1><img src="/resources/img/s_menu10.png"/></h1>
 <div class="sub_top">   
-    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/information/index">회사정보</a>  &gt;  <strong>조직도</strong></span>
+    <span><a href="/main">홈</a>  <span> &gt; </span> <strong>근태확인</strong></span>
 </div>
 </div>
 
@@ -27,19 +27,11 @@
    <div class="lnb01">
       <strong class="menu05"><span>회사 정보</span></strong>
       <ul>
-                <li class="menu01 ">
-                    <a href="/information/index">Koggiri란?</a>
-                    <ul> </ul>
-                </li>
                 <li class="menu02 ">
-                    <a href="/chart/listAll">조직도</a>
+                    <a href="/chart/listAll">근태확인</a>
                     <ul>
-                      <li class="sub01 "><a href="/chart/list?dept_id=MM">경영팀</a></li>
-                      <li class="sub02 "><a href="/chart/list?dept_id=PL">인사팀</a></li>
-                      <li class="sub03 "><a href="/chart/list?dept_id=MT">관리팀</a></li>
-                      <li class="sub01 "><a href="/chart/list?dept_id=SN">솔루션팀</a></li>
-                      <li class="sub02 "><a href="/chart/list?dept_id=BS">영업팀</a></li>
-                      <li class="sub03 "><a href="/chart/list?dept_id=MG">마케팅팀</a></li>
+                      <li class="sub01 "><a href="/chart/list?dept_id=MM">근태확인</a></li>
+    					<ul></ul>
                     </ul>
                 </li>
            </ul>
@@ -53,9 +45,9 @@
 		<!-- general form elements -->
 
 
-		<div class="box">
+		<div class="box" align="left">
 			<div class="box-header with-border">
-				<h3 class="box-title">나의 근태 기록</h3>
+				<h3 class="box-title">나의 근태 기록</h3><br>
 			</div>
 			<div class="box-body">
 				<h3>${emp_InfoVO.emp_nm} ${emp_InfoVO.pos_nm}</h3>
