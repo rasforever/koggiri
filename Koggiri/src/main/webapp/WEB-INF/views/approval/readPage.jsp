@@ -1,17 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
-<script type="text/javascript" src="/resources/js/upload.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-	
+<!-- Bootstrap 3.3.4 -->
+    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
 <%@ include file="../include/header.jsp"%>
-<%@ include file="../sidebar/approval_sidebar.jsp"%>
+
+
+<link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
+<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
 
 <!-- Main content -->
 <style type="text/css">
@@ -42,6 +56,43 @@
 	overflow: auto;
 }
 </style>
+
+<div class="container_wrap" style="background-color: #ffffff;">
+<div id="container">
+
+<div id="sub_menu_title">
+<h1><img src="/resources/img/s_menu04.png"/></h1>
+<div class="sub_top">   
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/task/list">전자 문서</a> <span> &gt; </span> <a href="/approval/lists">전자결재</a>  &gt;  <strong>상세 보기</strong></span>
+</div>
+</div>
+
+
+<div id="lnb">
+   <div class="lnb01">
+      <strong class="menu02"><span>전자결재</span></strong>
+      <ul>
+                <li class="menu01">
+                    <a href="/task/list">업무보고</a>
+                    <ul> </ul>
+                </li>
+                <li class="menu02 ">
+                    <a href="/approval/lists">전자결재</a>
+                    <ul>
+                      <li class="sub01 "><a href="/approval/lists">보낸 결재</a></li>
+                      <li class="sub02 "><a href="/approval/listr">받은 결재</a></li>
+                      <li class="sub03 "><a href="/approval/register">결재 입력</a></li>
+                    </ul>
+                </li>
+                 <li class="menu03 ">
+                    <a href="/document/list">문서함</a>
+  					<ul></ul>
+                </li>
+           </ul>
+   </div>
+</div>
+
+<div id="sub_content" align="center">
 
 <div class='popup back' style="display: none;"></div>
 <div id="popup_front" class='popup front' style="display: none;">
@@ -126,7 +177,7 @@
 					
  					<c:if test="${search.searchType == 's' }">
 		 				<c:if test="${approvalVO.app_pro_cd.equals('0') }">
-		 					<c:if test="${approvalVO.draft_emp_id == 'k15010201' }">
+		 					<c:if test="${approvalVO.draft_emp_id == mem_id }">
 								<button type="submit" class="btn btn-warning" id="modifyBtn">Modify</button>
 								<button type="submit" class="btn btn-danger" id="removeBtn">REMOVE</button>
 							</c:if>
@@ -148,8 +199,6 @@
 </section>
 <!-- /.content -->
 
-
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
 
 <script id="templateAttach" type="text/x-handlebars-template">
@@ -260,7 +309,9 @@ $(document).ready(function(){
 });
 </script>
 
-
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
+<%@ include file="../include/footer.jsp"%>
 
 
 

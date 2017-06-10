@@ -151,6 +151,10 @@
 
 					</div>
 				</form>
+<br><br>		
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
+<%@ include file="../include/footer.jsp"%>
 
 				<script type="text/javascript" src="/resources/js/upload.js"></script>
 				<script
@@ -328,7 +332,6 @@
 <!-- /.content -->
 </div>
 
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
 <script type="text/javascript">
 	CKEDITOR.replace('app_context', {
@@ -338,6 +341,3 @@
 	});
 </script>
 
-<div class="footer_wrap" >
-<div id="footer" style="height: 150px">
-<%@ include file="../include/footer.jsp"%>
