@@ -38,8 +38,8 @@
 .back {
 	background-color: gray;
 	opacity: 0.5;
-	width: 100%;
-	height: 300%;
+	width: 970px;
+	height: 670px;
 	overflow: hidden;
 	z-index: 1101;
 }
@@ -53,11 +53,13 @@
 
 .show {
 	position: relative;
-	max-width: 1200px;
-	max-height: 800px;
+	max-width: 800px;
+	max-height: 540px;
 	overflow: auto;
 }
 </style>
+
+
 
 
 <div class="container_wrap" style="background-color: #ffffff;">
@@ -95,9 +97,14 @@
    </div>
 </div>
 
+
+
 <div id="sub_content" align="center">
 <!--  -->
-
+<div id="popup_front" class='popup front' style="display: none;" align="center">
+	<img id="popup_img">
+</div>
+<div class='popup back' style="display: none;"></div>
 
 <div class="row">
 		<!-- left column -->
@@ -168,6 +175,9 @@
 	</div>
 
 
+
+
+
 </div>
 </div>
 
@@ -179,10 +189,6 @@
 <%@ include file="../include/footer.jsp"%>
 
 
-<div class='popup back' style="display: none;"></div>
-<div id="popup_front" class='popup front' style="display: none;">
-	<img id="popup_img">
-</div>
 
 <!-- Main content -->
 <section class="content">
