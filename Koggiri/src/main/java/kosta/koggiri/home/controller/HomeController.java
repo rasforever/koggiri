@@ -12,7 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import kosta.koggiri.admin_emp.domain.EmpVO;
 import kosta.koggiri.admin_emp.service.AdminService;
 
@@ -46,14 +45,14 @@ public class HomeController {
 		EmpVO vo = new EmpVO();
 		vo.setEmp_id(mem_id);
 		
-		EmpVO empVO = service.mainEmp(vo); //main �쉶�썝 �젙蹂�
+		EmpVO empVO = service.mainEmp(vo);
 		System.out.println(empVO.toString());
 		model.addAttribute("empVO", empVO);
 		model.addAttribute("serverTime", formattedDate );
 		System.out.println("home:"+mem_id);
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
-		//  return "login/loginForm";    濡쒓렇�씤湲곕뒫 �셿�꽦 �릺硫� �솢�꽦�솕
+		//  return "login/loginForm";
 		
 		return "/main";
 	}

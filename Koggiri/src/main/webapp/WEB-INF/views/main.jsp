@@ -422,7 +422,7 @@
 	<!-- 본문 끝 -->
 </div>
 </div>
-	
+
 <div class="footer_wrap" style="background-color:#eef1f2;">
 <div id="footer" >
 <%@ include file="include/footer.jsp"%>
