@@ -38,8 +38,8 @@
 .back {
 	background-color: gray;
 	opacity: 0.5;
-	width: 100%;
-	height: 80%;
+	width: 970px;
+	height: 670px;
 	overflow: hidden;
 	z-index: 1101;
 }
@@ -97,14 +97,14 @@
    </div>
 </div>
 
-<div id="popup_front" class='popup front' style="display: none;">
-	<img id="popup_img">
-</div>
-<div class='popup back' style="display: none;"></div>
+
 
 <div id="sub_content" align="center">
 <!--  -->
-
+<div id="popup_front" class='popup front' style="display: none;" align="center">
+	<img id="popup_img">
+</div>
+<div class='popup back' style="display: none;"></div>
 
 <div class="row">
 		<!-- left column -->
