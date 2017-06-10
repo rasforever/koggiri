@@ -38,31 +38,31 @@
 <div id="container">
 
 <div id="sub_menu_title">
-<h1><img src="/resources/img/s_menu10.png"/></h1>
+<h1><img src="/resources/img/s_menu05.png"/></h1>
 <div class="sub_top">   
-    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="#">전자 문서</a>  &gt;  <strong>문서함</strong></span>
+     <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/task/list">전자 문서</a>  &gt;  <strong>문서함</strong></span>
 </div>
 </div>
 
 
 <div id="lnb">
    <div class="lnb01">
-      <strong class="menu02"><span>전자문서</span></strong>
+      <strong class="menu02"><span>전자결재</span></strong>
       <ul>
                 <li class="menu01">
-                    <a href="#">업무보고</a>
+                    <a href="/task/list">업무보고</a>
                     <ul> </ul>
                 </li>
                 <li class="menu02 ">
-                    <a href="/chart/listAll">전자결재</a>
+                    <a href="/approval/lists">전자결재</a>
                     <ul>
-                      <li class="sub01 "><a href="#">보낸결재</a></li>
-                      <li class="sub02 "><a href="#">받은결재</a></li>
-                      <li class="sub03 "><a href="#">결제입력</a></li>
+                      <li class="sub01 "><a href="/approval/lists">보낸 결재</a></li>
+                      <li class="sub02 "><a href="/approval/listr">받은 결재</a></li>
+                      <li class="sub03 "><a href="/approval/register">결재 입력</a></li>
                     </ul>
                 </li>
                  <li class="menu03 ">
-                    <a href="/chart/listAll">문서함</a>
+                    <a href="/document/list">문서함</a>
   					<ul></ul>
                 </li>
            </ul>

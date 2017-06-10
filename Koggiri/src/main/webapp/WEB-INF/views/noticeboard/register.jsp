@@ -26,7 +26,7 @@
 <div id="sub_menu_title">
 <h1><img src="/resources/img/s_menu01.png"/></h1>
 <div class="sub_top">   
-    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="#">회사정보</a>  &gt;  <strong>조직도</strong></span>
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/noticeboard/listPage">공지</a>  &gt;  <strong>공지사항</strong></span>
 </div>
 </div>
 
@@ -36,11 +36,11 @@
       <strong class="menu01"><span>회사 정보</span></strong>
       <ul>
                 <li class="menu01 ">
-                    <a href="#">공지사항</a>
+                    <a href="/noticeboard/listPage">공지사항</a>
                     <ul> </ul>
                 </li>
                 <li class="menu02 ">
-                    <a href="/chart/listAll">알립니다</a>
+                    <a href="#">알립니다</a>
                 </li>
            </ul>
    </div>
@@ -67,31 +67,33 @@
 		<div class="col-md-12">
 			<!-- general form elements -->
 			<div class="box box-primary">
-				<div class="box-header">
+				<!-- <div class="box-header">
 					<h3 class="box-title">REGISTER BOARD</h3>
-				</div>
+				</div> -->
 				<!-- /.box-header -->
 <form id='registerForm' role="form" method="post">
 	<div class="box-body">
 		<div class="form-group">
-			<label for="exampleInputEmail1" >Title</label> 
+			<label for="exampleInputEmail1" >제목<br><br></label> 
 			<input type="text"
 				name='N_TITLE' class="form-control" id = "title" placeholder="Enter Title">
 		</div>
 		<div class="form-group">
-			<label for="exampleInputPassword1">Content</label>
+			<label for="exampleInputPassword1">내용<br><br></label>
 			<textarea class="form-control" name="N_CONTENT" rows="3"
 				placeholder="Enter ..."></textarea>
 		</div>
+		
 		<div class="form-group">
-			<label for="exampleInputEmail1">Writer</label> 
+			<label for="exampleInputEmail1">작성자<br><br></label> 
 			<input type="text"
 				name="N_EMP_ID" class="form-control" placeholder="Enter Writer">
 		</div>
+		
 		<div class="form-group">
-			<label for="exampleInputEmail1">File DROP Here</label>
-		<div class="fileDrop"></div>
-	</div>
+			<label for="exampleInputEmail1">파일 첨부<br><br></label>
+			<div class="fileDrop" style="margin-left: 0px; width: 970px;"></div>
+		</div>
 	
 	<!-- /.box-body -->
 
