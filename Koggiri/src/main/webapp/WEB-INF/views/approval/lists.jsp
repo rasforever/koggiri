@@ -16,12 +16,48 @@
 	href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">	
 <%@ include file="../include/header.jsp"%>
 
-<%@ include file="../sidebar/approval_sidebar.jsp"%>
+<link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
+<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
+
+<div class="container_wrap" style="background-color: #ffffff;">
+<div id="container">
+
+<div id="sub_menu_title">
+<h1><img src="/resources/img/s_menu04.png"/></h1>
+<div class="sub_top">   
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/task/list">전자 문서</a> <span> &gt; </span> <a href="/approval/lists">전자결재</a>  &gt;  <strong>받은 결재</strong></span>
+</div>
+</div>
 
 
-<!-- Main content -->
-<section class="content">
-	<div class="row">
+<div id="lnb">
+   <div class="lnb01">
+      <strong class="menu02"><span>전자결재</span></strong>
+      <ul>
+                <li class="menu01">
+                    <a href="/task/list">업무보고</a>
+                    <ul> </ul>
+                </li>
+                <li class="menu02 ">
+                    <a href="/approval/lists">전자결재</a>
+                    <ul>
+                      <li class="sub01 "><a href="/approval/lists">보낸 결재</a></li>
+                      <li class="sub02 "><a href="/approval/listr">받은 결재</a></li>
+                      <li class="sub03 "><a href="/approval/register">결재 입력</a></li>
+                    </ul>
+                </li>
+                 <li class="menu03 ">
+                    <a href="/document/list">문서함</a>
+  					<ul></ul>
+                </li>
+           </ul>
+   </div>
+</div>
+
+<div id="sub_content" align="center">
+
+<!-- 본문 -->
+<div class="row">
 		<!-- left column -->
 
 
@@ -154,12 +190,27 @@
 		<!--/.col (left) -->
 
 	</div>
-	<!-- /.row -->
-</section>
-<!-- /.content -->
 
 
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+</div>
+
+
+</div>
+</div>
+
+
+<!-- 본문 끝 -->
+
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
+<%@ include file="../include/footer.jsp"%>
+
+
+
+
+
+
+
 
 
 <script>
@@ -422,4 +473,6 @@
 		}
 	}
 </script>
+
+
 

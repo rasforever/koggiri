@@ -20,7 +20,8 @@
 		        p.pos_nm as pos_nm, 
 		        e.e_mail as e_mail,
 		        e.join_dt as join_dt,
-		        e.pos_id as pos_id     
+		        e.pos_id as pos_id,
+		        e.tel_no as tel_no
 		from EMP e inner join POS p
 	    on  e.pos_id = p.pos_id
 	    inner join SEX s

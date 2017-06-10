@@ -6,18 +6,61 @@
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
+<!-- Bootstrap 3.3.4 -->
+    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />	
 <%@ include file="../include/header.jsp"%>
 
-<!-- Main content -->
-	<div class="row">
+<link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
+<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
+
+<div class="container_wrap" style="background-color: #ffffff;">
+<div id="container">
+
+<div id="sub_menu_title">
+<h1><img src="/resources/img/s_menu01.png"/></h1>
+<div class="sub_top">   
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/noticeboard/listPage">공지</a>  &gt;  <strong>공지사항</strong></span>
+</div>
+</div>
+
+
+<div id="lnb">
+   <div class="lnb01">
+      <strong class="menu01"><span>회사 정보</span></strong>
+      <ul>
+                <li class="menu01 ">
+                    <a href="/noticeboard/listPage">공지사항</a>
+                    <ul> </ul>
+                </li>
+                <li class="menu02 ">
+                    <a href="#">알립니다</a>
+                </li>
+           </ul>
+   </div>
+</div>
+
+<div id="sub_content">
+
+<!-- 본문 내용 시작 -->
+
+<div class="row">
 		<!-- left column -->
 		<div class="col-md-12">
 			<!-- general form elements -->
 
-			<div class="box">
-				<div class="box-header with-border">
-					<h3 class="box-title">LIST ALL PAGE</h3>
-				</div>
+			<div class="box" style="border-top: 0px;">
+				<!-- <div class="box-header with-border">
+					<h3 class="box-title"></h3>
+				</div> -->
 				<div class="box-body">
 				
 				<select name="searchType">
@@ -36,18 +79,20 @@
 							
 							</select> <input type="text" name='keyword' id="keywordInput"
 						value='${cri.keyword }'>
-					<button id='searchBtn' class="pagination">검색</button>
-					<button id='newBtn' class="pagination">글 작성</button>
+					<button id='searchBtn' class="pagination" style="border: 1px solid #bdbdbd; padding: 4px">검색</button>
+					<c:if test="${emp_nm=='master'}">
+					<button id='newBtn' class="pagination" style="border: 1px solid #bdbdbd; padding: 4px">글 작성</button>
+					</c:if>
 
 				</div>
-				
+
 <table class="table table-bordered">
 	<tr>
-		<th style="width: 10px">BNO</th>
-		<th>TITLE</th>
-		<th>WRITER</th>
-		<th>REGDATE</th>
-		<th style="width: 40px">VIEWCNT</th>
+		<th style="text-align: center; width: 60px">글번호</th>
+		<th style="text-align: center;">TITLE</th>
+		<th style="text-align: center;">WRITER</th>
+		<th style="text-align: center;">REGDATE</th>
+		<th style="text-align: center; width: 70px">VIEWCNT</th>
 	</tr>
 
 
@@ -131,6 +176,15 @@
 
 			});
 </script>
+	
+<!-- 본문 내용  끝-->
+	
+</div>
+       
+</div>
+</div>
 
+
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
 <%@ include file="../include/footer.jsp"%>
-

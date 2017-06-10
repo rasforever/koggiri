@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +36,7 @@ public class Noti_BoardController {
 	@Inject
 	private Noti_BoardService service;
 	
-	@Resource(name = "uploadPath") // 다운로드 경로
+	@Resource(name = "uploadPath") // �떎�슫濡쒕뱶 寃쎈줈
 	private String uploadPath;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -104,8 +105,10 @@ public class Noti_BoardController {
 	}
 	
 	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
-	public void listPage(@ModelAttribute("cri")Noti_SearchCriteria cri, Model model) throws Exception{
+	public void listPage(@ModelAttribute("cri")Noti_SearchCriteria cri, Model model,HttpSession session) throws Exception{
 
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("emp_nm", emp_nm);
 		model.addAttribute("list", service.listSearchCriteria(cri));
 		
 		Noti_PageMaker PageMaker = new Noti_PageMaker();
@@ -124,7 +127,7 @@ public class Noti_BoardController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/deleteAllFiles", method = RequestMethod.POST)
-	public ResponseEntity<String> deleteFile(@RequestParam("files[]") String[] files) {// 여러개의 파일 이름을 받을 수 있도록 String[]로 작성.
+	public ResponseEntity<String> deleteFile(@RequestParam("files[]") String[] files) {// �뿬�윭媛쒖쓽 �뙆�씪 �씠由꾩쓣 諛쏆쓣 �닔 �엳�룄濡� String[]濡� �옉�꽦.
 
 
 		if (files == null || files.length == 0) {

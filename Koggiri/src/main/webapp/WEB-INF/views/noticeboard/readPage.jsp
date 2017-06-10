@@ -3,12 +3,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
-    <!-- Main content -->
-    
+<%@ include file="../include/header.jsp"%>
+
+
+<link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
+<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
+
 <style type="text/css">
 .popup {
 	position: absolute;
@@ -38,20 +41,48 @@
 	} 	  	
 </style>
 
-    <div class='popup back' style="display:none;"></div>
+<div class="container_wrap" style="background-color: #ffffff;">
+<div id="container">
+
+<div id="sub_menu_title">
+<h1><img src="/resources/img/s_menu01.png"/></h1>
+<div class="sub_top">   
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/noticeboard/listPage">공지</a>  &gt;  <strong>공지사항</strong></span>
+</div>
+</div>
+
+
+<div id="lnb">
+   <div class="lnb01">
+      <strong class="menu01"><span>회사 정보</span></strong>
+      <ul>
+                <li class="menu01 ">
+                    <a href="/noticeboard/listPage">공지사항</a>
+                    <ul> </ul>
+                </li>
+                <li class="menu02 ">
+                    <a href="#">알립니다</a>
+                </li>
+           </ul>
+   </div>
+</div>
+
+<div id="sub_content">
+
+<!-- 본문 내용 시작 -->
+<div class='popup back' style="display:none;"></div>
     <div id="popup_front" class='popup front' style="display:none;">
      <img id="popup_img">
     </div>
     
-    <section class="content">
-      <div class="row">
+<div class="row">
       <!-- left column -->
       <div class="col-md-12">
         <!-- general form elements -->
         <div class="box box-primary">
-        <div class="box-header">
+        <!-- <div class="box-header">
           <h3 class="box-title">READ BOARD</h3>
-        </div>
+        </div> -->
  <!-- /.box-header -->
 
  <form role="form" action="modify" method="post">
@@ -66,17 +97,17 @@
     
   <div class="box-body">
     <div class="form-group">
-      <label for="exampleInputEmail1">Title</label>
+      <label for="exampleInputEmail1">제목<br><br></label>
       <input type="text" name='N_TITLE' class="form-control" 
          value="${Noti_BoardVO.n_TITLE}" readonly="readonly">
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Content</label>
+      <label for="exampleInputPassword1">내용<br><br></label>
       <textarea class="form-control"  name="N_CONTENT" rows="3" 
       readonly="readonly">${Noti_BoardVO.n_CONTENT}</textarea>
     </div>
     <div class="form-group">
-      <label for="exampleInputEmail1" >Writer</label>
+      <label for="exampleInputEmail1" >작성자<br><br></label>
       <input type="text" name="N_EMP_ID" class="form-control" 
         value="${Noti_BoardVO.n_EMP_ID}" readonly="readonly">
     </div>
@@ -89,9 +120,9 @@
   <div class="box-footer">
   <ul class="mailbox-attachments clearfix uploadedList"></ul>
   
-    <button type="submit" class="btn btn-warning">Modify</button>
-    <button type="submit" class="btn btn-danger">REMOVE</button>
-    <button type="submit" class="btn btn-primary">GO LIST </button>
+    <button type="submit" class="btn btn-warning">수정하기</button>
+    <button type="submit" class="btn btn-danger">삭제하기</button>
+    <button type="submit" class="btn btn-primary">목록</button>
   </div>
 
 
@@ -194,7 +225,17 @@
 				});
 			});
 </script>
-  <!-- /.content-wrapper -->
-    
 
-  
+<br><br>
+
+<!-- 본문 내용  끝-->
+	
+</div>
+       
+</div>
+</div>
+
+
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
+<%@ include file="../include/footer.jsp"%>

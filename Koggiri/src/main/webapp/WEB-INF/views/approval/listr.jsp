@@ -16,11 +16,48 @@
 <%@ include file="../include/header.jsp"%>
 
 
+<link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
+<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
 
-
-<!-- Main content -->
 <div class="container_wrap" style="background-color: #ffffff;">
 <div id="container">
+
+<div id="sub_menu_title">
+<h1><img src="/resources/img/s_menu04.png"/></h1>
+<div class="sub_top">   
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/task/list">전자 문서</a> <span> &gt; </span> <a href="/approval/lists">전자결재</a>  &gt;  <strong>보낸 결재</strong></span>
+</div>
+</div>
+
+
+<div id="lnb">
+   <div class="lnb01">
+      <strong class="menu02"><span>전자결재</span></strong>
+      <ul>
+                <li class="menu01">
+                    <a href="/task/list">업무보고</a>
+                    <ul> </ul>
+                </li>
+                <li class="menu02 ">
+                    <a href="/approval/lists">전자결재</a>
+                    <ul>
+                      <li class="sub01 "><a href="/approval/lists">보낸 결재</a></li>
+                      <li class="sub02 "><a href="/approval/listr">받은 결재</a></li>
+                      <li class="sub03 "><a href="/approval/register">결재 입력</a></li>
+                    </ul>
+                </li>
+                 <li class="menu03 ">
+                    <a href="/document/list">문서함</a>
+  					<ul></ul>
+                </li>
+           </ul>
+   </div>
+</div>
+
+<div id="sub_content" align="center">
+
+
+<!--  본문 -->
 
 	<div class="row">
 		<!-- left column -->
@@ -161,13 +198,20 @@
 		<!--/.col (left) -->
 
 	</div>
-	<!-- /.row -->
 
-<!-- /.content -->
+	</div>
 
-<div class="footer_wrap">
-<div id="footer">
+
+</div>
+</div>
+
+
+<!-- 본문 끝 -->
+
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
 <%@ include file="../include/footer.jsp"%>
+
 
 <script>
 	var result = '${msg}';

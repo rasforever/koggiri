@@ -40,8 +40,9 @@ public class Doc_BoardController {
 	@RequestMapping(value="/register", method=RequestMethod.GET)
 	public void registGET(Doc_BoardVO board, Model model, HttpSession session)throws Exception{
 		
-		String mem_id = (String) session.getAttribute("mem_id");
+		String mem_id = (String)session.getAttribute("mem_id");
 		String emp_nm = (String)session.getAttribute("emp_nm");
+		System.out.println(mem_id);
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
 	
@@ -60,8 +61,14 @@ public class Doc_BoardController {
 	}
 	
 	@RequestMapping(value="/readPage", method=RequestMethod.GET)
-	public void read(@RequestParam("f_id")int f_id, @ModelAttribute("cri") Doc_SearchCriteria cri, Model model)throws Exception{
+	public void read(@RequestParam("f_id")int f_id, @ModelAttribute("cri") Doc_SearchCriteria cri, Model model, HttpSession session)throws Exception{
 	
+		String mem_id = (String)session.getAttribute("mem_id");
+		String emp_nm = (String)session.getAttribute("emp_nm");
+		
+		model.addAttribute("mem_id", mem_id);
+		model.addAttribute("emp_nm", emp_nm);
+		System.out.println("readPage에서 확인: " + mem_id);
 		
 		model.addAttribute(service.read(f_id));//조회된 게시물 jsp로 전달하기위해 모델객체 사용
 		//addAttribute()작업할 때 아무런 이름 없이 데이터를 넣으면 자동으로 클래스의 이름을 소문자로 시작해서 사용.
@@ -157,6 +164,44 @@ public class Doc_BoardController {
 		}
 
 		return new ResponseEntity<String>("deleted", HttpStatus.OK);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@ResponseBody
+	@RequestMapping(value = "/deleteFile", method = RequestMethod.POST)
+	public ResponseEntity<String> deleteFile(String fileName) {// 파라미터로 삭제할 파일의
+																// 이름을 받아들임
+
+	
+
+		String formatName = fileName.substring(fileName.lastIndexOf(".") + 1);
+
+		MediaType mType = MediaUtils.getMediaType(formatName);
+
+		if (mType != null) {
+
+			String front = fileName.substring(0, 12);
+			String end = fileName.substring(14);
+			new File(uploadPath + (front + end).replace('/', File.separatorChar)).delete();
+			// 1.원본파일을 먼저 삭제한다.
+		}
+
+		new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
+		// 2. 썸네일파일 삭제
+		return new ResponseEntity<String>("deleted", HttpStatus.OK);
+
 	}
 
 	
