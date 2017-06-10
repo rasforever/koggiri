@@ -9,6 +9,6 @@ public interface AttendanceDAO {
 	
 	public Att_Emp_InfoVO einfo_select(String emp_id) throws Exception;
 
-	public List<AttendanceVO> att_dlit(String emp_id) throws Exception; //본인 근태내역 
+	public List<AttendanceVO> att_dlist(String emp_id) throws Exception; //본인 근태내역 
 
 }

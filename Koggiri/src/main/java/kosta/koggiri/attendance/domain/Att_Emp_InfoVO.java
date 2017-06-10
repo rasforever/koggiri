@@ -49,7 +49,7 @@ public class Att_Emp_InfoVO {
 	}
 	@Override
 	public String toString() {
-		return "Emp_InfoVo [emp_id=" + emp_id + ", emp_nm=" + emp_nm + ", dept_id=" + dept_id + ", dept_nm=" + dept_nm
+		return "Att_Emp_InfoVo [emp_id=" + emp_id + ", emp_nm=" + emp_nm + ", dept_id=" + dept_id + ", dept_nm=" + dept_nm
 				+ ", pos_nm=" + pos_nm + "]";
 	}
 	

@@ -17,8 +17,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		e.emp_id = #{emp_id}
 	</select>
 	
-	<select id="att_dlit" parameterType="String"  resultType="AttendanceVO">
-		select att_dt, att_time, lev_time from attendance where emp_id = #{emp_id} and att_dt = to_char(sysdate, 'yyyymmdd')
+	<select id="att_dlist" parameterType="String"  resultType="AttendanceVO">
+		select att_dt, att_time, lea_time from attendance where emp_id = #{emp_id} and substr(att_dt,0,6) = to_char(sysdate, 'yyyymm')
 	</select>
 
 </mapper>

@@ -80,10 +80,8 @@
 	<context:component-scan base-package="kosta.koggiri.task.persistence"></context:component-scan>
 	<context:component-scan base-package="kosta.koggiri.task.service"></context:component-scan>
 	
-	<!-- attendance <context:component-scan> -->
+	<!-- task <context:component-scan> -->
 	<context:component-scan base-package="kosta.koggiri.attendance.persistence"></context:component-scan>
 	<context:component-scan base-package="kosta.koggiri.attendance.service"></context:component-scan>
-
-
 
 </beans>

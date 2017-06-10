@@ -2,12 +2,12 @@ package kosta.koggiri.attendance.service;
 
 import java.util.List;
 
-import kosta.koggiri.attendance.domain.AttendanceVO;
 import kosta.koggiri.attendance.domain.Att_Emp_InfoVO;
+import kosta.koggiri.attendance.domain.AttendanceVO;
 
-public interface AttendanceService {	
-
-	public Att_Emp_InfoVO einfo_select(String emp_id) throws Exception; //ì‚¬ì›ì •ë³´ê°€ì ¸ì˜¤ê¸°
-	public List<AttendanceVO> att_dlit(String emp_id) throws Exception; //ë³¸ì¸ ê·¼íƒœë‚´ì—­ 
+public interface AttendanceService {
+	
+	public Att_Emp_InfoVO einfo_select(String emp_id) throws Exception; //»ç¿øÁ¤º¸°¡Á®¿À±â
+	public List<AttendanceVO> att_dlist(String emp_id) throws Exception; //º»ÀÎ ±ÙÅÂ³»¿ª 
 
 }

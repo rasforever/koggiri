@@ -23,9 +23,10 @@ public class AttendanceController {
 	@RequestMapping(value = "/att_dlist", method = RequestMethod.GET)
 	public void att_dlistGET(Model model, HttpSession session) throws Exception {
 		
-		String mem_id = (String) session.getAttribute("mem_id");
-		model.addAttribute("einfo", service.einfo_select(mem_id));
-		model.addAttribute("list", service.att_dlit(mem_id));
+		String emp_id = (String) session.getAttribute("mem_id");
+		System.out.println(emp_id);
+		model.addAttribute("einfo", service.einfo_select(emp_id));
+		model.addAttribute("list", service.att_dlist(emp_id));
 	}	
 
 }
