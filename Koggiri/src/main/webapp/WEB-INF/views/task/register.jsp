@@ -97,26 +97,7 @@
 <div class="container_wrap" style="background-color: #ffffff;">
 	<div id="container">
 
-<<<<<<< HEAD
 
-	<form role="form" method="post">
-		<div class="box-body">
-				<input type="text" id="week-picker" name="ta_date" size="30"
-				placeholder="업무일자를 선택해주세요"><br>
-			<br>
-			<div class="form-group">
-				<label for="weekresult">금주업무실적</label><br>
-				<textarea class="form-control" name="ta_weekresult" cols="50"
-					rows="10" placeholder="금주 업무 일지를 등록해주세요"></textarea>
-			</div>
-
-			<br>
-			<br>
-
-			<div class="form-group">
-				<label for="weekresult">차주업무계획</label><br>
-				<textarea class="form-control" name="ta_nextresult" cols="50"
-					rows="10" placeholder="차주 업무 계획을 등록해주세요"></textarea>
 		<div id="sub_menu_title">
 			<h1>
 				<img src="/resources/img/s_menu03.png" />
@@ -155,21 +136,19 @@
 			<div class="col-md-12">
 				<!-- general form elements -->
 				<div class="box box-primary">
-					<div class="box-header">
+				<div class="box-header with-border">
 						<h3 class="box-title">업무 작성</h3>
-					</div>
+								<br><br> 
 					<!-- /.box-header -->
 
 
 					<form role="form" method="post">
 						<div class="box-body">
-							<br> 작성자:<input type="text" name="emp_id"
-								class="form-control" value="${emp_nm}" size="7"
-								readonly="readonly"><br> <input type="text"
-								id="week-picker" name="ta_date" size="30"
-								placeholder="업무일자를 선택해주세요"><br> <br>
 							<div class="form-group">
-								<label for="weekresult">금주업무실적</label><br>
+								<input type="text"
+								id="week-picker" name="ta_date" 
+								placeholder="업무일자를 선택해주세요" ><br> <br>
+								<label for="weekresult">금주업무실적</label><br><br>
 								<textarea class="form-control" name="ta_weekresult" cols="50"
 									rows="10" placeholder="금주 업무 일지를 등록해주세요"></textarea>
 							</div>
@@ -177,7 +156,7 @@
 							<br> <br>
 
 							<div class="form-group">
-								<label for="weekresult">차주업무계획</label><br>
+								<label for="weekresult">차주업무계획</label><br><br>
 								<textarea class="form-control" name="ta_nextresult" cols="50"
 									rows="10" placeholder="차주 업무 계획을 등록해주세요"></textarea>
 							</div>
