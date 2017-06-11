@@ -16,28 +16,86 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		and
 		e.emp_id = #{emp_id}
 	</select>
-	
-	<select id="att_dlist" parameterType="String"  resultType="AttendanceVO">
-		select att_dt, att_time, lea_time from attendance where emp_id = #{emp_id} and substr(att_dt,0,6) = to_char(sysdate, 'yyyymm')
+
+	<select id="att_dlist" parameterType="String" resultType="AttendanceVO">
+		select
+		att_dt, att_time, lea_time from attendance where emp_id = #{emp_id}
+		and substr(att_dt,0,6) = to_char(sysdate, 'yyyymm')
 	</select>
-	
-	<select id="att_alldlist"  resultType="AttendanceVO">
-		select  e.emp_id as emp_id
-		      , e.emp_nm as emp_nm
-		      , d.dept_nm as dept_nm
-		      , p.pos_nm as pos_nm
-		      , a.att_time as att_time
-		      , a.lea_time as lea_time
-		from emp e 
+
+	<select id="att_alldlist" resultType="AttendanceVO">
+		select e.emp_id as emp_id
+		, e.emp_nm as emp_nm
+		, d.dept_nm as dept_nm
+		, p.pos_nm as pos_nm
+		, a.att_time as att_time
+		, a.lea_time as lea_time
+		from emp e
 		left outer join ATTENDANCE a
 		on a.emp_id = e.emp_id
-	    and att_dt = #{att_dd}
-	  	inner join dept d
+		and att_dt = #{att_dd}
+		inner join dept d
 		on e.dept_id = d.dept_id
 		inner join pos p
-		on e.pos_id = p.pos_id	
-   		where  e.emp_id not in ('master')
+		on e.pos_id =
+		p.pos_id
+		where e.emp_id not in ('master')
+		order by d.dept_sort, e.pos_id, e.emp_id
+	</select>
+
+	<select id="att_workmm" resultType="AttendanceSearchVO">
+		select DISTINCT
+		substr(att_dt,1,6) as att_mm from attendance order by att_mm desc
+	</select>
+
+	<select id="att_mlist" parameterType="AttendanceSearchVO" resultType="AttendanceVO">
+	<![CDATA[
+		select e.emp_id as emp_id
+			 , e.emp_nm as emp_nm
+			 , d.dept_nm as dept_nm
+			 , p.pos_nm as pos_nm
+			 , (select DISTINCT count(emp_id) 
+			 	  from ATTENDANCE 
+			 	 where substr(att_dt,1,6) =#{att_mm}
+			 	   and att_dt <= sysdate group by emp_id) as all_work_day
+			 , (select count(att_dt) 
+			 	  from ATTENDANCE 
+			 	 where EMP_ID = e.emp_id 
+			 	   and substr(att_dt,1,6) =#{att_mm}
+			 	   and att_dt <= sysdate
+			 	   and att_time is not null 
+			 	   and lea_time is not null) as att_day
+			 , (select count(att_dt) 
+			      from ATTENDANCE 
+			     where EMP_ID = e.emp_id 
+			       and substr(att_dt,1,6) =#{att_mm}
+			       and att_dt <= sysdate
+			       and att_time is null 
+			       and lea_time is null) - 
+			   (select count(vat_dt) 
+			      from ATT_VAT_DAY
+			     where emp_id = e.emp_id 
+			       and substr(vat_dt,1,6) =#{att_mm}
+			       and vat_dt <= sysdate ) as abs_day
+			, (select count(vat_dt) 
+			   	 from ATT_VAT_DAY 
+			   	where emp_id = e.emp_id 
+			   	  and substr(vat_dt,1,6) =#{att_mm}
+			   	  and vat_dt <= sysdate ) as vat_day
+		from emp e
+		left outer join ATTENDANCE a
+		on a.emp_id = e.emp_id
+		and substr(att_dt,1,6) = #{att_mm}
+		and att_dt <= sysdate
+		inner join dept d
+		on e.dept_id = d.dept_id
+		inner join pos p
+		on e.pos_id =
+		p.pos_id
+		where e.emp_id not in ('master')
+		group by e.emp_id, e.emp_nm, d.dept_nm, p.pos_nm, d.DEPT_SORT, e.pos_id
 		order by d.dept_sort, e.pos_id, e.emp_id 
+	]]>
 	</select>
 
 </mapper>

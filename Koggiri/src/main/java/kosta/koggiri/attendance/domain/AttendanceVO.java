@@ -9,6 +9,10 @@ public class AttendanceVO {
 	private String att_dt;
 	private String att_time;
 	private String lev_time;
+	private String all_work_day;
+	private String att_day;
+	private String abs_day;
+	private String vat_day;
 	
 	public String getEmp_id() {
 		return emp_id;
@@ -58,6 +62,32 @@ public class AttendanceVO {
 	public void setLev_time(String lev_time) {
 		this.lev_time = lev_time;
 	}
+	public String getAll_work_day() {
+		return all_work_day;
+	}
+	public void setAll_work_day(String all_work_day) {
+		this.all_work_day = all_work_day;
+	}
+	public String getAtt_day() {
+		return att_day;
+	}
+	public void setAtt_day(String att_day) {
+		this.att_day = att_day;
+	}
+	public String getAbs_day() {
+		return abs_day;
+	}
+	public void setAbs_day(String abs_day) {
+		this.abs_day = abs_day;
+	}
+	public String getVat_day() {
+		return vat_day;
+	}
+	public void setVat_day(String vat_day) {
+		this.vat_day = vat_day;
+	}
+	
+	
 	
 
 }

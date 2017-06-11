@@ -13,4 +13,6 @@ public interface AttendanceService {
 	public List<AttendanceVO> att_alldlist(AttendanceSearchVO vo) throws Exception; //전사원 당일 근태내역 
 	public List<AttendanceVO> att_mlist(AttendanceSearchVO vo) throws Exception; //전사원 월 근태내역 
 
+	public List<AttendanceSearchVO> att_workMM() throws Exception; //데이터가 생성된 달
+
 }

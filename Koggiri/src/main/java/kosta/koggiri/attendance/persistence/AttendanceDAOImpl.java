@@ -39,6 +39,11 @@ public class AttendanceDAOImpl implements AttendanceDAO{
 		return session.selectList(namespace + ".att_mlist", vo);
 	}
 
+	@Override
+	public List<AttendanceSearchVO> att_workMM() throws Exception {
+		return session.selectList(namespace + ".att_workmm");
+	}
+
 	
 
 }

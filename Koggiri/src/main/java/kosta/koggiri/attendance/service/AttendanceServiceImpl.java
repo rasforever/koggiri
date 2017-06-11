@@ -37,6 +37,11 @@ public class AttendanceServiceImpl implements AttendanceService{
 		return dao.att_mlist(vo);
 	}
 
+	@Override
+	public List<AttendanceSearchVO> att_workMM() throws Exception {
+		return dao.att_workMM();
+	}
+
 
 
 }

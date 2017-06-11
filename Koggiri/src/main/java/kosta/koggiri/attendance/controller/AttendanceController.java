@@ -35,7 +35,11 @@ public class AttendanceController {
 	}	
 	@RequestMapping(value = "/att_alldlist", method = RequestMethod.GET) //전사원 당일 근태내역 조회
 	public void att_alldlistGET(@ModelAttribute("search") AttendanceSearchVO search,Model model, HttpSession session) throws Exception {
-		
+				
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		String att_day = search.getAtt_dd();
 		
 		if (att_day == null){
@@ -50,19 +54,40 @@ public class AttendanceController {
 			String date = year+""+month+""+day;
 			search.setAtt_dd(date);
 		} else {
+			att_day = att_day.replace("/","");
 			search.setAtt_dd(att_day);
 		}
-		System.out.println();
+		model.addAttribute("att_day", search.getAtt_dd());
 		model.addAttribute("alldlist", service.att_alldlist(search));
 	}
 	
 	@RequestMapping(value = "/att_mlist", method = RequestMethod.GET) //전사원 월 근태내역 조회
 	public void att_mlistGET(@ModelAttribute("search") AttendanceSearchVO search,Model model, HttpSession session) throws Exception {
 		
-		String emp_id = (String) session.getAttribute("mem_id");
-		System.out.println(emp_id);
-		model.addAttribute("einfo", service.einfo_select(emp_id));
-		model.addAttribute("list", service.att_mlist(search));
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
+		
+		String att_day = search.getAtt_mm();
+		
+		if (att_day == null){
+			Calendar cal = Calendar.getInstance(); // Calendar 객체 생성.
+			int year = cal.get(Calendar.YEAR);
+			String month = (cal.get(Calendar.MONTH)+1) + "";			
+			if (month.length() == 1){
+				month = "0" + month; 
+			}			
+			String date = year+""+month;
+			search.setAtt_mm(date);
+		} else {
+			att_day = att_day.replace("/","");
+			search.setAtt_mm(att_day);
+		}
+		model.addAttribute("att_day", search.getAtt_mm());
+		model.addAttribute("att_mm_list", service.att_workMM());
+		model.addAttribute("att_mlist", service.att_mlist(search));
+		
 	}
 
 }
