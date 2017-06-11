@@ -20,7 +20,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import kosta.koggiri.approval.domain.ApprovalSearchVO;
 import kosta.koggiri.approval.domain.ApprovalVO;
 import kosta.koggiri.approval.domain.PageMaker;
-import kosta.koggiri.approval.domain.SearchCriteria;
 import kosta.koggiri.approval.service.ApprovalService;
 
 @Controller
@@ -31,16 +30,19 @@ public class ApprovalController {
 	@Inject
 	private ApprovalService service;
 
-	// 입력 GET방식
+	// �엯�젰 GET諛⑹떇
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public void registerGET(ApprovalVO approval, Model model, HttpSession session) throws Exception {
 		logger.info("register get......");
 		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		model.addAttribute("einfo", service.einfo_select(mem_id));
 		model.addAttribute("applist", service.appty_select());
 	}
 
-	// 입력 POST방식
+	// �엯�젰 POST諛⑹떇
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerPOST(ApprovalVO approval, RedirectAttributes rttr) throws Exception {
 		logger.info("register post......");
@@ -51,80 +53,41 @@ public class ApprovalController {
 
 		return "redirect:/approval/lists";
 	}
-	
-	// LIST 보낸 결재 조회
-		@RequestMapping(value = "/lists", method = RequestMethod.GET)
-		public void listsPage(@ModelAttribute("search") ApprovalSearchVO search, Model model, HttpSession session) throws Exception {
-			logger.info(search.toString());
 
-			model.addAttribute("applist", service.appty_select());
-			model.addAttribute("deptlist", service.dept_select());
-			String mem_id = (String) session.getAttribute("mem_id");
-			search.setDraft_emp_id(mem_id);	
-			search.setSearchType("s");		
-	      
-			if (search.getApp_pro_cd() == null){
-				search.setApp_pro_cd(" ");
-			} 
-			if (search.getApp_type() == null){
-				search.setApp_type(" ");				
-			} 
-			if (search.getSearch_app_id() == null){
-				search.setSearch_app_id(" ");
-			}
-			if (search.getApp_emp_id() == null){
-				search.setApp_emp_id(" ");
-			} 
-			if (search.getDraft_s_dt() == null){
-				search.setDraft_s_dt("0001/01/01");
-			} 
-			if (search.getDraft_e_dt() == null){
-				search.setDraft_e_dt("9999/12/31");
-			}			 
-			
-			model.addAttribute("list", service.listSearchCriteria(search));
-
-			PageMaker pageMaker = new PageMaker();
-			pageMaker.setSearch(search);
-
-			pageMaker.setTotalCount(service.listSearchCount(search));
-			model.addAttribute("pageMaker", pageMaker);
-
-		}
-
-	// LIST 받은 결재 조회
-	@RequestMapping(value = "/listr", method = RequestMethod.GET)
-	public void listrPage(@ModelAttribute("search") ApprovalSearchVO search, Model model, HttpSession session) throws Exception {
+	// LIST 蹂대궦 寃곗옱 議고쉶
+	@RequestMapping(value = "/lists", method = RequestMethod.GET)
+	public void listsPage(@ModelAttribute("search") ApprovalSearchVO search, Model model, HttpSession session)
+			throws Exception {
 		logger.info(search.toString());
 
 		model.addAttribute("applist", service.appty_select());
 		model.addAttribute("deptlist", service.dept_select());
 		String mem_id = (String) session.getAttribute("mem_id");
-		search.setApp_emp_id(mem_id);	
-		search.setSearchType("r");
-      
-		if (search.getApp_pro_cd() == null){
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
+		search.setDraft_emp_id(mem_id);
+		search.setSearchType("s");
+
+		if (search.getApp_pro_cd() == null) {
 			search.setApp_pro_cd(" ");
-		} 
-		if (search.getApp_type() == null){
-			search.setApp_type(" ");				
-		} 
-		if (search.getSearch_app_id() == null){
+		}
+		if (search.getApp_type() == null) {
+			search.setApp_type(" ");
+		}
+		if (search.getSearch_app_id() == null) {
 			search.setSearch_app_id(" ");
 		}
-		if (search.getDraft_emp_id() == null){
-			search.setDraft_emp_id(" ");
-		} 
-		if (search.getDept_cd() == null){
-			search.setDept_cd(" ");
-		} 
-		if (search.getDraft_s_dt() == null){
+		if (search.getApp_emp_id() == null) {
+			search.setApp_emp_id(" ");
+		}
+		if (search.getDraft_s_dt() == null) {
 			search.setDraft_s_dt("0001/01/01");
-		} 
-		if (search.getDraft_e_dt() == null){
+		}
+		if (search.getDraft_e_dt() == null) {
 			search.setDraft_e_dt("9999/12/31");
-		}					 
-		
+		}
+
 		model.addAttribute("list", service.listSearchCriteria(search));
 
 		PageMaker pageMaker = new PageMaker();
@@ -135,13 +98,60 @@ public class ApprovalController {
 
 	}
 
-	
+	// LIST 諛쏆� 寃곗옱 議고쉶
+	@RequestMapping(value = "/listr", method = RequestMethod.GET)
+	public void listrPage(@ModelAttribute("search") ApprovalSearchVO search, Model model, HttpSession session)
+			throws Exception {
+		logger.info(search.toString());
+
+		model.addAttribute("applist", service.appty_select());
+		model.addAttribute("deptlist", service.dept_select());
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
+		search.setApp_emp_id(mem_id);
+		search.setSearchType("r");
+
+		if (search.getApp_pro_cd() == null) {
+			search.setApp_pro_cd(" ");
+		}
+		if (search.getApp_type() == null) {
+			search.setApp_type(" ");
+		}
+		if (search.getSearch_app_id() == null) {
+			search.setSearch_app_id(" ");
+		}
+		if (search.getDraft_emp_id() == null) {
+			search.setDraft_emp_id(" ");
+		}
+		if (search.getDept_cd() == null) {
+			search.setDept_cd(" ");
+		}
+		if (search.getDraft_s_dt() == null) {
+			search.setDraft_s_dt("0001/01/01");
+		}
+		if (search.getDraft_e_dt() == null) {
+			search.setDraft_e_dt("9999/12/31");
+		}
+
+		model.addAttribute("list", service.listSearchCriteria(search));
+
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setSearch(search);
+
+		pageMaker.setTotalCount(service.listSearchCount(search));
+		model.addAttribute("pageMaker", pageMaker);
+
+	}
 
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
-	public void read(@RequestParam("app_id") String app_id, @ModelAttribute("search") ApprovalSearchVO search, Model model, HttpSession session)
-			throws Exception {
+	public void read(@RequestParam("app_id") String app_id, @ModelAttribute("search") ApprovalSearchVO search,
+			Model model, HttpSession session) throws Exception {
 
 		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("emp_nm",emp_nm);
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute(service.read(app_id));
 	}
@@ -161,24 +171,28 @@ public class ApprovalController {
 		rttr.addAttribute("draft_emp_id", search.getDraft_emp_id());
 		rttr.addAttribute("app_emp_id", search.getApp_emp_id());
 		rttr.addAttribute("draft_s_dt", search.getDraft_s_dt());
-		rttr.addAttribute("draft_e_dt", search.getDraft_e_dt());	
+		rttr.addAttribute("draft_e_dt", search.getDraft_e_dt());
 		rttr.addFlashAttribute("msg", "SUCCESS");
-		
+
 		return "redirect:/approval/lists";
 	}
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
-	public void modifyPagingGET(@RequestParam("app_id") String app_id, @ModelAttribute("search") ApprovalSearchVO search,
-			Model model, HttpSession session) throws Exception {
+	public void modifyPagingGET(@RequestParam("app_id") String app_id,
+			@ModelAttribute("search") ApprovalSearchVO search, Model model, HttpSession session) throws Exception {
 
 		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		model.addAttribute("einfo", service.einfo_select(mem_id));
 		model.addAttribute(service.read(app_id));
 
 	}
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
-	public String modifyPagingPOST(ApprovalVO approval, ApprovalSearchVO search, RedirectAttributes rttr) throws Exception {
+	public String modifyPagingPOST(ApprovalVO approval, ApprovalSearchVO search, RedirectAttributes rttr)
+			throws Exception {
 
 		service.modify(approval);
 		rttr.addAttribute("page", search.getPage());
@@ -187,10 +201,9 @@ public class ApprovalController {
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		return "redirect:/approval/lists";
 	}
-	
+
 	@RequestMapping(value = "/updatePage", method = RequestMethod.POST)
-	public String update(ApprovalVO approval, ApprovalSearchVO search, RedirectAttributes rttr)
-			throws Exception {
+	public String update(ApprovalVO approval, ApprovalSearchVO search, RedirectAttributes rttr) throws Exception {
 
 		service.update(approval);
 		rttr.addAttribute("page", search.getPage());
@@ -203,17 +216,16 @@ public class ApprovalController {
 		rttr.addAttribute("draft_emp_id", search.getDraft_emp_id());
 		rttr.addAttribute("app_emp_id", search.getApp_emp_id());
 		rttr.addAttribute("draft_s_dt", search.getDraft_s_dt());
-		rttr.addAttribute("draft_e_dt", search.getDraft_e_dt());	
+		rttr.addAttribute("draft_e_dt", search.getDraft_e_dt());
 		rttr.addFlashAttribute("msg", "SUCCESS");
-		
+
 		return "redirect:/approval/listr";
 	}
-	
+
 	@RequestMapping("getAttach/{app_id}")
 	@ResponseBody
-	public List<String> getAttach(@PathVariable("app_id")String app_id)throws Exception{
+	public List<String> getAttach(@PathVariable("app_id") String app_id) throws Exception {
 		return service.getAttach(app_id);
 	}
 
 }
-

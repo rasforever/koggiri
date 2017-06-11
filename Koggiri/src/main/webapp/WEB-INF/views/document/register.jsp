@@ -1,50 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="/resources/plugins/ckeditor/ckeditor.js"></script>
 
-<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!-- Bootstrap 3.3.4 -->
+    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
 
 <%@ include file="../include/header.jsp"%>
 
-<head>
 
-<meta
-	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-	name="viewport">
-<!-- Bootstrap 3.3.4 -->
-<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css">
-<!-- Font Awesome Icons -->
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<!-- Ionicons -->
-<link
-	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
-	rel="stylesheet" type="text/css">
-<!-- Theme style -->
-<link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet"
-	type="text/css">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- AdminLTE Skins. Choose a skin from the css/skins 
-         folder instead of downloading all of them to reduce the load. -->
-<link href="/resources/dist/css/skins/_all-skins.min.css"
-	rel="stylesheet" type="text/css">
-
-
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-</head>
-
-<script type="text/javascript"
-	src="/resources/plugins/ckeditor/ckeditor.js"></script>
+<link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
+<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 
 
 <style>
@@ -57,28 +33,64 @@
 }
 </style>
 
-<!-- Main content -->
-<section class="content">
-	<div class="row">
+
+<div class="container_wrap" style="background-color: #ffffff;">
+<div id="container">
+
+<div id="sub_menu_title">
+<h1><img src="/resources/img/s_menu05.png"/></h1>
+<div class="sub_top">   
+     <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/task/list">전자 문서</a>  &gt;  <strong>문서함</strong></span>
+</div>
+</div>
+
+
+<div id="lnb">
+   <div class="lnb01">
+      <strong class="menu02"><span>전자결재</span></strong>
+      <ul>
+                <li class="menu01">
+                    <a href="/task/list">업무보고</a>
+                    <ul> </ul>
+                </li>
+                <li class="menu02 ">
+                    <a href="/approval/lists">전자결재</a>
+                    <ul>
+                      <li class="sub01 "><a href="/approval/lists">보낸 결재</a></li>
+                      <li class="sub02 "><a href="/approval/listr">받은 결재</a></li>
+                      <li class="sub03 "><a href="/approval/register">결재 입력</a></li>
+                    </ul>
+                </li>
+                 <li class="menu03 ">
+                    <a href="/document/list">문서함</a>
+  					<ul></ul>
+                </li>
+           </ul>
+   </div>
+</div>
+
+<div id="sub_content" align="center">
+<div class="row">
 		<!-- left column -->
 		<div class="col-md-12">
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3 class="box-title">문서게시판 등록하기</h3>
+					<h3 class="box-title" align="left" style="font-size: 16px"><strong>문서게시판 등록하기</strong></h3><br><br><br>
 				</div>
 				<!-- /.box-header -->
 
 				<form id='registerForm' role="form" method="post">
 					<input type="hidden" name="f_emp_id" value="${mem_id}">
 					<div class="box-body">
-						<div class="form-group">
-							<label for="exampleInputEmail1">제목</label> <input type="text"
+						<div class="form-group" align="left" style="font-size: 14px">
+							<label for="exampleInputEmail1">제목</label><br><br>
+							 <input type="text"
 								name='f_title' value="" id="title" class="form-control"
 								placeholder="제목을 입력하세요">
 						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">내용</label>
+						<div class="form-group" align="left" style="font-size: 14px">
+							<label for="exampleInputPassword1">내용</label><br><br>
 							<textarea class="form-control" name="f_content" rows="3"
 								placeholder="내용을 입력하세요"></textarea>
 							<script type="text/javascript">
@@ -93,14 +105,15 @@
 							</script>
 
 						</div>
-						<div class="form-group">
-							<label for="exampleInputEmail1">작성자</label> <input type="text"
+						<div class="form-group" align="left" style="font-size: 14px">
+							<label for="exampleInputEmail1">작성자</label><br><br> 
+							<input type="text"
 								value="${emp_nm }" name="f_emp_nm" class="form-control"
 								placeholder="Enter Writer" readonly="readonly">
 						</div>
 
 						<div class="form-group">
-							<label for="exampleInputEmail1">파일첨부하기</label>
+							<label for="exampleInputEmail1">파일첨부하기</label><br><br>
 							<div class="fileDrop"></div>
 						</div>
 					</div>
@@ -112,7 +125,7 @@
 							<hr>
 						</div>
 
-						<ul class="mailbox-attachments clearfix uploadedList"  >
+						<ul class="mailbox-attachments clearfix uploadedList">
 						</ul>
 
 						<button type="submit" class="btn btn-primary">등록하기</button>
@@ -127,15 +140,26 @@
 		<!--/.col (left) -->
 
 	</div>
-	<!-- /.row -->
-</section>
-<!-- /.content -->
+
+	</div>
+
+
 </div>
-<!-- /.content-wrapper -->
+</div>
+
+
+<!-- 본문 끝 -->
+
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
+<%@ include file="../include/footer.jsp"%>
+
+
+
+
 
 <script type="text/javascript" src="/resources/js/upload.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <script id="template" type="text/x-handlebars-template">
 <li>
@@ -187,9 +211,7 @@
 		});
 	});
 
-	$("#registerForm").submit(
-			function(event) { //최종적인 submit이 일어나게 되면 서버에는 사용자가 업로드한 파일의 정보를 같이 전송해줘야 함.
-
+	$("#registerForm").submit(function(event) { //최종적인 submit이 일어나게 되면 서버에는 사용자가 업로드한 파일의 정보를 같이 전송해줘야 함.
 				event.preventDefault();//기본이벤트 해제
 
 				if ($('#title').val().length == 0) { // 이름 길이가 0 이면 
@@ -201,13 +223,9 @@
 				var that = $(this);
 
 				var str = "";
-				$(".uploadedList .delbtn").each(
-						function(index) {
-							
-							str += "<input type='hidden' name='files[" + index
-									+ "]' value='" + $(this).attr("href")
-									+ "'> ";
-						}); //현재까지 업로드 된 파일들을 form태그의 내부에 히든타입으로 추가한다. 
+				$(".uploadedList .delbtn").each(function(index){
+					 str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
+				});//현재까지 업로드 된 파일들을 form태그의 내부에 히든타입으로 추가한다. 
 				//각 파일은 files[0]과 같은 이름으로 추가되는데 이 배열 표시를 이용해서 컨트롤러에서는 BoardVO의 files 파라미터를 수집하게 된다.
 				//모든 파일의 정보를 폼태그의 히든타입으로 생성한 후에는 폼태그의 데이터의 submit()을 호출해서 서버를 호출.
 				
@@ -224,4 +242,4 @@
 			});
 </script>
 
-<%@ include file="../include/footer.jsp"%>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kosta.koggiri.mapper.AttendanceMapper"><!--경로를 뜻하는 것이 아님!!! -->
+
+	<select id="einfo_select" parameterType="String" resultType="Att_Emp_InfoVO">
+		select e.emp_id as emp_id, e.emp_nm as emp_nm, e.dept_id as dept_id,
+		d.dept_nm as dept_nm, p.pos_nm as pos_nm
+		from emp e inner join dept d
+		on e.dept_id = d.dept_id
+		inner join pos p
+		on
+		e.pos_id = p.pos_id
+		and
+		e.emp_id = #{emp_id}
+	</select>
+	
+	<select id="att_dlist" parameterType="String"  resultType="AttendanceVO">
+		select att_dt, att_time, lea_time from attendance where emp_id = #{emp_id} and substr(att_dt,0,6) = to_char(sysdate, 'yyyymm')
+	</select>
+
+</mapper>

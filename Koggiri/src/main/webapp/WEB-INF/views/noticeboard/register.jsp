@@ -1,34 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-
-<meta
-	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-	name="viewport">
-<!-- Bootstrap 3.3.4 -->
-<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css">
-<!-- Font Awesome Icons -->
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<!-- Ionicons -->
-<link
-	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
-	rel="stylesheet" type="text/css">
-<!-- Theme style -->
-<link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet"
-	type="text/css">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- AdminLTE Skins. Choose a skin from the css/skins 
-         folder instead of downloading all of them to reduce the load. -->
-<link href="/resources/dist/css/skins/_all-skins.min.css"
-	rel="stylesheet" type="text/css">
-
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="false"%>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script type="text/javascript"
 	src="/resources/plugins/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/resources/js/upload.js"></script>
+<script type="text/javascript" src="/resources/js/approval.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
+<%@ include file="../include/header.jsp"%>
+
+<link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
+<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
+
+<div class="container_wrap" style="background-color: #ffffff;">
+<div id="container">
+
+<div id="sub_menu_title">
+<h1><img src="/resources/img/s_menu01.png"/></h1>
+<div class="sub_top">   
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/noticeboard/listPage">공지</a>  &gt;  <strong>공지사항</strong></span>
+</div>
+</div>
+
+
+<div id="lnb">
+   <div class="lnb01">
+      <strong class="menu01"><span>회사 정보</span></strong>
+      <ul>
+                <li class="menu01 ">
+                    <a href="/noticeboard/listPage">공지사항</a>
+                    <ul> </ul>
+                </li>
+                <li class="menu02 ">
+                    <a href="#">알립니다</a>
+                </li>
+           </ul>
+   </div>
+</div>
+
+<div id="sub_content">
+
+<!-- 본문 내용 시작 -->
 
 <style>
 .fileDrop {
@@ -47,31 +67,33 @@
 		<div class="col-md-12">
 			<!-- general form elements -->
 			<div class="box box-primary">
-				<div class="box-header">
+				<!-- <div class="box-header">
 					<h3 class="box-title">REGISTER BOARD</h3>
-				</div>
+				</div> -->
 				<!-- /.box-header -->
 <form id='registerForm' role="form" method="post">
 	<div class="box-body">
 		<div class="form-group">
-			<label for="exampleInputEmail1" >Title</label> 
+			<label for="exampleInputEmail1" >제목<br><br></label> 
 			<input type="text"
 				name='N_TITLE' class="form-control" id = "title" placeholder="Enter Title">
 		</div>
 		<div class="form-group">
-			<label for="exampleInputPassword1">Content</label>
+			<label for="exampleInputPassword1">내용<br><br></label>
 			<textarea class="form-control" name="N_CONTENT" rows="3"
 				placeholder="Enter ..."></textarea>
 		</div>
+		
 		<div class="form-group">
-			<label for="exampleInputEmail1">Writer</label> 
+			<label for="exampleInputEmail1">작성자<br><br></label> 
 			<input type="text"
 				name="N_EMP_ID" class="form-control" placeholder="Enter Writer">
 		</div>
+		
 		<div class="form-group">
-			<label for="exampleInputEmail1">File DROP Here</label>
-		<div class="fileDrop"></div>
-	</div>
+			<label for="exampleInputEmail1">파일 첨부<br><br></label>
+			<div class="fileDrop" style="margin-left: 0px; width: 970px;"></div>
+		</div>
 	
 	<!-- /.box-body -->
 
@@ -176,3 +198,16 @@
 			});
 </script>
 
+<br><br>
+	
+<!-- 본문 내용  끝-->
+	
+</div>
+       
+</div>
+</div>
+
+
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
+<%@ include file="../include/footer.jsp"%>

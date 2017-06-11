@@ -12,36 +12,18 @@
 
 <!-- script link -->
 
-<script type="text/javascript"
-	src="../resources/Scripts/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../resources/Scripts/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="../resources/Scripts/ui.js"></script>
-<script type="text/javascript"
-	src="../resources/Scripts/jquery-ui-min.js"></script>
-<script type="text/javascript"
-	src="../resources/Scripts/jquery.easing.1.3.js"></script>
-	
-<!--  approval -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-<!--  approval -->
+<script type="text/javascript" src="../resources/Scripts/jquery-ui-min.js"></script>
+<script type="text/javascript" src="../resources/Scripts/jquery.easing.1.3.js"></script>
 
 
 <!--  css link -->
-
-<link href="/resources/Content/themes/base/jquery-ui.min.css"
-	rel="stylesheet" type="text/css" />
-<link rel="shortcut icon" type="image/x-icon"
-	href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
-<link rel="stylesheet"
-	href="../resources/Content/themes/real/ui_main.css" />
-<link rel="stylesheet"
-	href="../resources/Content/themes/real/common.css" />
-
-
-
-
+<link rel="stylesheet" href="../resources/Content/themes/real/ui_sub.css" />
+<link href="../resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" type="image/x-icon" href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
+<link rel="stylesheet" href="../resources/Content/themes/real/ui_main.css" />
+<link rel="stylesheet" href="../resources/Content/themes/real/common.css" />
 
 </head>
 
@@ -86,7 +68,7 @@
 							style="padding-top: 10px;">전자문서</a> <!-- 2depth : s -->
 							<ul>
 								<li class=""><a href="../task/list">업무 보고</a></li>
-								<li class=""><a href="../approval/lists">전자 결재</a>
+								<li class=""><a href="../approval/lists">전자 결제</a>
 									<div>
 										<span><img
 											src="http://s.nx.com/S2/billing/pcbang/real/homepage/common/img_depth3_arrow.png"
@@ -124,22 +106,8 @@
 						<li class="menu05 "><a href="#" class="menu_a"
 							style="padding-top: 10px;">회사정보</a> <!-- 2depth : s -->
 							<ul>
-								<li class=""><a href="#">Koggiri란?</a></li>
-								<li class=""><a href="../chart/listAll">조직도</a>
-									<div>
-										<span><img
-											src="http://s.nx.com/S2/billing/pcbang/real/homepage/common/img_depth3_arrow.png"
-											alt="" /></span>
-										<ul>
-											<li class=""><a href="/chart/list?dept_id=MM">경영팀</a></li>
-											<li class=""><a href="/chart/list?dept_id=PL">인사팀</a></li>
-											<li class=""><a href="/chart/list?dept_id=MT">관리팀</a></li>
-											<li class=""><a href="/chart/list?dept_id=SN">솔루션팀</a></li>
-											<li class=""><a href="/chart/list?dept_id=BS">영업팀</a></li>
-											<li class=""><a href="/chart/list?dept_id=MG">마게팅팀</a></li>
-										</ul>
-									</div>
-								</li>
+								<li class=""><a href="../information/index">Koggiri란?</a></li>
+								<li class=""><a href="../chart/listAll">조직도</a></li>
 							</ul></li>
 
 					</ul>
@@ -148,19 +116,3 @@
 		</div>
 		<hr />
 	</div>
-
-
-
-	<!-- <script type="text/javascript" src="resources/Scripts/common.js"></script> -->
-	<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script> -->
-
-	<!-- <script type="text/javascript" src="resources/Scripts/common.js"></script> -->
-	<!-- <script src="http://js.nx.com/s1/da/playlog.min.js" type="text/javascript"></script> -->
-
-	<!-- <script type="text/javascript" src="Scripts/common.formatNumber-1.0.0.js"></script>
-<script type="text/javascript" src="Scripts/jquery.validate.min.js"></script>
-<script type="text/javascript" src="Scripts/jquery.validate.unobtrusive.min.js"></script> -->
-	<!-- <script type="text/javascript" src="Scripts/jquery-ui.min.js"></script> -->
-	<!-- <script type="text/javascript" src="Scripts/jquery.bxslider.min.js"></script> -->
-	<!-- <script type="text/javascript" src="Scripts/jquery.paging.min.js"></script> -->
-	<!-- <script type="text/javascript" src="Scripts/ajaxOverSsl.js"></script> -->

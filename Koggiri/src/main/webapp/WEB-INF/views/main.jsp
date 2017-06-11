@@ -54,6 +54,7 @@
 				}, 500, "easeInOutCubic");
 			},
 		});
+		window.open('http://106.242.203.68:8082', 'Javis', 'width=300 heigth=500');
 	});
 </script>
 
@@ -61,8 +62,9 @@
 
 <!-- 본문 시작 -->
 	<!-- 본문 시작 -->
-<div class="container_wrap">
+	<div class="container_wrap" style="background-color: #eef1f2;">
 <div id="container">
+
 
 <div id="wrap">
 	<!-- ************************************* -->
@@ -96,9 +98,6 @@
 				<li><a href="#">${empVO.tel_no }</a></li>
 			</ul>
 
-			<ul>
-				<li><a href="#">를 불러와야 합니다.^^*</a></li>
-			</ul>
 		</div>
 
 		<!-- ************************************* -->
@@ -116,7 +115,7 @@
 				<input type="submit" class="off_btn" id="leave_btn" value=""
 					style="margin: 7px;">
 			</form>
-			<form method='post' action='att_list'>
+			<form method='get' action='attendance/att_dlist'>
 				<input type="submit" value="근태확인" class="att_list"
 					style="width: 120px; height: 35px; border: 0px; background: gray; margin: 7px;">
 			</form>
@@ -124,7 +123,7 @@
 		<!-- *************************************** -->
 		<h3 class="hidden">업무</h3>
 		<div class="event_apply">
-			<a href="#"></a>
+			<a href="task/list"></a>
 			<!--  업무 리스트로 이동 -->
 		</div>
 		<hr />
@@ -134,7 +133,7 @@
 			<img src="../resources/img/notice_t.png" style="margin-bottom: 10px">
 			<ul>
 
-				<li><a href="/HelpDesk/Notify/Detail?sn=2456">공지합니다 <img
+				<li><a href="#">공지합니다 <img
 						src="http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_new.gif"
 						alt="새글" />
 				</a><span>2017-05-29</span></li>
@@ -151,7 +150,7 @@
 				<li><a href="/HelpDesk/Notify/Detail?sn=2454">하시면 될것 같아요</a><span>2017-05-09</span></li>
 
 			</ul>
-			<span class="more"><a href="#"><img
+			<span class="more"><a href="noticeboard/listPage"><img
 					src="http://s.nx.com/S2/billing/pcbang/real/homepage/btn/btn_more.gif"
 					alt="더보기" /></a></span>
 			<!-- + 버튼 누르면 공지사항 리트스 바로가기 -->
@@ -190,7 +189,7 @@
 
 		<h3 class="hidden">결재</h3>
 		<div class="game_play">
-			<a href="#"></a>
+			<a href="approval/register"></a><!-- 결제 등록으로 이동 -->
 			<!-- 결제 리스트로 이동 -->
 		</div>
 	</div>
@@ -257,7 +256,7 @@
 	<div class="weather">
 		<!--  이곳에 api 적용하면 됩니다 -->
 		<!-- weather widget start -->
-		<div class="weather_table" style="position: relative; top: -679px;">
+		<div class="weather_table" style="position: relative; top: -679px; height: 206px;">
 			<table cellpadding=0 cellspacing=0 width=500 height="216px"
 				style="font-family: Verdana; font-size: 14px;">
 				<tr>
@@ -422,17 +421,6 @@
 </div>
 </div>
 	
-<div class="footer_wrap">
+<div class="footer_wrap" style="background-color:#eef1f2;">
+<div id="footer" >
 <%@ include file="include/footer.jsp"%>
-
-<!-- <script type="text/javascript" src="resources/Scripts/ui.js"></script> -->
-<!-- <script type="text/javascript" src="resources/Scripts/common.js"></script> -->
-<!-- <script src="http://js.nx.com/s1/da/playlog.min.js" type="text/javascript"></script> -->
-<
-<!-- script type="text/javascript" src="Scripts/common.formatNumber-1.0.0.js"></script>
-<script type="text/javascript" src="Scripts/jquery.validate.min.js"></script >
-<script type="text/javascript" src="Scripts/jquery.validate.unobtrusive.min.js"></script>
-
- <script type="text/javascript" src="Scripts/jquery.bxslider.min.js"></script>
-<script type="text/javascript" src="Scripts/jquery.paging.min.js"></script>
-<script type="text/javascript" src="Scripts/ajaxOverSsl.js"></script> -->

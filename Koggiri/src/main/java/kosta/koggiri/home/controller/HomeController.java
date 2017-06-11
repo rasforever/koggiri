@@ -24,60 +24,61 @@ import kosta.koggiri.admin_emp.service.AdminService;
 @Controller
 public class HomeController {
 	
-	
+
 	@Inject
 	private AdminService service;
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, HttpSession session)throws Exception {
+	public String home(Locale locale, Model model, HttpSession session) throws Exception {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
+
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
+
 		String formattedDate = dateFormat.format(date);
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
-		
-		
+
 		EmpVO vo = new EmpVO();
 		vo.setEmp_id(mem_id);
-		
-		EmpVO empVO = service.mainEmp(vo); //main �쉶�썝 �젙蹂�
+
+		EmpVO empVO = service.mainEmp(vo); // main �쉶�썝 �젙蹂�
 		System.out.println(empVO.toString());
 		model.addAttribute("empVO", empVO);
-		model.addAttribute("serverTime", formattedDate );
-		System.out.println("home:"+mem_id);
+		model.addAttribute("serverTime", formattedDate);
+		System.out.println("home:" + mem_id);
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
-		//  return "login/loginForm";    濡쒓렇�씤湲곕뒫 �셿�꽦 �릺硫� �솢�꽦�솕
-		
+		// return "login/loginForm"; 濡쒓렇�씤湲곕뒫 �셿�꽦 �릺硫� �솢�꽦�솕
+
 		return "/main";
 	}
-	
-	//출근
+
+	// 출근
 	@RequestMapping(value = "/att", method = RequestMethod.POST)
 	public String att(HttpSession session) throws Exception {
 
 		String emp_id = (String) session.getAttribute("mem_id");
-		service.insertAtt(emp_id);	
-	
+		service.updateAtt(emp_id);
+
 		return "redirect:/";
 	}
-	
-	//퇴근
+
+	// 퇴근
 	@RequestMapping(value = "/leave", method = RequestMethod.POST)
 	public String leave(HttpSession session) throws Exception {
-		
+
 		String emp_id = (String) session.getAttribute("mem_id");
-		service.updateLev(emp_id);	
-	
+		service.updateLev(emp_id);
+
 		return "redirect:/";
 	}
+
+	
 	
 }

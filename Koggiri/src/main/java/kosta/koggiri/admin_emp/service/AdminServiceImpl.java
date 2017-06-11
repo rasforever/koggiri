@@ -48,15 +48,16 @@ public class AdminServiceImpl implements AdminService {
 		return dao.mainEmp(vo);
 	}
 
-	@Override
-	public void insertAtt(String emp_id) throws Exception {
-		dao.insertAtt(emp_id);
-	}
 
 	@Override
 	public void updateLev(String emp_id) throws Exception {
 		dao.updateLev(emp_id);
 
+	}
+
+	@Override
+	public void updateAtt(String emp_id) throws Exception {
+		dao.updateAtt(emp_id);
 	}
 
 }

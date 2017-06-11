@@ -7,7 +7,6 @@ import kosta.koggiri.approval.domain.ApprovalSearchVO;
 import kosta.koggiri.approval.domain.ApprovalVO;
 import kosta.koggiri.approval.domain.DeptVO;
 import kosta.koggiri.approval.domain.Emp_InfoVO;
-import kosta.koggiri.approval.domain.SearchCriteria;
 
 public interface ApprovalDAO {
 	public void create(ApprovalVO vo) throws Exception;
@@ -18,13 +17,12 @@ public interface ApprovalDAO {
 
 	public void delete(String app_id) throws Exception;
 
-	public List<AppTypeVO> appty_select() throws Exception; // 입력시 문서 종류 가져오기
+	public List<AppTypeVO> appty_select() throws Exception; //
+	public List<DeptVO> dept_select() throws Exception; //
 
-	public List<DeptVO> dept_select() throws Exception; // 입력시 부서 가져오기
+	public Emp_InfoVO einfo_select(String emp_id) throws Exception; //
 
-	public Emp_InfoVO einfo_select(String emp_id) throws Exception; // 개인정보 가져오기
-
-	public void updateAPP(ApprovalVO vo) throws Exception; //승인-부결
+	public void updateAPP(ApprovalVO vo) throws Exception; //
 
 	public List<ApprovalVO> listSearch(ApprovalSearchVO search) throws Exception;
 

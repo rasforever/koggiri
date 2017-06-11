@@ -3,7 +3,7 @@ package kosta.koggiri.task.domain;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import kosta.koggiri.approval.domain.SearchCriteria;
+import kosta.koggiri.task.domain.TaskSearchCriteria;
 
 public class TaskPageMaker {
 
