@@ -82,9 +82,7 @@
 
 	<form role="form" method="post">
 		<div class="box-body">
-			<br> 작성자:<input type="text" name="emp_id" class="form-control"
-				value="${emp_nm}" size="7" readonly="readonly"><br> <input
-				type="text" id="week-picker" name="ta_date" size="30"
+				<input type="text" id="week-picker" name="ta_date" size="30"
 				placeholder="업무일자를 선택해주세요"><br>
 			<br>
 			<div class="form-group">

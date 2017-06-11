@@ -81,9 +81,11 @@
 						</c:forEach>
 
 					</table>
+					
+					<a href=windowopen(b.html)>
 
 					<div>
-						<iframe src="http://106.242.203.68:5200/htmlPage"
+						<iframe src="http://106.242.203.68:8082"
 							style="width: 400px; height: 500px;"></iframe>
 
 					</div>
@@ -99,7 +101,7 @@
 							<c:if test="${pageMaker.prev}">
 								<li><a
 									href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
-							</c:if>
+						</c:if>
 
 							<c:forEach begin="${pageMaker.startPage }"
 								end="${pageMaker.endPage }" var="idx">
