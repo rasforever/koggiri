@@ -7,10 +7,9 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-
-import kosta.koggiri.task.domain.TaskCriteria;
 import kosta.koggiri.task.domain.TaskSearchCriteria;
 import kosta.koggiri.task.domain.TaskVO;
+import kosta.koggiri.task.persistence.TaskDAO;
 
 @Repository
 public class TaskDAOImpl implements TaskDAO {
@@ -23,23 +22,24 @@ public class TaskDAOImpl implements TaskDAO {
 
 @Override
 public void create(TaskVO vo) throws Exception {
-	session.insert(namespace+".create", vo);
+	session.insert(namespace + ".create", vo);
+	
 }
 
 @Override
 public TaskVO read(Integer ta_seq) throws Exception {
-	return session.selectOne(namespace+".read",ta_seq);
+	return session.selectOne(namespace + ".read", ta_seq);
 }
 
 @Override
 public void update(TaskVO vo) throws Exception {
-	session.update(namespace+".update", vo);
+	session.update(namespace + ".update", vo);
 	
 }
 
 @Override
 public void delete(Integer ta_seq) throws Exception {
-	session.delete(namespace+".delete",ta_seq);
+	session.delete(namespace + ".delete", ta_seq);
 	
 }
 
@@ -60,8 +60,5 @@ public void updateViewCnt(Integer ta_seq) throws Exception {
 	
 }
 
-
- 
- 
 
 }
