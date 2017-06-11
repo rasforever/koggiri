@@ -5,6 +5,7 @@ public class AttendanceVO {
 	private String emp_nm;
 	private String dept_id;
 	private String dept_nm;
+	private String pos_nm;
 	private String att_dt;
 	private String att_time;
 	private String lev_time;
@@ -32,6 +33,12 @@ public class AttendanceVO {
 	}
 	public void setDept_nm(String dept_nm) {
 		this.dept_nm = dept_nm;
+	}	
+	public String getPos_nm() {
+		return pos_nm;
+	}
+	public void setPos_nm(String pos_nm) {
+		this.pos_nm = pos_nm;
 	}
 	public String getAtt_dt() {
 		return att_dt;

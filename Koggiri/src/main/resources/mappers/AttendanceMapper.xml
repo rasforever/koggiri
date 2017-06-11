@@ -20,5 +20,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="att_dlist" parameterType="String"  resultType="AttendanceVO">
 		select att_dt, att_time, lea_time from attendance where emp_id = #{emp_id} and substr(att_dt,0,6) = to_char(sysdate, 'yyyymm')
 	</select>
+	
+	<select id="att_alldlist"  resultType="AttendanceVO">
+		select  e.emp_id as emp_id
+		      , e.emp_nm as emp_nm
+		      , d.dept_nm as dept_nm
+		      , p.pos_nm as pos_nm
+		      , a.att_time as att_time
+		      , a.lea_time as lea_time
+		from emp e 
+		left outer join ATTENDANCE a
+		on a.emp_id = e.emp_id
+	    and att_dt = #{att_dd}
+	  	inner join dept d
+		on e.dept_id = d.dept_id
+		inner join pos p
+		on e.pos_id = p.pos_id	
+	</select>
 
 </mapper>

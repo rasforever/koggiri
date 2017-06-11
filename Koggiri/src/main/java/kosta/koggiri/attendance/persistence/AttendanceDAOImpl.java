@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import kosta.koggiri.attendance.domain.AttendanceVO;
 import kosta.koggiri.attendance.domain.Att_Emp_InfoVO;
+import kosta.koggiri.attendance.domain.AttendanceSearchVO;
 
 @Repository
 public class AttendanceDAOImpl implements AttendanceDAO{
@@ -24,13 +25,20 @@ public class AttendanceDAOImpl implements AttendanceDAO{
 	}
 
 	@Override
-	public List<AttendanceVO> att_dlist(AttendanceVO vo) throws Exception {
+	public List<AttendanceVO> att_dlist(AttendanceVO vo) throws Exception { //본인 월 근태내역
 		return session.selectList(namespace + ".att_dlist", vo);
 	}
-
+	
 	@Override
-	public List<AttendanceVO> att_mlist(AttendanceVO vo) throws Exception {
+	public List<AttendanceVO> att_alldlist(AttendanceSearchVO vo) throws Exception { //전사원 당일 근태내역
+		return session.selectList(namespace + ".att_alldlist", vo);
+	}
+	
+	@Override
+	public List<AttendanceVO> att_mlist(AttendanceSearchVO vo) throws Exception { //전사원 월 근태내역
 		return session.selectList(namespace + ".att_mlist", vo);
 	}
+
+	
 
 }

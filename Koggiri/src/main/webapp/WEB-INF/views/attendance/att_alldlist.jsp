@@ -47,22 +47,22 @@
 
 		<div class="box" align="left">
 			<div class="box-header with-border">
-				<h3 class="box-title">근태 기록</h3><br>
+				<h3 class="box-title">전 사원 근태</h3><br>
 			</div>
 			<div class="box-body">
-				<h3>근무일 : ${emp_InfoVO.pos_nm}</h3>
+				<h3></h3>
 				<table class="table table-bordered">
+					
 					<tr>					
 						<th>사번</th>		
 						<th>사원</th>							
 						<th>부서</th>							
 						<th>직급</th>
-						<th>근무일</th>
 						<th>출근시간</th>
 						<th>퇴근시간</th>
 					</tr>
 
-					<c:forEach items="${list}" var="attendanceVO">
+				<c:forEach items="${alldlist}" var="attendanceVO">
 
 						<tr>
 							<td>${attendanceVO.emp_id}</td>
@@ -74,6 +74,7 @@
 						</tr>
 
 					</c:forEach>
+
 
 				</table>
 			</div>
