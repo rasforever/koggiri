@@ -23,8 +23,13 @@ public class AttendanceServiceImpl implements AttendanceService{
 	}
 
 	@Override
-	public List<AttendanceVO> att_dlist(String emp_id) throws Exception {
-		return dao.att_dlist(emp_id);
+	public List<AttendanceVO> att_dlist(AttendanceVO vo) throws Exception {
+		return dao.att_dlist(vo);
+	}
+
+	@Override
+	public List<AttendanceVO> att_mlist(AttendanceVO vo) throws Exception {
+		return dao.att_mlist(vo);
 	}
 
 }
