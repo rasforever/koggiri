@@ -63,7 +63,6 @@
 					</tr>
 
 				<c:forEach items="${alldlist}" var="attendanceVO">
-
 						<tr>
 							<td>${attendanceVO.emp_id}</td>
 							<td>${attendanceVO.emp_nm}</td>
@@ -72,10 +71,7 @@
 							<td>${attendanceVO.att_time}</td>
 							<td>${attendanceVO.lev_time}</td>
 						</tr>
-
 					</c:forEach>
-
-
 				</table>
 			</div>
 			<!-- /.box-body -->
