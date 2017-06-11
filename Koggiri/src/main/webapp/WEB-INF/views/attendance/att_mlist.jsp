@@ -82,7 +82,8 @@
 
 								<c:forEach items="${att_mlist}" var="attendanceVO">
 									<tr>
-										<td>${attendanceVO.emp_id}</td>
+										<td><a
+											href='/attendance/att_dlist?&emp_id=${attendanceVO.emp_id}'>${attendanceVO.emp_id}</a></td>
 										<td>${attendanceVO.emp_nm}</td>
 										<td>${attendanceVO.dept_nm}</td>
 										<td>${attendanceVO.pos_nm}</td>

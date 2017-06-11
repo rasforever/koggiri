@@ -27,10 +27,21 @@ public class AttendanceController {
 
 	@RequestMapping(value = "/att_dlist", method = RequestMethod.GET) //본인 월 근태내역 조회
 	public void att_dlistGET(@ModelAttribute("search") AttendanceVO search,Model model, HttpSession session) throws Exception {
-		
+
 		String emp_id = (String) session.getAttribute("mem_id");
-		System.out.println(emp_id);
-		model.addAttribute("einfo", service.einfo_select(emp_id));
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String ck_emp_id = search.getEmp_id();
+		model.addAttribute("mem_id",emp_id);
+		model.addAttribute("emp_nm",emp_nm);
+		
+		if (ck_emp_id == null){
+			search.setEmp_id(emp_id);
+			model.addAttribute("einfo", service.einfo_select(emp_id));
+		} else{
+			search.setEmp_id(ck_emp_id);
+			model.addAttribute("einfo", service.einfo_select(ck_emp_id));
+		}
+		
 		model.addAttribute("list", service.att_dlist(search));
 	}	
 	@RequestMapping(value = "/att_alldlist", method = RequestMethod.GET) //전사원 당일 근태내역 조회
