@@ -13,10 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import kosta.koggiri.admin_emp.domain.EmpVO;
 import kosta.koggiri.admin_emp.service.AdminService;
+import kosta.koggiri.home.service.HomeService;
 
 /**
  * Handles requests for the application home page.
@@ -27,6 +26,7 @@ public class HomeController {
 
 	@Inject
 	private AdminService service;
+	private HomeService h_service;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -77,6 +77,24 @@ public class HomeController {
 		service.updateLev(emp_id);
 
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value="/list_notice")
+	public void list_notice(Model model)throws Exception{
+		
+		model.addAttribute("list_notice", h_service.list_notice());
+	}
+	
+	@RequestMapping(value="/list_important")
+	public void list_important(Model model)throws Exception{
+		
+		model.addAttribute("list_important", h_service.list_important());
+	}
+	
+	@RequestMapping(value="/list_calendar")
+	public void list_calendar(Model model)throws Exception{
+		
+		model.addAttribute("list_calendar", h_service.list_calendar());
 	}
 
 	
