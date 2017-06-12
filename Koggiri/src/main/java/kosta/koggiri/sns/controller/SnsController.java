@@ -51,6 +51,13 @@ private static final Logger logger = LoggerFactory.getLogger(SnsController.class
 		
 	}
 	
+	@RequestMapping(value="/testchat", method = RequestMethod.GET)
+	public String testchatGet(Model model)throws Exception{
+		
+		return "redirect:http://127.0.0.1:5200";
+		
+	}
+	
 
 	
 	
