@@ -1,4 +1,4 @@
-package kosta.koggiri.noticeboard.controller;
+package kosta.koggiri.importantboard.controller;
 
 import java.io.File;
 import java.util.List;
@@ -22,63 +22,52 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import kosta.koggiri.noticeboard.domain.Noti_BoardVO;
-import kosta.koggiri.noticeboard.domain.Noti_SearchCriteria;
-import kosta.koggiri.noticeboard.domain.Noti_PageMaker;
-import kosta.koggiri.noticeboard.service.Noti_BoardService;
-import kosta.koggiri.noticeboard.util.MediaUtils;
+import kosta.koggiri.importantboard.domain.Imp_BoardVO;
+import kosta.koggiri.importantboard.domain.Imp_PageMaker;
+import kosta.koggiri.importantboard.domain.Imp_SearchCriteria;
+import kosta.koggiri.importantboard.service.Imp_BoardService;
+import kosta.koggiri.importantboard.util.MediaUtils;
+
 
 @Controller
-@RequestMapping("/noticeboard/*")
-public class Noti_BoardController {
+@RequestMapping("/importantboard/*")
+public class Imp_BoardController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(Noti_BoardController.class);
+	private static final Logger logger = LoggerFactory.getLogger(Imp_BoardController.class);
 	
 	@Inject
-	private Noti_BoardService service;
+	private Imp_BoardService service;
 	
 	@Resource(name = "uploadPath") // �떎�슫濡쒕뱶 寃쎈줈
 	private String uploadPath;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public void registerGET(Noti_BoardVO board, Model model, HttpSession session) throws Exception{
+	public void registerGET(Imp_BoardVO board, Model model) throws Exception{
 		logger.info("register get ..........");
-		String emp_nm = (String) session.getAttribute("emp_nm");
-		model.addAttribute("emp_nm", emp_nm);
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registPOST(Noti_BoardVO board, RedirectAttributes rttr) throws Exception{
+	public String registPOST(Imp_BoardVO board, RedirectAttributes rttr) throws Exception{
 		logger.info("regist post ..........");
 		logger.info(board.toString());
 		service.regist(board);
 		
 		rttr.addFlashAttribute("msg", "success");
 		
-		return "redirect:/noticeboard/listPage";
+		return "redirect:/importantboard/listPage";
 	}
 	
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public void listAll(Model model) throws Exception{
-		logger.info("show all list...........");
-		model.addAttribute("list", service.listAll());
-		
-		
-	}
 	
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
-	public void read(@RequestParam("n_ID")int n_ID, @ModelAttribute("cri")Noti_SearchCriteria cri, Model model, HttpSession session) throws Exception{
+	public void read(@RequestParam("i_ID")int i_ID, @ModelAttribute("cri")Imp_SearchCriteria cri, Model model) throws Exception{
 		logger.info("read.....");
-		
-		String emp_nm = (String) session.getAttribute("emp_nm");
-		model.addAttribute("emp_nm", emp_nm);
-		model.addAttribute("Noti_BoardVO", service.read(n_ID));
+		model.addAttribute("Imp_BoardVO", service.read(i_ID));
 	}
 	
 	@RequestMapping(value = "/remove", method = RequestMethod.POST )
-	public String remove(@RequestParam("n_ID") int n_ID, Noti_SearchCriteria cri,RedirectAttributes rttr) throws Exception{
+	public String remove(@RequestParam("i_ID") int i_ID, Imp_SearchCriteria cri,RedirectAttributes rttr) throws Exception{
 		
-		service.remove(n_ID);
+		service.remove(i_ID);
 		
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
@@ -87,19 +76,17 @@ public class Noti_BoardController {
 		
 		rttr.addFlashAttribute("msg", "success");
 		
-		return "redirect:/noticeboard/listPage";
+		return "redirect:/importantboard/listPage";
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
-	public void modifyGET(@RequestParam("n_ID")int n_ID, @ModelAttribute("cri")Noti_SearchCriteria cri, Model model, HttpSession session) throws Exception{
+	public void modifyGET(@RequestParam("i_ID")int i_ID, @ModelAttribute("cri")Imp_SearchCriteria cri, Model model) throws Exception{
 		
-		String emp_nm = (String) session.getAttribute("emp_nm");
-		model.addAttribute("emp_nm", emp_nm);
-		model.addAttribute("Noti_BoardVO",service.read(n_ID));
+		model.addAttribute("Imp_BoardVO",service.read(i_ID));
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
-	public String modifyPOST(Noti_BoardVO board, Noti_SearchCriteria cri, RedirectAttributes rttr) throws Exception{
+	public String modifyPOST(Imp_BoardVO board, Imp_SearchCriteria cri, RedirectAttributes rttr) throws Exception{
 		
 		service.modify(board);
 		
@@ -109,17 +96,17 @@ public class Noti_BoardController {
 		rttr.addAttribute("keyword", cri.getKeyword());
 		rttr.addFlashAttribute("msg", "success");
 		
-		return "redirect:/noticeboard/listPage";
+		return "redirect:/importantboard/listPage";
 	}
 	
 	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
-	public void listPage(@ModelAttribute("cri")Noti_SearchCriteria cri, Model model,HttpSession session) throws Exception{
+	public void listPage(@ModelAttribute("cri")Imp_SearchCriteria cri, Model model,HttpSession session) throws Exception{
 
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		model.addAttribute("emp_nm", emp_nm);
 		model.addAttribute("list", service.listSearchCriteria(cri));
 		
-		Noti_PageMaker PageMaker = new Noti_PageMaker();
+		Imp_PageMaker PageMaker = new Imp_PageMaker();
 		PageMaker.setCri(cri);
 		//PageMaker.setTotalCount(service.listCountCriteria(cri));
 		PageMaker.setTotalCount(service.listSearchCount(cri));
@@ -127,10 +114,10 @@ public class Noti_BoardController {
 		model.addAttribute("pageMaker", PageMaker);
 	}
 	
-	@RequestMapping("/getAttach/{n_ID}")
+	@RequestMapping("/getAttach/{i_ID}")
 	@ResponseBody
-	public List<String> getAttach(@PathVariable("n_ID")Integer n_ID)throws Exception{
-		return service.getAttach(n_ID);
+	public List<String> getAttach(@PathVariable("i_ID")Integer i_ID)throws Exception{
+		return service.getAttach(i_ID);
 	}
 	
 	@ResponseBody

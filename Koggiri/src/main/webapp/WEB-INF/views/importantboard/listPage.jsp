@@ -26,16 +26,16 @@
 <div id="container">
 
 <div id="sub_menu_title">
-<h1><img src="/resources/img/s_menu01.png"/></h1>
+<h1><img src="/resources/img/s_menu02.png"/></h1>
 <div class="sub_top">   
-    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/noticeboard/listPage">공지</a>  &gt;  <strong>공지사항</strong></span>
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/noticeboard/listPage">공지</a>  &gt;  <strong>알립니다</strong></span>
 </div>
 </div>
 
 
 <div id="lnb">
    <div class="lnb01">
-      <strong class="menu01"><span>회사 정보</span></strong>
+      <strong class="menu01"><span>공지</span></strong>
       <ul>
                 <li class="menu01 ">
                     <a href="/noticeboard/listPage">공지사항</a>
@@ -90,19 +90,21 @@
 	<tr>
 		<th style="text-align: center; width: 60px">글번호</th>
 		<th style="text-align: center;">TITLE</th>
-		<th style="text-align: center; width: 200px;">REGDATE</th>
+		<th style="text-align: center;">WRITER</th>
+		<th style="text-align: center;">REGDATE</th>
 		<th style="text-align: center; width: 70px">VIEWCNT</th>
 	</tr>
 
 
-<c:forEach items="${list}" var="Noti_BoardVO">
+<c:forEach items="${list}" var="Imp_BoardVO">
 
 	<tr>
-		<td>${Noti_BoardVO.n_ID}</td>
-		<td><a href='/noticeboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&n_ID=${Noti_BoardVO.n_ID}'>${Noti_BoardVO.n_TITLE}</a></td>
+		<td>${Imp_BoardVO.i_ID}</td>
+		<td><a href='/importantboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&i_ID=${Imp_BoardVO.i_ID}'>${Imp_BoardVO.i_TITLE}</a></td>
+		<td>${Imp_BoardVO.i_EMP_ID}</td>
 		<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-				value="${Noti_BoardVO.n_DATE}" /></td>
-		<td><span class="badge bg-red">${Noti_BoardVO.n_HIT }</span></td>
+				value="${Imp_BoardVO.i_DATE}" /></td>
+		<td><span class="badge bg-red">${Imp_BoardVO.i_HIT }</span></td>
 	</tr>
 
 </c:forEach>
@@ -111,7 +113,7 @@
 
 				</div>
 				<!-- /.box-body -->
-				<div class="box-footer"></div>
+				<div class="box-footer">Footer</div>
 					<div class="text-center">
 						<ul class="pagination">
 

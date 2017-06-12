@@ -28,7 +28,7 @@
 <div id="sub_menu_title">
 <h1><img src="/resources/img/s_menu01.png"/></h1>
 <div class="sub_top">   
-    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/noticeboard/listPage">공지</a>  &gt;  <strong>공지사항</strong></span>
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/importantboard/listPage">공지</a>  &gt;  <strong>알립니다</strong></span>
 </div>
 </div>
 
@@ -72,23 +72,23 @@
 
 						<div class="form-group">
 							<label for="exampleInputEmail1">글번호<br><br></label> <input type="text"
-								name='N_ID' class="form-control" value="${Noti_BoardVO.n_ID}"
+								name='I_ID' class="form-control" value="${Imp_BoardVO.i_ID}"
 								readonly="readonly">
 						</div>
 
 						<div class="form-group">
 							<label for="exampleInputEmail1">제목<br><br></label> <input type="text"
-								name='N_TITLE' class="form-control" value="${Noti_BoardVO.n_TITLE}">
+								name='I_TITLE' class="form-control" value="${Imp_BoardVO.i_TITLE}">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">내용<br><br></label>
-							<textarea class="form-control" name="N_CONTENT" rows="3">${Noti_BoardVO.n_CONTENT}</textarea>			
+							<textarea class="form-control" name="I_CONTENT" rows="3">${Imp_BoardVO.i_CONTENT}</textarea>			
 							
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">작성자<br><br></label> <input
-								type="text" name="N_EMP_ID" class="form-control"
-								value="${Noti_BoardVO.n_EMP_ID}" readonly="readonly">
+								type="text" name="I_EMP_ID" class="form-control"
+								value="${Imp_BoardVO.i_EMP_ID}" readonly="readonly">
 						</div>
 						
 						<div class="form-group">
@@ -163,7 +163,7 @@
 												.on(
 														"click",
 														function() {
-															 self.location = "/noticeboard/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}"
+															 self.location = "/importantboard/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}"
 																	 +"&searchType=${cri.searchType}&keyword=${cri.keyword}";
 														});
 
@@ -232,13 +232,13 @@
 						});
 					});
 
-					var n_ID = $
+					var i_ID = $
 					{
-						Noti_BoardVO.n_ID
+						Imp_BoardVO.i_ID
 					};
 					var template = Handlebars.compile($("#template").html());
 
-					$.getJSON("/noticeboard/getAttach/" + n_ID, function(list) {
+					$.getJSON("/importantboard/getAttach/" + i_ID, function(list) {
 						$(list).each(function() {
 
 							var fileInfo = getFileInfo(this);
