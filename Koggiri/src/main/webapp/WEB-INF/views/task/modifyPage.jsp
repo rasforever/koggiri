@@ -92,6 +92,9 @@
 									readonly="readonly">
 							</div>
 
+
+
+
 							<div class="form-group">
 								<label for="emp_id">작성자</label> <br> <input type="text"
 									name='emp_id' class="form-control" value="${taskVO.emp_nm}"
@@ -117,6 +120,11 @@
 					</form>
 
 					<div>
+
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">SAVE</button>
+							<button type="submit" class="btn btn-warning">CANCEL</button>
+						</div>
 
 						<c:if test="emp_id=='${mem_id}">
 							<div class="box-footer">

@@ -54,7 +54,7 @@
 				}, 500, "easeInOutCubic");
 			},
 		});
-		window.open('http://106.242.203.68:8082', 'Javis', 'width=300 heigth=500');
+		window.open('http://localhost:8082/ch04/', 'Javis', "width=400px height=500px");
 	});
 </script>
 
