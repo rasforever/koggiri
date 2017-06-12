@@ -38,7 +38,10 @@ private static final Logger logger = LoggerFactory.getLogger(SnsController.class
 	//채팅내역 출력
 	@RequestMapping(value="/chat_room", method= RequestMethod.GET)
 	public void chat_room_listGET(RoomVO room,Model model, HttpSession session)throws Exception{
-
+		
+		String emp_id = (String) session.getAttribute("mem_id");
+		model.addAttribute("ck_emp_id", emp_id);
+			
 		if(service.chat_room_count(room) == 0 ){
 			service.create_room(room);
 			model.addAttribute("roomlist",room);

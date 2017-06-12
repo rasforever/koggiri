@@ -59,15 +59,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 채팅 내역 저장된 것을 조회 -->
 	
 	<select id="chat" resultType="RoomVO">
+	<![CDATA[
+	
 		select c.room_id as room_id
 		     , c.emp_id as emp_id
 		     , e.emp_nm as emp_nm
 		     , c.input_text as input_text
-		     , c.input_date as input_date
+		     , to_char(to_char(sysdate,'yyyy/mm/dd hh24:mm')) as input_date
 		  from chat_list c
 		  inner join emp e
 		    on c.emp_id = e.emp_id
 		   and c.room_id = #{room_id}
+		   ]]>
 	</select>
 
 

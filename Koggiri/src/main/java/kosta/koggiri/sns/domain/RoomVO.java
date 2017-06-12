@@ -1,5 +1,6 @@
 package kosta.koggiri.sns.domain;
 
+import java.security.Timestamp;
 import java.util.Date;
 
 public class RoomVO {
@@ -8,11 +9,11 @@ public class RoomVO {
 	private String emp_id; //내id
 	private String n_emp_id; //상대방id
 	private String input_text; //입력데이터
-	private Date input_date; //입력시간
+	private String input_date; //입력시간
 	
 	public RoomVO(){} //디폴트 생성자를 꼭 만들어줘야한다.
 
-	public RoomVO(Integer room_id, String emp_id, String n_emp_id, String input_text, Date input_date) {
+	public RoomVO(Integer room_id, String emp_id, String n_emp_id, String input_text, String input_date) {
 		super();
 		this.room_id = room_id;
 		this.emp_id = emp_id;
@@ -53,11 +54,11 @@ public class RoomVO {
 		this.input_text = input_text;
 	}
 
-	public Date getInput_date() {
+	public String getInput_date() {
 		return input_date;
 	}
 
-	public void setInput_date(Date input_date) {
+	public void setInput_date(String input_date) {
 		this.input_date = input_date;
 	}
 
