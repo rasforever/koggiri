@@ -35,7 +35,9 @@ public class TaskController {
 	   public String registerGET(TaskVO task, Model model, HttpSession session) throws Exception{
 	      
 		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
 		model.addAttribute("mem_id", mem_id);
+		model.addAttribute("emp_nm", emp_nm);
 		
 	      logger.info("register get..........");
 	      return "/task/register";
@@ -66,7 +68,9 @@ public class TaskController {
 			   Model model, HttpSession session)throws Exception{
 		 
 			String mem_id = (String) session.getAttribute("mem_id");
+			String emp_nm = (String) session.getAttribute("emp_nm");
 			model.addAttribute("mem_id", mem_id);
+			model.addAttribute("emp_nm", emp_nm);
 		
 		   model.addAttribute(service.read(ta_seq));
 	   }
@@ -93,7 +97,9 @@ public class TaskController {
 			   Model model, HttpSession session)throws Exception{
 		   
 		   String mem_id = (String) session.getAttribute("mem_id");
+		   String emp_nm = (String) session.getAttribute("emp_nm");
 			model.addAttribute("mem_id", mem_id);
+			model.addAttribute("emp_nm", emp_nm);
 		   model.addAttribute(service.read(ta_seq));
 	   }
 	   
@@ -116,7 +122,9 @@ public class TaskController {
 		public void listPage(@ModelAttribute("cri") TaskSearchCriteria cri, Model model, HttpSession session)throws Exception{
 			
 			String mem_id = (String) session.getAttribute("mem_id");
+			String emp_nm = (String) session.getAttribute("emp_nm");
 			model.addAttribute("mem_id", mem_id);
+			model.addAttribute("emp_nm", emp_nm);
 	
 			cri.setEmp_id(mem_id);
 			System.out.println(cri.getEmp_id());

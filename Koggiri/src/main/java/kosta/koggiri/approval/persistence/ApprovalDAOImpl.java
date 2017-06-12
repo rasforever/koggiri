@@ -15,7 +15,6 @@ import kosta.koggiri.approval.domain.ApprovalSearchVO;
 import kosta.koggiri.approval.domain.ApprovalVO;
 import kosta.koggiri.approval.domain.DeptVO;
 import kosta.koggiri.approval.domain.Emp_InfoVO;
-import kosta.koggiri.approval.domain.SearchCriteria;
 
 @Repository
 public class ApprovalDAOImpl implements ApprovalDAO {

@@ -1,13 +1,22 @@
-package kosta.koggiri.approval.domain;
+package kosta.koggiri.attendance.domain;
 
-public class Emp_InfoVO {
+public class Att_Emp_InfoVO {
 	private String emp_id;
 	private String emp_nm;
 	private String dept_id;
 	private String dept_nm;
 	private String pos_nm;
 	
+	public Att_Emp_InfoVO() {}
 	
+	public Att_Emp_InfoVO(String emp_id, String emp_nm, String dept_id, String dept_nm, String pos_nm) {
+		super();
+		this.emp_id = emp_id;
+		this.emp_nm = emp_nm;
+		this.dept_id = dept_id;
+		this.dept_nm = dept_nm;
+		this.pos_nm = pos_nm;
+	}
 	public String getEmp_id() {
 		return emp_id;
 	}
@@ -40,7 +49,7 @@ public class Emp_InfoVO {
 	}
 	@Override
 	public String toString() {
-		return "Emp_InfoVo [emp_id=" + emp_id + ", emp_nm=" + emp_nm + ", dept_id=" + dept_id + ", dept_nm=" + dept_nm
+		return "Att_Emp_InfoVo [emp_id=" + emp_id + ", emp_nm=" + emp_nm + ", dept_id=" + dept_id + ", dept_nm=" + dept_nm
 				+ ", pos_nm=" + pos_nm + "]";
 	}
 	
