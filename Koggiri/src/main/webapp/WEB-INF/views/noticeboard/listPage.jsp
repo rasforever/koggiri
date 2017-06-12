@@ -42,7 +42,7 @@
                     <ul> </ul>
                 </li>
                 <li class="menu02 ">
-                    <a href="importantboard/listPage">알립니다</a>
+                    <a href="/importantboard/listPage">알립니다</a>
                 </li>
            </ul>
    </div>
