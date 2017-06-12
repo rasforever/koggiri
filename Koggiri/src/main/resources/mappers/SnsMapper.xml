@@ -4,24 +4,61 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kosta.koggiri.mapper.SnsMapper">
+	
+	<select id="listAll" parameterType="String" resultType="SnsVO">
+		select e.emp_id as emp_id
+		      , e.emp_nm as emp_nm
+		      , d.dept_nm as dept_nm
+		      , p.pos_nm as pos_nm
+	      from emp e      
+	      inner join dept d
+	      on e.dept_id = d.dept_id
+	      inner join pos p
+	      on e.pos_id =
+	      p.pos_id
+	      where e.emp_id not in ('master', #{emp_id})
+	      order by d.dept_sort, e.pos_id, e.emp_id
+	  
+	</select>
+	
+	<insert id="creat_room_1" parameterType="roomVO">
+		insert into chatroom_list (room_id, emp_id) values (room_seq.nextval, #{emp_id})
+	</insert>
+	
+	<insert id="creat_room_2" parameterType="roomVO">
+		insert into chatroom_list (room_id, emp_id) values (room_seq.nextval, #{n_emp_id})
+	</insert>
+	
+	<insert id="creat_char" parameterType="roomVO">
+		insert into chat_list (room_id, emp_id, input_text, input_date) values (#{room_id}, #{emp_id}, #{input_text}, sysdate)
+	</insert>
+	
+	<select id="chat_room_count" resultType="roomVO">
+		select count(c1.room_id) as room_count
+		  from chatroom_list c1, chatroom_list c2
+		 where c1.emp_id = #{emp_id}
+		   and c2.emp_id = #{n_emp_id)
+		   and c1.room_id = c2.room_id
+	</select>
 
-<select id="listAll" parameterType="String" resultType="SnsVO">
-select e.emp_id as emp_id
-      , e.emp_nm as emp_nm
-      , d.dept_nm as dept_nm
-      , p.pos_nm as pos_nm
-      from emp e      
-      inner join dept d
-      on e.dept_id = d.dept_id
-      inner join pos p
-      on e.pos_id =
-      p.pos_id
-      where e.emp_id not in ('master', #{emp_id})
-      order by d.dept_sort, e.pos_id, e.emp_id
-  
-</select>
-
-<select id="chat_room" resultType="roomVO">
+	<select id="chat_room" resultType="roomVO">
+		select c1.room_id
+		  from chatroomlist c1, chatroomlist c2
+		 where c1.emp_id = #{emp_id}
+		   and c2.emp_id = #{n_emp_id)
+		   and c1.room_id = c2.room_id
+	</select>
+	
+	<select id="chat" resultType="roomVO">
+		select c.room_id as room_id
+		     , c.emp_id as emp_id
+		     , e.emp_nm as emp_nm
+		     , c.input_text as input_text
+		     , c.input_date as input_date
+		  from chat_list c
+		  inner join emp e
+		    on c.emp_id = e.emp_id
+		   and c.room_id = #{room_id}
 	</select>
 
 
