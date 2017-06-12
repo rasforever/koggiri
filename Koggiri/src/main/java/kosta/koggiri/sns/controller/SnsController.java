@@ -41,12 +41,14 @@ private static final Logger logger = LoggerFactory.getLogger(SnsController.class
 		
 		String emp_id = (String) session.getAttribute("mem_id");
 		model.addAttribute("ck_emp_id", emp_id);
+		model.addAttribute("ck_n_emp_id", room.getN_emp_id());
 			
 		if(service.chat_room_count(room) == 0 ){
 			service.create_room(room);
 			model.addAttribute("roomlist",room);
 		}else{
 			model.addAttribute("roomlist", service.chat(room));
+			model.addAttribute("ck_room_id", room.getRoom_id());
 		}
 		
 	}

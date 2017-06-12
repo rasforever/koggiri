@@ -51,7 +51,7 @@
 	<div id="sub_menu_title">
 <h1><img src="/resources/img/s_menu01.png"/></h1>
 <div class="sub_top">   
-    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/noticeboard/listPage">공지</a>  &gt;  <strong>공지사항</strong></span>
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/importantboard/listPage">공지</a>  &gt;  <strong>알립니다</strong></span>
 </div>
 </div>
 
@@ -91,7 +91,7 @@
 
 						<form role="form" action="modify" method="post">
 
-							<input type='hidden' name='n_ID' value="${Noti_BoardVO.n_ID}">
+							<input type='hidden' name='i_ID' value="${Imp_BoardVO.i_ID}">
 
 							<input type='hidden' name='page' value="${cri.page}"> <input
 								type='hidden' name='perPageNum' value="${cri.perPageNum}">
@@ -102,19 +102,19 @@
 						<div class="box-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">제목<br>
-								<br></label> <input type="text" name='N_TITLE' class="form-control"
-									value="${Noti_BoardVO.n_TITLE}" readonly="readonly">
+								<br></label> <input type="text" name='I_TITLE' class="form-control"
+									value="${Imp_BoardVO.i_TITLE}" readonly="readonly">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">내용<br>
 								<br></label>
-								<textarea class="form-control" name="N_CONTENT" rows="3"
-									readonly="readonly">${Noti_BoardVO.n_CONTENT}</textarea>
+								<textarea class="form-control" name="I_CONTENT" rows="3"
+									readonly="readonly">${Imp_BoardVO.i_CONTENT}</textarea>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">작성자<br>
 								<br></label> <input type="text" name="N_EMP_ID"
-									class="form-control" value="${Noti_BoardVO.n_EMP_ID}"
+									class="form-control" value="${Imp_BoardVO.i_EMP_ID}"
 									readonly="readonly">
 							</div>
 							<div class='popup back' style="display: none;"></div>
@@ -170,31 +170,31 @@
 						console.log(formObj);
 
 						$(".btn-warning").on("click", function() {
-							formObj.attr("action", "/noticeboard/modify");
+							formObj.attr("action", "/importantboard/modify");
 							formObj.attr("method", "get");
 							formObj.submit();
 						});
 
 						$(".btn-danger").on("click", function() {
-							formObj.attr("action", "/noticeboard/remove");
+							formObj.attr("action", "/importantboard/remove");
 							formObj.submit();
 						});
 
 						$(".btn-primary").on("click", function() {
 							formObj.attr("method", "get");
-							formObj.attr("action", "/noticeboard/listPage");
+							formObj.attr("action", "/importantboard/listPage");
 							formObj.submit();
 						});
 
-						var n_ID = $
+						var i_ID = $
 						{
-							Noti_BoardVO.n_ID
+							Imp_BoardVO.i_ID
 						}
 						;
 						var template = Handlebars.compile($("#templateAttach")
 								.html());
 
-						$.getJSON("/noticeboard/getAttach/" + n_ID, function(
+						$.getJSON("/importantboard/getAttach/" + i_ID, function(
 								list) {
 							$(list).each(function() {
 
@@ -222,7 +222,7 @@
 								});
 							}
 
-							formObj.attr("action", "/noticeboard/remove");
+							formObj.attr("action", "/importantboard/remove");
 							formObj.submit();
 						});
 

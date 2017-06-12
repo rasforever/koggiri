@@ -26,7 +26,7 @@
 <div id="sub_menu_title">
 <h1><img src="/resources/img/s_menu01.png"/></h1>
 <div class="sub_top">   
-    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/noticeboard/listPage">공지</a>  &gt;  <strong>공지사항</strong></span>
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/importantboard/listPage">공지</a>  &gt;  <strong>알립니다</strong></span>
 </div>
 </div>
 
@@ -71,23 +71,25 @@
 					<h3 class="box-title">REGISTER BOARD</h3>
 				</div> -->
 				<!-- /.box-header -->
+				
+				
 <form id='registerForm' role="form" method="post">
 	<div class="box-body">
 		<div class="form-group">
 			<label for="exampleInputEmail1" >제목<br><br></label> 
 			<input type="text"
-				name='N_TITLE' class="form-control" id = "title" placeholder="Enter Title">
+				name='I_TITLE' class="form-control" id = "title" placeholder="Enter Title">
 		</div>
 		<div class="form-group">
 			<label for="exampleInputPassword1">내용<br><br></label>
-			<textarea class="form-control" name="N_CONTENT" rows="3"
+			<textarea class="form-control" name="I_CONTENT" rows="3"
 				placeholder="Enter ..."></textarea>
 		</div>
 		
 		<div class="form-group">
 			<label for="exampleInputEmail1">작성자<br><br></label> 
 			<input type="text"
-				name="N_EMP_ID" class="form-control" placeholder="Enter Writer">
+				name="I_EMP_ID" class="form-control" placeholder="Enter Writer">
 		</div>
 		
 		<div class="form-group">
