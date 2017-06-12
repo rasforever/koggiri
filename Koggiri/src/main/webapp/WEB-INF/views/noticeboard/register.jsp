@@ -87,7 +87,7 @@
 		<div class="form-group">
 			<label for="exampleInputEmail1">작성자<br><br></label> 
 			<input type="text"
-				name="N_EMP_ID" class="form-control" placeholder="Enter Writer">
+				value="${emp_nm}" name="N_EMP_ID" class="form-control" placeholder="Enter Writer" readonly="readonly">
 		</div>
 		
 		<div class="form-group">

@@ -90,8 +90,7 @@
 	<tr>
 		<th style="text-align: center; width: 60px">글번호</th>
 		<th style="text-align: center;">TITLE</th>
-		<th style="text-align: center;">WRITER</th>
-		<th style="text-align: center;">REGDATE</th>
+		<th style="text-align: center; width: 200px;">REGDATE</th>
 		<th style="text-align: center; width: 70px">VIEWCNT</th>
 	</tr>
 
@@ -101,7 +100,6 @@
 	<tr>
 		<td>${Noti_BoardVO.n_ID}</td>
 		<td><a href='/noticeboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&n_ID=${Noti_BoardVO.n_ID}'>${Noti_BoardVO.n_TITLE}</a></td>
-		<td>${Noti_BoardVO.n_EMP_ID}</td>
 		<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 				value="${Noti_BoardVO.n_DATE}" /></td>
 		<td><span class="badge bg-red">${Noti_BoardVO.n_HIT }</span></td>
@@ -113,7 +111,7 @@
 
 				</div>
 				<!-- /.box-body -->
-				<div class="box-footer">Footer</div>
+				<div class="box-footer"></div>
 					<div class="text-center">
 						<ul class="pagination">
 
