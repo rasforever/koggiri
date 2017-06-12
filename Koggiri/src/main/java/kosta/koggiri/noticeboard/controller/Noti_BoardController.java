@@ -41,8 +41,10 @@ public class Noti_BoardController {
 	private String uploadPath;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public void registerGET(Noti_BoardVO board, Model model) throws Exception{
+	public void registerGET(Noti_BoardVO board, Model model, HttpSession session) throws Exception{
 		logger.info("register get ..........");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("emp_nm", emp_nm);
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -65,8 +67,11 @@ public class Noti_BoardController {
 	}
 	
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
-	public void read(@RequestParam("n_ID")int n_ID, @ModelAttribute("cri")Noti_SearchCriteria cri, Model model) throws Exception{
+	public void read(@RequestParam("n_ID")int n_ID, @ModelAttribute("cri")Noti_SearchCriteria cri, Model model, HttpSession session) throws Exception{
 		logger.info("read.....");
+		
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("emp_nm", emp_nm);
 		model.addAttribute("Noti_BoardVO", service.read(n_ID));
 	}
 	
