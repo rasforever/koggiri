@@ -65,5 +65,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id='updateLev' parameterType="String">
 		update ATTENDANCE set LEA_TIME = to_char(sysdate, 'HH24:MI') WHERE EMP_ID = #{emp_id} and ATT_DT = to_char(sysdate,'YYYYMMDD')
 	</update>
+	
+	<select id="searchEmp" resultType="EmpVO">
+		select emp_id, emp_nm from emp where emp_id like #{emp_id} or emp_nm like #{emp_id} 
+	</select>
+	
+	<select id="searchatt_Emp" resultType="EmpVO">
+		select e.emp_id as emp_id, e.emp_nm as emp_nm from emp e, member m  where e.emp_id like #{emp_id} or e.emp_nm like #{emp_id} 
+		and e.emp_id = m.mem_id and m.mem_aut_cd = 'A'
+	</select>
 
 </mapper>

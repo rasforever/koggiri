@@ -24,4 +24,7 @@ public interface AdminDAO {
 	
 	public void updateLev(String emp_id)throws Exception;
 	
+	public List<EmpVO> searchEmp(EmpVO vo)throws Exception;
+	public List<EmpVO> searchatt_Emp(EmpVO vo)throws Exception;
+	
 }

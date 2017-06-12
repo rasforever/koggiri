@@ -1,6 +1,6 @@
 package kosta.koggiri.admin_emp.controller;
 
-import java.io.PrintWriter;
+
 import java.util.Random;
 
 import javax.inject.Inject;
@@ -21,7 +21,7 @@ import kosta.koggiri.admin_emp.domain.SearchVO;
 import kosta.koggiri.admin_emp.service.AdminService;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/admin_emp/*")
 public class AdminController {
 
 	@Inject
@@ -56,25 +56,25 @@ public class AdminController {
 		String join_dt = before.substring(2);
 		vo.setJoin_dt(join_dt);
 		System.out.println(vo.toString());
-		String max_emp_id = service.findEmpid(vo);// k17040401
-		if (max_emp_id == null) { // 그날짜에 들어온 사람이 없으면
-			String no = join_dt.replace("/", ""); // 170404
+		String max_emp_id = service.findEmpid(vo);// 
+		if (max_emp_id == null) { // 
+			String no = join_dt.replace("/", ""); // 
 			max_emp_id = "k" + no + "00";
 		}
-		num = Integer.parseInt(max_emp_id.substring(1)) + 1; // 17040402
-		// 17/04/04 -> 170404 변환
+		num = Integer.parseInt(max_emp_id.substring(1)) + 1; // 
+		// 17/04/04 ->
 		// String no = join_dt.replace("/", "");
-		String emp_id = "k" + String.valueOf(num); // k17040402
+		String emp_id = "k" + String.valueOf(num); //
 		vo.setEmp_id(emp_id);
 		vo.setWstate_cd("0");
 		vo.setInput_emp_id("master");
 		service.insertEmp(vo);
 
-		String mem_pw = vo.getRes_no().substring(0, 6); // 주민번호 앞6자리를 패스워드로
+		String mem_pw = vo.getRes_no().substring(0, 6); // 
 		vo.setMem_pw(mem_pw);
 		service.tempPass(vo);
 
-		return "redirect:/admin/manager";
+		return "redirect:/admin_emp/manager";
 
 	}
 
@@ -92,6 +92,40 @@ public class AdminController {
 		ratt.addFlashAttribute("id", advo.getMem_id());
 		ratt.addFlashAttribute("mem_pw", advo.getMem_pw());
 		return "redirect:/admin/manager";
+	}
+	@RequestMapping(value="/emp", method = RequestMethod.GET)
+	public void searchempGET(@ModelAttribute("emp") EmpVO emp, Model model) throws Exception{
+		
+		String emp_id = emp.getEmp_id();
+		emp.setEmp_id(emp_id + "%");
+		model.addAttribute("emplist",service.searchEmp(emp));
+		
+	}
+	@RequestMapping(value="/emp", method = RequestMethod.POST)
+	public void searchempPOST(@ModelAttribute("emp") EmpVO emp, Model model) throws Exception{
+		
+		String emp_id = emp.getEmp_id();
+		emp.setEmp_id(emp_id + "%");
+		System.out.println(emp.getEmp_id());
+		model.addAttribute("emplist", service.searchEmp(emp));
+		
+	}
+	@RequestMapping(value="/att_emp", method = RequestMethod.GET)
+	public void searchatt_empGET(@ModelAttribute("emp") EmpVO emp, Model model) throws Exception{
+		
+		String emp_id = emp.getEmp_id();
+		emp.setEmp_id(emp_id + "%");
+		model.addAttribute("emplist",service.searchatt_Emp(emp));
+		
+	}
+	@RequestMapping(value="/att_emp", method = RequestMethod.POST)
+	public void searchatt_empPOST(@ModelAttribute("emp") EmpVO emp, Model model) throws Exception{
+		
+		String emp_id = emp.getEmp_id();
+		emp.setEmp_id(emp_id + "%");
+		System.out.println(emp.getEmp_id());
+		model.addAttribute("emplist", service.searchatt_Emp(emp));
+		
 	}
 
 	public static String temporaryPassword(int size) {

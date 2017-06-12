@@ -63,4 +63,14 @@ public class AdminDAOImpl implements AdminDAO {
 		
 	}
 
+	@Override
+	public List<EmpVO> searchEmp(EmpVO vo) throws Exception {
+		return session.selectList(namespace+".searchEmp", vo);
+	}
+	
+	@Override
+	public List<EmpVO> searchatt_Emp(EmpVO vo) throws Exception {
+		return session.selectList(namespace+".searchatt_Emp", vo);
+	}
+
 }
