@@ -50,7 +50,7 @@
 				<h3 class="box-title">나의 근태 기록</h3><br>
 			</div>
 			<div class="box-body">
-				<h3>${emp_InfoVO.emp_nm} ${emp_InfoVO.pos_nm}</h3>
+				<h3>${einfo.emp_nm} ${einfo.pos_nm}</h3>
 				<table class="table table-bordered">
 					<tr>
 						<th>근무일</th>

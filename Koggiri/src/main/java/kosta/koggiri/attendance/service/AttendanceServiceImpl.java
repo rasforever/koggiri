@@ -7,12 +7,12 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import kosta.koggiri.attendance.domain.Att_Emp_InfoVO;
+import kosta.koggiri.attendance.domain.AttendanceSearchVO;
 import kosta.koggiri.attendance.domain.AttendanceVO;
 import kosta.koggiri.attendance.persistence.AttendanceDAO;
 
 @Service
 public class AttendanceServiceImpl implements AttendanceService{
-
 
 	@Inject
 	private AttendanceDAO dao;
@@ -23,8 +23,25 @@ public class AttendanceServiceImpl implements AttendanceService{
 	}
 
 	@Override
-	public List<AttendanceVO> att_dlist(String emp_id) throws Exception {
-		return dao.att_dlist(emp_id);
+	public List<AttendanceVO> att_dlist(AttendanceVO vo) throws Exception {
+		return dao.att_dlist(vo);
 	}
+	
+	@Override
+	public List<AttendanceVO> att_alldlist(AttendanceSearchVO vo) throws Exception {
+		return dao.att_alldlist(vo);
+	}
+	
+	@Override
+	public List<AttendanceVO> att_mlist(AttendanceSearchVO vo) throws Exception {
+		return dao.att_mlist(vo);
+	}
+
+	@Override
+	public List<AttendanceSearchVO> att_workMM() throws Exception {
+		return dao.att_workMM();
+	}
+
+
 
 }
