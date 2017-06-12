@@ -61,7 +61,7 @@
 							style="padding-top: 10px;">공지</a> <!-- 2depth : s -->
 							<ul>
 								<li class=""><a href="../noticeboard/listPage">공지 사항</a></li>
-								<li class=""><a href="#">알립니다</a></li>
+								<li class=""><a href="../importantboard/listPage">알립니다</a></li>
 							</ul></li>
 						<!-- 1depth : s -->
 						<li class="menu02 "><a href="#" class="menu_a"
