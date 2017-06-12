@@ -54,7 +54,10 @@ public class HomeController {
 		System.out.println("home:" + mem_id);
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
-		// return "login/loginForm"; 濡쒓렇�씤湲곕뒫 �셿�꽦 �릺硫� �솢�꽦�솕
+		model.addAttribute("list_notice", h_service.list_notice());
+		model.addAttribute("list_important", h_service.list_important());
+		model.addAttribute("list_calendar", h_service.list_calendar(mem_id));
+		// return "login/loginForm";
 
 		return "/main";
 	}
@@ -78,25 +81,6 @@ public class HomeController {
 
 		return "redirect:/";
 	}
-	
-	@RequestMapping(value="/list_notice")
-	public void list_notice(Model model)throws Exception{
 		
-		model.addAttribute("list_notice", h_service.list_notice());
-	}
-	
-	@RequestMapping(value="/list_important")
-	public void list_important(Model model)throws Exception{
-		
-		model.addAttribute("list_important", h_service.list_important());
-	}
-	
-	@RequestMapping(value="/list_calendar")
-	public void list_calendar(Model model)throws Exception{
-		
-		model.addAttribute("list_calendar", h_service.list_calendar());
-	}
-
-	
 	
 }

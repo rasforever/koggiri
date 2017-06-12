@@ -5,9 +5,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kosta.koggiri.mapper.HomeMapper">
 
-<select id="list_notice" parameterType="String" resultType="H_NoticeVO">
-select 
+	<select id="list_notice" resultType="H_NoticeVO">
+	<![CDATA[
+		select notice.* from 
+			(select rownum, n.* from 
+				(select * from noticeboard order by n_date desc)
+			 n ) notice
+		where rownum < 5
+	]]>
+	</select>
+	<select id="list_important" resultType="H_NoticeVO">
+	<![CDATA[
+		select import.* from 
+			(select rownum, i.* from 
+				(select * from importantboard order by i_date desc)
+			 n ) import
+		where rownum < 5
+	]]>
+	</select>
+	<select id="list_calendar" parameterType="String" resultType="H_NoticeVO">
+	<![CDATA[
+		select * from calendar where mem_id = #{emp_id}
+		and START_DATE < sysdate
+		and END_DATE > sysdate;
+	]]>
+	</select>
 
-</select>
 
 </mapper>

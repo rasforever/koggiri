@@ -28,12 +28,10 @@ public class HomeServiceImpl implements HomeService {
 	}
 
 	@Override
-	public List<H_calendarVO> list_calendar() throws Exception {
-		return dao.list_calendar();
+	public List<H_calendarVO> list_calendar(String emp_id) throws Exception {
+		return dao.list_calendar(emp_id);
 	}
 
-	
-	
 	
 
 }
