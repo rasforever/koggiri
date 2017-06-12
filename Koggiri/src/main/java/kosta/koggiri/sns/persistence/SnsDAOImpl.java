@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import kosta.koggiri.sns.domain.RoomVO;
 import kosta.koggiri.sns.domain.SnsVO;
 
 @Repository
@@ -24,5 +25,10 @@ public List<SnsVO> listAll(String emp_id) throws Exception {
 	System.out.println("dao까지왓음");
 	return session.selectList(namespace+".listAll", emp_id);
 	
+}
+
+@Override
+public RoomVO chat_room(String emp_id) throws Exception {
+	return session.selectOne(namespace+".chat_room",emp_id);
 }
 }

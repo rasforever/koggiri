@@ -33,6 +33,17 @@ private static final Logger logger = LoggerFactory.getLogger(SnsController.class
 		
 	}
 	
+	@RequestMapping(value="/chat_room", method= RequestMethod.GET)
+	public void chat_room(Model model, HttpSession session)throws Exception{
+		
+		String emp_id = (String) session.getAttribute("mem_id");
+		model.addAttribute("emp_id", emp_id);
+		
+		
+		
+		model.addAttribute("chat_room",service.chat_room(emp_id));
+	}
+	
 	
 
 }

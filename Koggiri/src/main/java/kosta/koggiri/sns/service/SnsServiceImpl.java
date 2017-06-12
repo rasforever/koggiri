@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Repository;
 
-
+import kosta.koggiri.sns.domain.RoomVO;
 import kosta.koggiri.sns.domain.SnsVO;
 import kosta.koggiri.sns.persistence.SnsDAO;
 
@@ -22,6 +22,11 @@ public class SnsServiceImpl implements SnsService {
 		System.out.println("service"+ emp_id);
 		return dao.listAll(emp_id);
 		
+	}
+
+	@Override
+	public RoomVO chat_room(String emp_id) throws Exception {
+		return dao.chat_room(emp_id);
 	}
 
 
