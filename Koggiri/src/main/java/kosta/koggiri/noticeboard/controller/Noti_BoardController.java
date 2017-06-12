@@ -91,8 +91,10 @@ public class Noti_BoardController {
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
-	public void modifyGET(@RequestParam("n_ID")int n_ID, @ModelAttribute("cri")Noti_SearchCriteria cri, Model model) throws Exception{
+	public void modifyGET(@RequestParam("n_ID")int n_ID, @ModelAttribute("cri")Noti_SearchCriteria cri, Model model, HttpSession session) throws Exception{
 		
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("emp_nm", emp_nm);
 		model.addAttribute("Noti_BoardVO",service.read(n_ID));
 	}
 	
