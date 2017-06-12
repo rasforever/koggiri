@@ -54,7 +54,7 @@
 				}, 500, "easeInOutCubic");
 			},
 		});
-		window.open('http://localhost:8082/ch04/', 'Javis', "width=400px height=500px");
+		window.open('http://localhost:8081/sns/listAll', 'Javis', "width=400px height=500px");
 	});
 </script>
 

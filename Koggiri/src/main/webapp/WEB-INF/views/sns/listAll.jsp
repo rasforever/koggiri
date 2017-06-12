@@ -15,7 +15,8 @@
 
 								<c:forEach items="${list}" var="SnsVO">
 										<tr>
-											<td>${SnsVO.emp_nm}</td>
+											<td><a href='/sns/chat_room?emp_id=${emp_id}&n_emp_id=${SnsVO.emp_id}'>
+											${SnsVO.emp_nm}</a></td>
 											<td>${SnsVO.dept_nm}</td>
 											<td>${SnsVO.pos_nm}</td>
 										</tr>

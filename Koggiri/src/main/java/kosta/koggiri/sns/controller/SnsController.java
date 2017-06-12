@@ -27,11 +27,9 @@ private static final Logger logger = LoggerFactory.getLogger(SnsController.class
 
 		
 		String emp_id = (String) session.getAttribute("mem_id");
-		System.out.println("컨트롤러"+emp_id);
 		model.addAttribute("emp_id", emp_id);
 		logger.info("show all list................");
 		model.addAttribute("list",service.listAll(emp_id));
-		System.out.println("ssdf");
 		
 	}
 	

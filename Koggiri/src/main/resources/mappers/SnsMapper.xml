@@ -21,5 +21,8 @@ select e.emp_id as emp_id
   
 </select>
 
+<select id="chat_room" resultType="roomVO">
+	</select>
+
 
 </mapper>
