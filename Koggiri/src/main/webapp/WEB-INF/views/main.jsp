@@ -54,7 +54,7 @@
 				}, 500, "easeInOutCubic");
 			},
 		});
-		window.open('http://106.242.203.68:8082', 'Javis', 'width=300 heigth=500');
+		window.open('http://localhost:8081/sns/listAll', 'Javis', "width=400px height=500px");
 	});
 </script>
 
@@ -98,9 +98,6 @@
 				<li><a href="#">${empVO.tel_no }</a></li>
 			</ul>
 
-			<ul>
-				<li><a href="#">를 불러와야 합니다.^^*</a></li>
-			</ul>
 		</div>
 
 		<!-- ************************************* -->
@@ -118,7 +115,7 @@
 				<input type="submit" class="off_btn" id="leave_btn" value=""
 					style="margin: 7px;">
 			</form>
-			<form method='post' action='att_list'>
+			<form method='get' action='attendance/att_dlist'>
 				<input type="submit" value="근태확인" class="att_list"
 					style="width: 120px; height: 35px; border: 0px; background: gray; margin: 7px;">
 			</form>
@@ -126,7 +123,7 @@
 		<!-- *************************************** -->
 		<h3 class="hidden">업무</h3>
 		<div class="event_apply">
-			<a href="#"></a>
+			<a href="task/list"></a>
 			<!--  업무 리스트로 이동 -->
 		</div>
 		<hr />
@@ -136,7 +133,7 @@
 			<img src="../resources/img/notice_t.png" style="margin-bottom: 10px">
 			<ul>
 
-				<li><a href="/HelpDesk/Notify/Detail?sn=2456">공지합니다 <img
+				<li><a href="#">공지합니다 <img
 						src="http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_new.gif"
 						alt="새글" />
 				</a><span>2017-05-29</span></li>
@@ -153,7 +150,7 @@
 				<li><a href="/HelpDesk/Notify/Detail?sn=2454">하시면 될것 같아요</a><span>2017-05-09</span></li>
 
 			</ul>
-			<span class="more"><a href="#"><img
+			<span class="more"><a href="noticeboard/listPage"><img
 					src="http://s.nx.com/S2/billing/pcbang/real/homepage/btn/btn_more.gif"
 					alt="더보기" /></a></span>
 			<!-- + 버튼 누르면 공지사항 리트스 바로가기 -->
@@ -192,7 +189,7 @@
 
 		<h3 class="hidden">결재</h3>
 		<div class="game_play">
-			<a href="#"></a>
+			<a href="approval/register"></a><!-- 결제 등록으로 이동 -->
 			<!-- 결제 리스트로 이동 -->
 		</div>
 	</div>

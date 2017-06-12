@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kosta.koggiri.mapper.SnsMapper">
+
+<select id="listAll" parameterType="String" resultType="SnsVO">
+select e.emp_id as emp_id
+      , e.emp_nm as emp_nm
+      , d.dept_nm as dept_nm
+      , p.pos_nm as pos_nm
+      from emp e      
+      inner join dept d
+      on e.dept_id = d.dept_id
+      inner join pos p
+      on e.pos_id =
+      p.pos_id
+      where e.emp_id not in ('master', #{emp_id})
+      order by d.dept_sort, e.pos_id, e.emp_id
+  
+</select>
+
+<select id="chat_room" resultType="roomVO">
+	</select>
+
+
+</mapper>

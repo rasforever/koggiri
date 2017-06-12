@@ -54,15 +54,11 @@
 
 					<div class="box" align="left">
 						<div class="box-header with-border">
-							현재월 : ${ att_day } <br>
+							현재일 : ${ att_day } <br>
 						</div>
 						<div class='box-body'>
-							조회월: <select id="att_mm" name="att_mm">
-									<c:forEach var="attendanceSearchVO" items="${att_mm_list}">
-										<option value="${attendanceSearchVO.att_mm}">${attendanceSearchVO.att_mm}
-										</option>
-									</c:forEach>
-							</select>
+							조회일: <input type="text" name="att_dd" id="att_dd"
+								class="datepicker" size="14">
 							<button id='searchBtn'>Search</button>
 						</div>
 						<div class="box-body">
@@ -74,23 +70,18 @@
 									<th>사원</th>
 									<th>부서</th>
 									<th>직급</th>
-									<th>근무일</th>
-									<th>출근일</th>
-									<th>결근일</th>
-									<th>휴가</th>
+									<th>출근시간</th>
+									<th>퇴근시간</th>
 								</tr>
 
-								<c:forEach items="${att_mlist}" var="attendanceVO">
+								<c:forEach items="${alldlist}" var="attendanceVO">
 									<tr>
-										<td><a
-											href='/attendance/att_dlist?&emp_id=${attendanceVO.emp_id}'>${attendanceVO.emp_id}</a></td>
+										<td>${attendanceVO.emp_id}</td>
 										<td>${attendanceVO.emp_nm}</td>
 										<td>${attendanceVO.dept_nm}</td>
 										<td>${attendanceVO.pos_nm}</td>
-										<td>${attendanceVO.all_work_day}</td>
-										<td>${attendanceVO.att_day}</td>
-										<td>${attendanceVO.abs_day}</td>
-										<td>${attendanceVO.vat_day}</td>
+										<td>${attendanceVO.att_time}</td>
+										<td>${attendanceVO.lea_time}</td>
 									</tr>
 								</c:forEach>
 							</table>
@@ -121,8 +112,8 @@
 					$('#searchBtn').on(
 						"click",
 						function(event) {
-							self.location = "att_mlist"
-							+ "?att_mm=" + $('#att_mm').val();
+							self.location = "att_alldlist"
+							+ "?att_dd=" + $('#att_dd').val();
 		
 						});
 		
