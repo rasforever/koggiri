@@ -60,4 +60,14 @@ public class AdminServiceImpl implements AdminService {
 		dao.updateAtt(emp_id);
 	}
 
+	@Override
+	public List<EmpVO> searchEmp(EmpVO vo) throws Exception {
+		return dao.searchEmp(vo);
+	}
+
+	@Override
+	public List<EmpVO> searchatt_Emp(EmpVO vo) throws Exception {
+		return dao.searchatt_Emp(vo);
+	}
+
 }
