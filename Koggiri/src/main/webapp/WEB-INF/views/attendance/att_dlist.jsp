@@ -63,7 +63,7 @@
 						<tr>
 							<td>${attendanceVO.att_dt}</td>
 							<td>${attendanceVO.att_time}</td>
-							<td>${attendanceVO.lev_time}</td>
+							<td>${attendanceVO.lea_time}</td>
 						</tr>
 
 					</c:forEach>
