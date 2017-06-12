@@ -38,16 +38,16 @@
 				<ul>
 					<li class="menu02 "><a href="#">사원관리</a>
 						<ul>
-							<li class="sub01 "><a href="/admin_emp/joinus">근태확인</a></li>
+							<li class="sub01 "><a href="/admin_emp/manager">사원등록</a></li>
 							<li class="sub01 "><a href="#">인사이동</a></li>
 							<li class="sub01 "><a href="#">사원정보 추가/변경</a></li>
 							<li class="sub01 "><a href="#">퇴사</a></li>
 							<ul></ul>
 						</ul></li>
-						<li class="menu02 "><a href="/attendance/att_alldlist">근태관리</a>
+						<li class="menu02 "><a href="/attendance/att_mlist">근태관리</a>
 						<ul>
 							<li class="sub01 "><a href="/attendance/att_mlist">월 근태내역</a></li>
-							<li class="sub01 "><a href="/attendance/att_dlist">일 근태내역</a></li>
+							<li class="sub01 "><a href="/attendance/att_alldlist">일 근태내역</a></li>
 							<li class="sub01 "><a href="#">휴가등록</a></li>
 
 							<ul></ul>
