@@ -133,19 +133,7 @@
 						</c:forEach>
 
 					</table>
-					
-					<a href=windowopen(b.html)>
 
-<<<<<<< HEAD
-					<div>
-						<iframe src="http://106.242.203.68:8082"
-							style="width: 400px; height: 500px;"></iframe>
-
-					</div>
-=======
->>>>>>> branch 'master' of https://github.com/rasforever/koggiri
-				</div>
-				<!-- /.box-body -->
 
 
 				<div class="box-footer">
