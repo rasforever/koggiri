@@ -28,7 +28,7 @@
 <div id="sub_menu_title">
 <h1><img src="/resources/img/s_menu01.png"/></h1>
 <div class="sub_top">   
-    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/importantboard/listPage">공지</a>  &gt;  <strong>공지사항</strong></span>
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/importantboard/listPage">공지</a>  &gt;  <strong>알립니다</strong></span>
 </div>
 </div>
 
@@ -38,11 +38,11 @@
       <strong class="menu01"><span>회사 정보</span></strong>
       <ul>
                 <li class="menu01 ">
-                    <a href="/importantpage/listPage">공지사항</a>
+                    <a href="/noticeboard/listPage">공지사항</a>
                     <ul> </ul>
                 </li>
                 <li class="menu02 ">
-                    <a href="#">알립니다</a>
+                    <a href="/importantboard/listPage">알립니다</a>
                 </li>
            </ul>
    </div>
