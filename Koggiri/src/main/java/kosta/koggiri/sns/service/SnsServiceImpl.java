@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import kosta.koggiri.sns.domain.RoomVO;
 import kosta.koggiri.sns.domain.SnsVO;
@@ -25,9 +26,26 @@ public class SnsServiceImpl implements SnsService {
 	}
 
 	@Override
-	public RoomVO chat_room(String emp_id) throws Exception {
-		return dao.chat_room(emp_id);
+	public int chat_room_count(RoomVO vo) throws Exception {
+		return dao.chat_room_count(vo);
 	}
+
+	@Override
+	public void create_room(RoomVO vo) throws Exception {
+		dao.create_room(vo);
+		
+	}
+	
+	@Transactional
+	@Override
+	public List<RoomVO> chat(RoomVO vo) throws Exception {
+		vo.setRoom_id(dao.chat_room_id(vo));
+		return dao.chat(vo);
+	}
+
+
+
+
 
 
 

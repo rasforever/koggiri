@@ -28,7 +28,27 @@ public List<SnsVO> listAll(String emp_id) throws Exception {
 }
 
 @Override
-public RoomVO chat_room(String emp_id) throws Exception {
-	return session.selectOne(namespace+".chat_room",emp_id);
+public int chat_room_count(RoomVO vo) throws Exception {
+	return session.selectOne(namespace+".chat_room_count", vo);
 }
+
+@Override
+public void create_room(RoomVO vo) throws Exception {
+	System.out.println(vo.getEmp_id());
+	System.out.println(vo.getN_emp_id());
+	session.insert(namespace+".create_room",vo);
+	
+}
+
+@Override
+public List<RoomVO> chat(RoomVO vo)throws Exception {
+	return session.selectList(namespace+".chat", vo);
+}
+
+@Override
+public int chat_room_id(RoomVO vo) throws Exception {
+	return session.selectOne(namespace+".chat_room_id", vo);
+}
+
+
 }

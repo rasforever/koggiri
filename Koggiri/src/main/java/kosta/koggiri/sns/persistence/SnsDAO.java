@@ -9,6 +9,12 @@ public interface SnsDAO {
 	
 	public List<SnsVO> listAll(String emp_id) throws Exception; 
 	
-	public RoomVO chat_room(String emp_id) throws Exception;
+	public int chat_room_count(RoomVO vo) throws Exception;	
+
+	public int chat_room_id(RoomVO vo) throws Exception; 
+	
+	public void create_room(RoomVO vo)throws Exception;
+	
+	public List<RoomVO> chat(RoomVO vo)throws Exception;
 
 }

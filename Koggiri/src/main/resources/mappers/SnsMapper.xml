@@ -5,6 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kosta.koggiri.mapper.SnsMapper">
 	
+	<!-- master와 자신을 제외한 사원이름, 부서, 직급 출력  -->
+	
 	<select id="listAll" parameterType="String" resultType="SnsVO">
 		select e.emp_id as emp_id
 		      , e.emp_nm as emp_nm
@@ -21,35 +23,42 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	  
 	</select>
 	
-	<insert id="creat_room_1" parameterType="roomVO">
-		insert into chatroom_list (room_id, emp_id) values (room_seq.nextval, #{emp_id})
-	</insert>
+	<!-- 채팅방 생성 : 프로시저가 count가 0일경우 상대방 대화가 저장되는 공간과
+	내 대화 저장되는 공간의 대화방 최초생성-->
 	
-	<insert id="creat_room_2" parameterType="roomVO">
-		insert into chatroom_list (room_id, emp_id) values (room_seq.nextval, #{n_emp_id})
-	</insert>
+	<select id="create_room" parameterType="RoomVO" statementType="CALLABLE">
+		{CALL CREATE_ROOM(#{emp_id}, #{n_emp_id})}
+	</select>
 	
-	<insert id="creat_char" parameterType="roomVO">
+    <!-- 대화내역저장 -->
+	
+	<insert id="create_chat_context" parameterType="RoomVO">
 		insert into chat_list (room_id, emp_id, input_text, input_date) values (#{room_id}, #{emp_id}, #{input_text}, sysdate)
 	</insert>
 	
-	<select id="chat_room_count" resultType="roomVO">
+	<!-- 채팅방 개수 조회 -->
+	
+	<select id="chat_room_count" parameterType="RoomVO" resultType="Int">
 		select count(c1.room_id) as room_count
 		  from chatroom_list c1, chatroom_list c2
 		 where c1.emp_id = #{emp_id}
-		   and c2.emp_id = #{n_emp_id)
-		   and c1.room_id = c2.room_id
-	</select>
-
-	<select id="chat_room" resultType="roomVO">
-		select c1.room_id
-		  from chatroomlist c1, chatroomlist c2
-		 where c1.emp_id = #{emp_id}
-		   and c2.emp_id = #{n_emp_id)
+		   and c2.emp_id = #{n_emp_id}
 		   and c1.room_id = c2.room_id
 	</select>
 	
-	<select id="chat" resultType="roomVO">
+	<!-- 채팅방 개수 조회 -->
+	
+	<select id="chat_room_id" parameterType="RoomVO" resultType="Int">
+		select c1.room_id as room_id
+		  from chatroom_list c1, chatroom_list c2
+		 where c1.emp_id = #{emp_id}
+		   and c2.emp_id = #{n_emp_id}
+		   and c1.room_id = c2.room_id
+	</select>
+	
+	<!-- 채팅 내역 저장된 것을 조회 -->
+	
+	<select id="chat" resultType="RoomVO">
 		select c.room_id as room_id
 		     , c.emp_id as emp_id
 		     , e.emp_nm as emp_nm
