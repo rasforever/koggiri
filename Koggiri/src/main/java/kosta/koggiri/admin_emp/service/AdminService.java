@@ -8,7 +8,8 @@ import kosta.koggiri.admin_emp.domain.SearchVO;
 import kosta.koggiri.admin_emp.domain.SearchedEmpVO;
 
 public interface AdminService {
-public List<SearchedEmpVO> selectList(SearchVO search)throws Exception;
+	
+	public List<SearchedEmpVO> selectList(SearchVO search)throws Exception;
 	
 	public void insertEmp(EmpVO vo)throws Exception;
 	
@@ -23,5 +24,8 @@ public List<SearchedEmpVO> selectList(SearchVO search)throws Exception;
 	public void updateAtt(String emp_id)throws Exception;
 	
 	public void updateLev(String emp_id)throws Exception;
+	
+	public List<EmpVO> searchEmp(EmpVO vo)throws Exception;
+	public List<EmpVO> searchatt_Emp(EmpVO vo)throws Exception;
 	
 }

@@ -121,7 +121,7 @@
 									</tr>
 									<tr>
 										<th>결재자</th>
-										<td><input type="text" name="app_emp_id"></td>
+										<td><input type="text" name="app_emp_id" id="app_emp_id"></td>
 									</tr>
 									<tr>
 										<th>제목</th>
@@ -294,6 +294,11 @@
 			}
 		});
 	});
+	$('#app_emp_id').on(
+			"click",
+			function(event) {
+				window.open('../admin_emp/att_emp', 'EMP', "width=400px height=500px");
+			});
 </script>
 
 

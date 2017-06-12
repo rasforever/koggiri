@@ -147,7 +147,7 @@
 											href='/approval/readPage${pageMaker.makeSearch(pageMaker.search.page) }&app_id=${approvalVO.app_id}'>
 												${approvalVO.app_id} </a></td>
 										<td><a
-											href='/approval/readPage${pageMaker.makeSearch(pageMaker.search.page) }&app_id=${approvalVO.app_id}'>${approvalVO.draft_dt}</a></td>
+											href='/approval/readPage${pageMaker.makeSearch(pageMaker.search.page) }&app_id=${approvalVO.app_id}'>${approvalVO.draft_dt.substring(0,10)}</a></td>
 										<td><a
 											href='/approval/readPage${pageMaker.makeSearch(pageMaker.search.page) }&app_id=${approvalVO.app_id}'>${approvalVO.app_type_nm}</a></td>
 										<td><a
@@ -449,6 +449,11 @@
 						+ "&draft_e_dt=" + e_dt;
 
 				});
+			$('#draft_emp_id').on(
+					"click",
+					function(event) {
+						window.open('../admin_emp/emp', 'EMP', "width=400px height=500px");
+					});
 		});
 
 	function dis_chg(obj) {

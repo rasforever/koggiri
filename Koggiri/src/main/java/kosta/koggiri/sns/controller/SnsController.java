@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kosta.koggiri.sns.domain.RoomVO;
 import kosta.koggiri.sns.service.SnsService;
 
 
@@ -21,7 +22,8 @@ private static final Logger logger = LoggerFactory.getLogger(SnsController.class
 	
 	@Inject
 	private SnsService service;
-	
+
+	//채팅 사원 목록 출력 
 	@RequestMapping(value="/listAll", method= RequestMethod.GET)
 	public void listAll(Model model,  HttpSession session) throws Exception{
 
@@ -32,6 +34,24 @@ private static final Logger logger = LoggerFactory.getLogger(SnsController.class
 		model.addAttribute("list",service.listAll(emp_id));
 		
 	}
+	
+	//채팅내역 출력
+	@RequestMapping(value="/chat_room", method= RequestMethod.GET)
+	public void chat_room_listGET(RoomVO room,Model model, HttpSession session)throws Exception{
+		
+		String emp_id = (String) session.getAttribute("mem_id");
+		model.addAttribute("ck_emp_id", emp_id);
+			
+		if(service.chat_room_count(room) == 0 ){
+			service.create_room(room);
+			model.addAttribute("roomlist",room);
+		}else{
+			model.addAttribute("roomlist", service.chat(room));
+		}
+		
+	}
+	
+
 	
 	
 

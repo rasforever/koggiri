@@ -23,6 +23,7 @@ public class EmpVO implements Serializable{
 	private String pos_nm;
 	private String dept_nm;
 	private String mem_id;
+	private String mem_aut_cd;
 	
 	public String getMem_id() {
 		return mem_id;
@@ -129,25 +130,19 @@ public class EmpVO implements Serializable{
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
+	public String getMem_aut_cd() {
+		return mem_aut_cd;
+	}
+	public void setMem_aut_cd(String mem_aut_cd) {
+		this.mem_aut_cd = mem_aut_cd;
+	}
 	@Override
 	public String toString() {
 		return "EmpVO [emp_nm=" + emp_nm + ", pos_id=" + pos_id + ", dept_id=" + dept_id + ", join_dt=" + join_dt
 				+ ", emp_id=" + emp_id + ", res_no=" + res_no + ", sex_id=" + sex_id + ", nation_id=" + nation_id
 				+ ", wstate_cd=" + wstate_cd + ", input_emp_id=" + input_emp_id + ", mem_pw=" + mem_pw + ", e_mail="
 				+ e_mail + ", tel_no=" + tel_no + ", addr=" + addr + ", pos_nm=" + pos_nm + ", dept_nm=" + dept_nm
-				+ ", mem_id=" + mem_id + "]";
+				+ ", mem_id=" + mem_id + ", mem_aut_cd=" + mem_aut_cd + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

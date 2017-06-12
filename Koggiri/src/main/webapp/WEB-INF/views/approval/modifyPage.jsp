@@ -105,14 +105,14 @@
 								<tr>
 									<th>기안일</th>
 									<td><input type="text" name="draft_dt" class="datepicker"
-										value="${approvalVO.draft_dt }" disabled></td>
+										value="${approvalVO.draft_dt.substring(0,10) }" disabled></td>
 									<th>신청종류</th>
 									<td><input type="text" name="app_type_nm"
 										value="${approvalVO.app_type_nm }" disabled></td>
 								</tr>
 								<tr>
 									<th>결재자</th>
-									<td><input type="text" name="app_emp_id"
+									<td><input type="text" id="app_emp_id" name="app_emp_id"
 										value="${approvalVO.app_emp_id }"></td>
 								</tr>
 								<tr>
@@ -315,6 +315,11 @@
 						$(".popup").hide('slow');
 						
 					});	
+					$('#app_emp_id').on(
+							"click",
+							function(event) {
+								window.open('../admin_emp/att_emp', 'EMP', "width=400px height=500px");
+							});
 				</script>
 
 
