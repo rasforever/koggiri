@@ -45,6 +45,7 @@ private static final Logger logger = LoggerFactory.getLogger(SnsController.class
 			
 		if(service.chat_room_count(room) == 0 ){
 			service.create_room(room);
+			//model.addAttribute("ck_room_id", room.getRoom_id());
 			model.addAttribute("roomlist",room);
 		}else{
 			model.addAttribute("roomlist", service.chat(room));
