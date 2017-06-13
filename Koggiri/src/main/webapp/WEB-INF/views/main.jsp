@@ -65,7 +65,7 @@
 <!-- 본문 시작 -->
 <!-- 본문 시작 -->
 <div class="container_wrap" style="background-color: #eef1f2;">
-	<div id="container">
+	<div id="container" style="height: 700px; padding-top: 40px;">
 
 
 		<div id="wrap">
@@ -81,20 +81,25 @@
 				<!-- ************************************* -->
 				<div class="customer_center">
 					<div class="customer_img">
-						<label style="font-size: 40px; color: white; padding-left: 30px; margin-top: 30px;">사진</label>
+						<label
+							style="font-size: 40px; color: white; padding-left: 30px; margin-top: 30px;">사진</label>
 					</div>
 					<div class="customer_info">
 						<ul
-							style="position: relative; left: 250px; top: -153px; height: 0px; width: 469px; font-size: 17px; font-weight: bold;">
-							<%-- <li><a href="#">사번 :  ${mem_id}</a><br></li>
+							style="position: relative; left: 280px; top: -153px; height: 0px; width: 469px; font-size: 17px; font-weight: bold;">
+
+
+							<li><a href="#"><strong>사번 : ${mem_id}</strong></a><br></li>
+
 							<br>
-							<li><a href="#">이름 :  ${empVO.emp_nm}</a></li>
+							<li><a href="#"><strong>이름 : ${empVO.emp_nm}</strong></a></li>
 							<br>
-							<li><a href="#">직급 :  ${empVO.pos_nm }</a></li>
+							<li><a href="#"><strong>직급 : ${empVO.pos_nm }</strong></a></li>
 							<br>
-							<li><a href="#">부서 :  ${empVO.dept_nm }</a></li>
+							<li><a href="#"><strong>부서 : ${empVO.dept_nm }</strong></a></li>
 							<br>
-							<li><a href="#">HP :  ${empVO.tel_no }</a></li> --%>
+							<li><a href="#"><strong>HP : ${empVO.tel_no }</strong></a></li>
+
 						</ul>
 					</div>
 
@@ -159,7 +164,7 @@
 
 						<c:forEach items="${list_important}" var="h_ImpartantVO">
 							<li><a
-								href="/noticeboard/readPage?n_ID=${h_ImpartantVO.i_id}">
+								href="/importantboard/readPage?i_ID=${h_ImpartantVO.i_id}">
 									${h_ImpartantVO.i_title} <%-- 	<c:if test="${h_NoticeVO.n_date.substring(0,10) == sysdate}">
 							<img
 								src="http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_new.gif"
@@ -416,13 +421,23 @@
 		<div class="cal_view">
 			<!-- 오늘 일정 뷰 -->
 			<ul>
-				<li style="font-size: 30px; font-weight: bold; padding-left: 15px"><a
-					href="#">오늘 날짜</a></li>
+				<li style="font-size: 30px; margin-left: 20px; font-weight: bold; padding-left: 15px; padding-bottom: 10px; border-bottom: 2px solid black; width: 300px;">
+				<a href="#">오늘 일정</a></li>
 			</ul>
 			<br> <br>
 			<ul>
-				<li style="font-size: 20px; padding-left: 15px"><a href="#">오늘
-						일정</a></li>
+				<hr>
+				<c:forEach items="${list_calendar}" var="h_CalendarVO">
+					<li style="font-size: 20px; font-weight: bold; padding-left: 25px; vertiacl-align: middle; height: 25px;"><a
+						href="/calendar/index"><span style="color:red; font-size: 13px; ">* &nbsp;&nbsp;</span> ${h_CalendarVO.title} 
+						<%-- 	<c:if test="${h_NoticeVO.n_date.substring(0,10) == sysdate}">
+							<img
+								src="http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_new.gif"
+								alt="새글" />
+							</c:if> --%>
+					</a></li>
+				</c:forEach>
+
 			</ul>
 
 		</div>
