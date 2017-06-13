@@ -34,7 +34,7 @@
 			<div class="sub_top">
 				<span><a href="/main">홈</a> <span> &gt; </span> <a
 					href="/task/list">전자 문서</a> <span> &gt; </span> <a
-					href="/approval/lists">전자결재</a> &gt; <strong>보낸 결재</strong></span>
+					href="/approval/lists">전자결재</a> &gt; <strong>받은 결재</strong></span>
 			</div>
 		</div>
 
@@ -68,76 +68,70 @@
 				<div class="col-md-12">
 					<!-- general form elements -->
 					<div class='box'>
-						<div class='box-body'>
-							<table>
-								<tr>
-									<td><button id='AllsearchBtn'>전체</button>
+						<div class='box-body' align="left">
+						<div style="height: 40px;">
+				<button id='AllsearchBtn'>전체</button>
 										<button id='a_searchBtn'>기안중</button>
 										<button id='c_searchBtn'>완료</button>
-										<button id='n_searchBtn'>부결</button></td>
+										<button id='n_searchBtn'>부결</button>
+										</tr>
 									<input type='hidden' name='app_pro_cd' id='app_pro_cd'
 										value="${search.app_pro_cd}">
 									<input type='hidden' name='app_emp_id' id='app_emp_id'
 										value="${search.app_emp_id}">
-								</tr>
-								</tr>
-							</table>
-							<table>
-								<ul>
-									<li><input type="checkbox" name="area" value="app_id"
-										onclick="dis_chg(this)">결재문서번호</input> <input type="text"
-										name="search_app_id" id="search_app_id" size="30" disabled></input></li>
-									<li><input type="checkbox" name="area" value="app_type_cd"
-										onclick="dis_chg(this)">결재구분</input></li>
-									<select id="app_type" name="app_type" disabled>
+				</div>
+							
+							<table class="app_sel_table">
+								
+									<tr ><td style="text-align: left; width: 120px"><input type="checkbox" name="area" value="app_id" onclick="dis_chg(this)">결재문서번호</input></td>
+									<td style="text-align: left;"><input type="text" name="search_app_id" id="search_app_id" size="30" disabled></input></td></tr>
+									
+									<tr ><td style="text-align: left;"><input type="checkbox" name="area" value="app_type_cd" onclick="dis_chg(this)">결재구분</input></td>
+									<td style="text-align: left;"><select id="app_type" name="app_type" disabled >
 										<option value=" ">--전체--
 											<c:forEach var="apptypeVO" items="${applist}">
 												<option value="${apptypeVO.app_type_cd}">${apptypeVO.app_type_nm}
 												</option>
 											</c:forEach>
 									</select>
-									</li>
-									<li><input type="checkbox" name="area" value="dept_cd"
-										onclick="dis_chg(this)">관리부서</input> <select id="dept_cd"
-										name="dept_cd" disabled>
+									</td></tr>
+									
+									<tr><td style="text-align: left;"><input type="checkbox" name="area" value="dept_cd" onclick="dis_chg(this)">관리부서</input></td>
+									<td style="text-align: left;"><select id="dept_cd" name="dept_cd" disabled>
 											<option value=" ">--전체--
 												<c:forEach var="deptVO" items="${deptlist}">
 													<option value="${deptVO.dept_id}">${deptVO.dept_nm}</option>
 												</c:forEach>
-									</select></li>
-								</ul>
-								<ul>
-									<li><input type="checkbox" name="area"
-										value="draft_emp_id" onclick="dis_chg(this)">기안자 <input
-										type="text" name="draft_emp_id" id="draft_emp_id" size="30"
-										disabled></li>
-									<li><input type="checkbox" name="area" value="draft_dt"
-										onclick="dis_chg(this)">제안일<input type="text"
+									</select></td></tr>
+				
+									<tr><td style="text-align: left;"><input type="checkbox" name="area" value="draft_emp_id" onclick="dis_chg(this)">기안자 </input></td>
+									<td style="text-align: left;"><input type="text" name="draft_emp_id" id="draft_emp_id" size="30" disabled></input></td></tr>
+									
+									<tr><td style="text-align: left;"><input type="checkbox" name="area" value="draft_dt"
+										onclick="dis_chg(this)">제안일</input></td>
+										<td style="text-align: left;"><input type="text"
 										name="draft_s_dt" id="draft_s_dt" class="datepicker" disabled
 										size="14"> ~ <input type="text" name="draft_e_dt"
-										id="draft_e_dt" class="datepicker" disabled size="14"></li>
+										id="draft_e_dt" class="datepicker" disabled size="14"></td></tr>
 
-									<li><button id='searchBtn'>Search</button></li>
-								</ul>
+									<tr><td colspan="2" style="text-align: right; background-color: #f4f4f4; font-size: 17px; font-weight: bold;"><button id='searchBtn'>Search &nbsp;&nbsp;</button></td></tr>
+								
 							</table>
 						</div>
 					</div>
 
 
 					<div class="box">
-						<div class="box-header with-border">
-							<h3 class="box-title">LIST PAGING</h3>
-						</div>
 						<div class="box-body">
-							<table class="table table-bordered">
+							<table class="table table-bordered" >
 								<tr>
-									<th>결재문서번호</th>
-									<th>제안일</th>
-									<th>결재구분</th>
-									<th>관리부서</th>
-									<th>기안자</th>
-									<th>결재자</th>
-									<th>진행상태</th>
+									<th  style="text-align: center;">결재문서번호</th>
+									<th  style="text-align: center;">제안일</th>
+									<th  style="text-align: center;">결재구분</th>
+									<th  style="text-align: center;">관리부서</th>
+									<th  style="text-align: center;">기안자</th>
+									<th  style="text-align: center;">결재자</th>
+									<th  style="text-align: center;">진행상태</th>
 								</tr>
 
 								<c:forEach items="${list}" var="approvalVO">
