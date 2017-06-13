@@ -75,4 +75,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		and e.emp_id = m.mem_id and m.mem_aut_cd = 'A'
 	</select>
 
+	<select id="list_notice" resultType="H_NoticeVO">
+	<![CDATA[
+		select notice.* from 
+			(select rownum, n.* from 
+				(select * from noticeboard order by n_date desc)
+			 n ) notice
+		where rownum < 5
+	]]>
+	</select>
+	<select id="list_important" resultType="H_importantVO">
+	<![CDATA[
+		select import.* from 
+			(select rownum, i.* from 
+				(select * from importantboard order by i_date desc)
+			 i ) import
+		where rownum < 5
+	]]>
+	</select>
+	<select id="list_calendar" parameterType="String" resultType="H_calendarVO">
+	<![CDATA[
+		select * from calendar where mem_id = #{emp_id}
+		and START_DATE < sysdate
+		and END_DATE > sysdate
+	]]>
+	</select>
 </mapper>

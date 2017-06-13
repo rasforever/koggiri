@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import kosta.koggiri.admin_emp.domain.EmpVO;
 import kosta.koggiri.admin_emp.service.AdminService;
-import kosta.koggiri.home.service.HomeService;
 
 /**
  * Handles requests for the application home page.
@@ -26,8 +25,7 @@ public class HomeController {
 
 	@Inject
 	private AdminService service;
-	private HomeService h_service;
-
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	/**
@@ -54,9 +52,9 @@ public class HomeController {
 		System.out.println("home:" + mem_id);
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
-		model.addAttribute("list_notice", h_service.list_notice());
-		model.addAttribute("list_important", h_service.list_important());
-		model.addAttribute("list_calendar", h_service.list_calendar(mem_id));
+		model.addAttribute("list_notice", service.list_notice());
+		model.addAttribute("list_important", service.list_important());
+		model.addAttribute("list_calendar", service.list_calendar(mem_id));
 		// return "login/loginForm";
 
 		return "/main";

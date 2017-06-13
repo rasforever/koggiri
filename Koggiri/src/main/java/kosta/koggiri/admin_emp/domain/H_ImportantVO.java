@@ -1,7 +1,7 @@
-package kosta.koggiri.home.domain;
+package kosta.koggiri.admin_emp.domain;
 
 
-public class H_importantVO {
+public class H_ImportantVO {
 	
 	private int i_id;
 	private String i_title;
@@ -25,9 +25,6 @@ public class H_importantVO {
 	public void setI_date(String i_date) {
 		this.i_date = i_date;
 	}
-	
-	
-
 	
 	
 
