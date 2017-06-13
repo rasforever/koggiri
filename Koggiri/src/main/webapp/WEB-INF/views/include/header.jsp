@@ -106,7 +106,7 @@
 						<li class="menu05 "><a href="#" class="menu_a"
 							style="padding-top: 10px;">회사정보</a> <!-- 2depth : s -->
 							<ul>
-								<li class=""><a href="../information/index">Koggiri란?</a></li>
+								<li class=""><a href="/attendance/att_alldlist">관리자설정</a></li><!-- 일단 여기에 해놨음. -->
 								<li class=""><a href="../chart/listAll">조직도</a></li>
 							</ul></li>
 
