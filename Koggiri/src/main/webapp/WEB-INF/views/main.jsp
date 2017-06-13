@@ -86,7 +86,7 @@
 					<div class="customer_info">
 						<ul
 							style="position: relative; left: 250px; top: -153px; height: 0px; width: 469px; font-size: 17px; font-weight: bold;">
-							<li><a href="#">사번 :  ${mem_id}</a><br></li>
+							<%-- <li><a href="#">사번 :  ${mem_id}</a><br></li>
 							<br>
 							<li><a href="#">이름 :  ${empVO.emp_nm}</a></li>
 							<br>
@@ -94,7 +94,7 @@
 							<br>
 							<li><a href="#">부서 :  ${empVO.dept_nm }</a></li>
 							<br>
-							<li><a href="#">HP :  ${empVO.tel_no }</a></li>
+							<li><a href="#">HP :  ${empVO.tel_no }</a></li> --%>
 						</ul>
 					</div>
 
