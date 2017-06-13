@@ -70,12 +70,11 @@
 							style="cursor: pointer">
 
 					</form>
-
-					<input type="button" id="join" value="입사발령" style="cursor: pointer" />
-
-					<input type="button" id="temp" value="임시비밀번호 부여"
-						style="cursor: pointer" />
-
+					<br>
+					<br> <input type="button" id="join" value="입사발령"
+						style="cursor: pointer" /> <input type="button" id="temp"
+						value="임시비밀번호 부여" style="cursor: pointer" /> <br>
+					<br>
 					<table id="manager_table">
 						<tr>
 							<th>사번</th>
@@ -107,44 +106,44 @@
 		</div>
 	</div>
 </div>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#join").click(function() {
-				$.ajax({
-					type : 'get',
-					url : 'joinus',
-					dataType : 'text',
-					success : function(data) {
-	
-						if ($("#joindiv").children().length == 0) {
-							$("#joindiv").html(data);
-						} else if ($("#joindiv").children().length > 0) {
-							$("#joindiv").empty().html(data);
-						}
-	
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#join").click(function() {
+			$.ajax({
+				type : 'get',
+				url : 'joinus',
+				dataType : 'text',
+				success : function(data) {
+
+					if ($("#joindiv").children().length == 0) {
+						$("#joindiv").html(data);
+					} else if ($("#joindiv").children().length > 0) {
+						$("#joindiv").empty().html(data);
 					}
-				});
+
+				}
 			});
-	
-			$("#temp").click(function() {
-				$.ajax({
-					type : 'get',
-					url : 'temppass',
-					dataType : 'text',
-					success : function(data) {
-	
-						if ($("#joindiv").children().length == 0) {
-							$("#joindiv").html(data);
-						} else if ($("#joindiv").children().length > 0) {
-							$("#joindiv").empty().html(data);
-						}
-	
+		});
+
+		$("#temp").click(function() {
+			$.ajax({
+				type : 'get',
+				url : 'temppass',
+				dataType : 'text',
+				success : function(data) {
+
+					if ($("#joindiv").children().length == 0) {
+						$("#joindiv").html(data);
+					} else if ($("#joindiv").children().length > 0) {
+						$("#joindiv").empty().html(data);
 					}
-				});
+
+				}
 			});
-	
-		})
-	</script>
-	<div class="footer_wrap">
-		<div id="footer" style="height: 150px">
-			<%@ include file="../include/footer.jsp"%>
+		});
+
+	})
+</script>
+<div class="footer_wrap">
+	<div id="footer" style="height: 150px">
+		<%@ include file="../include/footer.jsp"%>
