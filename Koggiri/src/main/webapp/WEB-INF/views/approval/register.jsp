@@ -82,10 +82,9 @@
 				<form id='registerForm' role="form" method="post">
 					<div align="center">
 
-						<br> <br> <br> <br>
 						<div class="form-group">
 							<div id="approval" align="center">
-								<h3>Approval</h3>
+
 								<br> <br> <input type="hidden" name="dept_id"
 									value="${einfo.dept_id }"> <input type="hidden"
 									name="draft_emp_id" value="${einfo.emp_id }">
@@ -125,7 +124,7 @@
 									</tr>
 									<tr>
 										<th>제목</th>
-										<td colspan="3"><input type="text" name="app_title"
+										<td colspan="3"><input type="text" size="100" name="app_title"
 											width="100%"></td>
 									</tr>
 

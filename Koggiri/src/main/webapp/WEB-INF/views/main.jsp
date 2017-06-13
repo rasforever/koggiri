@@ -82,23 +82,19 @@
 				<div class="customer_center">
 					<div class="customer_img">
 						<label
-							style="font-size: 40px; color: white; padding-left: 30px; margin-top: 30px;">사진</label>
+							style="font-size: 30px; color: white;">사진크기 <br> 150 * 180</label>
 					</div>
 					<div class="customer_info">
 						<ul
-							style="position: relative; left: 280px; top: -153px; height: 0px; width: 469px; font-size: 17px; font-weight: bold;">
+							style="position: relative; left: 255px; top: -143px; height: 0px; width: 469px; font-size: 17px; font-weight: bold;">
 
 
-							<li><a href="#"><strong>사번 : ${mem_id}</strong></a><br></li>
-
+							<li><a><strong>${mem_id}</strong></a></li>
 							<br>
-							<li><a href="#"><strong>이름 : ${empVO.emp_nm}</strong></a></li>
-							<br>
-							<li><a href="#"><strong>직급 : ${empVO.pos_nm }</strong></a></li>
-							<br>
-							<li><a href="#"><strong>부서 : ${empVO.dept_nm }</strong></a></li>
-							<br>
-							<li><a href="#"><strong>HP : ${empVO.tel_no }</strong></a></li>
+							<li><a><strong style="font-size: 20px">${empVO.dept_nm }</strong></a></li>
+							<li><a>${empVO.pos_nm } <strong style="font-size: 25px">${empVO.emp_nm}</strong></a></li><br>
+							<li><a><strong>H.P : ${empVO.tel_no }</strong></a></li>
+							<li><a><strong>E.M : ${empVO.tel_no }</strong></a></li>
 
 						</ul>
 					</div>
@@ -421,14 +417,14 @@
 		<div class="cal_view">
 			<!-- 오늘 일정 뷰 -->
 			<ul>
-				<li style="font-size: 30px; margin-left: 20px; font-weight: bold; padding-left: 15px; padding-bottom: 10px; border-bottom: 2px solid black; width: 300px;">
+				<li style="font-size: 20px; margin-left: 20px; font-weight: bold; padding-left: 15px; padding-bottom: 5px; border-bottom: 2px solid black; width: 300px;">
 				<a href="#">오늘 일정</a></li>
 			</ul>
 			<br> <br>
 			<ul>
 				<hr>
 				<c:forEach items="${list_calendar}" var="h_CalendarVO">
-					<li style="font-size: 20px; font-weight: bold; padding-left: 25px; vertiacl-align: middle; height: 25px;"><a
+					<li style="font-size: 16px; font-weight: bold; padding-left: 25px; vertiacl-align: middle; height: 20px;"><a
 						href="/calendar/index"><span style="color:red; font-size: 13px; ">* &nbsp;&nbsp;</span> ${h_CalendarVO.title} 
 						<%-- 	<c:if test="${h_NoticeVO.n_date.substring(0,10) == sysdate}">
 							<img
