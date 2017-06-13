@@ -28,11 +28,13 @@ $(document).ready(function(){
 		$(output).prependTo("#content");
 		
 	});
-	
+	socket.on("adduser",function(emp_id){
+		$('#emp_id').val(emp_id);
+	});
 	//버튼을 클릭할 때
 	$('button').click(function(){
 		alert("checkcheck");
-		console.log('checaksjhflasjdflsf');
+		
 		
 		socket.emit('message', {
 			emp_id : $('#emp_id').val(),
@@ -51,7 +53,7 @@ $(document).ready(function(){
 	<h1>소켓통신</h1>
 	<p>사원간 채팅</p>
 	<hr/>
-	<input type="text" id="emp_id"  readonly="readonly">
+	<input type="text" id="emp_id" readonly="readonly">
 	<input id="message"/>
 	<button>Button</button>
 	<ul id="content"></ul>
