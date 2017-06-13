@@ -8,12 +8,7 @@
 
 </head>
 <body>
-	<div id="header">
-				<div class="logo" style="padding-top: 0px;">
-					<a class="back_for_main" href="/"><img
-						src="../resources/img/dfdf.PNG" style="width: 200px;"></a>
-				</div>
-				</div>
+	
 	<br>
 	<div data-role="content" data-position="fixed">
 		<table class="table table-bordered" border="1">
