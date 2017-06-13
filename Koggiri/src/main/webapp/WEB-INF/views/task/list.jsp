@@ -162,11 +162,11 @@
 						<div class="box-body">
 							<table class="table table-bordered" border="1">
 								<tr>
-									<th style="width: 10px">글번호</th>
-									<th>작성자</th>
-									<th>업무일자</th>
-									<th>작성일자</th>
-									<th style="width: 40px">조회수</th>
+									<th style="width: 60px">글번호</th>
+									<th style="text-align: center;">작성자</th>
+									<th style="text-align: center;">업무일자</th>
+									<th style="text-align: center;">작성일자</th>
+									<th style="width: 60px">조회수</th>
 								</tr>
 
 

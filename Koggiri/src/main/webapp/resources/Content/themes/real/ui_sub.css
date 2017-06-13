@@ -1337,3 +1337,7 @@ table.tbl_goods td>span{display:inline-block;width:42px;}
 	left: 220px;
 	width: 970px;
 }
+
+.app_sel_table tr td{
+	text-align: left;
+}

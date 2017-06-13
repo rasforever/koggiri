@@ -261,7 +261,7 @@ textarea.contents{resize:none;overflow-y:auto;padding:10px}
 .main #content .service .notice .more>a{display:block;width:32px;height:32px}
 
 /*customer_center*/
-.main #content .service>div.customer_center a{background-color:#9f9f9f; width:469px; color: white;}
+.main #content .service>div.customer_center a{background-color:#aaee57; width:469px; color: #1a1919;}
 
 
 
@@ -589,5 +589,5 @@ left: 50px;
 .customer_info{
 	width: 469px;
 	height: 206px;
-	background-color: #9f9f9f;
+	background-color: #aaee57;
 }
