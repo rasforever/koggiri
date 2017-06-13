@@ -41,21 +41,23 @@
 	href="../resources/Content/themes/real/cal.css" />
 
 <script type="text/javascript">
-	$(document).ready(function() {
-		$('.main #content div>a').on({
-			mouseenter : function() {
-				$(this).stop().animate({
-					'top' : '-206px'
-				}, 500, "easeInOutCubic");
-			},
-			mouseleave : function() {
-				$(this).stop().animate({
-					'top' : '0px'
-				}, 500, "easeInOutCubic");
-			},
-		});
-		window.open('http://localhost:8081/sns/listAll', 'Javis', "width=400px height=500px");
-	});
+	$(document).ready(
+			function() {
+				$('.main #content div>a').on({
+					mouseenter : function() {
+						$(this).stop().animate({
+							'top' : '-206px'
+						}, 500, "easeInOutCubic");
+					},
+					mouseleave : function() {
+						$(this).stop().animate({
+							'top' : '0px'
+						}, 500, "easeInOutCubic");
+					},
+				});
+				window.open('http://localhost:8081/sns/listAll', 'Javis',
+						"width=400px height=500px");
+			});
 </script>
 
 <!-- ------------------------------------------------------------------------ -->
@@ -78,25 +80,23 @@
 
 				<!-- ************************************* -->
 				<div class="customer_center">
-
-					<ul>
-						<li><a href="#"> ${mem_id}</a></li>
-					</ul>
-					<ul>
-						<li><a href="#">사진</a></li>
-					</ul>
-					<ul>
-						<li><a href="#">${empVO.emp_nm}</a></li>
-					</ul>
-					<ul>
-						<li><a href="#">${empVO.pos_nm }</a></li>
-					</ul>
-					<ul>
-						<li><a href="#">${empVO.dept_nm }</a></li>
-					</ul>
-					<ul>
-						<li><a href="#">${empVO.tel_no }</a></li>
-					</ul>
+					<div class="customer_img">
+						<label style="font-size: 40px; color: white; padding-left: 30px; margin-top: 30px;">사진</label>
+					</div>
+					<div class="customer_info">
+						<ul
+							style="position: relative; left: 250px; top: -153px; height: 0px; width: 469px; font-size: 17px; font-weight: bold;">
+							<li><a href="#">사번 :  ${mem_id}</a><br></li>
+							<br>
+							<li><a href="#">이름 :  ${empVO.emp_nm}</a></li>
+							<br>
+							<li><a href="#">직급 :  ${empVO.pos_nm }</a></li>
+							<br>
+							<li><a href="#">부서 :  ${empVO.dept_nm }</a></li>
+							<br>
+							<li><a href="#">HP :  ${empVO.tel_no }</a></li>
+						</ul>
+					</div>
 
 				</div>
 
@@ -134,8 +134,8 @@
 						style="margin-bottom: 10px">
 					<ul>
 						<c:forEach items="${list_notice}" var="h_NoticeVO">
-							<li><a href="/noticeboard/readPage?n_ID=${h_NoticeVO.n_id}"> ${h_NoticeVO.n_title}
-						<%-- 	<c:if test="${h_NoticeVO.n_date.substring(0,10) == sysdate}">
+							<li><a href="/noticeboard/readPage?n_ID=${h_NoticeVO.n_id}">
+									${h_NoticeVO.n_title} <%-- 	<c:if test="${h_NoticeVO.n_date.substring(0,10) == sysdate}">
 							<img
 								src="http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_new.gif"
 								alt="새글" />
@@ -158,8 +158,9 @@
 					<ul>
 
 						<c:forEach items="${list_important}" var="h_ImpartantVO">
-							<li><a href="/noticeboard/readPage?n_ID=${h_ImpartantVO.i_id}"> ${h_ImpartantVO.i_title}
-						<%-- 	<c:if test="${h_NoticeVO.n_date.substring(0,10) == sysdate}">
+							<li><a
+								href="/noticeboard/readPage?n_ID=${h_ImpartantVO.i_id}">
+									${h_ImpartantVO.i_title} <%-- 	<c:if test="${h_NoticeVO.n_date.substring(0,10) == sysdate}">
 							<img
 								src="http://s.nx.com/S2/billing/pcbang/real/homepage/ico/ico_new.gif"
 								alt="새글" />
@@ -176,7 +177,7 @@
 
 				<h3 class="hidden">결재</h3>
 				<div class="game_play">
-					<a href="approval/register"></a>
+					<a href="approval/listr"></a>
 					<!-- 결제 등록으로 이동 -->
 					<!-- 결제 리스트로 이동 -->
 				</div>
@@ -189,52 +190,62 @@
 
 		<!-- 시계 script -->
 		<script type="text/javascript">
-			$(document).ready(
-				function() {
-					// Create two variable with the names of the months and days in an array
-					var monthNames = [ "January", "February", "March",
-						"April", "May", "June", "July", "August",
-						"September", "October", "November",
-						"December" ];
-					var dayNames = [ "Sunday", "Monday", "Tuesday",
-						"Wednesday", "Thursday", "Friday",
-						"Saturday" ]
-		
-					// Create a newDate() object
-					var newDate = new Date();
-					// Extract the current date from Date object
-					newDate.setDate(newDate.getDate());
-					// Output the day, date, month and year   
-					$('#Date').html(
-						dayNames[newDate.getDay()] + " "
-						+ newDate.getDate() + ' '
-						+ monthNames[newDate.getMonth()]
-						+ ' ' + newDate.getFullYear());
-		
-					setInterval(function() {
-						// Create a newDate() object and extract the seconds of the current time on the visitor's
-						var seconds = new Date().getSeconds();
-						// Add a leading zero to seconds value
-						$("#sec").html(
-							(seconds < 10 ? "0" : "") + seconds);
-					}, 1000);
-		
-					setInterval(function() {
-						// Create a newDate() object and extract the minutes of the current time on the visitor's
-						var minutes = new Date().getMinutes();
-						// Add a leading zero to the minutes value
-						$("#min").html(
-							(minutes < 10 ? "0" : "") + minutes);
-					}, 1000);
-		
-					setInterval(function() {
-						// Create a newDate() object and extract the hours of the current time on the visitor's
-						var hours = new Date().getHours();
-						// Add a leading zero to the hours value
-						$("#hours").html(
-							(hours < 10 ? "0" : "") + hours);
-					}, 1000);
-				});
+			$(document)
+					.ready(
+							function() {
+								// Create two variable with the names of the months and days in an array
+								var monthNames = [ "January", "February",
+										"March", "April", "May", "June",
+										"July", "August", "September",
+										"October", "November", "December" ];
+								var dayNames = [ "Sunday", "Monday", "Tuesday",
+										"Wednesday", "Thursday", "Friday",
+										"Saturday" ]
+
+								// Create a newDate() object
+								var newDate = new Date();
+								// Extract the current date from Date object
+								newDate.setDate(newDate.getDate());
+								// Output the day, date, month and year   
+								$('#Date')
+										.html(
+												dayNames[newDate.getDay()]
+														+ " "
+														+ newDate.getDate()
+														+ ' '
+														+ monthNames[newDate
+																.getMonth()]
+														+ ' '
+														+ newDate.getFullYear());
+
+								setInterval(function() {
+									// Create a newDate() object and extract the seconds of the current time on the visitor's
+									var seconds = new Date().getSeconds();
+									// Add a leading zero to seconds value
+									$("#sec")
+											.html(
+													(seconds < 10 ? "0" : "")
+															+ seconds);
+								}, 1000);
+
+								setInterval(function() {
+									// Create a newDate() object and extract the minutes of the current time on the visitor's
+									var minutes = new Date().getMinutes();
+									// Add a leading zero to the minutes value
+									$("#min")
+											.html(
+													(minutes < 10 ? "0" : "")
+															+ minutes);
+								}, 1000);
+
+								setInterval(function() {
+									// Create a newDate() object and extract the hours of the current time on the visitor's
+									var hours = new Date().getHours();
+									// Add a leading zero to the hours value
+									$("#hours").html(
+											(hours < 10 ? "0" : "") + hours);
+								}, 1000);
+							});
 		</script>
 
 		<!-- ------------------------------------------------------------------------------------------- -->
@@ -400,10 +411,21 @@
 			</div>
 
 
+
 		</div>
+		<div class="cal_view">
+			<!-- 오늘 일정 뷰 -->
+			<ul>
+				<li style="font-size: 30px; font-weight: bold; padding-left: 15px"><a
+					href="#">오늘 날짜</a></li>
+			</ul>
+			<br> <br>
+			<ul>
+				<li style="font-size: 20px; padding-left: 15px"><a href="#">오늘
+						일정</a></li>
+			</ul>
 
-
-
+		</div>
 		<hr />
 
 		<!-- 본문 끝 -->
