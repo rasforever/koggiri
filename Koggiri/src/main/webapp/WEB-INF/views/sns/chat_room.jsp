@@ -95,7 +95,6 @@ section div {
 대화방내역 ㅋ ㅋ ㅋ ㅋ ㅋ 
 <section>
 <%-- ${ck_emp_id} --%>
-<c:if test=""></c:if>
 	<c:forEach items="${roomlist}" var="roomVO">	
 		<c:if test="${roomVO.emp_id == ck_emp_id}">
 		   <div class="clear"></div>
