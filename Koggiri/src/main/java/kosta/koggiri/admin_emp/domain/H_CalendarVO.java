@@ -1,26 +1,14 @@
-package kosta.koggiri.home.domain;
+package kosta.koggiri.admin_emp.domain;
 
-public class H_calendarVO {
+public class H_CalendarVO {
 	
 	private String event_id;
 	private String title;
 	private String start_date;
 	private String end_date;
 	private String content;
-	private  String mem_id;
+	private String mem_id;
 	
-	public void H_calendatVO(){}
-
-	public H_calendarVO(String event_id, String title, String start_date, String end_date, String content,
-			String mem_id) {
-		super();
-		this.event_id = event_id;
-		this.title = title;
-		this.start_date = start_date;
-		this.end_date = end_date;
-		this.content = content;
-		this.mem_id = mem_id;
-	}
 
 	public String getEvent_id() {
 		return event_id;
@@ -71,5 +59,4 @@ public class H_calendarVO {
 	}
 	
 	
-
 }
