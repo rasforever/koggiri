@@ -177,3 +177,5 @@
 <div class="footer_wrap">
    <div id="footer" style="height: 150px">
       <%@ include file="../include/footer.jsp"%>
+      </div>
+      </div>
