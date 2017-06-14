@@ -43,13 +43,13 @@
 
 	<div class="sns_header">
 		<br> <img src="../resources/img/koggiri_talk.png"> <br>
-	</div>
+	</div>ㄴ
 	<div class="sns_chatBox">
 	<textarea rows="3" cols="50"></textarea>
 	<input type="submit" value="전송">
 	</div>
 </div>
-</body>
+</body>ㄴ
 
 
 <!-- /.box-body -->
