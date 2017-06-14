@@ -91,6 +91,15 @@ section div {
   border-bottom-right-radius: 10px;
   -webkit-transform: translate(-30px, -2px);
 }
+
+.chat_inputform{
+	position: fixed;
+	top: 360px;
+	
+
+
+}
+
 </style>
 </head>
 <body>
@@ -125,8 +134,13 @@ section div {
 	</c:forEach>
 </section>
 </div>
+
 </body>
 
+
+<div class="chat_inputform">
+<%@ include file="../include/chat_footer.jsp"%>
+</div>
 
 <!-- /.box-body -->
 

@@ -63,9 +63,6 @@ private static final Logger logger = LoggerFactory.getLogger(SnsController.class
 		return "redirect:http://106.242.203.68:8082";
 		
 	}
-
-	
-
 	
 	
 
