@@ -15,7 +15,9 @@
 <link rel="stylesheet" href="../resources/Content/themes/real/sns.css">
 </head>
 <body>
-	
+	<div id="header">
+				
+				</div>
 	<br>
 	<div data-role="content" data-position="fixed">
 	<div class="sns_header">
