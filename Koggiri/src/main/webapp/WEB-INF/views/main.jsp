@@ -41,7 +41,6 @@
    href="../resources/Content/themes/real/cal.css" />
 
 <script type="text/javascript">
-<<<<<<< HEAD
 	$(document).ready(
 			function() {
 				$('.main #content div>a').on({
@@ -59,7 +58,6 @@
 				window.open('http://localhost:8081/sns/listAll', 'Javis',
 						"width=490px, height=600px, resizable=no, scrollbars=yes")
 			});
-=======
    $(document).ready(
          function() {
             $('.main #content div>a').on({
