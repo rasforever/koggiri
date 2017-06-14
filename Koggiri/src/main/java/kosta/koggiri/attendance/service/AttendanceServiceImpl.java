@@ -6,6 +6,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import kosta.koggiri.admin_emp.domain.SearchedEmpVO;
+import kosta.koggiri.attendance.domain.Att_EmpVO;
 import kosta.koggiri.attendance.domain.Att_Emp_InfoVO;
 import kosta.koggiri.attendance.domain.AttendanceSearchVO;
 import kosta.koggiri.attendance.domain.AttendanceVO;
@@ -40,6 +42,11 @@ public class AttendanceServiceImpl implements AttendanceService{
 	@Override
 	public List<AttendanceSearchVO> att_workMM() throws Exception {
 		return dao.att_workMM();
+	}
+
+	@Override
+	public List<Att_EmpVO> att_selectList(Att_EmpVO vo) throws Exception {
+		return dao.att_selectList(vo);
 	}
 
 

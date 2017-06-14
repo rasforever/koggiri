@@ -3,18 +3,22 @@ package kosta.koggiri.attendance.persistence;
 import java.util.List;
 
 import kosta.koggiri.attendance.domain.AttendanceVO;
+import kosta.koggiri.admin_emp.domain.SearchVO;
+import kosta.koggiri.admin_emp.domain.SearchedEmpVO;
+import kosta.koggiri.attendance.domain.Att_EmpVO;
 import kosta.koggiri.attendance.domain.Att_Emp_InfoVO;
 import kosta.koggiri.attendance.domain.AttendanceSearchVO;
 
 public interface AttendanceDAO {
 	
-	public Att_Emp_InfoVO einfo_select(String emp_id) throws Exception; //»ç¿øÁ¤º¸
+	public Att_Emp_InfoVO einfo_select(String emp_id) throws Exception; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	public List<AttendanceVO> att_dlist(AttendanceVO vo) throws Exception; //º»ÀÎ ¿ù ±ÙÅÂ³»¿ª
-	public List<AttendanceVO> att_alldlist(AttendanceSearchVO vo) throws Exception; //Àü»ç¿ø ´çÀÏ ±ÙÅÂ³»¿ª 	
-	public List<AttendanceVO> att_mlist(AttendanceSearchVO vo)throws Exception; //¿ù Àü»ç¿ø ±ÙÅÂ³»¿ª	
+	public List<AttendanceVO> att_dlist(AttendanceVO vo) throws Exception; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½
+	public List<AttendanceVO> att_alldlist(AttendanceSearchVO vo) throws Exception; //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½ 	
+	public List<AttendanceVO> att_mlist(AttendanceSearchVO vo)throws Exception; //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½	
+	public List<Att_EmpVO> att_selectList(Att_EmpVO vo)throws Exception;
 
-	public List<AttendanceSearchVO> att_workMM() throws Exception; //µ¥ÀÌÅÍ°¡ »ý¼ºµÈ ´Þ
+	public List<AttendanceSearchVO> att_workMM() throws Exception; //ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	
 
 }
