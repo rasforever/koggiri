@@ -101,19 +101,10 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 	
 	@Override
-	public void update_Personnel_dept(EmpInfo_AdminVO vo) throws Exception {
-		session.update(namespace+".update_Personnel_dept", vo);
+	public void update_Personnel(EmpInfo_AdminVO vo) throws Exception {
+		session.update(namespace+".update_Personnel", vo);
 	}
 	
-	@Override
-	public void update_Personnel_pos(EmpInfo_AdminVO vo) throws Exception {
-		session.update(namespace+".update_Personnel_pos", vo);
-	}
-
-	@Override
-	public void update_resign(EmpInfo_AdminVO vo) throws Exception {
-		session.update(namespace+".update_resign", vo);
-	}
 
 
 	@Override
@@ -133,6 +124,11 @@ public class AdminDAOImpl implements AdminDAO {
 		session.update(namespace+".update_modifyInformation_email", vo);
 		
 	}
+	
+	@Override
+	public void update_resign(EmpInfo_AdminVO vo) throws Exception {
+		session.update(namespace+".update_resign", vo);
+	}
 
 	@Override
 	public List<Dept_TypeVO> dept_info() throws Exception {
@@ -142,6 +138,11 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public List<Pos_TypeVO> pos_info() throws Exception {
 		return session.selectList(namespace+".pos_info");
+	}
+
+	@Override
+	public void insert_resign(EmpInfo_AdminVO vo) throws Exception {
+		session.insert(namespace+".insert_resign", vo);		
 	}
 
 	

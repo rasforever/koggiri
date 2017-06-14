@@ -4,10 +4,11 @@
 <%@ page session="false"%>
 <form action="resign" method="post">
 	<table id="resign_table">
-
+			<input type="hidden" id="emp_id"
+				name="emp_id" value="">
 		<tr>
-			<td>사번 &nbsp;&nbsp;&nbsp; <input type="text" id="emp_id"
-				name="emp_id" style="height: 25px; width: 150px;" disabled></td>
+			<td>사번 &nbsp;&nbsp;&nbsp; <input type="text" id="emp"
+				name="emp" value="" style="height: 25px; width: 150px;" disabled></td>
 			<td>이름 &nbsp;&nbsp;&nbsp; <input type="text" id="emp_nm"
 				name="emp_nm" style="height: 25px; width: 150px" disabled></td>
 		</tr>
@@ -24,7 +25,7 @@
 						</option>
 					</c:forEach>
 			</select></td>
-			<td>퇴사일 <input type="text" name="area" class="datepicker"
+			<td>퇴사일 <input type="text" name="expire_dt" class="datepicker"
 				style="height: 25px; width: 150px"></td>
 		</tr>
 		<tr>
@@ -60,6 +61,7 @@
 		var dept = td_dept[key];
 		var pos = td_pos[key];
 		$('#emp_id').val(id);
+		$('#emp').val(id);
 		$('#emp_nm').val(name);
 		$('#dept_nm').val(dept);
 		$('#pos_nm').val(pos);

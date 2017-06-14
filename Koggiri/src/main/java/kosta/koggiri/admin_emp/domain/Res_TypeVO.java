@@ -1,13 +1,13 @@
 package kosta.koggiri.admin_emp.domain;
 
 public class Res_TypeVO {
-	private Integer res_type;
+	private String res_type;
 	private String res_name;
 	
-	public Integer getRes_type() {
+	public String getRes_type() {
 		return res_type;
 	}
-	public void setRes_type(Integer res_type) {
+	public void setRes_type(String res_type) {
 		this.res_type = res_type;
 	}
 	public String getRes_name() {

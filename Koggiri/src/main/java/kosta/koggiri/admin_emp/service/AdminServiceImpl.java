@@ -97,9 +97,11 @@ public class AdminServiceImpl implements AdminService {
 		return dao.res_info();
 	}
 
+	@Transactional
 	@Override
 	public void update_resign(EmpInfo_AdminVO vo) throws Exception {
 		dao.update_resign(vo);
+		dao.insert_resign(vo);
 
 	}
 
@@ -118,15 +120,10 @@ public class AdminServiceImpl implements AdminService {
 
 	}
 
-	@Transactional
 	@Override
 	public void update_Personnel(EmpInfo_AdminVO vo) throws Exception {
-		if (vo.getDept_id() != null) {
-			dao.update_Personnel_dept(vo);
-		}
-		if (vo.getPos_id() != null) {
-			dao.update_Personnel_pos(vo);
-		}
+		
+			dao.update_Personnel(vo);
 
 	}
 

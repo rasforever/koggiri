@@ -44,13 +44,14 @@ public interface AdminService {
 	
 	public List<Res_TypeVO> res_info() throws Exception; //퇴직코드	
 	public List<Dept_TypeVO> dept_info() throws Exception; //퇴직코드	
-	public List<Pos_TypeVO> pos_info() throws Exception; //퇴직코드	
+	public List<Pos_TypeVO> pos_info() throws Exception; //퇴직코드		
+	
+	public void update_Personnel(EmpInfo_AdminVO vo) throws Exception; //인사이동
 
-	public void update_resign(EmpInfo_AdminVO vo) throws Exception; //사원정보
+	public void update_modifyInformation(EmpInfo_AdminVO vo) throws Exception; //사원정보 추가 수정
 	
-	public void update_modifyInformation(EmpInfo_AdminVO vo) throws Exception; //인사이동
-	
-	public void update_Personnel(EmpInfo_AdminVO vo) throws Exception; //퇴직
+
+	public void update_resign(EmpInfo_AdminVO vo) throws Exception; //퇴직
 	
 
 }

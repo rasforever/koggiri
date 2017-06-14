@@ -45,14 +45,15 @@ public interface AdminDAO {
 	public List<Pos_TypeVO> pos_info() throws Exception; //퇴직코드	
 	
 
-	public void update_Personnel_dept(EmpInfo_AdminVO vo) throws Exception; //인사이동
-	public void update_Personnel_pos(EmpInfo_AdminVO vo) throws Exception; //인사이동
+	public void update_Personnel(EmpInfo_AdminVO vo) throws Exception; //인사이동
+	
 	
 	public void update_modifyInformation_addr(EmpInfo_AdminVO vo) throws Exception; //정보변경
 	public void update_modifyInformation_tel(EmpInfo_AdminVO vo) throws Exception; //정보변경
 	public void update_modifyInformation_email(EmpInfo_AdminVO vo) throws Exception; //정보변경
 
 
-	public void update_resign(EmpInfo_AdminVO vo) throws Exception; //사원정보
+	public void update_resign(EmpInfo_AdminVO vo) throws Exception; //퇴직
+	public void insert_resign(EmpInfo_AdminVO vo) throws Exception; //퇴직
 	
 }

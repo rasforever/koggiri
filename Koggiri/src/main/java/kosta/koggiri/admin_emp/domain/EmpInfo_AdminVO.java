@@ -1,7 +1,6 @@
 package kosta.koggiri.admin_emp.domain;
 
 
-import java.security.Timestamp;
 public class EmpInfo_AdminVO {
 	private String emp_id;	
 	private String dept_id;
@@ -10,7 +9,7 @@ public class EmpInfo_AdminVO {
 	private String tel_no;
 	private String addr;
 	private Integer res_type;
-	private Timestamp expire_dt;
+	private String expire_dt;
 	public String getEmp_id() {
 		return emp_id;
 	}
@@ -53,15 +52,12 @@ public class EmpInfo_AdminVO {
 	public void setRes_type(Integer res_type) {
 		this.res_type = res_type;
 	}
-	public Timestamp getExpire_dt() {
+	public String getExpire_dt() {
 		return expire_dt;
 	}
-	public void setExpire_dt(Timestamp expire_dt) {
+	public void setExpire_dt(String expire_dt) {
 		this.expire_dt = expire_dt;
 	}
-	
-	
-	
-	
+
 
 }

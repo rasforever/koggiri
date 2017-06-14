@@ -6,22 +6,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="kosta.koggiri.mapper.AdminMapper"><!--경로를 뜻하는 것이 아님!!! -->
 
 	<select id="selectList" parameterType="SearchVO" resultType="SearchedEmpVO">
-
+	<![CDATA[
 		select e.emp_id, e.emp_nm, d.dept_nm , p.pos_nm from
 		emp e,dept d,pos p
 		where e.pos_id = p.pos_id and e.dept_id = d.dept_id
+		and wstate_cd <> '1' and expire_dt is null
+		]]>
 		<if test="area=='emp_nm'">
+		<![CDATA[
 			and e.emp_nm like '%'|| #{searchKey}||'%'
+			]]>
 		</if>
 		<if test="area=='emp_id'">
+		<![CDATA[
 			and e.emp_id like '%'|| #{searchKey}||'%'
+			]]>
 		</if>
 		<if test="area=='dept_nm'">
+		<![CDATA[
 			and d.dept_nm like '%'|| #{searchKey}||'%'
+			]]>
 		</if>
 		<if test="area=='pos_nm'">
+		<![CDATA[
 			and p.pos_nm like '%'|| #{searchKey}||'%'
+			]]>
 		</if>
+		
 	</select>
 
 	<select id="mainEmp" resultType="EmpVO" parameterType="EmpVO">
@@ -139,12 +150,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	]]>
 	</select>
 	
-	<update id="update_Personnel_dept" parameterType="EmpInfo_AdminVO">
-		update emp set 	dept_id = #{dept_id}	where emp_id = #{emp_id}
-	</update>
-	<update id="update_Personnel_pos" parameterType="EmpInfo_AdminVO">
-		update emp set 	pos_id = #{pos_id}	where emp_id = #{emp_id}
-	</update>
+	<select id="update" parameterType="EmpInfo_AdminVO" statementType="CALLABLE">
+		{CALL UPDATE_PERSONNEL(#{emp_id}, #{dept_id}, #{pos_id})}
+	</select>
 	
 	<update id="update_modifyInformation_addr" parameterType="EmpInfo_AdminVO">
 		update emp set 	addr = #{addr}	where emp_id = #{emp_id}
@@ -157,8 +165,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<update id="update_resign" parameterType="EmpInfo_AdminVO">
-		update emp set 	WSTATE_CD = #{res_type}, EXPIRE_DT = #{expire_dt}	where emp_id = #{emp_id}
+		update emp set 	WSTATE_CD = '1', EXPIRE_DT = #{expire_dt}	where emp_id = #{emp_id}
 	</update>
+	
+	<insert id="insert_resign" parameterType="EmpInfo_AdminVO">
+		insert into resign (emp_id, res_type, expire_dt) values (#{emp_id},  #{res_type},#{expire_dt} )
+	</insert>
+	
+
 	
 	
 </mapper>

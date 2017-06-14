@@ -88,9 +88,7 @@ public class AdminController {
 
 	@RequestMapping(value = "/ch_Personnel", method = RequestMethod.POST)
 	public String ch_PersonnelPOST(EmpInfo_AdminVO vo, Model model) throws Exception {
-		
-		
-	
+		service.update_Personnel(vo);
 		return "redirect:/admin_emp/manager";
 	}
 	
@@ -101,8 +99,7 @@ public class AdminController {
 
 	@RequestMapping(value = "/modifyInformation", method = RequestMethod.POST)
 	public String modifyInformationPOST(EmpInfo_AdminVO vo, Model model) throws Exception {
-		
-	
+		service.update_modifyInformation(vo);
 		return "redirect:/admin_emp/manager";
 	}
 	
