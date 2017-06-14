@@ -44,7 +44,7 @@
 							<li class="sub01 "><a href="#">퇴사</a></li>
 							<ul></ul>
 						</ul></li>
-						<li class="menu02 "><a href="/attendance/att_mlist">근태관리</a>
+						<li class="menu02 "><a href="/attendance/att_mlist">근태확인</a>
 						<ul>
 							<li class="sub01 "><a href="/attendance/att_mlist">월 근태내역</a></li>
 							<li class="sub01 "><a href="/attendance/att_alldlist">일 근태내역</a></li>

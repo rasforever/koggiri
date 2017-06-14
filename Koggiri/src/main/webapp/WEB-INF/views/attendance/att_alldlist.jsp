@@ -27,7 +27,7 @@
 				<img src="/resources/img/s_menu10.png" />
 			</h1>
 			<div class="sub_top">
-				<span><a href="/main">홈</a> <span> &gt; </span> <strong>근태확인</strong></span>
+				<span><a href="/main">홈</a> <span> &gt; </span> <a href="/attendance/att_alldlist">근태확인</a>  <span> &gt; </span> <strong>일 근태내역</strong></span>
 			</div>
 		</div>
 

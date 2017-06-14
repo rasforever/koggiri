@@ -70,30 +70,35 @@
 							style="cursor: pointer">
 
 					</form>
-
-					<input type="button" id="join" value="입사발령" style="cursor: pointer" />
-
-					<input type="button" id="temp" value="임시비밀번호 부여"
-						style="cursor: pointer" />
-
-					<table id="manager_table">
-						<tr>
+					<br>
+					<br> <input type="button" id="join" value="입사발령"
+						style="cursor: pointer" /> <input type="button" id="temp"
+						value="임시비밀번호 부여" style="cursor: pointer" /> <br>
+					<br>
+					<table class="manager_table_title" style=" margin-bottom: 0px;">
+							<tr>
 							<th>사번</th>
 							<th>이름</th>
 							<th>부서</th>
 							<th>직급</th>
 						</tr>
+					</table>
+					<div class="manager_t" style="width:970px;height:300px;overflow:auto;" >
+					<table id="manager_table" style="table-layout:fixed;" >
+
 						<!-- 밑에는 내용 뿌려줄것 -->
 
 						<c:forEach var="SearchedEmpVO" items="${list }">
 							<tr align="center">
-								<td>${SearchedEmpVO.emp_id }</td>
-								<td>${SearchedEmpVO.emp_nm }</td>
-								<td>${SearchedEmpVO.dept_nm }</td>
-								<td>${SearchedEmpVO.pos_nm }</td>
+								<td >${SearchedEmpVO.emp_id }</td>
+								<td>&nbsp;&nbsp;&nbsp;${SearchedEmpVO.emp_nm }</td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${SearchedEmpVO.dept_nm }</td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${SearchedEmpVO.pos_nm }</td>
 							</tr>
 						</c:forEach>
 					</table>
+					</div>
+										<br><br><br>
 				</div>
 			</div>
 			<div id="joindiv">
@@ -107,44 +112,44 @@
 		</div>
 	</div>
 </div>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#join").click(function() {
-				$.ajax({
-					type : 'get',
-					url : 'joinus',
-					dataType : 'text',
-					success : function(data) {
-	
-						if ($("#joindiv").children().length == 0) {
-							$("#joindiv").html(data);
-						} else if ($("#joindiv").children().length > 0) {
-							$("#joindiv").empty().html(data);
-						}
-	
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#join").click(function() {
+			$.ajax({
+				type : 'get',
+				url : 'joinus',
+				dataType : 'text',
+				success : function(data) {
+
+					if ($("#joindiv").children().length == 0) {
+						$("#joindiv").html(data);
+					} else if ($("#joindiv").children().length > 0) {
+						$("#joindiv").empty().html(data);
 					}
-				});
+
+				}
 			});
-	
-			$("#temp").click(function() {
-				$.ajax({
-					type : 'get',
-					url : 'temppass',
-					dataType : 'text',
-					success : function(data) {
-	
-						if ($("#joindiv").children().length == 0) {
-							$("#joindiv").html(data);
-						} else if ($("#joindiv").children().length > 0) {
-							$("#joindiv").empty().html(data);
-						}
-	
+		});
+
+		$("#temp").click(function() {
+			$.ajax({
+				type : 'get',
+				url : 'temppass',
+				dataType : 'text',
+				success : function(data) {
+
+					if ($("#joindiv").children().length == 0) {
+						$("#joindiv").html(data);
+					} else if ($("#joindiv").children().length > 0) {
+						$("#joindiv").empty().html(data);
 					}
-				});
+
+				}
 			});
-	
-		})
-	</script>
-	<div class="footer_wrap">
-		<div id="footer" style="height: 150px">
-			<%@ include file="../include/footer.jsp"%>
+		});
+
+	})
+</script>
+<div class="footer_wrap">
+	<div id="footer" style="height: 150px">
+		<%@ include file="../include/footer.jsp"%>
