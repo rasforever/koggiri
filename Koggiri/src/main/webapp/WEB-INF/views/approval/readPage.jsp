@@ -115,7 +115,7 @@
 					<input type='hidden' name='app_id' value="${approvalVO.app_id}">
 					<input type='hidden' name='page' value="${search.page}"> <input
 						type='hidden' name='perPageNum' value="${search.perPageNum}">
-					<input type='hidden' name='searchType' value="${search.searchType}">
+					<input type='hidden' name='searchType' id="searchType" value="${search.searchType}">
 
 				</form>
 
@@ -140,9 +140,9 @@
 					</tr>
 					<tr>
 						<th>기안일</th>
-						<td>${approvalVO.draft_dt }</td>
+						<td>${approvalVO.draft_dt.substring(0,10) }</td>
 						<th>결재일</th>
-						<td>${approvalVO.app_dt }</td>
+						<td>${approvalVO.app_dt.substring(0,10) }</td>
 					</tr>
 					
  					<c:if test="${search.searchType == 'r' }">
@@ -261,7 +261,11 @@ $(document).ready(function(){
 		
 	$("#goListBtn ").on("click", function(){
 		formObj.attr("method", "get");
-		formObj.attr("action", "/approval/list");
+		if ($("#searchType").val() == "r"){
+			formObj.attr("action", "/approval/listr");
+		} else {
+			formObj.attr("action", "/approval/lists");
+		}
 		formObj.submit();
 	});
 	

@@ -65,5 +65,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id='updateLev' parameterType="String">
 		update ATTENDANCE set LEA_TIME = to_char(sysdate, 'HH24:MI') WHERE EMP_ID = #{emp_id} and ATT_DT = to_char(sysdate,'YYYYMMDD')
 	</update>
+	
+	<select id="searchEmp" resultType="EmpVO">
+		select emp_id, emp_nm from emp where emp_id like #{emp_id} or emp_nm like #{emp_id} 
+	</select>
+	
+	<select id="searchatt_Emp" resultType="EmpVO">
+		select e.emp_id as emp_id, e.emp_nm as emp_nm from emp e, member m  where e.emp_id like #{emp_id} or e.emp_nm like #{emp_id} 
+		and e.emp_id = m.mem_id and m.mem_aut_cd = 'A'
+	</select>
 
+	<select id="list_notice" resultType="H_NoticeVO">
+	<![CDATA[
+		select notice.* from 
+			(select rownum, n.* from 
+				(select * from noticeboard order by n_date desc)
+			 n ) notice
+		where rownum < 5
+	]]>
+	</select>
+	<select id="list_important" resultType="H_importantVO">
+	<![CDATA[
+		select import.* from 
+			(select rownum, i.* from 
+				(select * from importantboard order by i_date desc)
+			 i ) import
+		where rownum < 5
+	]]>
+	</select>
+	<select id="list_calendar" parameterType="String" resultType="H_calendarVO">
+	<![CDATA[
+		select * from calendar where mem_id = #{emp_id}
+		and START_DATE < sysdate
+		and END_DATE > sysdate
+	]]>
+	</select>
 </mapper>

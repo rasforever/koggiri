@@ -48,28 +48,28 @@
 <div class="container_wrap" style="background-color: #ffffff;">
 	<div id="container">
 
-		<div id="sub_menu_title">
-			<h1>
-				<img src="/resources/img/s_menu01.png" />
-			</h1>
-			<div class="sub_top">
-				<span><a href="/main">홈</a> <span> &gt; </span> <a
-					href="/noticeboard/listPage">공지</a> &gt; <strong>공지사항</strong></span>
-			</div>
-		</div>
+	<div id="sub_menu_title">
+<h1><img src="/resources/img/s_menu01.png"/></h1>
+<div class="sub_top">   
+    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/noticeboard/listPage">공지</a>  &gt;  <strong>공지사항</strong></span>
+</div>
+</div>
 
 
-		<div id="lnb">
-			<div class="lnb01">
-				<strong class="menu01"><span>회사 정보</span></strong>
-				<ul>
-					<li class="menu01 "><a href="/noticeboard/listPage">공지사항</a>
-						<ul>
-						</ul></li>
-					<li class="menu02 "><a href="#">알립니다</a></li>
-				</ul>
-			</div>
-		</div>
+<div id="lnb">
+   <div class="lnb01">
+      <strong class="menu01"><span>회사 정보</span></strong>
+      <ul>
+                <li class="menu01 ">
+                    <a href="/noticeboard/listPage">공지사항</a>
+                    <ul> </ul>
+                </li>
+                <li class="menu02 ">
+                    <a href="/importantboard/listPage">알립니다</a>
+                </li>
+           </ul>
+   </div>
+</div>
 
 		<div id="sub_content">
 
@@ -126,9 +126,11 @@
 
 						<div class="box-footer">
 							<ul class="mailbox-attachments clearfix uploadedList"></ul>
-
+							
+							<c:if test="${emp_nm=='master'}">
 							<button type="submit" class="btn btn-warning">수정하기</button>
 							<button type="submit" class="btn btn-danger">삭제하기</button>
+							</c:if>
 							<button type="submit" class="btn btn-primary">목록</button>
 						</div>
 					</div>

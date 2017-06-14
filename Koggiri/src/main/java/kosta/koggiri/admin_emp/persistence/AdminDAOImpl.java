@@ -9,6 +9,9 @@ import org.springframework.stereotype.Repository;
 
 import kosta.koggiri.admin_emp.domain.Admin_MemberVO;
 import kosta.koggiri.admin_emp.domain.EmpVO;
+import kosta.koggiri.admin_emp.domain.H_CalendarVO;
+import kosta.koggiri.admin_emp.domain.H_ImportantVO;
+import kosta.koggiri.admin_emp.domain.H_NoticeVO;
 import kosta.koggiri.admin_emp.domain.SearchVO;
 import kosta.koggiri.admin_emp.domain.SearchedEmpVO;
 
@@ -61,6 +64,31 @@ public class AdminDAOImpl implements AdminDAO {
 	public void updateAtt(String emp_id) throws Exception {
 		session.update(namespace+".updateAtt", emp_id);
 		
+	}
+
+	@Override
+	public List<EmpVO> searchEmp(EmpVO vo) throws Exception {
+		return session.selectList(namespace+".searchEmp", vo);
+	}
+	
+	@Override
+	public List<EmpVO> searchatt_Emp(EmpVO vo) throws Exception {
+		return session.selectList(namespace+".searchatt_Emp", vo);
+	}
+	
+	@Override
+	public List<H_NoticeVO> list_notice() throws Exception {
+		return session.selectList(namespace+".list_notice");
+	}
+
+	@Override
+	public List<H_ImportantVO> list_important() throws Exception {
+		return session.selectList(namespace+".list_important");
+	}
+	
+	@Override
+	public List<H_CalendarVO> list_calendar(String emp_id) throws Exception {
+		return session.selectList(namespace+".list_calendar",emp_id);
 	}
 
 }

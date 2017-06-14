@@ -13,8 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import kosta.koggiri.admin_emp.domain.EmpVO;
 import kosta.koggiri.admin_emp.service.AdminService;
 
@@ -27,7 +25,7 @@ public class HomeController {
 
 	@Inject
 	private AdminService service;
-
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	/**
@@ -54,7 +52,10 @@ public class HomeController {
 		System.out.println("home:" + mem_id);
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
-		// return "login/loginForm"; 濡쒓렇�씤湲곕뒫 �셿�꽦 �릺硫� �솢�꽦�솕
+		model.addAttribute("list_notice", service.list_notice());
+		model.addAttribute("list_important", service.list_important());
+		model.addAttribute("list_calendar", service.list_calendar(mem_id));
+		// return "login/loginForm";
 
 		return "/main";
 	}
@@ -78,8 +79,6 @@ public class HomeController {
 
 		return "redirect:/";
 	}
-	
-
+		
 	
 }
-

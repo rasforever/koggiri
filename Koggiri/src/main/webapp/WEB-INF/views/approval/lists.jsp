@@ -66,68 +66,69 @@
 		<div class="col-md-12">
 			<!-- general form elements -->
 			<div class='box'>
-				<div class="box-header with-border">
-					<h3 class="box-title">Approval List</h3>
-				</div>
-
 
 				<div class='box-body'>
-				<table>
-					<tr>	
+				
+					<div style="text-align: left;">
 						<button id='AllsearchBtn'>전체</button>	
 						<button id='a_searchBtn'>기안중</button>
 						<button id='c_searchBtn'>완료</button>
 						<button id='n_searchBtn'>부결</button>
 						<input type='hidden' name='app_pro_cd' id='app_pro_cd' value="${search.app_pro_cd}">
 						<input type='hidden' name='draft_emp_id' id='draft_emp_id' value="${search.draft_emp_id}">
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="chk_app_id" id="chk_app_id" value="app_id"
-							onclick="dis_chg(this)">결재문서번호</input></td>
-						<td><input type="text" name="search_app_id" id="search_app_id"
-							size="30" disabled></input></td>
-						<td><input type="checkbox" name="area" value="app_type_cd"
-							onclick="dis_chg(this)">결재구분</input></td>
-						<td><select id="app_type" name="app_type" disabled>
+						<br><br><br>
+					</div>
+					
+					<table>
+					
+						<tr><td style="text-align: left; width: 120px"><input type="checkbox" name="chk_app_id" id="chk_app_id" value="app_id" onclick="dis_chg(this)">결재문서번호</input></td>
+						<td style="text-align: left;"><input type="text" name="search_app_id" id="search_app_id" size="30" disabled></input></td>
+						<td style="text-align: left; width: 120px"><input type="checkbox" name="area" value="app_type_cd" onclick="dis_chg(this)">결재구분</input></td>
+						<td style="text-align: left;"><select id="app_type" name="app_type" disabled>
 									<option value=" ">--전체--
 								<c:forEach var="apptypeVO" items="${applist}">
 									<option value="${apptypeVO.app_type_cd}">${apptypeVO.app_type_nm}
 									</option>
 								</c:forEach>
-						</select></td>					
-					</tr>
-					<tr>						
-						<td><input type="checkbox" name="area" value="app_emp_id"
-							onclick="dis_chg(this)">결재자</td>
-						<td><input type="text" name="app_emp_id"
-							id="app_emp_id" size="30" disabled></td>
-						<td><input type="checkbox" name="area" value="draft_dt"
-							onclick="dis_chg(this)">제안일</td>
-						<td><input type="text" name="draft_s_dt" id="draft_s_dt"
-							class="datepicker" disabled size="14"> ~ <input
-							type="text" name="draft_e_dt" id="draft_e_dt" class="datepicker"
-							disabled size="14"></td>
-					</tr>					
+						</select></td></tr>
+					
+					<tr>	<td style="text-align: left; width: 120px"><input type="checkbox" name="area" value="app_emp_id" onclick="dis_chg(this)">결재자</td>
+						<td style="text-align: left;"><input type="text" name="app_emp_id" id="app_emp_id" size="30" disabled></td>
+						<td style="text-align: left; width: 120px"><input type="checkbox" name="area" value="draft_dt" onclick="dis_chg(this)">제안일</td>
+						<td style="text-align: left;"><input type="text" name="draft_s_dt" id="draft_s_dt" class="datepicker" disabled size="14"> ~ 
+						<input type="text" name="draft_e_dt" id="draft_e_dt" class="datepicker" disabled size="14"></td></tr>					
+				
+					<tr><td colspan="4" style="text-align: right; background-color: #f4f4f4; font-size: 17px; font-weight: bold;"><button id='searchBtn'>Search &nbsp;&nbsp;</button></td></tr>
 				</table>
-					<button id='searchBtn'>Search</button>
 				</div>
 			</div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 			<div class="box">
-				<div class="box-header with-border">
-					<h3 class="box-title">LIST PAGING</h3>
-				</div>
+
 				<div class="box-body">
-					<table class="table table-bordered">
+					<table class="table table-bordered" >
 						<tr>
-							<th>결재문서번호</th>
-							<th>제안일</th>
-							<th>결재구분</th>
-							<th>관리부서</th>
-							<th>기안자</th>
-							<th>결재자</th>
-							<th>진행상태</th>
+							<th style="text-align: center;">결재문서번호</th>
+							<th style="text-align: center;">제안일</th>
+							<th style="text-align: center;">결재구분</th>
+							<th style="text-align: center;">관리부서</th>
+							<th style="text-align: center;">기안자</th>
+							<th style="text-align: center;">결재자</th>
+							<th style="text-align: center;">진행상태</th>
 						</tr>
 
 						<c:forEach items="${list}" var="approvalVO">
@@ -137,7 +138,7 @@
 									href='/approval/readPage${pageMaker.makeSearch(pageMaker.search.page) }&app_id=${approvalVO.app_id}'>
 										${approvalVO.app_id} </a></td>
 								<td><a
-									href='/approval/readPage${pageMaker.makeSearch(pageMaker.search.page) }&app_id=${approvalVO.app_id}'>${approvalVO.draft_dt}</a></td>
+									href='/approval/readPage${pageMaker.makeSearch(pageMaker.search.page) }&app_id=${approvalVO.app_id}'>${approvalVO.draft_dt.substring(0,10)}</a></td>
 								<td><a
 									href='/approval/readPage${pageMaker.makeSearch(pageMaker.search.page) }&app_id=${approvalVO.app_id}'>${approvalVO.app_type_nm}</a></td>
 								<td><a
@@ -443,6 +444,11 @@
 									+ "&draft_s_dt=" + s_dt
 									+ "&draft_e_dt=" + e_dt;
 
+						});
+				$('#app_emp_id').on(
+						"click",
+						function(event) {
+							window.open('../admin_emp/att_emp', 'EMP', "width=400px height=500px");
 						});
 
 

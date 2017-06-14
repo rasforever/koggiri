@@ -8,7 +8,7 @@ public class AttendanceVO {
 	private String pos_nm;
 	private String att_dt;
 	private String att_time;
-	private String lev_time;
+	private String lea_time;
 	private String all_work_day;
 	private String att_day;
 	private String abs_day;
@@ -56,11 +56,12 @@ public class AttendanceVO {
 	public void setAtt_time(String att_time) {
 		this.att_time = att_time;
 	}
-	public String getLev_time() {
-		return lev_time;
+	
+	public String getLea_time() {
+		return lea_time;
 	}
-	public void setLev_time(String lev_time) {
-		this.lev_time = lev_time;
+	public void setLea_time(String lea_time) {
+		this.lea_time = lea_time;
 	}
 	public String getAll_work_day() {
 		return all_work_day;

@@ -40,7 +40,7 @@
                     <ul> </ul>
                 </li>
                 <li class="menu02 ">
-                    <a href="#">알립니다</a>
+                    <a href="/importantboard/listPage">알립니다</a>
                 </li>
            </ul>
    </div>
@@ -87,7 +87,7 @@
 		<div class="form-group">
 			<label for="exampleInputEmail1">작성자<br><br></label> 
 			<input type="text"
-				name="N_EMP_ID" class="form-control" placeholder="Enter Writer">
+				value="${emp_nm}" name="N_EMP_ID" class="form-control" placeholder="Enter Writer" readonly="readonly">
 		</div>
 		
 		<div class="form-group">
