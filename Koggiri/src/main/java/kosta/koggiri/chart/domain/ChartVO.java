@@ -3,6 +3,7 @@ package kosta.koggiri.chart.domain;
 public class ChartVO {
 	
 	private String dept_id;
+	private String dept_nm;
 	private String emp_nm; 
 	private String emp_id;
 	private String sex_id;
@@ -74,6 +75,11 @@ public class ChartVO {
 		this.sex_nm = sex_nm;
 	}
 	
-	
+	public String getDept_nm() {
+		return dept_nm;
+	}
+	public void setDept_nm(String dept_nm) {
+		this.dept_nm = dept_nm;
+	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -21,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import kosta.koggiri.noticeboard.domain.Noti_BoardVO;
 import kosta.koggiri.noticeboard.domain.Noti_SearchCriteria;
 import kosta.koggiri.noticeboard.domain.Noti_PageMaker;
@@ -113,9 +113,12 @@ public class Noti_BoardController {
 	}
 	
 	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
-	public void listPage(@ModelAttribute("cri")Noti_SearchCriteria cri, Model model,HttpSession session) throws Exception{
+	public void listPage(@ModelAttribute("cri")Noti_SearchCriteria cri, Model model,HttpSession session, HttpServletRequest request) throws Exception{
 
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_id = (String) session.getAttribute("mem_id");
+		
+		request.setAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
 		model.addAttribute("list", service.listSearchCriteria(cri));
 		

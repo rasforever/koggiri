@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
+
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
@@ -19,6 +20,7 @@
     <link href="/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />	
 <%@ include file="../include/header.jsp"%>
 
+
 <link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
 <link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
 
@@ -31,6 +33,7 @@
     <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/noticeboard/listPage">공지</a>  &gt;  <strong>공지사항</strong></span>
 </div>
 </div>
+
 
 
 <div id="lnb">
@@ -106,8 +109,11 @@
 	</tr>
 
 </c:forEach>
-
+	
+	
 </table>
+
+
 
 				</div>
 				<!-- /.box-body -->

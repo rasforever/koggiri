@@ -29,11 +29,12 @@
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
 
+	
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-	
+
 	<tx:annotation-driven />
 
 	<!-- admin_emp <context:component-scan> -->
@@ -79,7 +80,7 @@
 	<!-- task <context:component-scan> -->
 	<context:component-scan base-package="kosta.koggiri.task.persistence"></context:component-scan>
 	<context:component-scan base-package="kosta.koggiri.task.service"></context:component-scan>
-	
+
 	<!-- task <context:component-scan> -->
 	<context:component-scan base-package="kosta.koggiri.attendance.persistence"></context:component-scan>
 	<context:component-scan base-package="kosta.koggiri.attendance.service"></context:component-scan>
