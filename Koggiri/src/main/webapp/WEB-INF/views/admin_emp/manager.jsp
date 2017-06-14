@@ -75,24 +75,30 @@
 						style="cursor: pointer" /> <input type="button" id="temp"
 						value="임시비밀번호 부여" style="cursor: pointer" /> <br>
 					<br>
-					<table id="manager_table">
-						<tr>
+					<table class="manager_table_title" style=" margin-bottom: 0px;">
+							<tr>
 							<th>사번</th>
 							<th>이름</th>
 							<th>부서</th>
 							<th>직급</th>
 						</tr>
+					</table>
+					<div class="manager_t" style="width:970px;height:300px;overflow:auto;" >
+					<table id="manager_table" style="table-layout:fixed;" >
+
 						<!-- 밑에는 내용 뿌려줄것 -->
 
 						<c:forEach var="SearchedEmpVO" items="${list }">
 							<tr align="center">
-								<td>${SearchedEmpVO.emp_id }</td>
-								<td>${SearchedEmpVO.emp_nm }</td>
-								<td>${SearchedEmpVO.dept_nm }</td>
-								<td>${SearchedEmpVO.pos_nm }</td>
+								<td >${SearchedEmpVO.emp_id }</td>
+								<td>&nbsp;&nbsp;&nbsp;${SearchedEmpVO.emp_nm }</td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${SearchedEmpVO.dept_nm }</td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${SearchedEmpVO.pos_nm }</td>
 							</tr>
 						</c:forEach>
 					</table>
+					</div>
+										<br><br><br>
 				</div>
 			</div>
 			<div id="joindiv">

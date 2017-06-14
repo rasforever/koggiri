@@ -16,15 +16,16 @@ $(function(){
 </script>
 <br><br><br>
 <div id="joinus" align="left">
+<h2>입사 발령 입력</h2>
 	<form action="joinus" method="post" id="insertform">
 	<table id="joinus_table">
 	<tr>
-	<th align="left">이름</th>
-	<td><input type="text" name="emp_nm" placeholder="ex)유승현" size="37px"></td>
+	<th align="center" width="150px">이름</th>
+	<td><input type="text" name="emp_nm" placeholder="ex)유승현" style="width: 290px;"></td>
 	</tr>
 	<tr>
-	<th align="left">직급</th>
-	<td>		<select name="pos_id" style="cursor:pointer">
+	<th align="center">직급</th>
+	<td>		<select name="pos_id" style="cursor:pointer; width: 300px;">
 				<option value="">직급선택</option>
     			<option value="10">CEO</option>
    				<option value="11">이사</option>
@@ -36,8 +37,8 @@ $(function(){
 			</select></td>
 	</tr>
 	<tr>
-	<th align="left">부서</th>
-	<td><select name="dept_id" style="cursor:pointer">
+	<th align="center">부서</th>
+	<td><select name="dept_id" style="cursor:pointer; width: 300px;">
 				<option value="">부서선택</option>
     			<option value="MM">경영진</option>
    				<option value="PL">인사팀</option>
@@ -49,19 +50,19 @@ $(function(){
 			</select></td>
 	</tr>
 		<tr>
-	<th align="left">입사일</th>
-	<td><input type="text" size="37px" class="datepicker" name="join_dt" /></td>
+	<th align="center">입사일</th>
+	<td><input type="text"  style="width: 290px;" class="datepicker" name="join_dt" /></td>
 	</tr>
 			<tr>
-	<th align="left">성별</th>
-	<td><select name="sex_id" style="cursor:pointer">
+	<th align="center">성별</th>
+	<td><select name="sex_id" style="cursor:pointer; width: 300px;">
 				<option value="">성별선택</option>
 				<option value="M">남자</option>
 				<option value="F">여자</option>
 			</select></td>
 	</tr>
-	<th align="left">국적</th>
-	<td><select name="nation_id" style="cursor:pointer">
+	<th align="center">국적</th>
+	<td><select name="nation_id" style="cursor:pointer; width: 300px;">
 				<option value="">국적선택</option>
 				<option value="KR">한국</option>
 				<option value="JP">일본</option>
@@ -69,8 +70,8 @@ $(function(){
 			</select></td>
 	</tr>
 			<tr>
-	<th align="left">주민등록번호</th>
-	<td><input type="text"  size="37px"name="res_no" placeholder=" ' - '없이 입력하세요"></td>
+	<th align="center">주민등록번호</th>
+	<td><input type="text"  style="width: 290px;" name="res_no" placeholder=" ' - '없이 입력하세요"></td>
 	</tr>
 	<tr>
 	<br>
