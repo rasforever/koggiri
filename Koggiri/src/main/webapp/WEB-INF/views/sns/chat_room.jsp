@@ -59,9 +59,6 @@
 </body>
 
 
-<div class="chat_inputform">
-<%@ include file="../include/chat_footer.jsp"%>
-</div>
 
 <!-- /.box-body -->
 
