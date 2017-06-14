@@ -50,5 +50,13 @@ public int chat_room_id(RoomVO vo) throws Exception {
 	return session.selectOne(namespace+".chat_room_id", vo);
 }
 
+@Override //고병휘 추가
+public RoomVO create_chat_context(RoomVO vo) throws Exception {
+	
+	return session.selectOne(namespace + ".create_chat_context", vo);
+}
+
+
+
 
 }

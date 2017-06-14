@@ -7,8 +7,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kosta.koggiri.sns.domain.RoomVO;
 import kosta.koggiri.sns.service.SnsService;
@@ -50,8 +52,21 @@ private static final Logger logger = LoggerFactory.getLogger(SnsController.class
 		}else{
 			model.addAttribute("roomlist", service.chat(room));
 			model.addAttribute("ck_room_id", room.getRoom_id());
+			
 		}
 		
+		System.out.println("까르르르" + room.getRoom_id());
+		
+	}
+	
+	//고병휘 추가
+	@RequestMapping(value="/chat_room", method = RequestMethod.POST) 
+	public String chat_room_listPOST(RoomVO room, Model model, @RequestParam("input_text") String input_text)throws Exception{
+		
+		room.getInput_text();
+		System.out.println(room.getInput_text());
+		model.addAttribute("roomlist", service.create_chat_context(room));
+		return "redirect:/sns/chat_room";
 	}
 	
 	@RequestMapping(value="/testchat", method = RequestMethod.GET)

@@ -44,7 +44,7 @@
 			<br> <img src="../resources/img/koggiri_talk.png"> <br>
 		</div>
 		<div class="sns_chatBox">
-			<form action="chat_room" method="POST">
+			<form action="chat_room" method="post">
 				<input type="hidden" name= "emp_id" value="${emp_id }">
 				<input type="hidden" name= "room_id" value="${room_id }">
 				<textarea rows="3" cols="50" name="input_text"></textarea>

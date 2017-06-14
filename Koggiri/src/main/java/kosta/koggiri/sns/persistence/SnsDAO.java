@@ -16,5 +16,7 @@ public interface SnsDAO {
 	public void create_room(RoomVO vo)throws Exception;
 	
 	public List<RoomVO> chat(RoomVO vo)throws Exception;
+	
+	public RoomVO create_chat_context(RoomVO vo)throws Exception; //고병휘 추가
 
 }
