@@ -49,7 +49,7 @@
 	<input type="submit" value="전송">
 	</div>
 </div>
-</body>ㄴ
+</body>
 
 
 <!-- /.box-body -->
