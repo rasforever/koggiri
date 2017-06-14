@@ -145,12 +145,11 @@ section div {
 	<input type="submit" value="전송">
 	</div>
 </div>
-<<<<<<< HEAD
+
 
 </body>
-=======
-</body>ㄴ
->>>>>>> branch 'master' of https://github.com/rasforever/koggiri.git
+
+</body>
 
 
 <div class="chat_inputform">
