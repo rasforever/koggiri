@@ -56,7 +56,7 @@
                },
             });
             window.open('http://localhost:8081/sns/listAll', 'Javis',
-                  "width=550px, height=640px, resizable=no, scrollbars=yes")
+                  "width=550px, height=640px, resizable=no")
          });
 </script>
 
