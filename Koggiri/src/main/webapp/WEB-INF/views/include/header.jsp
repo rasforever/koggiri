@@ -92,7 +92,7 @@
 						<li class="menu04 "><a href="#" class="menu_a"
 							style="padding-top: 10px;">회의</a> <!-- 2depth : s -->
 							<ul>
-								<li class=""><a href="#">그림 회의</a></li>
+								<li class=""><a href="/imageroom/list">그림 회의</a></li>
 								<li class=""><a href="#">화상 회의</a>
 							</ul></li>
 						<li class="menu05 "><a href="#" class="menu_a"
