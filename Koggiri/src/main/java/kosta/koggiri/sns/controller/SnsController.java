@@ -60,7 +60,7 @@ private static final Logger logger = LoggerFactory.getLogger(SnsController.class
 		String emp_id = (String) session.getAttribute("mem_id");
 		model.addAttribute("emp_id", emp_id);
 		
-		return "redirect:http://127.0.0.1:5200";
+		return "redirect:http://106.242.203.68:8082";
 		
 	}
 
