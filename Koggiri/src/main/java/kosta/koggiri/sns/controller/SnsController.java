@@ -45,6 +45,7 @@ private static final Logger logger = LoggerFactory.getLogger(SnsController.class
 			
 		if(service.chat_room_count(room) == 0 ){
 			service.create_room(room);
+			//model.addAttribute("ck_room_id", room.getRoom_id());
 			model.addAttribute("roomlist",room);
 		}else{
 			model.addAttribute("roomlist", service.chat(room));
@@ -52,6 +53,17 @@ private static final Logger logger = LoggerFactory.getLogger(SnsController.class
 		}
 		
 	}
+	
+	@RequestMapping(value="/testchat", method = RequestMethod.GET)
+	public String testchatGet(Model model, HttpSession session)throws Exception{
+		
+		String emp_id = (String) session.getAttribute("mem_id");
+		model.addAttribute("emp_id", emp_id);
+		
+		return "redirect:http://127.0.0.1:5200";
+		
+	}
+
 	
 
 	

@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+
+//HTML문서가 모두 준비되면
+$(document).ready(function(){
+	//변수 선언
+	var socket = io.connect();
+	
+	//이벤트 연결
+	socket.on('message', function(data) {
+		//추가할 문자열 만듦
+		var output = "";
+		output += '<li>';
+		output += '     <h3>' + data.emp_id + '</h3>';
+		output += '     <p>' + data.input_text + '</p>';
+		output += '     <p>' + data.input_date + '</p>';
+		output += '</li>';
+		
+		//문서객체 추가.
+		$(output).prependTo("#content");
+		
+	});
+	socket.on("adduser",function(emp_id){
+		$('#emp_id').val(emp_id);
+	});
+	//버튼을 클릭할 때
+	$('button').click(function(){
+		alert("checkcheck");
+		
+		
+		socket.emit('message', {
+			emp_id : $('#emp_id').val(),
+			input_text : $('#message').val(),
+			input_date : new Date().toUTCString()
+		});
+		
+		
+	});
+	
+});
+
+</script>
+</head>
+<body>
+	<h1>소켓통신</h1>
+	<p>사원간 채팅</p>
+	<hr/>
+	<input type="text" id="emp_id" readonly="readonly">
+	<input id="message"/>
+	<button>Button</button>
+	<ul id="content"></ul>
+
+</body>
+</html>
