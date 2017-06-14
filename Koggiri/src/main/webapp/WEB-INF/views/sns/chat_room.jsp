@@ -4,6 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 <head>
+<link rel="stylesheet" href="../resources/Content/themes/real/sns.css">
+
 <style>
 body {
   font-family: "Helvetica Neue";
@@ -92,6 +94,12 @@ section div {
 </style>
 </head>
 <body>
+<div class="sns_header">
+		<br>
+		<img src="../resources/img/koggiri_talk.png">
+		<br>
+</div>
+<div class="sns_chat">
 대화방내역 ㅋ ㅋ ㅋ ㅋ ㅋ 
 <section>
 <%-- ${ck_emp_id} --%>
@@ -116,6 +124,7 @@ section div {
 		</c:if>
 	</c:forEach>
 </section>
+</div>
 </body>
 
 

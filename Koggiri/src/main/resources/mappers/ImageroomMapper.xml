@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kosta.koggiri.mapper.ImagegoomMapper">
+
+	<select id="list" parameterType="String" resultType="ImageroomVO">
+		select e.dept_id, e.emp_nm, e.emp_id, p.pos_nm, e.pos_id from EMP e, POS p 
+		where e.pos_id = p.pos_id 
+		and e.emp_nm = #{emp_nm}
+	</select>
+	
+</mapper>  
