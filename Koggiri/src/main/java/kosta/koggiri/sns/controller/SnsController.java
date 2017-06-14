@@ -7,10 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.sns.domain.RoomVO;
 import kosta.koggiri.sns.service.SnsService;
@@ -39,33 +40,38 @@ private static final Logger logger = LoggerFactory.getLogger(SnsController.class
 	
 	//채팅내역 출력
 	@RequestMapping(value="/chat_room", method= RequestMethod.GET)
-	public void chat_room_listGET(RoomVO room,Model model, HttpSession session)throws Exception{
+	public void chat_room_listGET(@ModelAttribute("room") RoomVO room, Model model, HttpSession session)throws Exception{
 		
+
+		System.out.println("시작");
 		String emp_id = (String) session.getAttribute("mem_id");
-		model.addAttribute("ck_emp_id", emp_id);
-		model.addAttribute("ck_n_emp_id", room.getN_emp_id());
+		model.addAttribute("emp_id", emp_id);
+
+		System.out.println("까르르르1" + room.getN_emp_id());
+		model.addAttribute("n_emp_id", room.getN_emp_id());
 			
 		if(service.chat_room_count(room) == 0 ){
 			service.create_room(room);
 			//model.addAttribute("ck_room_id", room.getRoom_id());
 			model.addAttribute("roomlist",room);
+			model.addAttribute("room_id", room.getRoom_id());
+			System.out.println("room_id"+room.getRoom_id());
 		}else{
 			model.addAttribute("roomlist", service.chat(room));
-			model.addAttribute("ck_room_id", room.getRoom_id());
+			model.addAttribute("room_id", room.getRoom_id());
 			
-		}
-		
-		System.out.println("까르르르" + room.getRoom_id());
+		}		
 		
 	}
 	
 	//고병휘 추가
 	@RequestMapping(value="/chat_room", method = RequestMethod.POST) 
-	public String chat_room_listPOST(RoomVO room, Model model, @RequestParam("input_text") String input_text)throws Exception{
-		
-		room.getInput_text();
-		System.out.println(room.getInput_text());
-		model.addAttribute("roomlist", service.create_chat_context(room));
+	public String chat_room_listPOST(RoomVO room, Model model, RedirectAttributes rttr)throws Exception{
+		System.out.println(room.getN_emp_id());
+		service.create_chat_context(room);
+		rttr.addAttribute("room_id", room.getRoom_id());
+		rttr.addAttribute("emp_id", room.getEmp_id());
+		rttr.addAttribute("n_emp_id", room.getN_emp_id());
 		return "redirect:/sns/chat_room";
 	}
 	
