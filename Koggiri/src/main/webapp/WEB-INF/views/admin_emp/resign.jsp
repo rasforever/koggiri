@@ -31,3 +31,9 @@
 <input type="text" name="area" style="height:25px; width:150px" ></td>
 </tr>
 </table>
+<table>
+<tr>
+<td><input type="text" name="start_vacation" class="datepicker"></td>
+<td><input type="text" name="end_vacation" class="datepicker"></td>
+</tr>
+</table>

@@ -14,7 +14,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;현재직급 
 <input type="text" name="area" style="height:25px; width:70px" disabled></td>
 <td >
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;변경직급
+&nbsp;&nbsp;&nb[]sp;&nbsp;&nbsp;변경직급
 <input type="text" name="area" style="height:25px; width:70px" ></td>
 </tr>
 </table>
