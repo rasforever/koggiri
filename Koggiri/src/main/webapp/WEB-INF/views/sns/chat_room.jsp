@@ -13,7 +13,7 @@
 <body>
 
 <div>
-	<div class="sns_chat" style="overflow-y: scroll; height: 600px">
+	<div class="sns_chat" style="overflow-y: scroll; height: 440px">
 		<section>
 			<%-- ${ck_emp_id} --%>
 			<c:forEach items="${roomlist}" var="roomVO">
@@ -45,7 +45,7 @@
 		<br> <img src="../resources/img/koggiri_talk.png"> <br>
 	</div>
 	<div class="sns_chatBox">
-	<textarea rows="3" cols="50"></textarea>
+	<textarea rows="3" cols="40"></textarea>
 	<input type="submit" value="전송">
 	</div>
 </div>
