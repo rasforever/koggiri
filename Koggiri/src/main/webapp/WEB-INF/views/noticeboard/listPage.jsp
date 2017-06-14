@@ -113,7 +113,6 @@
 	
 </table>
 
-<iframe id="your-frame-id" name="testIframe" width="550" height="550" src="http://127.0.0.1:52273?mem_id=${mem_id }" frameborder="1" ></iframe>
 
 
 				</div>

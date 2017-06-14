@@ -4,7 +4,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,6 +19,11 @@ public class ImageroomController {
 	private ImageroomService service;
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public void list(String emp_id, HttpSession session )throws Exception{
+	public void list(Model model,HttpSession session)throws Exception{
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("mem_id", mem_id);
+		model.addAttribute("emp_nm", emp_nm);
+		
 	}
 }
