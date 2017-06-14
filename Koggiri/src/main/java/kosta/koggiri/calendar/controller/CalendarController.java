@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,12 +42,11 @@ public class CalendarController {
 	@RequestMapping("/insert")
 	public void register(@RequestBody EventVO event, HttpServletRequest request) throws Exception {
 		
-		/*HttpSession session =request.getSession();
-		String mem_id = (String) session.getAttribute("mem_id");*/
-		
+		HttpSession session =request.getSession();
+		String mem_id = (String) session.getAttribute("mem_id");
+		event.setMem_id(mem_id);
 		event.setStart_date(event.getStart());
 		
-		event.setMem_id("k15010201");
 		
 		DateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -69,10 +69,9 @@ public class CalendarController {
 	@ResponseBody
 	public void listget(HttpServletResponse response,HttpServletRequest request) throws Exception {
 		
-		/*HttpSession session =request.getSession();
-		String mem_id = (String) session.getAttribute("mem_id");*/
+		HttpSession session =request.getSession();
+		String mem_id = (String) session.getAttribute("mem_id");
 		
-		String mem_id = "k15010201";
 		
 		List<EventVO> listEvent = service.listAll(mem_id);
 
@@ -116,13 +115,13 @@ public class CalendarController {
 	
 	@RequestMapping(value="/update", method=RequestMethod.POST)
 	public void update(@RequestBody EventVO event,HttpServletRequest request)throws Exception{
-		/*HttpSession session =request.getSession();
-		String mem_id = (String) session.getAttribute("mem_id");*/
+		HttpSession session =request.getSession();
+		String mem_id = (String) session.getAttribute("mem_id");
+		event.setMem_id(mem_id);
 		event.setStart_date(event.getStart());
 		
 			String end = event.getEnd();
 			
-			event.setMem_id("k15010201");
 			
 	      
 	       
@@ -144,10 +143,10 @@ public class CalendarController {
 	}
 
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
-	public void delete(@RequestBody EventVO event)throws Exception{
-		/*HttpSession session =request.getSession();
-		String mem_id = (String) session.getAttribute("mem_id");*/
-		event.setMem_id("k15010201");
+	public void delete(@RequestBody EventVO event,HttpServletRequest request)throws Exception{
+		HttpSession session =request.getSession();
+		String mem_id = (String) session.getAttribute("mem_id");
+		event.setMem_id(mem_id);
 		service.calendardelete(event);
 	}
 }

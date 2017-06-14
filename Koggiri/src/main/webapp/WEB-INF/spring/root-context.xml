@@ -29,11 +29,20 @@
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
 
+	<bean id="connectionFactory"
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="hostName" value="127.0.0.1" />
+		<property name="port" value="52273" />
+		<!-- <property name="password" value="redis_pw"/> -->
+	</bean>
+	<bean id="RedisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+	</bean>
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-	
+
 	<tx:annotation-driven />
 
 	<!-- admin_emp <context:component-scan> -->
@@ -79,7 +88,7 @@
 	<!-- task <context:component-scan> -->
 	<context:component-scan base-package="kosta.koggiri.task.persistence"></context:component-scan>
 	<context:component-scan base-package="kosta.koggiri.task.service"></context:component-scan>
-	
+
 	<!-- task <context:component-scan> -->
 	<context:component-scan base-package="kosta.koggiri.attendance.persistence"></context:component-scan>
 	<context:component-scan base-package="kosta.koggiri.attendance.service"></context:component-scan>
