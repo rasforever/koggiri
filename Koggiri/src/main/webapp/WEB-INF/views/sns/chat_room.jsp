@@ -12,7 +12,7 @@
 
 <body>
 
-
+<div>
 	<div class="sns_chat" style="overflow-y: scroll; height: 600px">
 		<section>
 			<%-- ${ck_emp_id} --%>
@@ -45,10 +45,10 @@
 		<br> <img src="../resources/img/koggiri_talk.png"> <br>
 	</div>
 	<div class="sns_chatBox">
-	<textarea rows="4" cols="65"></textarea>
+	<textarea rows="3" cols="50"></textarea>
 	<input type="submit" value="전송">
 	</div>
-
+</div>
 </body>
 
 
