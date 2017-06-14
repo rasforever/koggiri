@@ -86,6 +86,7 @@
 							style="padding-top: 10px;">일정</a> <!-- 2depth : s -->
 							<ul>
 								<li class=""><a href="../calendar/index">일정</a></li>
+								<li class=""><a href="http://localhost:8082/imageRoom/lobby">그림회의</a></li>
 							</ul></li>
 						<!-- 1depth : s -->
 						<li class="menu04 "><a href="#" class="menu_a"
