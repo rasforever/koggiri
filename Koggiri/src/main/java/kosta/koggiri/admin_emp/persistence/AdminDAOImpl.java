@@ -8,10 +8,14 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kosta.koggiri.admin_emp.domain.Admin_MemberVO;
+import kosta.koggiri.admin_emp.domain.Dept_TypeVO;
+import kosta.koggiri.admin_emp.domain.EmpInfo_AdminVO;
 import kosta.koggiri.admin_emp.domain.EmpVO;
 import kosta.koggiri.admin_emp.domain.H_CalendarVO;
 import kosta.koggiri.admin_emp.domain.H_ImportantVO;
 import kosta.koggiri.admin_emp.domain.H_NoticeVO;
+import kosta.koggiri.admin_emp.domain.Pos_TypeVO;
+import kosta.koggiri.admin_emp.domain.Res_TypeVO;
 import kosta.koggiri.admin_emp.domain.SearchVO;
 import kosta.koggiri.admin_emp.domain.SearchedEmpVO;
 
@@ -90,5 +94,56 @@ public class AdminDAOImpl implements AdminDAO {
 	public List<H_CalendarVO> list_calendar(String emp_id) throws Exception {
 		return session.selectList(namespace+".list_calendar",emp_id);
 	}
+
+	@Override
+	public List<Res_TypeVO> res_info() throws Exception {
+		return session.selectList(namespace+".resign_type");
+	}
+	
+	@Override
+	public void update_Personnel_dept(EmpInfo_AdminVO vo) throws Exception {
+		session.update(namespace+".update_Personnel_dept", vo);
+	}
+	
+	@Override
+	public void update_Personnel_pos(EmpInfo_AdminVO vo) throws Exception {
+		session.update(namespace+".update_Personnel_pos", vo);
+	}
+
+	@Override
+	public void update_resign(EmpInfo_AdminVO vo) throws Exception {
+		session.update(namespace+".update_resign", vo);
+	}
+
+
+	@Override
+	public void update_modifyInformation_addr(EmpInfo_AdminVO vo) throws Exception {
+		session.update(namespace+".update_modifyInformation_addr", vo);
+		
+	}
+
+	@Override
+	public void update_modifyInformation_tel(EmpInfo_AdminVO vo) throws Exception {
+		session.update(namespace+".update_modifyInformation_tel", vo);
+		
+	}
+
+	@Override
+	public void update_modifyInformation_email(EmpInfo_AdminVO vo) throws Exception {
+		session.update(namespace+".update_modifyInformation_email", vo);
+		
+	}
+
+	@Override
+	public List<Dept_TypeVO> dept_info() throws Exception {
+		return session.selectList(namespace+".dept_info");
+	}
+
+	@Override
+	public List<Pos_TypeVO> pos_info() throws Exception {
+		return session.selectList(namespace+".pos_info");
+	}
+
+	
 
 }

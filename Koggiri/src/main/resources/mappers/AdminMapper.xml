@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kosta.koggiri.mapper.AdminMapper"><!--경로를 뜻하는 것이 아님!!! -->
 
-<select id="selectList" parameterType="SearchVO" resultType="SearchedEmpVO">
-		
+	<select id="selectList" parameterType="SearchVO" resultType="SearchedEmpVO">
+
 		select e.emp_id, e.emp_nm, d.dept_nm , p.pos_nm from
 		emp e,dept d,pos p
 		where e.pos_id = p.pos_id and e.dept_id = d.dept_id
@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 		<if test="area=='emp_id'">
 			and e.emp_id like '%'|| #{searchKey}||'%'
-		</if>		
+		</if>
 		<if test="area=='dept_nm'">
 			and d.dept_nm like '%'|| #{searchKey}||'%'
 		</if>
@@ -23,56 +23,75 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			and p.pos_nm like '%'|| #{searchKey}||'%'
 		</if>
 	</select>
-	
+
 	<select id="mainEmp" resultType="EmpVO" parameterType="EmpVO">
-		select e.emp_id, e.emp_nm, d.dept_nm , p.pos_nm,e.tel_no from
-		emp e,dept d,pos p
+		<![CDATA[
+		select
+		e.emp_id, e.emp_nm, d.dept_nm , p.pos_nm,e.tel_no from
+		emp e,dept d,pos
+		p
 		where e.pos_id = p.pos_id and e.dept_id = d.dept_id
-		and e.emp_id = #{emp_id}
+		and e.emp_id =
+		#{emp_id}
+		and WSTATE_CD = '0'
+		]]>
 	</select>
-	
+
 	<insert id="insertEmp" parameterType="EmpVO">
-		insert into emp(emp_id,emp_nm,res_no,sex_id,nation_id,dept_id,pos_id,join_dt
+		insert into
+		emp(emp_id,emp_nm,res_no,sex_id,nation_id,dept_id,pos_id,join_dt
 		,wstate_cd,input_emp_id,input_sysdt)
 		values(#{emp_id},#{emp_nm},#{res_no},#{sex_id},#{nation_id}
 		,#{dept_id},#{pos_id},#{join_dt}
 		,#{wstate_cd},#{input_emp_id},sysdate)
 	</insert>
-	
-	<select id="findEmpid" parameterType="EmpVO" resultType="String">
-		select max(emp_id) from emp
-		where join_dt = #{join_dt} 
-		
-	</select>
-	
-	<insert id="tempPass" parameterType="EmpVO">
-		insert into member(mem_id,mem_pw,mem_aut_cd)
-		values( #{emp_id},#{mem_pw},'A')
-		
-	</insert>
-	
-	<update id="tempPassUpdate" parameterType="Admin_MemberVO">
-		update member set mem_pw = #{mem_pw}
-		where mem_id = #{mem_id}
-		
-	</update>
-	
-	<update id='updateAtt' parameterType="String">
-		update ATTENDANCE set ATT_TIME = to_char(sysdate, 'HH24:MI') WHERE EMP_ID = #{emp_id} and ATT_DT = to_char(sysdate,'YYYYMMDD')
-	</update>	
 
-	
-	<update id='updateLev' parameterType="String">
-		update ATTENDANCE set LEA_TIME = to_char(sysdate, 'HH24:MI') WHERE EMP_ID = #{emp_id} and ATT_DT = to_char(sysdate,'YYYYMMDD')
-	</update>
-	
-	<select id="searchEmp" resultType="EmpVO">
-		select emp_id, emp_nm from emp where emp_id like #{emp_id} or emp_nm like #{emp_id} 
+	<select id="findEmpid" parameterType="EmpVO" resultType="String">
+		select
+		max(emp_id) from emp
+		where join_dt = #{join_dt}
+
 	</select>
-	
+
+	<insert id="tempPass" parameterType="EmpVO">
+		insert into
+		member(mem_id,mem_pw,mem_aut_cd)
+		values( #{emp_id},#{mem_pw},'A')
+
+	</insert>
+
+	<update id="tempPassUpdate" parameterType="Admin_MemberVO">
+		update member set
+		mem_pw = #{mem_pw}
+		where mem_id = #{mem_id}
+
+	</update>
+
+	<update id='updateAtt' parameterType="String">
+		update ATTENDANCE set
+		ATT_TIME = to_char(sysdate, 'HH24:MI') WHERE EMP_ID = #{emp_id} and
+		ATT_DT = to_char(sysdate,'YYYYMMDD')
+	</update>
+
+
+	<update id='updateLev' parameterType="String">
+		update ATTENDANCE set
+		LEA_TIME = to_char(sysdate, 'HH24:MI') WHERE EMP_ID = #{emp_id} and
+		ATT_DT = to_char(sysdate,'YYYYMMDD')
+	</update>
+
+	<select id="searchEmp" resultType="EmpVO">
+		select emp_id, emp_nm from emp
+		where emp_id like #{emp_id} or emp_nm like #{emp_id}
+		and WSTATE_CD = '0'
+	</select>
+
 	<select id="searchatt_Emp" resultType="EmpVO">
-		select e.emp_id as emp_id, e.emp_nm as emp_nm from emp e, member m  where e.emp_id like #{emp_id} or e.emp_nm like #{emp_id} 
+		select e.emp_id as emp_id,
+		e.emp_nm as emp_nm from emp e, member m where e.emp_id like #{emp_id}
+		or e.emp_nm like #{emp_id}
 		and e.emp_id = m.mem_id and m.mem_aut_cd = 'A'
+		and WSTATE_CD = '0'
 	</select>
 
 	<select id="list_notice" resultType="H_NoticeVO">
@@ -100,4 +119,46 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		and END_DATE > sysdate
 	]]>
 	</select>
+
+
+	<select id="resign_type" resultType="Res_TypeVO">
+	<![CDATA[
+		select * from res_type
+	]]>
+	</select>
+	
+	<select id="dept_info" resultType="Dept_TypeVO">
+	<![CDATA[
+		select dept_id, dept_nm from dept
+	]]>
+	</select>
+	
+	<select id="pos_info" resultType="Pos_TypeVO">
+	<![CDATA[
+		select pos_id, pos_nm from pos
+	]]>
+	</select>
+	
+	<update id="update_Personnel_dept" parameterType="EmpInfo_AdminVO">
+		update emp set 	dept_id = #{dept_id}	where emp_id = #{emp_id}
+	</update>
+	<update id="update_Personnel_pos" parameterType="EmpInfo_AdminVO">
+		update emp set 	pos_id = #{pos_id}	where emp_id = #{emp_id}
+	</update>
+	
+	<update id="update_modifyInformation_addr" parameterType="EmpInfo_AdminVO">
+		update emp set 	addr = #{addr}	where emp_id = #{emp_id}
+	</update>
+	<update id="update_modifyInformation_tel" parameterType="EmpInfo_AdminVO">
+		update emp set 	tel_no = #{tel_no}	where emp_id = #{emp_id}
+	</update>
+	<update id="update_modifyInformation_email" parameterType="EmpInfo_AdminVO">
+		update emp set 	e_mail = #{e_mail}	where emp_id = #{emp_id}
+	</update>
+	
+	<update id="update_resign" parameterType="EmpInfo_AdminVO">
+		update emp set 	WSTATE_CD = #{res_type}, EXPIRE_DT = #{expire_dt}	where emp_id = #{emp_id}
+	</update>
+	
+	
 </mapper>

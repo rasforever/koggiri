@@ -3,10 +3,14 @@ package kosta.koggiri.admin_emp.persistence;
 import java.util.List;
 
 import kosta.koggiri.admin_emp.domain.Admin_MemberVO;
+import kosta.koggiri.admin_emp.domain.Dept_TypeVO;
+import kosta.koggiri.admin_emp.domain.EmpInfo_AdminVO;
 import kosta.koggiri.admin_emp.domain.EmpVO;
 import kosta.koggiri.admin_emp.domain.H_CalendarVO;
 import kosta.koggiri.admin_emp.domain.H_ImportantVO;
 import kosta.koggiri.admin_emp.domain.H_NoticeVO;
+import kosta.koggiri.admin_emp.domain.Pos_TypeVO;
+import kosta.koggiri.admin_emp.domain.Res_TypeVO;
 import kosta.koggiri.admin_emp.domain.SearchVO;
 import kosta.koggiri.admin_emp.domain.SearchedEmpVO;
 
@@ -35,5 +39,20 @@ public interface AdminDAO {
 	public List<H_ImportantVO> list_important() throws Exception;
 	
 	public List<H_CalendarVO> list_calendar(String emp_id) throws Exception;
+	
+	public List<Res_TypeVO> res_info() throws Exception;	
+	public List<Dept_TypeVO> dept_info() throws Exception; //퇴직코드	
+	public List<Pos_TypeVO> pos_info() throws Exception; //퇴직코드	
+	
+
+	public void update_Personnel_dept(EmpInfo_AdminVO vo) throws Exception; //인사이동
+	public void update_Personnel_pos(EmpInfo_AdminVO vo) throws Exception; //인사이동
+	
+	public void update_modifyInformation_addr(EmpInfo_AdminVO vo) throws Exception; //정보변경
+	public void update_modifyInformation_tel(EmpInfo_AdminVO vo) throws Exception; //정보변경
+	public void update_modifyInformation_email(EmpInfo_AdminVO vo) throws Exception; //정보변경
+
+
+	public void update_resign(EmpInfo_AdminVO vo) throws Exception; //사원정보
 	
 }
