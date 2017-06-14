@@ -17,6 +17,7 @@
  	<package name="kosta.koggiri.attendance.domain"/>
  	<package name="kosta.koggiri.home.domain"/>
  	<package name="kosta.koggiri.importantboard.domain"/>
+ 	<package name="kosta.koggiri.imageroom.domain"/>
 
  </typeAliases>
  
