@@ -26,7 +26,7 @@ public class ChartController {
 	public void list(@RequestParam("dept_id")String dept_id, Model model, HttpSession session )throws Exception{
 		System.out.println("하나만 가져와줘.."+service.list(dept_id).get(0).getDept_nm());
 		model.addAttribute("list",service.list(dept_id));
-		model.addAttribute("dept",service.list(dept_id).get(0).getDept_id());
+		model.addAttribute("dept",service.list(dept_id).get(0).getDept_nm());
 		
 	}
 	
