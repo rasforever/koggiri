@@ -150,7 +150,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	]]>
 	</select>
 	
-	<select id="update" parameterType="EmpInfo_AdminVO" statementType="CALLABLE">
+	<select id="update_Personnel" parameterType="EmpInfo_AdminVO" statementType="CALLABLE">
 		{CALL UPDATE_PERSONNEL(#{emp_id}, #{dept_id}, #{pos_id})}
 	</select>
 	

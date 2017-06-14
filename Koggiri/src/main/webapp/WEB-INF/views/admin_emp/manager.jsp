@@ -89,9 +89,9 @@
 							<c:forEach var="SearchedEmpVO" items="${list }">
 								<tr align="center">
 									<td><a href='javascript:getVal("${n}");'>${SearchedEmpVO.emp_id }</a></td>
-									<td>&nbsp;&nbsp;&nbsp;${SearchedEmpVO.emp_nm }</td>
-									<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${SearchedEmpVO.dept_nm }</td>
-									<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${SearchedEmpVO.pos_nm }</td>
+									<td>${SearchedEmpVO.emp_nm }</td>
+									<td>${SearchedEmpVO.dept_nm }</td>
+									<td>${SearchedEmpVO.pos_nm }</td>
 								</tr>
 							<c:set var="n" value="${n+1}" />
 							</c:forEach>

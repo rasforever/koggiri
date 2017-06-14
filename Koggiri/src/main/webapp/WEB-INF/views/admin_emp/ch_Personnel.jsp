@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
-<form action=ch_Personnel method="post">
+<form id="ch_Personnel" action=ch_Personnel method="post">
 	<table id="ch_Personnel_table">
 		<input type="hidden" id="emp_id" name="emp_id" value="">
 
@@ -23,7 +23,7 @@
 		<tr>
 			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;변경부서<select id="dept_id"
 				name="dept_id">
-					<option value="">--선택--
+					<option value="0">--선택--
 						<c:forEach items="${deptlist}" var="dept_TypeVO">
 							<option value="${dept_TypeVO.dept_id }">${dept_TypeVO.dept_nm }
 							</option>
@@ -31,7 +31,7 @@
 			</select></td>
 			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;변경직급<select id="pos_id"
 				name="pos_id">
-					<option value="">--선택--
+					<option value="0">--선택--
 						<c:forEach items="${poslist}" var="pos_TypeVO">
 							<option value="${pos_TypeVO.pos_id }">${pos_TypeVO.pos_nm }
 							</option>
@@ -48,6 +48,7 @@
 
 
 <script type="text/javascript">
+	
 	var tr = $("#manager_table tr");
 	var td_id = [];
 	var td_name = [];
@@ -81,4 +82,6 @@
 
 		return false;
 	};
+	
+	
 </script>
