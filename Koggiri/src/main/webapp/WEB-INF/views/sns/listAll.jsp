@@ -7,18 +7,13 @@
 <head>
 
 
-
-
-<html>
-<head>
-
 <link rel="stylesheet" href="../resources/Content/themes/real/sns.css">
 </head>
-<body>
-	<div id="header">
+<body >
+	<div id="header" >
 				
-				</div>
 	<br>
+
 	<div data-role="content" data-position="fixed">
 	<div class="sns_header">
 		<br>
@@ -26,7 +21,8 @@
 		<br>
 	</div>
 	</div>
-	
+	</div>
+		<div align="center">
 	<div class="sns_contain">
 		<div>
 			<table  class="sns_table" style="width: 100%">
@@ -60,7 +56,7 @@
 			<!-- /.box-body -->
 		</div>
 </div>
-
+</div>
 </body>
 </html>
 
