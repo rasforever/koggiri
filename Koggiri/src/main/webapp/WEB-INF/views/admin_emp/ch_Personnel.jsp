@@ -2,35 +2,40 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
+
+
+
+<h2 align="left">인사 이동</h2>
+<br>
 <form id="ch_Personnel" action=ch_Personnel method="post">
 	<table id="ch_Personnel_table">
 		<input type="hidden" id="emp_id" name="emp_id" value="">
 
 		<tr>
-			<td>사번 &nbsp;&nbsp;&nbsp; <input type="text" id="emp" name="emp"
+			<th>사번 </th> <td><input type="text" id="emp" name="emp"
 				style="height: 25px; width: 150px;" disabled></td>
-			<td>이름 &nbsp;&nbsp;&nbsp; <input type="text" id="emp_nm"
+			<th>이름</th><td> <input type="text" id="emp_nm"
 				name="emp_nm" style="height: 25px; width: 150px" disabled></td>
 		</tr>
 		<tr>
-			<td>부서 &nbsp;&nbsp;&nbsp; <input type="text" id="dept_nm"
+			<th>부서 </th><td> <input type="text" id="dept_nm"
 				name="dept_nm" style="height: 25px; width: 150px" disabled></td>
-			<td>직급 &nbsp;&nbsp;&nbsp; <input type="text" id="pos_nm"
+			<th>직급 </th> <td><input type="text" id="pos_nm"
 				name="pos_nm" style="height: 25px; width: 150px" disabled></td>
 		</tr>
 
 
 		<tr>
-			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;변경부서<select id="dept_id"
-				name="dept_id">
+			<th>부서 변경</th>
+			<td><select id="dept_id" name="dept_id" style=" width: 163px;">
 					<option value="0">--선택--
 						<c:forEach items="${deptlist}" var="dept_TypeVO">
 							<option value="${dept_TypeVO.dept_id }">${dept_TypeVO.dept_nm }
 							</option>
 						</c:forEach>
 			</select></td>
-			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;변경직급<select id="pos_id"
-				name="pos_id">
+			<th> 직급 변경 </th>
+			<td><select id="pos_id" name="pos_id" style=" width: 163px;">
 					<option value="0">--선택--
 						<c:forEach items="${poslist}" var="pos_TypeVO">
 							<option value="${pos_TypeVO.pos_id }">${pos_TypeVO.pos_nm }
@@ -39,9 +44,9 @@
 			</select></td>
 
 		</tr>
-		<tr>
-			<td colspan="2" align="center"><input type="submit" value="변경"
-				id="ch_personnel_btn" style="cursor: pointer"></td>
+		<tr >
+			<td colspan="4" align="right">
+			<input type="submit" value="변경" id="ch_personnel_btn" style="cursor: pointer; width: 100px; height: 40px" ></td>
 		</tr>
 	</table>
 </form>

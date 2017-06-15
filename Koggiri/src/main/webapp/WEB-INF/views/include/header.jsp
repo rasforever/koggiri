@@ -103,8 +103,8 @@
 											src="http://s.nx.com/S2/billing/pcbang/real/homepage/common/img_depth3_arrow.png"
 											alt="" /></span>
 										<ul>
-											<li class=""><a href="#">사원 관리</a></li>
-											<li class=""><a href="#">근태 확인</a></li>
+											<li class=""><a href="/admin_emp/manager">사원 관리</a></li>
+											<li class=""><a href="/attendance/att_alldlist">근태 확인</a></li>
 										</ul>
 									</div>
 								</li><!-- 일단 여기에 해놨음. -->

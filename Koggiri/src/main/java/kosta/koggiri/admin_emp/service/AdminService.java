@@ -3,13 +3,16 @@ package kosta.koggiri.admin_emp.service;
 import java.util.List;
 
 import kosta.koggiri.admin_emp.domain.Admin_MemberVO;
+import kosta.koggiri.admin_emp.domain.App_SearchVO;
 import kosta.koggiri.admin_emp.domain.Dept_TypeVO;
 import kosta.koggiri.admin_emp.domain.EmpInfo_AdminVO;
 import kosta.koggiri.admin_emp.domain.EmpVO;
 import kosta.koggiri.admin_emp.domain.H_CalendarVO;
 import kosta.koggiri.admin_emp.domain.H_ImportantVO;
 import kosta.koggiri.admin_emp.domain.H_NoticeVO;
+import kosta.koggiri.admin_emp.domain.Per_AppVO;
 import kosta.koggiri.admin_emp.domain.Pos_TypeVO;
+import kosta.koggiri.admin_emp.domain.Res_AppVO;
 import kosta.koggiri.admin_emp.domain.Res_TypeVO;
 import kosta.koggiri.admin_emp.domain.SearchVO;
 import kosta.koggiri.admin_emp.domain.SearchedEmpVO;
@@ -17,6 +20,10 @@ import kosta.koggiri.admin_emp.domain.SearchedEmpVO;
 public interface AdminService {
 
 	public List<SearchedEmpVO> selectList(SearchVO search) throws Exception;
+	
+	public List<Per_AppVO> select_per(App_SearchVO search)throws Exception; // ì¸ì‚¬ë°œë ¹ë¦¬ìŠ¤íŠ¸
+
+	public List<Res_AppVO> select_res(App_SearchVO search)throws Exception; // í‡´ì‚¬ë¦¬ìŠ¤íŠ¸
 
 	public void insertEmp(EmpVO vo) throws Exception;
 
@@ -36,22 +43,22 @@ public interface AdminService {
 
 	public List<EmpVO> searchatt_Emp(EmpVO vo) throws Exception;
 
-	public List<H_NoticeVO> list_notice() throws Exception;  //°øÁö¸ñ·Ï
+	public List<H_NoticeVO> list_notice() throws Exception;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	public List<H_ImportantVO> list_important() throws Exception;  //¾Ë¸³¸ñ·Ï
+	public List<H_ImportantVO> list_important() throws Exception;  //ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½
 
-	public List<H_CalendarVO> list_calendar(String emp_id) throws Exception; //ÀÏÁ¤
+	public List<H_CalendarVO> list_calendar(String emp_id) throws Exception; //ï¿½ï¿½ï¿½ï¿½
 	
-	public List<Res_TypeVO> res_info() throws Exception; //ÅğÁ÷ÄÚµå	
-	public List<Dept_TypeVO> dept_info() throws Exception; //ÅğÁ÷ÄÚµå	
-	public List<Pos_TypeVO> pos_info() throws Exception; //ÅğÁ÷ÄÚµå		
+	public List<Res_TypeVO> res_info() throws Exception; //ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½	
+	public List<Dept_TypeVO> dept_info() throws Exception; //ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½	
+	public List<Pos_TypeVO> pos_info() throws Exception; //ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½		
 	
-	public void update_Personnel(EmpInfo_AdminVO vo) throws Exception; //ÀÎ»çÀÌµ¿
+	public void update_Personnel(EmpInfo_AdminVO vo) throws Exception; //ï¿½Î»ï¿½ï¿½Ìµï¿½
 
-	public void update_modifyInformation(EmpInfo_AdminVO vo) throws Exception; //»ç¿øÁ¤º¸ Ãß°¡ ¼öÁ¤
+	public void update_modifyInformation(EmpInfo_AdminVO vo) throws Exception; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 
-	public void update_resign(EmpInfo_AdminVO vo) throws Exception; //ÅğÁ÷
+	public void update_resign(EmpInfo_AdminVO vo) throws Exception; //ï¿½ï¿½ï¿½ï¿½
 	
 
 }

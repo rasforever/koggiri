@@ -57,15 +57,22 @@
 
 
 <div id="lnb">
-   <div class="lnb01">
-      <strong class="menu01"><span>회사 정보</span></strong>
+     <div class="lnb01">
+      <strong class="menu01"><span>공지</span></strong>
       <ul>
                 <li class="menu01 ">
                     <a href="/noticeboard/listPage">공지사항</a>
-                    <ul> </ul>
+                    <ul>
+                      <li class="sub01 "><a href="/noticeboard/listPage">공지사항 목록</a></li>
+                      <li class="sub02 "><a href="/noticeboard/register">공지사항 작성</a></li>
+                    </ul>
                 </li>
                 <li class="menu02 ">
                     <a href="/importantboard/listPage">알립니다</a>
+                    <ul>
+                      <li class="sub01 "><a href="/importantboard/listPage">알립니다 목록</a></li>
+                      <li class="sub02 "><a href="/importantboard/register">알립니다 작성</a></li>
+                    </ul>
                 </li>
            </ul>
    </div>
