@@ -70,9 +70,6 @@ function timer(){
 	<script type="text/javascript">
 		var objDiv = document.getElementById("sns_chat");
 		objDiv.scrollTop = objDiv.scrollHeight;
-		
-	
-			
 	</script>
 
 </body>
