@@ -62,12 +62,13 @@
 					<div class="box" align="left">
 						<div class="box-header with-border">
 							현재일 : ${ att_day } <br>
-						</div>
+						</div><br>
 						<div class='box-body'>
 							조회일: <input type="text" name="att_dd" id="att_dd"
 								class="datepicker" size="14">
 							<button id='searchBtn'>Search</button>
 						</div>
+						<br><br>
 						<div class="box-body">
 							<h3></h3>
 							<table class="table table-bordered">

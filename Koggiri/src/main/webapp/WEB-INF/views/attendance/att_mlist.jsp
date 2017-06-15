@@ -62,7 +62,7 @@
 					<div class="box" align="left">
 						<div class="box-header with-border">
 							현재월 : ${ att_day } <br>
-						</div>
+						</div><br>
 						<div class='box-body'>
 							조회월: <select id="att_mm" name="att_mm">
 									<c:forEach var="attendanceSearchVO" items="${att_mm_list}">
@@ -71,7 +71,7 @@
 									</c:forEach>
 							</select>
 							<button id='searchBtn'>Search</button>
-						</div>
+						</div><br><br>
 						<div class="box-body">
 							<h3></h3>
 							<table class="table table-bordered">
