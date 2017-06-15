@@ -5,27 +5,14 @@
 <%@ page session="false"%>
 <head>
 <link rel="stylesheet" href="../resources/Content/themes/real/sns.css">
-<script>
 
-	
-	
-function timer(){
-		
-	  location.reload();
-	};
-	window.onload = function timerStart() {
-	 tid = setInterval('timer()', 10000);
-	 
-	};	
-</script>
 </head>
 
 
 
 <body>
 	<div>
-		<div id="sns_chat" class="sns_chat"
-			style="overflow-y: scroll; height: 390px">
+		<div id="sns_chat" class="sns_chat" style="overflow-y: scroll; height: 600px">
 			<section>
 				<%-- ${ck_emp_id} --%>
 				<c:forEach items="${roomlist}" var="roomVO">
@@ -58,22 +45,19 @@ function timer(){
 		</div>
 		<div class="sns_chatBox">
 			<form action="chat_room" method="post">
-				<input type="hidden" id="emp_id" name="emp_id" value="${emp_id }"> <input
-					type="hidden" id="room_id" name="room_id" value="${room_id }"> <input
-					type="hidden" id="n_emp_id" name="n_emp_id" value="${n_emp_id }">
-				<textarea rows="3" cols="40" name="input_text"></textarea>
+				<input type="hidden" name= "emp_id" value="${emp_id }">
+				<input type="hidden" name= "room_id" value="${room_id }">
+				<input type="hidden" name= "n_emp_id" value="${n_emp_id }">
+				<textarea rows="3" cols="50" name="input_text"></textarea>
 				<input type="submit" value="전송">
 			</form>
 		</div>
 	</div>
-	
-	<script type="text/javascript">
-		var objDiv = document.getElementById("sns_chat");
-		objDiv.scrollTop = objDiv.scrollHeight;
-		
-	
-			
-	</script>
+<script type="text/javascript">
+var objDiv = document.getElementById("sns_chat"); 
+objDiv.scrollTop = objDiv.scrollHeight;
+
+</script>
 
 </body>
 
