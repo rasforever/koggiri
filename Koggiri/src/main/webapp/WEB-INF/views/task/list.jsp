@@ -240,7 +240,8 @@
 		<script>
 			function myfunction() {
 
-				self.location = "list" +"&keyword=" + $('.keywordInput').val();
+				self.location = "list" + '${pageMaker.makeQuery(1)}'
+						+ "&keyword=" + $('.keywordInput').val();
 
 			}
 		</script>
