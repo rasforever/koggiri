@@ -29,5 +29,4 @@
 							</c:forEach>
 						</table>
 						
-						사번검색:<input type="text" name='searchKey' 
-								value='${App_SearchVO.keyword}'>
+						사번검색:<input type="text" name='searchKey' >
