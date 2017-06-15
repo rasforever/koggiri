@@ -56,25 +56,9 @@
 					},
 				});
 				window.open('http://localhost:8081/sns/listAll', 'Javis',
-						"width=490px, height=600px, resizable=no, scrollbars=yes")
+						"width=530px, height=600px, resizable=no, scrollbars=yes")
 			});
-   $(document).ready(
-         function() {
-            $('.main #content div>a').on({
-               mouseenter : function() {
-                  $(this).stop().animate({
-                     'top' : '-206px'
-                  }, 500, "easeInOutCubic");
-               },
-               mouseleave : function() {
-                  $(this).stop().animate({
-                     'top' : '0px'
-                  }, 500, "easeInOutCubic");
-               },
-            });
-            window.open('http://localhost:8081/sns/listAll', 'Javis',
-                  "width=550px, height=640px, resizable=no")
-         });
+
 </script>
 
 <!-- ------------------------------------------------------------------------ -->
