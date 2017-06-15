@@ -172,6 +172,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into resign (emp_id, res_type, expire_dt) values (#{emp_id},  #{res_type},#{expire_dt} )
 	</insert>
 	
+	<select id="select_per">
+	<![CDATA[
+		select p.emp_id as emp_id
+	    ,  e.emp_nm as emp_nm
+	    ,  p.per_cd as per_cd
+	    ,  pt.per_nm as per_nm
+	    ,  case when p.dept_id is null then ' ' else  p.dept_id end as dept_id
+	    ,  case when p.dept_id is null then ' ' else (select d.dept_nm from dept d where p.dept_id = d.dept_id  )end as dept_nm
+	    ,  case when p.pos_id is null then ' ' else  p.pos_id end as pos_nm
+	    ,  case when p.pos_id is null then ' ' else (select po.pos_nm from pos po where p.pos_id = po.pos_id)end as pos_nm
+	    ,  p.per_dt as per_dt
+	    from personnel p
+	    inner join emp e
+	    on p.emp_id = e.emp_id
+	    inner join per_type pt
+	    on p.per_cd = pt.per_cd
+    ]]>
+    </select>
+	
+	<select id="select_res">
+	<![CDATA[
+		select r.emp_id as emp_id
+	    ,  e.emp_nm as emp_nm
+	    ,  r.res_type as res_type
+	    ,  re.res_name as res_name
+	    ,  r.expire_dt as expire_dt
+	    from resign r
+	    inner join emp e
+	    on r.emp_id = e.emp_id
+	    inner join res_type re
+	    on r.res_type = re.res_type;
+    ]]>
+    </select>
 
 	
 	
