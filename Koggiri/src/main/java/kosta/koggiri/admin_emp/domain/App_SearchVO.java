@@ -11,6 +11,11 @@ public class App_SearchVO {
 	public void setSearchKey(String searchKey) {
 		this.searchKey = searchKey;
 	}
+
+	@Override
+	public String toString() {
+		return "App_SearchVO [searchKey=" + searchKey + "]";
+	}
 	
 	
 

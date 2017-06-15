@@ -55,9 +55,24 @@ public class AdminController {
 	@RequestMapping(value= "/perApp", method = RequestMethod.POST)
 	public String perAppSearch(App_SearchVO search, Model model, HttpSession session)throws Exception{
 		model.addAttribute("list", service.select_per(search));
-		
+		System.out.println(search.toString());
 		return "/admin_emp/perApp";
 	}
+	
+	@RequestMapping(value= "/resApp", method = RequestMethod.GET)
+	public String resAppPage(App_SearchVO search, Model model, HttpSession session)throws Exception{
+		model.addAttribute("list", service.select_res(search));
+
+		return "/admin_emp/resApp";
+	}
+	
+	@RequestMapping(value= "/resApp", method = RequestMethod.POST)
+	public String resAppSearch(App_SearchVO search, Model model, HttpSession session)throws Exception{
+		model.addAttribute("list", service.select_res(search));
+		System.out.println(search.toString());
+		return "/admin_emp/resApp";
+	}
+
 
 	@RequestMapping(value = "/joinus", method = RequestMethod.GET)
 	public String joinus() throws Exception {

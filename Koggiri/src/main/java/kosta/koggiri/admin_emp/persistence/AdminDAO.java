@@ -12,6 +12,7 @@ import kosta.koggiri.admin_emp.domain.H_ImportantVO;
 import kosta.koggiri.admin_emp.domain.H_NoticeVO;
 import kosta.koggiri.admin_emp.domain.Per_AppVO;
 import kosta.koggiri.admin_emp.domain.Pos_TypeVO;
+import kosta.koggiri.admin_emp.domain.Res_AppVO;
 import kosta.koggiri.admin_emp.domain.Res_TypeVO;
 import kosta.koggiri.admin_emp.domain.SearchVO;
 import kosta.koggiri.admin_emp.domain.SearchedEmpVO;
@@ -20,6 +21,8 @@ public interface AdminDAO {
 	public List<SearchedEmpVO> selectList(SearchVO search)throws Exception; 
 	
 	public List<Per_AppVO> select_per(App_SearchVO search)throws Exception; //인사발령리스트
+
+	public List<Res_AppVO> select_res(App_SearchVO search)throws Exception; //퇴사리스트
 	
 	public void insertEmp(EmpVO vo)throws Exception;
 	
