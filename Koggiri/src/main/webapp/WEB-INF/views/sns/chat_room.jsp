@@ -14,7 +14,7 @@ function timer(){
 	  location.reload();
 	};
 	window.onload = function timerStart() {
-	 tid = setInterval('timer()', 10000);
+	 tid = setInterval('timer()', 1000);
 	 
 	};	
 </script>
