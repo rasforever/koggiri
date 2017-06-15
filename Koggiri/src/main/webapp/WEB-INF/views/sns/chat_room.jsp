@@ -20,37 +20,32 @@
 
 <body>
 	<div>
-		<div id="sns_chat" class="sns_chat"
-			style="overflow-y: scroll; height: 600px">
-			<iframe
-				src='http://localhost:8081/sns/chat_iframe?emp_id=${emp_id }&n_emp_id=${n_emp_id }&room_id=${room_id }'
-				id="iframe" width="600" height="400"></iframe>
-
-			<div class="sns_header">
-				<br> <img src="../resources/img/koggiri_talk.png"> <br>
-			</div>
-			<div class="sns_chatBox">
-				<form action="chat_room" method="post">
-					<input type="hidden" name="emp_id" value="${emp_id }"> <input
-						type="hidden" name="room_id" value="${room_id }"> <input
-						type="hidden" name="n_emp_id" value="${n_emp_id }">
-					<textarea rows="3" cols="50" name="input_text"></textarea>
-					<input type="submit" value="전송">
-				</form>
-			</div>
-		</div>
+		<iframe
+			src='http://localhost:8081/sns/chat_iframe?emp_id=${emp_id }&n_emp_id=${n_emp_id }&room_id=${room_id }'
+			id="iframe" width="600" height="700"></iframe>
 	</div>
-	
-	<script type="text/javascript">
-		var objDiv = document.getElementById("sns_chat");
-		objDiv.scrollTop = objDiv.scrollHeight;
-	</script>
+	<div class="sns_header">
+		<br> <img src="../resources/img/koggiri_talk.png"> <br>
+	</div>
+	<div class="sns_chatBox">
+		<form action="chat_room" method="post">
+			<input type="hidden" name="emp_id" value="${emp_id }"> <input
+				type="hidden" name="room_id" value="${room_id }"> <input
+				type="hidden" name="n_emp_id" value="${n_emp_id }">
+			<textarea rows="3" cols="50" name="input_text"></textarea>
+			<input type="submit" value="전송">
+		</form>
+	</div>
+
+
+
+
 
 </body>
 
 <!-- /.box-body -->
 <script type="text/javascript">
-	var objDiv = document.getElementById("sns_chat");
+	var objDiv = document.getElementById("iframe");
 	objDiv.scrollTop = objDiv.scrollHeight;
 </script>
 
