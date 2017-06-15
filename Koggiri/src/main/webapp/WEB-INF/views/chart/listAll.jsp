@@ -22,13 +22,10 @@
 
 
 <div id="lnb">
-   <div class="lnb01">
+     <div class="lnb01">
       <strong class="menu05"><span>회사 정보</span></strong>
       <ul>
-                <li class="menu01 ">
-                    <a href="/information/index">Koggiri란?</a>
-                    <ul> </ul>
-                </li>
+
                 <li class="menu02 ">
                     <a href="/chart/listAll">조직도</a>
                     <ul>
@@ -40,6 +37,7 @@
                       <li class="sub03 "><a href="/chart/list?dept_id=MG">마케팅팀</a></li>
                     </ul>
                 </li>
+                <ul> </ul>
            </ul>
    </div>
 </div>

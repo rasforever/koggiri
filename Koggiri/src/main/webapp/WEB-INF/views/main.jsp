@@ -132,7 +132,7 @@
 
             <h3 class="hidden">공지사항</h3>
             <div class="notice">
-               <img src="../resources/img/notice_t.png"
+               <img src="../resources/img/notice_ti.png"
                   style="margin-bottom: 10px">
                <ul>
                   <c:forEach items="${list_notice}" var="h_NoticeVO">
@@ -155,7 +155,7 @@
 
             <h3 class="hidden">받은 메일함</h3>
             <div class="notice">
-               <img src="../resources/img/receive_mail.png"
+               <img src="../resources/img/impor_ti.png"
                   style="margin-bottom: 10px">
                <ul>
 
