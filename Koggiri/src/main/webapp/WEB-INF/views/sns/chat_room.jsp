@@ -6,6 +6,17 @@
 <head>
 <link rel="stylesheet" href="../resources/Content/themes/real/sns.css">
 
+<script>
+function timer(){
+		
+	  location.reload();
+	};
+	window.onload = function timerStart() {
+	 tid = setInterval('timer()', 1000);
+	 
+	};	
+</script>
+
 </head>
 
 
