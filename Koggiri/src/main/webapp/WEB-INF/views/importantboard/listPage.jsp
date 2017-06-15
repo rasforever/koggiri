@@ -97,8 +97,7 @@
 	<tr>
 		<th style="text-align: center; width: 60px">글번호</th>
 		<th style="text-align: center;">TITLE</th>
-		<th style="text-align: center;">WRITER</th>
-		<th style="text-align: center;">REGDATE</th>
+		<th style="text-align: center; width: 200px;">REGDATE</th>
 		<th style="text-align: center; width: 70px">VIEWCNT</th>
 	</tr>
 
@@ -108,14 +107,14 @@
 	<tr>
 		<td>${Imp_BoardVO.i_ID}</td>
 		<td><a href='/importantboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&i_ID=${Imp_BoardVO.i_ID}'>${Imp_BoardVO.i_TITLE}</a></td>
-		<td>${Imp_BoardVO.i_EMP_ID}</td>
 		<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 				value="${Imp_BoardVO.i_DATE}" /></td>
 		<td><span class="badge bg-red">${Imp_BoardVO.i_HIT }</span></td>
 	</tr>
 
 </c:forEach>
-
+	
+	
 </table>
 
 				</div>
