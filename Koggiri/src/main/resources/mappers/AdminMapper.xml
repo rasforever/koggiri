@@ -172,7 +172,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into resign (emp_id, res_type, expire_dt) values (#{emp_id},  #{res_type},#{expire_dt} )
 	</insert>
 	
-	<select id="select_per">
+	<select id="select_per" parameterType="App_SearchVO" resultType="Per_AppVO">
 	<![CDATA[
 		select p.emp_id as emp_id
 	    ,  e.emp_nm as emp_nm
@@ -189,6 +189,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    inner join per_type pt
 	    on p.per_cd = pt.per_cd
     ]]>
+    
+    
     </select>
 	
 	<select id="select_res">

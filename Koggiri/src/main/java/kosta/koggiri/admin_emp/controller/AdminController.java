@@ -47,14 +47,14 @@ public class AdminController {
 	
 	@RequestMapping(value= "/perApp", method = RequestMethod.GET)
 	public String perAppPage(App_SearchVO search, Model model, HttpSession session)throws Exception{
-		model.addAttribute("list", service.perAppList(search));
+		model.addAttribute("list", service.select_per(search));
 		
 		return "/admin_emp/perApp";
 	}
 	
 	@RequestMapping(value= "/perApp", method = RequestMethod.POST)
 	public String perAppSearch(App_SearchVO search, Model model, HttpSession session)throws Exception{
-		model.addAttribute("list", service.perAppList(search));
+		model.addAttribute("list", service.select_per(search));
 		
 		return "/admin_emp/perApp";
 	}
