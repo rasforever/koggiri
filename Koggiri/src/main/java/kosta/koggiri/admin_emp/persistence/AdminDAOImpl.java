@@ -150,8 +150,8 @@ public class AdminDAOImpl implements AdminDAO {
 	//인사발령리스트
 	
 	@Override
-	public List<Per_AppVO> perAppList(App_SearchVO search) throws Exception {
-		return session.selectList(namespace+".perAppList", search);
+	public List<Per_AppVO> select_per(App_SearchVO search) throws Exception {
+		return session.selectList(namespace+".select_per", search);
 	}
 
 	

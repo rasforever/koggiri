@@ -20,7 +20,7 @@ public interface AdminService {
 
 	public List<SearchedEmpVO> selectList(SearchVO search) throws Exception;
 	
-	public List<Per_AppVO> perAppList(App_SearchVO search)throws Exception; // 인사발령리스트
+	public List<Per_AppVO> select_per(App_SearchVO search)throws Exception; // 인사발령리스트
 
 	public void insertEmp(EmpVO vo) throws Exception;
 

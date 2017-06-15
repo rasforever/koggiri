@@ -142,8 +142,8 @@ public class AdminServiceImpl implements AdminService {
 	//인사발령리스트
 	
 	@Override
-	public List<Per_AppVO> perAppList(App_SearchVO search) throws Exception {
-		return dao.perAppList(search);
+	public List<Per_AppVO> select_per(App_SearchVO search) throws Exception {
+		return dao.select_per(search);
 	}
 
 }
