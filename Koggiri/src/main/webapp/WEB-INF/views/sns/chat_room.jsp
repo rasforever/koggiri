@@ -10,7 +10,7 @@
 	
 	
 function timer(){
-		if ()
+		
 	  location.reload();
 	};
 	window.onload = function timerStart() {
