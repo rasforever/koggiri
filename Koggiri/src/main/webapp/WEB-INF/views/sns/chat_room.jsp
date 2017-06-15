@@ -25,7 +25,7 @@ function timer(){
 <body>
 	<div>
 		<div id="sns_chat" class="sns_chat"
-			style="overflow-y: scroll; height: 600px">
+			style="overflow-y: scroll; height: 390px">
 			<section>
 				<%-- ${ck_emp_id} --%>
 				<c:forEach items="${roomlist}" var="roomVO">
@@ -61,7 +61,7 @@ function timer(){
 				<input type="hidden" id="emp_id" name="emp_id" value="${emp_id }"> <input
 					type="hidden" id="room_id" name="room_id" value="${room_id }"> <input
 					type="hidden" id="n_emp_id" name="n_emp_id" value="${n_emp_id }">
-				<textarea rows="3" cols="50" name="input_text"></textarea>
+				<textarea rows="3" cols="40" name="input_text"></textarea>
 				<input type="submit" value="전송">
 			</form>
 		</div>

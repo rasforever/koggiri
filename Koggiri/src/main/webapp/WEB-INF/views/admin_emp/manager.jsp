@@ -32,6 +32,7 @@
 				<strong class="menu05"><span>관리자</span></strong>
 				<ul>
 					<li class="menu02 "><a href="/admin_emp/manager">사원관리</a></li>
+				</ul>
 					<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
 						<ul>
 							<li class="sub01 "><a href="/attendance/att_mlist">월
