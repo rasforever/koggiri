@@ -81,7 +81,7 @@
 			<tr>
 				<br>
 				<td colspan="2" align="center"><input type="submit" value="추가"
-					id="joinus_btn" style="cursor: pointer"></td>
+					id="joinus_btn" style="cursor: pointer; width: 100px; height: 40px"></td>
 			</tr>
 		</table>
 

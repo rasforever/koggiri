@@ -18,7 +18,7 @@
 
 		<div id="sub_menu_title">
 			<h1>
-				<img src="/resources/img/s_menu10.png" />
+				<img src="/resources/img/s_menu11.png" />
 			</h1>
 			<div class="sub_top">
 				<span><a href="/main">홈</a> <span> &gt; </span> <a href="#">사원관리</a>
@@ -27,39 +27,40 @@
 		</div>
 
 
-		<div id="lnb">
-			<div class="lnb01">
-				<strong class="menu05"><span>관리자</span></strong>
-				<ul>
-					<li class="menu02 "><a href="/admin_emp/manager">사원관리</a></li>
-				</ul>
-					<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
+	<div id="lnb">
+   <div class="lnb01">
+      <strong class="menu05"><span>회사 정보</span></strong>
+      <ul>
+                <li class="menu01 ">
+                    <a href="/admin_emp/manager">사원관리</a>
+                    <ul> </ul>
+                </li>
+      						<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
 						<ul>
-							<li class="sub01 "><a href="/attendance/att_mlist">월
-									근태내역</a></li>
-							<li class="sub01 "><a href="/attendance/att_dlist">일
-									근태내역</a></li>
+							<li class="sub01 "><a href="/attendance/att_mlist">월 근태내역</a></li>
+							<li class="sub01 "><a href="/attendance/att_alldlist">일 근태내역</a></li>
 							<li class="sub01 "><a href="#">휴가등록</a></li>
 
 							<ul></ul>
 						</ul></li>
 				</ul>
 			</div>
-		</div>
+</div>
 
 		<div id="sub_content" align="center">
 
 
 			<div id="sub_content" align="center">
 				<div id="joinus" align="left">
-
+					<div class="manager_check">
 					<input type="button" id="join" value="입사발령" style="cursor: pointer" />
 					<input type="button" id="ch_Personnel" value="인사이동"
 						style="cursor: pointer" /> <input type="button"
 						id="modifyInformation" value="사원정보/추가/변경" style="cursor: pointer" />
 					<input type="button" id="resign" value="퇴사처리"
 						style="cursor: pointer" /> <input type="button" id="temp"
-						value="임시비밀번호 부여" style="cursor: pointer" /> <br>
+						value="임시비밀번호 부여" style="cursor: pointer" /> <br><br>
+						
 					<form action="manager" method="post">
 						<select name="area">
 							<option value="">검색옵션</option>
@@ -72,6 +73,7 @@
 							style="cursor: pointer">
 
 					</form>
+					</div><br>
 					<table class="manager_table_title" style="margin-bottom: 0px;">
 						<tr>
 							<th>사번</th>

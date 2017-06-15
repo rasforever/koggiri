@@ -3,36 +3,45 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 
+
+<h2 align="left">사원정보 추가/변경</h2>
+<br>
 <form id="modifyInformation" action="modifyInformation" method="post">
 	<table id="modifyInformation_table">
 		<input type="hidden" id="emp_id" name="emp_id" value="">
 		<tr>
-			<td>사번 &nbsp;&nbsp;&nbsp; <input type="text" id="emp"
+			<th>사번 </th>
+			<td>
+			 <input type="text" id="emp"
 				name="emp" style="height: 25px; width: 150px;" disabled></td>
-			<td>이름 &nbsp;&nbsp;&nbsp; <input type="text" id="emp_nm"
+			<th>이름</th> 
+			<td><input type="text" id="emp_nm"
 				name="emp_nm" style="height: 25px; width: 150px" disabled></td>
 		</tr>
 		<tr>
-			<td>부서 &nbsp;&nbsp;&nbsp; <input type="text" id="dept_nm"
+			<th>부서 </th>
+			<td><input type="text" id="dept_nm"
 				name="dept_nm" style="height: 25px; width: 150px" disabled></td>
-			<td>직급 &nbsp;&nbsp;&nbsp; <input type="text" id="pos_nm"
+			<th>직급</th><td><input type="text" id="pos_nm"
 				name="pos_nm" style="height: 25px; width: 150px" disabled></td>
 		</tr>
 		<tr>
-			<td colspan="2">주소 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
-				type="text" name="addr" id="addr" style="height: 25px; width: 387px"></td>
+			<th>주소</th>
+			 <td colspan="3"><input type="text" name="addr" id="addr" style="height: 25px; width: 638px;"></td>
 		</tr>
 		<tr>
-			<td colspan="2">전화번호 <input type="text" name="tel_no" id="tel_no"
-				style="height: 25px; width: 250px;"></td>
+			<th>전화번호 </th>
+			<td colspan="3"> 
+			<input type="text" name="tel_no" id="tel_no" style="height: 25px; width: 638px;"></td>
 		</tr>
 		<tr>
-			<td colspan="2">이메일 &nbsp;&nbsp;&nbsp; <input type="text" id="e_mail"
-				name="e_mail" style="height: 25px; width: 250px"></td>
+			<th>이메일</th>
+			<td colspan="3"> 
+			<input type="text" id="e_mail" name="e_mail" style="height: 25px; width: 638px;"></td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center"><input type="submit" value="변경"
-				id="mod_information_btn" style="cursor: pointer"></td>
+			<td colspan="4" align="center">
+			<input type="submit" value="변경" id="mod_information_btn" style="cursor: pointer; width: 100px; height: 40px"></td>
 		</tr>
 	</table>
 </form>

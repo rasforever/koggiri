@@ -3,10 +3,10 @@ package kosta.koggiri.admin_emp.domain;
 public class Per_AppVO {
 	private String emp_id;  //사번
 	private String emp_nm;  //사원명
-	private String dept_id;  //부서코드
-	private String dept_nm;  //부서명
-	private String pos_id;	//직급코드
-  	private String pos_nm;	//직급명
+	private String dept_id;  //변경부서코드
+	private String dept_nm;  //변경부서명
+	private String pos_id;	//변경직급코드
+  	private String pos_nm;	//변경직급명
 	private String per_cd; //인사발령코드
 	private String per_nm;	//인사발령명
 	private String per_dt;		//변경일자

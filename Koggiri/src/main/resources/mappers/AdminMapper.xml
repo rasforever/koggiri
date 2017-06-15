@@ -126,8 +126,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="list_calendar" parameterType="String" resultType="H_calendarVO">
 	<![CDATA[
 		select * from calendar where mem_id = #{emp_id}
-		and START_DATE < sysdate
-		and END_DATE > sysdate
+		and replace(START_DATE,'-','') <= to_char(sysdate, 'yyyymmdd')
+        and replace(END_DATE,'-','') >= to_char(sysdate, 'yyyymmdd')
 	]]>
 	</select>
 
@@ -172,8 +172,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into resign (emp_id, res_type, expire_dt) values (#{emp_id},  #{res_type},#{expire_dt} )
 	</insert>
 	
-	<select id="select_per">
-	<![CDATA[
+	<sql id="search">
+		<if test="searchKey != '' and searchKey != null ">
+			where e.emp_id = #{searchKey}
+		</if>
+	</sql>
+
+	<select id="select_per" parameterType="App_SearchVO" resultType="Per_AppVO">
 		select p.emp_id as emp_id
 	    ,  e.emp_nm as emp_nm
 	    ,  p.per_cd as per_cd
@@ -188,13 +193,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    on p.emp_id = e.emp_id
 	    inner join per_type pt
 	    on p.per_cd = pt.per_cd
-    ]]>
+    <include refid="search"></include>
+    
     </select>
 	
-	<select id="select_res">
-	<![CDATA[
+	<select id="select_res" parameterType="App_SearchVO" resultType="Res_AppVO">
+		<![CDATA[
 		select r.emp_id as emp_id
 	    ,  e.emp_nm as emp_nm
+	    ,  e.dept_id as dept_id
+	    ,  d.dept_nm as dept_nm
+	    ,  e.pos_id as pos_id
+	    ,  p.pos_nm as pos_nm
 	    ,  r.res_type as res_type
 	    ,  re.res_name as res_name
 	    ,  r.expire_dt as expire_dt
@@ -202,8 +212,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    inner join emp e
 	    on r.emp_id = e.emp_id
 	    inner join res_type re
-	    on r.res_type = re.res_type;
-    ]]>
+	    on r.res_type = re.res_type
+	    inner join dept d
+	    on e.dept_id = d.dept_id
+	    inner join pos p
+	    on e.pos_id = p.pos_id
+	    ]]>
+    <include refid="search"></include>
     </select>
 
 	
