@@ -24,7 +24,7 @@
 
 		<div id="sub_menu_title">
 			<h1>
-				<img src="/resources/img/s_menu10.png" />
+				<img src="/resources/img/s_menu12.png" />
 			</h1>
 			<div class="sub_top">
 				<span><a href="/main">홈</a> <span> &gt; </span> <a href="/attendance/att_alldlist">근태확인</a>  <span> &gt; </span> <strong>일 근태내역</strong></span>
@@ -33,18 +33,14 @@
 
 
 		<div id="lnb">
-			<div class="lnb01">
-				<strong class="menu05"><span>관리자</span></strong>
-				<ul>
-					<li class="menu02 "><a href="#">사원관리</a>
-						<ul>
-							<li class="sub01 "><a href="/admin_emp/manager">사원등록</a></li>
-							<li class="sub01 "><a href="#">인사이동</a></li>
-							<li class="sub01 "><a href="#">사원정보 추가/변경</a></li>
-							<li class="sub01 "><a href="#">퇴사</a></li>
-							<ul></ul>
-						</ul></li>
-						<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
+   <div class="lnb01">
+      <strong class="menu05"><span>회사 정보</span></strong>
+      <ul>
+                <li class="menu01 ">
+                    <a href="/admin_emp/manager">사원관리</a>
+                    <ul> </ul>
+                </li>
+      						<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
 						<ul>
 							<li class="sub01 "><a href="/attendance/att_mlist">월 근태내역</a></li>
 							<li class="sub01 "><a href="/attendance/att_alldlist">일 근태내역</a></li>
@@ -54,7 +50,7 @@
 						</ul></li>
 				</ul>
 			</div>
-		</div>
+</div>
 
 		<div id="sub_content" align="center">
 			<div class="row">

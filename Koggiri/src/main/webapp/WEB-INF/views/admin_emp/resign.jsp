@@ -2,35 +2,41 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
+
+
+<h2 align="left">퇴사 처리</h2>
+<br>
 <form action="resign" method="post">
 	<table id="resign_table">
 			<input type="hidden" id="emp_id"
 				name="emp_id" value="">
-		<tr>
-			<td>사번 &nbsp;&nbsp;&nbsp; <input type="text" id="emp"
-				name="emp" value="" style="height: 25px; width: 150px;" disabled></td>
-			<td>이름 &nbsp;&nbsp;&nbsp; <input type="text" id="emp_nm"
+				<tr>
+			<th>사번 </th> <td><input type="text" id="emp" name="emp"
+				style="height: 25px; width: 150px;" disabled></td>
+			<th>이름</th><td> <input type="text" id="emp_nm"
 				name="emp_nm" style="height: 25px; width: 150px" disabled></td>
 		</tr>
 		<tr>
-			<td>부서 &nbsp;&nbsp;&nbsp; <input type="text" id="dept_nm"
+			<th>부서 </th><td> <input type="text" id="dept_nm"
 				name="dept_nm" style="height: 25px; width: 150px" disabled></td>
-			<td>직급 &nbsp;&nbsp;&nbsp; <input type="text" id="pos_nm"
+			<th>직급 </th> <td><input type="text" id="pos_nm"
 				name="pos_nm" style="height: 25px; width: 150px" disabled></td>
 		</tr>
 		<tr>
-			<td>사유&nbsp;&nbsp;&nbsp; <select id="res_type" name="res_type">
+			<th>사유</th>
+			<td> <select id="res_type" name="res_type" style=" width: 163px;">
 					<c:forEach items="${reslist}" var="res_TypeVO">
 						<option value="${res_TypeVO.res_type }">${res_TypeVO.res_name }
 						</option>
 					</c:forEach>
 			</select></td>
-			<td>퇴사일 <input type="text" name="expire_dt" class="datepicker"
+			<th>퇴사일 </th>
+			<td><input type="text" name="expire_dt" class="datepicker"
 				style="height: 25px; width: 150px"></td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center"><input type="submit" value="변경"
-				id="ch_personnel_btn" style="cursor: pointer"></td>
+			<td colspan="4" align="center"><input type="submit" value="변경"
+				id="ch_personnel_btn" style="cursor: pointer; width: 100px; height: 40px"></td>
 		</tr>
 	</table>
 </form>
