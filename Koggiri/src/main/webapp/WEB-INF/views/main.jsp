@@ -95,7 +95,7 @@
                      <li><a><strong style="font-size: 20px">${empVO.dept_nm }</strong></a></li>
                      <li><a>${empVO.pos_nm } <strong style="font-size: 25px">${empVO.emp_nm}</strong></a></li><br>
                      <li><a><strong>H.P : ${empVO.tel_no }</strong></a></li>
-                     <li><a><strong>E.M : ${empVO.tel_no }</strong></a></li>
+                     <li><a><strong>E.M : ${empVO.e_mail }</strong></a></li>
 
                   </ul>
                </div>

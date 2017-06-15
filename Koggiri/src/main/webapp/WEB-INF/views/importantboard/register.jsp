@@ -32,15 +32,22 @@
 
 
 <div id="lnb">
-   <div class="lnb01">
+      <div class="lnb01">
       <strong class="menu01"><span>공지</span></strong>
       <ul>
                 <li class="menu01 ">
                     <a href="/noticeboard/listPage">공지사항</a>
-                    <ul> </ul>
+                    <ul>
+                      <li class="sub01 "><a href="/noticeboard/listPage">공지사항 목록</a></li>
+                      <li class="sub02 "><a href="/noticeboard/register">공지사항 작성</a></li>
+                    </ul>
                 </li>
                 <li class="menu02 ">
                     <a href="/importantboard/listPage">알립니다</a>
+                    <ul>
+                      <li class="sub01 "><a href="/importantboard/listPage">알립니다 목록</a></li>
+                      <li class="sub02 "><a href="/importantboard/register">알립니다 작성</a></li>
+                    </ul>
                 </li>
            </ul>
    </div>
@@ -67,11 +74,6 @@
 		<div class="col-md-12">
 			<!-- general form elements -->
 			<div class="box box-primary">
-				<!-- <div class="box-header">
-					<h3 class="box-title">REGISTER BOARD</h3>
-				</div> -->
-				<!-- /.box-header -->
-				
 				
 <form id='registerForm' role="form" method="post">
 	<div class="box-body">
@@ -89,7 +91,7 @@
 		<div class="form-group">
 			<label for="exampleInputEmail1">작성자<br><br></label> 
 			<input type="text"
-				name="I_EMP_ID" class="form-control" placeholder="Enter Writer">
+				value="${emp_nm}" name="I_EMP_ID" class="form-control" placeholder="Enter Writer" readonly="readonly">
 		</div>
 		
 		<div class="form-group">
