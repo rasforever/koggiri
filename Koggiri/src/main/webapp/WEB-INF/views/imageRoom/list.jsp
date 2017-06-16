@@ -35,10 +35,10 @@
            </ul>
    </div>
 </div>
-
+ㄴ
 <!-- 본문 내용  -->
 
-<iframe id="your-frame-id" name="testIframe" width="500" height="1000" src="http://127.0.0.1:52273?mem_id=${mem_id }" frameborder="1" ></iframe>
+<iframe width="500" height="1000" src="http://192.168.0.119:8082/imageroom/lobby?emp_id=${mem_id}" frameborder="1" ></iframe>
 <!-- 본문 끝 -->
 </div>
 </div>
