@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.admin_emp.domain.Admin_MemberVO;
+import kosta.koggiri.admin_emp.domain.App_SearchVO;
+import kosta.koggiri.admin_emp.domain.EmpInfo_AdminVO;
 import kosta.koggiri.admin_emp.domain.EmpVO;
 import kosta.koggiri.admin_emp.domain.SearchVO;
 import kosta.koggiri.admin_emp.service.AdminService;
@@ -42,11 +44,41 @@ public class AdminController {
 
 		return "/admin_emp/manager";
 	}
+	
+	@RequestMapping(value= "/perApp", method = RequestMethod.GET)
+	public String perAppPage(App_SearchVO search, Model model, HttpSession session)throws Exception{
+		model.addAttribute("list", service.select_per(search));
+		
+		return "/admin_emp/perApp";
+	}
+	
+	@RequestMapping(value= "/perApp", method = RequestMethod.POST)
+	public String perAppSearch(App_SearchVO search, Model model, HttpSession session)throws Exception{
+		model.addAttribute("list", service.select_per(search));
+		System.out.println(search.toString());
+		return "/admin_emp/perApp";
+	}
+	
+	@RequestMapping(value= "/resApp", method = RequestMethod.GET)
+	public String resAppPage(App_SearchVO search, Model model, HttpSession session)throws Exception{
+		model.addAttribute("list", service.select_res(search));
+
+		return "/admin_emp/resApp";
+	}
+	
+	@RequestMapping(value= "/resApp", method = RequestMethod.POST)
+	public String resAppSearch(App_SearchVO search, Model model, HttpSession session)throws Exception{
+		model.addAttribute("list", service.select_res(search));
+		System.out.println(search.toString());
+		return "/admin_emp/resApp";
+	}
+
 
 	@RequestMapping(value = "/joinus", method = RequestMethod.GET)
 	public String joinus() throws Exception {
 		return "/admin_emp/joinus";
 	}
+	
 
 	@RequestMapping(value = "/joinus", method = RequestMethod.POST)
 	@Transactional
@@ -77,7 +109,44 @@ public class AdminController {
 		return "redirect:/admin_emp/manager";
 
 	}
+	
+	@RequestMapping(value = "/ch_Personnel", method = RequestMethod.GET)
+	public String ch_PersonnelGET(Model model) throws Exception {
+		model.addAttribute("deptlist",service.dept_info());
+		model.addAttribute("poslist",service.pos_info());
+		return "/admin_emp/ch_Personnel";
+	}
 
+	@RequestMapping(value = "/ch_Personnel", method = RequestMethod.POST)
+	public String ch_PersonnelPOST(EmpInfo_AdminVO vo, Model model) throws Exception {
+		service.update_Personnel(vo);
+		return "redirect:/admin_emp/manager";
+	}
+	
+	@RequestMapping(value = "/modifyInformation", method = RequestMethod.GET)
+	public String modifyInformationGET(Model model) throws Exception {
+		return "/admin_emp/modifyInformation";
+	}
+
+	@RequestMapping(value = "/modifyInformation", method = RequestMethod.POST)
+	public String modifyInformationPOST(EmpInfo_AdminVO vo, Model model) throws Exception {
+		service.update_modifyInformation(vo);
+		return "redirect:/admin_emp/manager";
+	}
+	
+	@RequestMapping(value = "/resign", method = RequestMethod.GET)
+	public String resignGET(Model model) throws Exception {
+		model.addAttribute("reslist",service.res_info());
+		return "/admin_emp/resign";
+	}
+
+	@RequestMapping(value = "/resign", method = RequestMethod.POST)
+	public String resignPOST(EmpInfo_AdminVO vo, Model model) throws Exception {
+		service.update_resign(vo);
+		
+		return "redirect:/admin_emp/manager";
+	}
+	
 	@RequestMapping(value = "/temppass", method = RequestMethod.GET)
 	public String temppass() throws Exception {
 		return "/admin_emp/temppass";

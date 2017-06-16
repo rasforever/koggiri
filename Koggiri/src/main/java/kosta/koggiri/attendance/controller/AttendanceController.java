@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kosta.koggiri.attendance.domain.Att_EmpVO;
 import kosta.koggiri.attendance.domain.AttendanceSearchVO;
 import kosta.koggiri.attendance.domain.AttendanceVO;
 import kosta.koggiri.attendance.service.AttendanceService;
@@ -25,7 +26,7 @@ public class AttendanceController {
 	@Inject
 	private AttendanceService service;
 
-	@RequestMapping(value = "/att_dlist", method = RequestMethod.GET) //º»ÀÎ ¿ù ±ÙÅÂ³»¿ª Á¶È¸
+	@RequestMapping(value = "/att_dlist", method = RequestMethod.GET) //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	public void att_dlistGET(@ModelAttribute("search") AttendanceVO search,Model model, HttpSession session) throws Exception {
 
 		String emp_id = (String) session.getAttribute("mem_id");
@@ -44,7 +45,7 @@ public class AttendanceController {
 		
 		model.addAttribute("list", service.att_dlist(search));
 	}	
-	@RequestMapping(value = "/att_alldlist", method = RequestMethod.GET) //Àü»ç¿ø ´çÀÏ ±ÙÅÂ³»¿ª Á¶È¸
+	@RequestMapping(value = "/att_alldlist", method = RequestMethod.GET) //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	public void att_alldlistGET(@ModelAttribute("search") AttendanceSearchVO search,Model model, HttpSession session) throws Exception {
 				
 		String mem_id = (String) session.getAttribute("mem_id");
@@ -54,7 +55,7 @@ public class AttendanceController {
 		String att_day = search.getAtt_dd();
 		
 		if (att_day == null){
-			Calendar cal = Calendar.getInstance(); // Calendar °´Ã¼ »ý¼º.
+			Calendar cal = Calendar.getInstance(); // Calendar ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½.
 			int year = cal.get(Calendar.YEAR);
 			String month = (cal.get(Calendar.MONTH)+1) + "";			
 			if (month.length() == 1){
@@ -72,7 +73,7 @@ public class AttendanceController {
 		model.addAttribute("alldlist", service.att_alldlist(search));
 	}
 	
-	@RequestMapping(value = "/att_mlist", method = RequestMethod.GET) //Àü»ç¿ø ¿ù ±ÙÅÂ³»¿ª Á¶È¸
+	@RequestMapping(value = "/att_mlist", method = RequestMethod.GET) //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	public void att_mlistGET(@ModelAttribute("search") AttendanceSearchVO search,Model model, HttpSession session) throws Exception {
 		
 		String mem_id = (String) session.getAttribute("mem_id");
@@ -83,7 +84,7 @@ public class AttendanceController {
 		String att_day = search.getAtt_mm();
 		
 		if (att_day == null){
-			Calendar cal = Calendar.getInstance(); // Calendar °´Ã¼ »ý¼º.
+			Calendar cal = Calendar.getInstance(); // Calendar ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½.
 			int year = cal.get(Calendar.YEAR);
 			String month = (cal.get(Calendar.MONTH)+1) + "";			
 			if (month.length() == 1){
@@ -98,7 +99,19 @@ public class AttendanceController {
 		model.addAttribute("att_day", search.getAtt_mm());
 		model.addAttribute("att_mm_list", service.att_workMM());
 		model.addAttribute("att_mlist", service.att_mlist(search));
+	}
+	
+	
+	@RequestMapping(value="/att_registVacation", method= RequestMethod.GET)
+	public String att_registVacation(Att_EmpVO vo, Model model, HttpSession session)throws Exception{
+		
+		model.addAttribute("list",service.att_selectList(vo));
+		
+		return "/attendance/att_registVacation"; 
 		
 	}
 
+	
 }
+
+

@@ -42,8 +42,10 @@ public class Imp_BoardController {
 	private String uploadPath;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public void registerGET(Imp_BoardVO board, Model model) throws Exception{
+	public void registerGET(Imp_BoardVO board, Model model, HttpSession session) throws Exception{
 		logger.info("register get ..........");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("emp_nm", emp_nm);
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)

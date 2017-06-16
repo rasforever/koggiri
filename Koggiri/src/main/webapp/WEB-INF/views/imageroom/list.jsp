@@ -14,7 +14,7 @@
 <div id="container">
 
 <div id="sub_menu_title">
-<h1><img src="/resources/img/s_menu10.png"/></h1>
+<h1><img src="/resources/img/s_menu13.png"/></h1>
 <div class="sub_top">   
     <span><a href="/main">홈</a>  <span> &gt; </span> <a href="#">회의</a>  &gt;  <strong>그림 회의</strong></span>
 </div>
@@ -23,7 +23,7 @@
 
 <div id="lnb">
    <div class="lnb01">
-      <strong class="menu05"><span>회사 정보</span></strong>
+      <strong class="menu04"><span>회사 정보</span></strong>
       <ul>
                 <li class="menu01 ">
                     <a href="/imageroom/list">그림회의</a>

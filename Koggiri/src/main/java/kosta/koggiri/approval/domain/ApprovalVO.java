@@ -1,6 +1,6 @@
 package kosta.koggiri.approval.domain;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 public class ApprovalVO {
 	private String app_id;

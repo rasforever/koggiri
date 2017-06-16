@@ -41,23 +41,24 @@
    href="../resources/Content/themes/real/cal.css" />
 
 <script type="text/javascript">
-   $(document).ready(
-         function() {
-            $('.main #content div>a').on({
-               mouseenter : function() {
-                  $(this).stop().animate({
-                     'top' : '-206px'
-                  }, 500, "easeInOutCubic");
-               },
-               mouseleave : function() {
-                  $(this).stop().animate({
-                     'top' : '0px'
-                  }, 500, "easeInOutCubic");
-               },
-            });
-            window.open('http://localhost:8081/sns/listAll', 'Javis',
-                  "width=400px, height=500px, resizable=no")
-         });
+	$(document).ready(
+			function() {
+				$('.main #content div>a').on({
+					mouseenter : function() {
+						$(this).stop().animate({
+							'top' : '-206px'
+						}, 500, "easeInOutCubic");
+					},
+					mouseleave : function() {
+						$(this).stop().animate({
+							'top' : '0px'
+						}, 500, "easeInOutCubic");
+					},
+				});
+				window.open('http://localhost:8081/sns/listAll', 'Javis',
+						"width=530px, height=600px, resizable=no, scrollbars=yes")
+			});
+
 </script>
 
 <!-- ------------------------------------------------------------------------ -->
@@ -94,7 +95,7 @@
                      <li><a><strong style="font-size: 20px">${empVO.dept_nm }</strong></a></li>
                      <li><a>${empVO.pos_nm } <strong style="font-size: 25px">${empVO.emp_nm}</strong></a></li><br>
                      <li><a><strong>H.P : ${empVO.tel_no }</strong></a></li>
-                     <li><a><strong>E.M : ${empVO.tel_no }</strong></a></li>
+                     <li><a><strong>E.M : ${empVO.e_mail }</strong></a></li>
 
                   </ul>
                </div>
@@ -131,7 +132,7 @@
 
             <h3 class="hidden">공지사항</h3>
             <div class="notice">
-               <img src="../resources/img/notice_t.png"
+               <img src="../resources/img/notice_ti.png"
                   style="margin-bottom: 10px">
                <ul>
                   <c:forEach items="${list_notice}" var="h_NoticeVO">
@@ -154,7 +155,7 @@
 
             <h3 class="hidden">받은 메일함</h3>
             <div class="notice">
-               <img src="../resources/img/receive_mail.png"
+               <img src="../resources/img/impor_ti.png"
                   style="margin-bottom: 10px">
                <ul>
 
