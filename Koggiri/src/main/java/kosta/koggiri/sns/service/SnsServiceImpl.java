@@ -43,6 +43,15 @@ public class SnsServiceImpl implements SnsService {
 		return dao.chat(vo);
 	}
 
+	@Override //고병휘 추가
+	public RoomVO create_chat_context(RoomVO vo) throws Exception {
+		
+		return dao.create_chat_context(vo);
+		
+	}
+	
+	
+
 
 
 

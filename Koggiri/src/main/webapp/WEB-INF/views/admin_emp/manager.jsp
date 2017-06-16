@@ -18,7 +18,7 @@
 
 		<div id="sub_menu_title">
 			<h1>
-				<img src="/resources/img/s_menu10.png" />
+				<img src="/resources/img/s_menu11.png" />
 			</h1>
 			<div class="sub_top">
 				<span><a href="/main">홈</a> <span> &gt; </span> <a href="#">사원관리</a>
@@ -27,37 +27,40 @@
 		</div>
 
 
-		<div id="lnb">
-			<div class="lnb01">
-				<strong class="menu05"><span>관리자</span></strong>
-				<ul>
-					<li class="menu02 "><a href="/admin_emp/joinus">사원관리</a>
+	<div id="lnb">
+   <div class="lnb01">
+      <strong class="menu05"><span>회사 정보</span></strong>
+      <ul>
+                <li class="menu01 ">
+                    <a href="/admin_emp/manager">사원관리</a>
+                    <ul> </ul>
+                </li>
+      						<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
 						<ul>
-							<li class="sub01 "><a href="#">사원등록</a></li>
-							<li class="sub01 "><a href="#">인사이동</a></li>
-							<li class="sub01 "><a href="#">사원정보 추가/변경</a></li>
-							<li class="sub01 "><a href="#">퇴사</a></li>
-							<ul></ul>
-						</ul></li>
-					<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
-						<ul>
-							<li class="sub01 "><a href="/attendance/att_mlist">월
-									근태내역</a></li>
-							<li class="sub01 "><a href="/attendance/att_dlist">일
-									근태내역</a></li>
+							<li class="sub01 "><a href="/attendance/att_mlist">월 근태내역</a></li>
+							<li class="sub01 "><a href="/attendance/att_alldlist">일 근태내역</a></li>
 							<li class="sub01 "><a href="#">휴가등록</a></li>
 
 							<ul></ul>
 						</ul></li>
 				</ul>
 			</div>
-		</div>
+</div>
 
 		<div id="sub_content" align="center">
 
 
 			<div id="sub_content" align="center">
 				<div id="joinus" align="left">
+					<div class="manager_check">
+					<input type="button" id="join" value="입사발령" style="cursor: pointer" />
+					<input type="button" id="ch_Personnel" value="인사이동"
+						style="cursor: pointer" /> <input type="button"
+						id="modifyInformation" value="사원정보/추가/변경" style="cursor: pointer" />
+					<input type="button" id="resign" value="퇴사처리"
+						style="cursor: pointer" /> <input type="button" id="temp"
+						value="임시비밀번호 부여" style="cursor: pointer" /> <br><br>
+						
 					<form action="manager" method="post">
 						<select name="area">
 							<option value="">검색옵션</option>
@@ -70,41 +73,42 @@
 							style="cursor: pointer">
 
 					</form>
-					<br>
-					<br> <input type="button" id="join" value="입사발령"
-						style="cursor: pointer" /> <input type="button" id="temp"
-						value="임시비밀번호 부여" style="cursor: pointer" /> <br>
-					<br>
-					<table class="manager_table_title" style=" margin-bottom: 0px;">
-							<tr>
+					</div><br>
+					<table class="manager_table_title" style="margin-bottom: 0px;">
+						<tr>
 							<th>사번</th>
 							<th>이름</th>
 							<th>부서</th>
 							<th>직급</th>
 						</tr>
 					</table>
-					<div class="manager_t" style="width:970px;height:300px;overflow:auto;" >
-					<table id="manager_table" style="table-layout:fixed;" >
+					<div class="manager_t"
+						style="width: 970px; height: 300px; overflow: auto;">
+						<table id="manager_table" style="table-layout: fixed;">
 
-						<!-- 밑에는 내용 뿌려줄것 -->
+							<!-- 밑에는 내용 뿌려줄것 -->
 
-						<c:forEach var="SearchedEmpVO" items="${list }">
-							<tr align="center">
-								<td >${SearchedEmpVO.emp_id }</td>
-								<td>&nbsp;&nbsp;&nbsp;${SearchedEmpVO.emp_nm }</td>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${SearchedEmpVO.dept_nm }</td>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${SearchedEmpVO.pos_nm }</td>
-							</tr>
-						</c:forEach>
-					</table>
+						<c:set var="n" value="0" />
+							<c:forEach var="SearchedEmpVO" items="${list }">
+								<tr align="center">
+									<td><a href='javascript:getVal("${n}");'>${SearchedEmpVO.emp_id }</a></td>
+									<td>${SearchedEmpVO.emp_nm }</td>
+									<td>${SearchedEmpVO.dept_nm }</td>
+									<td>${SearchedEmpVO.pos_nm }</td>
+								</tr>
+							<c:set var="n" value="${n+1}" />
+							</c:forEach>
+						</table>
 					</div>
-										<br><br><br>
+					<br>
+					<br>
+					<br>
 				</div>
 			</div>
 			<div id="joindiv">
 				<c:if test="${mem_pw!=null }">
 					<br>사번 '${id }' 님의 임시비밀번호는 '${mem_pw }' 로 부여 되었습니다.
-	</c:if>
+				</c:if>
 			</div>
 
 			<br> <br> <br>
@@ -118,6 +122,58 @@
 			$.ajax({
 				type : 'get',
 				url : 'joinus',
+				dataType : 'text',
+				success : function(data) {
+
+					if ($("#joindiv").children().length == 0) {
+						$("#joindiv").html(data);
+					} else if ($("#joindiv").children().length > 0) {
+						$("#joindiv").empty().html(data);
+					}
+
+				}
+			});
+		});
+		
+		$("#ch_Personnel").click(function() {
+			$.ajax({
+				type : 'get',
+				url : 'ch_Personnel',
+				dataType : 'text',
+				success : function(data) {
+
+					if ($("#joindiv").children().length == 0) {
+						$("#joindiv").html(data);
+					} else if ($("#joindiv").children().length > 0) {
+						$("#joindiv").empty().html(data);
+					}
+
+				}
+			});
+		});
+		
+
+		$("#modifyInformation").click(function() {
+			$.ajax({
+				type : 'get',
+				url : 'modifyInformation',
+				dataType : 'text',
+				success : function(data) {
+
+					if ($("#joindiv").children().length == 0) {
+						$("#joindiv").html(data);
+					} else if ($("#joindiv").children().length > 0) {
+						$("#joindiv").empty().html(data);
+					}
+
+				}
+			});
+		});
+		
+		$("#resign").click(function() {
+			$.ajax({
+				type : 'get',
+				url : 'resign',
 				dataType : 'text',
 				success : function(data) {
 
@@ -149,6 +205,9 @@
 		});
 
 	})
+
+
+
 </script>
 <div class="footer_wrap">
 	<div id="footer" style="height: 150px">

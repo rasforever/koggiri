@@ -14,5 +14,7 @@ public interface SnsService {
 	public void create_room(RoomVO vo)throws Exception; //대화방 생성
 	
 	public List<RoomVO> chat(RoomVO vo)throws Exception; //대화목록 가져오기
+	
+	public RoomVO create_chat_context(RoomVO vo)throws Exception; //대화저장하기 고병휘추가
 
 }

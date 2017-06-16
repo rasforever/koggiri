@@ -39,10 +39,17 @@
       <ul>
                 <li class="menu01 ">
                     <a href="/noticeboard/listPage">공지사항</a>
-                    <ul> </ul>
+                    <ul>
+                      <li class="sub01 "><a href="/noticeboard/listPage">공지사항 목록</a></li>
+                      <li class="sub02 "><a href="/noticeboard/register">공지사항 작성</a></li>
+                    </ul>
                 </li>
                 <li class="menu02 ">
                     <a href="/importantboard/listPage">알립니다</a>
+                    <ul>
+                      <li class="sub01 "><a href="/importantboard/listPage">알립니다 목록</a></li>
+                      <li class="sub02 "><a href="/importantboard/register">알립니다 작성</a></li>
+                    </ul>
                 </li>
            </ul>
    </div>
@@ -90,8 +97,7 @@
 	<tr>
 		<th style="text-align: center; width: 60px">글번호</th>
 		<th style="text-align: center;">TITLE</th>
-		<th style="text-align: center;">WRITER</th>
-		<th style="text-align: center;">REGDATE</th>
+		<th style="text-align: center; width: 200px;">REGDATE</th>
 		<th style="text-align: center; width: 70px">VIEWCNT</th>
 	</tr>
 
@@ -101,19 +107,19 @@
 	<tr>
 		<td>${Imp_BoardVO.i_ID}</td>
 		<td><a href='/importantboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&i_ID=${Imp_BoardVO.i_ID}'>${Imp_BoardVO.i_TITLE}</a></td>
-		<td>${Imp_BoardVO.i_EMP_ID}</td>
 		<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 				value="${Imp_BoardVO.i_DATE}" /></td>
 		<td><span class="badge bg-red">${Imp_BoardVO.i_HIT }</span></td>
 	</tr>
 
 </c:forEach>
-
+	
+	
 </table>
 
 				</div>
 				<!-- /.box-body -->
-				<div class="box-footer">Footer</div>
+				<div class="box-footer"></div>
 					<div class="text-center">
 						<ul class="pagination">
 

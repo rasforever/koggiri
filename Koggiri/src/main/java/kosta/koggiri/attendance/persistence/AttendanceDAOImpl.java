@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kosta.koggiri.attendance.domain.AttendanceVO;
+import kosta.koggiri.admin_emp.domain.SearchedEmpVO;
+import kosta.koggiri.attendance.domain.Att_EmpVO;
 import kosta.koggiri.attendance.domain.Att_Emp_InfoVO;
 import kosta.koggiri.attendance.domain.AttendanceSearchVO;
 
@@ -25,23 +27,28 @@ public class AttendanceDAOImpl implements AttendanceDAO{
 	}
 
 	@Override
-	public List<AttendanceVO> att_dlist(AttendanceVO vo) throws Exception { //º»ÀÎ ¿ù ±ÙÅÂ³»¿ª
+	public List<AttendanceVO> att_dlist(AttendanceVO vo) throws Exception { //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½
 		return session.selectList(namespace + ".att_dlist", vo);
 	}
 	
 	@Override
-	public List<AttendanceVO> att_alldlist(AttendanceSearchVO vo) throws Exception { //Àü»ç¿ø ´çÀÏ ±ÙÅÂ³»¿ª
+	public List<AttendanceVO> att_alldlist(AttendanceSearchVO vo) throws Exception { //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½
 		return session.selectList(namespace + ".att_alldlist", vo);
 	}
 	
 	@Override
-	public List<AttendanceVO> att_mlist(AttendanceSearchVO vo) throws Exception { //Àü»ç¿ø ¿ù ±ÙÅÂ³»¿ª
+	public List<AttendanceVO> att_mlist(AttendanceSearchVO vo) throws Exception { //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½
 		return session.selectList(namespace + ".att_mlist", vo);
 	}
 
 	@Override
 	public List<AttendanceSearchVO> att_workMM() throws Exception {
 		return session.selectList(namespace + ".att_workmm");
+	}
+
+	@Override
+	public List<Att_EmpVO> att_selectList(Att_EmpVO vo) throws Exception {
+		return session.selectList(namespace + ".att_selectList",vo);
 	}
 
 	

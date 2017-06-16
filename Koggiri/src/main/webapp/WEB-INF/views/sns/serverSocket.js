@@ -43,6 +43,7 @@ io.sockets.on('connection', function(socket) {
 		//클라이언트의 message 이벤트를 발생시킴.
 		io.sockets.emit('message', data);
 	});
+	
 	socket.emit("adduser",emp_id);
 	
 });
