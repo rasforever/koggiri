@@ -26,16 +26,16 @@
 	<div class="sns_contain">
 		<div>
 			<table  class="sns_table" style="width: 100%">
-				<c:forEach items="${list}" var="SnsVO">
+				<c:forEach items="${list}" var="Msg_EmpVO">
 				
 					<tr>
 					<td style="width: 150px; padding-bottom: 10px;">
 					
 					<ul>
 			
-						<li><span class="sns_font">${SnsVO.dept_nm}<span><br>
+						<li><span class="sns_font">${Msg_EmpVO.dept_nm}<span><br>
 									<a style="font-size: 25px;">
-										${SnsVO.emp_nm}&nbsp;<span class="sns_font">${SnsVO.pos_nm}<span>
+										${Msg_EmpVO.emp_nm}&nbsp;<span class="sns_font">${Msg_EmpVO.pos_nm}<span>
 								</a> </li>
 					</ul>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -44,7 +44,7 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href='/sns/chat_room?emp_id=${emp_id}&n_emp_id=${SnsVO.emp_id}'>
+					<a href='/sns/chat_room?emp_id=${emp_id}&n_emp_id=${Msg_EmpVO.emp_id}'>
 					<img src="../resources/img/talk.png" ></a>
 					</c:forEach>
 					</td>
