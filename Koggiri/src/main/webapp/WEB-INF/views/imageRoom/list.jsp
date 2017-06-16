@@ -38,7 +38,7 @@
 
 <!-- 본문 내용  -->
 
-<iframe id="your-frame-id" name="testIframe" width="970" height="800" src="http://127.0.0.1:52273?mem_id=${mem_id }" frameborder="1" ></iframe>
+<iframe id="your-frame-id" name="testIframe" width="970" height="800" src="http://127.0.0.1:8082?emp_id=${mem_id }" frameborder="1" ></iframe>
 <!-- 본문 끝 -->
 </div>
 </div>
