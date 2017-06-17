@@ -44,7 +44,7 @@
 	<div class="header_wrap">
 		<div id="container">
 			<div class="my_information">
-				<a href="javascript:;" onclick="window.open('../msg/msg_emplist','count_button','width=500, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=yes')"><img
+				<a href="javascript:;" onclick="window.open('../msg/msg_emplist','count_button','width=500, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no')"><img
 					src="../resources/img/msg_check_.png">${msg_count}</a> │ <a
 					class="my_name">${emp_nm} 님이 접속하셨습니다.</a> │ <a class="my_modify"
 					href="../login/passcheck">내 정보 수정</a> │ <a class="log_out"
