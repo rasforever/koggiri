@@ -55,10 +55,11 @@ public class HomeController {
 		model.addAttribute("list_notice", service.list_notice());
 		model.addAttribute("list_important", service.list_important());
 		model.addAttribute("list_calendar", service.list_calendar(mem_id));
-		// return "login/loginForm";
-
+		model.addAttribute("msg_count", service.msg_new_count(mem_id));		
+		
 		return "/main";
 	}
+	
 
 	// 출근
 	@RequestMapping(value = "/att", method = RequestMethod.POST)
@@ -66,7 +67,6 @@ public class HomeController {
 
 		String emp_id = (String) session.getAttribute("mem_id");
 		service.updateAtt(emp_id);
-
 		return "redirect:/";
 	}
 
@@ -76,7 +76,6 @@ public class HomeController {
 
 		String emp_id = (String) session.getAttribute("mem_id");
 		service.updateLev(emp_id);
-
 		return "redirect:/";
 	}
 		
