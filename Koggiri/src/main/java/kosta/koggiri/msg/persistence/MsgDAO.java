@@ -19,5 +19,7 @@ public interface MsgDAO {
 	public List<MsgVO> msgcontent(MsgVO vo)throws Exception;
 	
 	public void create_msg_context(MsgVO vo)throws Exception; //고병휘 추가
+	
+	public void update_msg_confirm(MsgVO vo)throws Exception;
 
 }
