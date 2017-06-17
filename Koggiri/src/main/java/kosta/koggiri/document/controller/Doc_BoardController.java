@@ -42,9 +42,12 @@ public class Doc_BoardController {
 
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd"); 
+		
 		System.out.println(mem_id);
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
 
 	}
 
@@ -66,10 +69,13 @@ public class Doc_BoardController {
 
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd"); 
+
 
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
 		System.out.println("readPage에서 확인: " + mem_id);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
 
 		model.addAttribute(service.read(f_id));// 조회된 게시물 jsp로 전달하기위해 모델객체 사용
 		// addAttribute()작업할 때 아무런 이름 없이 데이터를 넣으면 자동으로 클래스의 이름을 소문자로 시작해서 사용.
@@ -100,9 +106,12 @@ public class Doc_BoardController {
 		model.addAttribute(service.read(f_id));
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
 		System.out.println(mem_id);
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
+		
 
 	}
 
@@ -130,9 +139,11 @@ public class Doc_BoardController {
 		model.addAttribute("list", service.listSearchCriteria(cri));
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
 		System.out.println(mem_id);
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
 
 		Doc_PageMaker pageMaker = new Doc_PageMaker();
 		pageMaker.setCri(cri);

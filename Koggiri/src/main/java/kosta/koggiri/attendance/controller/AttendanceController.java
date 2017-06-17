@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kosta.koggiri.admin_emp.service.AdminService;
 import kosta.koggiri.attendance.domain.Att_EmpVO;
 import kosta.koggiri.attendance.domain.AttendanceSearchVO;
 import kosta.koggiri.attendance.domain.AttendanceVO;
@@ -25,15 +26,22 @@ public class AttendanceController {
 
 	@Inject
 	private AttendanceService service;
+	
+	@Inject
+	private AdminService service2;
 
 	@RequestMapping(value = "/att_dlist", method = RequestMethod.GET) //���� �� ���³��� ��ȸ
 	public void att_dlistGET(@ModelAttribute("search") AttendanceVO search,Model model, HttpSession session) throws Exception {
 
 		String emp_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		String ck_emp_id = search.getEmp_id();
 		model.addAttribute("mem_id",emp_id);
 		model.addAttribute("emp_nm",emp_nm);
+
+		model.addAttribute("msg_count", service2.msg_new_count(emp_id));     
 		
 		if (ck_emp_id == null){
 			search.setEmp_id(emp_id);
@@ -50,8 +58,12 @@ public class AttendanceController {
 				
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
+
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id)); 	
 		String att_day = search.getAtt_dd();
 		
 		if (att_day == null){
@@ -78,9 +90,12 @@ public class AttendanceController {
 		
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
-		
+
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id)); 	
 		String att_day = search.getAtt_mm();
 		
 		if (att_day == null){
