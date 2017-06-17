@@ -36,6 +36,8 @@ public class TaskController {
 	      
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
 		
@@ -69,6 +71,8 @@ public class TaskController {
 		 
 			String mem_id = (String) session.getAttribute("mem_id");
 			String emp_nm = (String) session.getAttribute("emp_nm");
+			String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+			model.addAttribute("mem_aut_cd",mem_aut_cd);
 			model.addAttribute("mem_id", mem_id);
 			model.addAttribute("emp_nm", emp_nm);
 		
@@ -98,6 +102,8 @@ public class TaskController {
 		   
 		   String mem_id = (String) session.getAttribute("mem_id");
 		   String emp_nm = (String) session.getAttribute("emp_nm");
+		   String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+			model.addAttribute("mem_aut_cd",mem_aut_cd);
 			model.addAttribute("mem_id", mem_id);
 			model.addAttribute("emp_nm", emp_nm);
 		   model.addAttribute(service.read(ta_seq));
@@ -123,6 +129,8 @@ public class TaskController {
 			
 			String mem_id = (String) session.getAttribute("mem_id");
 			String emp_nm = (String) session.getAttribute("emp_nm");
+			String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+			model.addAttribute("mem_aut_cd",mem_aut_cd);
 			model.addAttribute("mem_id", mem_id);
 			model.addAttribute("emp_nm", emp_nm);
 	
