@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,18 +12,26 @@
 
 <!-- script link -->
 
-<script type="text/javascript" src="../resources/Scripts/jquery-1.11.2.min.js"></script>
+<script type="text/javascript"
+	src="../resources/Scripts/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="../resources/Scripts/ui.js"></script>
-<script type="text/javascript" src="../resources/Scripts/jquery-ui-min.js"></script>
-<script type="text/javascript" src="../resources/Scripts/jquery.easing.1.3.js"></script>
+<script type="text/javascript"
+	src="../resources/Scripts/jquery-ui-min.js"></script>
+<script type="text/javascript"
+	src="../resources/Scripts/jquery.easing.1.3.js"></script>
 
 
 <!--  css link -->
-<link rel="stylesheet" href="../resources/Content/themes/real/ui_sub.css" />
-<link href="../resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
-<link rel="shortcut icon" type="image/x-icon" href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
-<link rel="stylesheet" href="../resources/Content/themes/real/ui_main.css" />
-<link rel="stylesheet" href="../resources/Content/themes/real/common.css" />
+<link rel="stylesheet"
+	href="../resources/Content/themes/real/ui_sub.css" />
+<link href="../resources/Content/themes/base/jquery-ui.min.css"
+	rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" type="image/x-icon"
+	href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
+<link rel="stylesheet"
+	href="../resources/Content/themes/real/ui_main.css" />
+<link rel="stylesheet"
+	href="../resources/Content/themes/real/common.css" />
 
 </head>
 
@@ -36,14 +44,15 @@
 	<div class="header_wrap">
 		<div id="container">
 			<div class="my_information">
-				<a href="../msg/msg_emplist" target="_blank">${msg_count}</a> │
-				<a class="my_name">${emp_nm} 님이 접속하셨습니다.</a> │ <a class="my_modify"
+				<a href="../msg/msg_emplist" target="_blank"><img
+					src="../resources/img/msg_check_.png">${msg_count}</a> │ <a
+					class="my_name">${emp_nm} 님이 접속하셨습니다.</a> │ <a class="my_modify"
 					href="../login/passcheck">내 정보 수정</a> │ <a class="log_out"
 					href="../login/logout">로그아웃</a>
 			</div>
 			<!-- skipNavi : s -->
 			<div id="skipNavi">
-			
+
 				<a href="#header">주메뉴 바로가기</a><a href="#container">본문 바로가기</a>
 			</div>
 			<!-- skipNavi : e -->
@@ -52,7 +61,8 @@
 			<div id="header">
 				<div class="logo" style="padding-top: 13px;">
 					<a class="back_for_main" href="/"><img
-						src="../resources/img/koggiri.PNG" style="width: 200px;"><span
+						src="../resources/img/koggiri.PNG"
+						style="width: 200px;  position: relative; top: -20px;"><span
 						class="hidden">코끼리 로고</span></a>
 				</div>
 				<div class="gnb">
@@ -105,11 +115,12 @@
 											alt="" /></span>
 										<ul>
 											<li class=""><a href="/admin_emp/manager">사원 관리</a></li>
-											<li class=""><a href="/attendance/att_alldlist">근태 확인</a></li>
+											<li class=""><a href="/attendance/att_alldlist">근태
+													확인</a></li>
 										</ul>
-									</div>
-								</li><!-- 일단 여기에 해놨음. -->
-								
+									</div></li>
+								<!-- 일단 여기에 해놨음. -->
+
 								<li class=""><a href="../chart/listAll">조직도</a></li>
 							</ul></li>
 
