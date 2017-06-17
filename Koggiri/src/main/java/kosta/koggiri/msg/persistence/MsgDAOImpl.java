@@ -19,40 +19,34 @@ public class MsgDAOImpl implements MsgDAO {
 	private static String namespace = "kosta.koggiri.mapper.MsgMapper";
 
 	@Override
-	public List<Msg_EmpVO> listAll(String emp_id) throws Exception {
-		System.out.println(emp_id);
-		System.out.println("dao까지왓음");
-		return session.selectList(namespace + ".listAll", emp_id);
+	public List<Msg_EmpVO> msg_emplist(String emp_id) throws Exception {
+		return session.selectList(namespace + ".msg_emplist", emp_id);
+	}
+
+	@Override
+	public int msg_count(MsgVO vo) throws Exception {
+		return session.selectOne(namespace + ".msg_count", vo);
+	}
+
+	@Override
+	public void create_msg(MsgVO vo) throws Exception {
+		session.insert(namespace + ".create_msg", vo);
 
 	}
 
 	@Override
-	public int chat_room_count(MsgVO vo) throws Exception {
-		return session.selectOne(namespace + ".chat_room_count", vo);
+	public List<MsgVO> msgcontent(MsgVO vo) throws Exception {
+		return session.selectList(namespace + ".msgcontent", vo);
 	}
 
 	@Override
-	public void create_room(MsgVO vo) throws Exception {
-		System.out.println(vo.getEmp_id());
-		System.out.println(vo.getN_emp_id());
-		session.insert(namespace + ".create_room", vo);
-
-	}
-
-	@Override
-	public List<MsgVO> chat(MsgVO vo) throws Exception {
-		return session.selectList(namespace + ".chat", vo);
-	}
-
-	@Override
-	public int chat_room_id(MsgVO vo) throws Exception {
-		return session.selectOne(namespace + ".chat_room_id", vo);
+	public int chat_msg_id(MsgVO vo) throws Exception {
+		return session.selectOne(namespace + ".chat_msg_id", vo);
 	}
 
 	@Override // 고병휘 추가
-	public MsgVO create_chat_context(MsgVO vo) throws Exception {
-
-		return session.selectOne(namespace + ".create_chat_context", vo);
+	public void create_msg_context(MsgVO vo) throws Exception {
+		session.insert(namespace + ".create_msg_context", vo);
 	}
 
 }

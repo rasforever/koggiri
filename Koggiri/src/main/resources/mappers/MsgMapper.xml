@@ -7,18 +7,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- master와 자신을 제외한 사원이름, 부서, 직급 출력  -->
 	
-	<select id="listAll" parameterType="String" resultType="Msg_EmpVO">
+	<select id="msg_emplist" parameterType="String" resultType="Msg_EmpVO">
 		select e.emp_id as emp_id
 		      , e.emp_nm as emp_nm
 		      , d.dept_nm as dept_nm
 		      , p.pos_nm as pos_nm
+          , ( select count(M.ck_yn) from MSG_LIST M, MSG_EMP_LIST ME 
+              where M.msg_id = ME.msg_id
+                and M.MSG_ID = (SELECT ml1.msg_id from msg_emp_list ml1, msg_emp_list ml2 where ml1.emp_id = #{emp_id} and ml2.emp_id = e.emp_id and ml1.msg_id =ml2.msg_id)
+                and M.emp_id = #{emp_id}
+                and M.emp_id = ME.emp_id
+                and M.CK_YN = 'n') as c_count
 	      from emp e      
 	      inner join dept d
 	      on e.dept_id = d.dept_id
 	      inner join pos p
 	      on e.pos_id =
 	      p.pos_id
-	      where e.emp_id not in ('master', #{emp_id})
+	      where e.emp_id not in ('master',#{emp_id})
 	      order by d.dept_sort, e.pos_id, e.emp_id
 	  
 	</select>
@@ -26,19 +32,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 채팅방 생성 : 프로시저가 count가 0일경우 상대방 대화가 저장되는 공간과
 	내 대화 저장되는 공간의 대화방 최초생성-->
 	
-	<select id="create_room" parameterType="MsgVO" statementType="CALLABLE">
+	<select id="create_msg" parameterType="MsgVO" statementType="CALLABLE">
 		{CALL CREATE_MSG(#{emp_id}, #{n_emp_id})}
 	</select>
 	
     <!-- 대화내역저장 -->
 	
-	<insert id="create_chat_context" parameterType="MsgVO">
-		insert into msg_list (msg_id, emp_id, input_text, input_date) values (#{msg_id}, #{emp_id}, #{input_text}, sysdate)
+	<insert id="create_msg_context" parameterType="MsgVO">
+		insert into msg_list (msg_id, emp_id, input_text, input_date, ck_yn) values (#{msg_id}, #{emp_id}, #{input_text}, sysdate, 'n')
 	</insert>
 	
 	<!-- 채팅방 개수 조회 -->
 	
-	<select id="chat_room_count" parameterType="MsgVO" resultType="Int">
+	<select id="msg_count" parameterType="MsgVO" resultType="Int">
 		select count(c1.msg_id) as msg_count
 		  from msg_emp_list c1, msg_emp_list c2
 		 where c1.emp_id = #{emp_id}
@@ -48,7 +54,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 채팅방 id 받을라고 조회 -->
 	
-	<select id="chat_room_id" parameterType="MsgVO" resultType="Int">
+	<select id="chat_msg_id" parameterType="MsgVO" resultType="Int">
 		select c1.msg_id as msg_id
 		  from msg_emp_list c1, msg_emp_list c2
 		 where c1.emp_id = #{emp_id}
@@ -58,9 +64,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 채팅 내역 저장된 것을 조회 -->
 	
-	<select id="chat" resultType="MsgVO">
-	<![CDATA[
-	
+	<select id="msgcontent" resultType="MsgVO">
+	<![CDATA[	
 		select c.msg_id as msg_id
 		     , c.emp_id as emp_id
 		     , e.emp_nm as emp_nm
