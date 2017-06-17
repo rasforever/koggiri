@@ -54,9 +54,9 @@ p{
 }
 
 .sns_chatBox textarea{
-position: relative;
+    position: relative;
     top: 13px;
-    left: 38px;
+    left: 18px;
     resize: none;
     font-size: 18px;
     
@@ -65,7 +65,7 @@ position: relative;
 width: 70px;
     height: 65px;
     position: relative;
-    left: 50px;
+    left: 30px;
     top: -10px;
     background: #e5e5ea;
     border: 0px;
@@ -155,4 +155,12 @@ height: 40px;
 
 }
 
+.sns_back{
+	    position: relative;
+    left: 170px;
+    top: -20px;
+    color: #696969;
+    text-decoration: none;
+    font-size: 20px;
+}
 
