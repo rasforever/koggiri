@@ -69,8 +69,6 @@ public class LoginController {
 		vo.setMem_id((String) session.getAttribute("mem_id"));
 		dto.setMem_id((String) session.getAttribute("mem_id"));
 
-		System.out.println(vo.toString());
-		System.out.println(dto.toString());
 		MemberVO membervo = service.logincheck(dto);
 
 		if (membervo == null) {
@@ -107,7 +105,6 @@ public class LoginController {
 		vo.setTel_no(vo.getTelno1() + "-" + vo.getTelno2() + "-" + vo.getTelno3());
 
 		vo.setMem_id(mem_id);
-		System.out.println(vo.toString());
 		/*if (vo.getMem_pw() == "" && vo.getAddr1() == "" && vo.getAddr2() == "" && vo.getE_mail1() == ""
 				&& vo.getTelno2() == "" && vo.getTelno3() == "") {
 			out.println("<script>");

@@ -16,13 +16,11 @@ public class LoginServiceImpl implements LoginService {
 	
 	@Override
 	public MemberVO logincheck(LoginDTO dto) throws Exception {
-		System.out.println(dto.toString());
 		return dao.login(dto);
 	}
 
 	@Override
 	public String getEmpnmbyMemid(MemberVO vo) throws Exception {
-		// TODO Auto-generated method stub
 		return dao.get_emp_nm(vo);
 	}
 
@@ -34,7 +32,6 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public MemberVO detail_mem(String mem_id) throws Exception {
-		// TODO Auto-generated method stub
 		return dao.detail_mem(mem_id);
 	}
 

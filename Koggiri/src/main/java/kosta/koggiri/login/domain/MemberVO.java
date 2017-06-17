@@ -9,6 +9,8 @@ public class MemberVO implements Serializable{
 	private String e_mail1;
 	private String e_mail2;
 	
+	private String mem_aut_cd;
+	
 	private String e_mail;
 	private String tel_no;
 	private String telno1;
@@ -104,20 +106,19 @@ public class MemberVO implements Serializable{
 	public void setTelno3(String telno3) {
 		this.telno3 = telno3;
 	}
+	public String getMem_aut_cd() {
+		return mem_aut_cd;
+	}
+	public void setMem_aut_cd(String mem_aut_cd) {
+		this.mem_aut_cd = mem_aut_cd;
+	}
 	@Override
 	public String toString() {
 		return "MemberVO [mem_id=" + mem_id + ", mem_pw=" + mem_pw + ", dept_id=" + dept_id + ", e_mail1=" + e_mail1
-				+ ", e_mail2=" + e_mail2 + ", e_mail=" + e_mail + ", tel_no=" + tel_no + ", telno1=" + telno1
-				+ ", telno2=" + telno2 + ", telno3=" + telno3 + ", addr=" + addr + ", addr1=" + addr1 + ", addr2="
-				+ addr2 + "]";
+				+ ", e_mail2=" + e_mail2 + ", mem_aut_cd=" + mem_aut_cd + ", e_mail=" + e_mail + ", tel_no=" + tel_no
+				+ ", telno1=" + telno1 + ", telno2=" + telno2 + ", telno3=" + telno3 + ", addr=" + addr + ", addr1="
+				+ addr1 + ", addr2=" + addr2 + "]";
 	}
-
-	
-	
-	
-	
-	
-	
 	
 	
 	
