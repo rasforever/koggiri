@@ -117,7 +117,10 @@ textarea.contents{resize:none;overflow-y:auto;padding:10px}
 #header .gnb{float:right;margin-top:5px; position: relative; top:-5px;}
 #header .gnb ul{}
 #header .gnb ul:after{content:'';display:block;visibility:hidden;height:0;clear:both}
-#header .gnb ul>li{position:relative;float:left;margin:35px 0 0 70px;padding-right:40px}
+#header .gnb ul>li{    position: relative;
+    float: left;
+    margin: 20px 0 0 70px;
+    padding-right: 40px;}
 #header .gnb ul>li>a{display:block;padding:30px 0;}
 #header .gnb ul>li.menu01{padding-right:40px}
 #header .gnb ul>li.menu02{padding-right:40px}

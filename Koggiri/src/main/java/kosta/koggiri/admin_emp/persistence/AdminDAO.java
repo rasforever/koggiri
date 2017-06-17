@@ -63,5 +63,7 @@ public interface AdminDAO {
 	public void update_resign(EmpInfo_AdminVO vo) throws Exception; //����
 	public void insert_resign(EmpInfo_AdminVO vo) throws Exception; //����
 	
-	
+
+	public int msg_new_count(String emp_id) throws Exception; //신규 메세지 확인
+
 }

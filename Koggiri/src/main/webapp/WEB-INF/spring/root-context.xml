@@ -29,7 +29,6 @@
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
 
-	
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
@@ -74,8 +73,8 @@
 	<context:component-scan base-package="kosta.koggiri.noticeboard.service"></context:component-scan>
 
 	<!-- sns <context:component-scan> -->
-	<context:component-scan base-package="kosta.koggiri.sns.persistence"></context:component-scan>
-	<context:component-scan base-package="kosta.koggiri.sns.service"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.msg.persistence"></context:component-scan>
+	<context:component-scan base-package="kosta.koggiri.msg.service"></context:component-scan>
 
 	<!-- task <context:component-scan> -->
 	<context:component-scan base-package="kosta.koggiri.task.persistence"></context:component-scan>

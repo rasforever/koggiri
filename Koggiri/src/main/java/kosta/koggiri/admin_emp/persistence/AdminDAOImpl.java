@@ -162,6 +162,10 @@ public class AdminDAOImpl implements AdminDAO {
 		return session.selectList(namespace+".select_res", search);
 	}
 
+	@Override
+	public int msg_new_count(String emp_id) throws Exception {
+		return session.selectOne(namespace+".msg_new_count", emp_id);
+	}
 
 	
 

@@ -154,4 +154,9 @@ public class AdminServiceImpl implements AdminService {
 		return dao.select_res(search);
 	}
 
+	@Override
+	public int msg_new_count(String emp_id) throws Exception {
+		return dao.msg_new_count(emp_id);
+	}
+
 }
