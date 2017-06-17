@@ -57,6 +57,7 @@
 			<a href="http://localhost:8081/msg/msg_emplist">목록</a>
 		</div>
 	</div>
+	
 	<script type="text/javascript">
 		var objDiv = document.getElementById("msg_context");
 		objDiv.scrollTop = objDiv.scrollHeight;

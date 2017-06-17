@@ -44,7 +44,7 @@
 	<div class="header_wrap">
 		<div id="container">
 			<div class="my_information">
-				<a href="../msg/msg_emplist" target="_blank"><img
+				<a href="javascript:;" onclick="window.open('../msg/msg_emplist','count_button','width=500, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=yes')"><img
 					src="../resources/img/msg_check_.png">${msg_count}</a> │ <a
 					class="my_name">${emp_nm} 님이 접속하셨습니다.</a> │ <a class="my_modify"
 					href="../login/passcheck">내 정보 수정</a> │ <a class="log_out"
@@ -62,7 +62,7 @@
 				<div class="logo" style="padding-top: 13px;">
 					<a class="back_for_main" href="/"><img
 						src="../resources/img/koggiri.PNG"
-						style="width: 200px;  position: relative; top: -20px;"><span
+						style="width: 200px; position: relative; top: -20px;"><span
 						class="hidden">코끼리 로고</span></a>
 				</div>
 				<div class="gnb">
@@ -130,3 +130,4 @@
 		</div>
 		<hr />
 	</div>
+
