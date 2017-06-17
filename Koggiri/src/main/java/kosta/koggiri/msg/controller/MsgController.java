@@ -28,7 +28,6 @@ private static final Logger logger = LoggerFactory.getLogger(MsgController.class
 	//채팅 사원 목록 출력 
 	@RequestMapping(value="/msg_emplist", method= RequestMethod.GET)
 	public void msg_emplist(Model model,  HttpSession session) throws Exception{
-
 		
 		String emp_id = (String) session.getAttribute("mem_id");
 		model.addAttribute("emp_id", emp_id);

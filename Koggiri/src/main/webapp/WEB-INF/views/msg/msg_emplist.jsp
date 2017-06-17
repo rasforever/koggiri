@@ -9,54 +9,54 @@
 
 <link rel="stylesheet" href="../resources/Content/themes/real/msg.css">
 </head>
-<body >
-	<div id="header" >
-				
-	<br>
+<body>
+	<div id="header">
 
-	<div data-role="content" data-position="fixed">
-	<div class="msg_header">
 		<br>
-		<img src="../resources/img/koggiri_talk.png">
-		<br>
+
+		<div data-role="content" data-position="fixed">
+			<div class="msg_header">
+				<br> <img src="../resources/img/koggiri_talk.png"> <br>
+			</div>
+		</div>
 	</div>
-	</div>
-	</div>
-		<div align="center">
-	<div class="msg_contain">
-		<div>
-			<table  class="msg_table" style="width: 100%">
-				<c:forEach items="${list}" var="Msg_EmpVO">
-				
-					<tr>
-					<td style="width: 150px; padding-bottom: 10px;">
-					
-					<ul>
-			
-						<li><span class="msg_font">${Msg_EmpVO.dept_nm}<span><br>
-									<a style="font-size: 25px;">
-										${Msg_EmpVO.emp_nm}&nbsp;<span class="msg_font">${Msg_EmpVO.pos_nm}<span>
-								</a> </li>
-					</ul>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href='/msg/msg_content?emp_id=${emp_id}&n_emp_id=${Msg_EmpVO.emp_id}'>
-					<img src="../resources/img/talk.png" ></a>
+	<div align="center">
+		<div class="msg_contain">
+			<div>
+				<table class="msg_table" style="width: 100%">
+					<c:forEach items="${list}" var="Msg_EmpVO">
+
+						<tr>
+							<td style="width: 150px; padding-bottom: 10px;">
+
+								<ul>
+
+									<li><span class="msg_font">${Msg_EmpVO.dept_nm}</span><br>
+										<a style="font-size: 25px;"> ${Msg_EmpVO.emp_nm}&nbsp;<span
+											class="msg_font">${Msg_EmpVO.pos_nm}</span></a></li>
+								</ul> <c:if
+									test="${Msg_EmpVO.c_count != 0 }">
+									<span class="msg_font">${Msg_EmpVO.c_count}
+								</c:if> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+								href='/msg/msg_content?emp_id=${emp_id}&n_emp_id=${Msg_EmpVO.emp_id}'>
+									<img src="../resources/img/talk.png">
+							</a>
 					</c:forEach>
 					</td>
-					
+
 					</tr>
 
-			</table>
+				</table>
 
-			<!-- /.box-body -->
+				<!-- /.box-body -->
+			</div>
 		</div>
-</div>
-</div>
+	</div>
 </body>
 </html>
 

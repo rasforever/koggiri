@@ -21,7 +21,6 @@ public class MsgDAOImpl implements MsgDAO {
 	@Override
 	public List<Msg_EmpVO> msg_emplist(String emp_id) throws Exception {
 		return session.selectList(namespace + ".msg_emplist", emp_id);
-
 	}
 
 	@Override

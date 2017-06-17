@@ -19,8 +19,7 @@ public class MsgServiceImpl implements MsgService {
 
 	@Override
 	public List<Msg_EmpVO> msg_emplist(String emp_id) throws Exception {
-		return dao.msg_emplist(emp_id);
-		
+		return dao.msg_emplist(emp_id);		
 	}
 
 	@Override
