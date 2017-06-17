@@ -185,7 +185,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    ,  pt.per_nm as per_nm
 	    ,  case when p.dept_id is null then ' ' else  p.dept_id end as dept_id
 	    ,  case when p.dept_id is null then ' ' else (select d.dept_nm from dept d where p.dept_id = d.dept_id  )end as dept_nm
-	    ,  case when p.pos_id is null then ' ' else  p.pos_id end as pos_nm
+	    ,  case when p.pos_id is null then ' ' else  p.pos_id end as pos_id
 	    ,  case when p.pos_id is null then ' ' else (select po.pos_nm from pos po where p.pos_id = po.pos_id)end as pos_nm
 	    ,  p.per_dt as per_dt
 	    from personnel p
