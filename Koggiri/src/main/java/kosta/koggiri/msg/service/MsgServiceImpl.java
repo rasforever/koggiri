@@ -39,6 +39,7 @@ public class MsgServiceImpl implements MsgService {
 	@Override
 	public List<MsgVO> msgcontent(MsgVO vo) throws Exception {
 		vo.setMsg_id(dao.chat_msg_id(vo));
+		dao.update_msg_confirm(vo);
 		return dao.msgcontent(vo);
 	}
 
@@ -48,12 +49,4 @@ public class MsgServiceImpl implements MsgService {
 		
 	}
 	
-	
-
-
-
-
-
-
-
 }

@@ -49,4 +49,9 @@ public class MsgDAOImpl implements MsgDAO {
 		session.insert(namespace + ".create_msg_context", vo);
 	}
 
+	@Override
+	public void update_msg_confirm(MsgVO vo) throws Exception {
+		session.update(namespace + ".update_msg_confirm", vo);		
+	}
+
 }
