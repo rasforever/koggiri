@@ -28,6 +28,9 @@ public class AdminController {
 
 	@Inject
 	private AdminService service;
+	
+	@Inject
+	private AdminService service2;
 
 	@RequestMapping(value = "/manager", method = RequestMethod.GET)
 	public String managerPage(SearchVO search, Model model, HttpSession session) throws Exception {
@@ -39,6 +42,8 @@ public class AdminController {
 		model.addAttribute("emp_nm",emp_nm);
 		model.addAttribute("list", service.selectList(search));
 
+
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
 		return "/admin_emp/manager";
 	}
 
@@ -59,6 +64,8 @@ public class AdminController {
 		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
+
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
 		
 		return "/admin_emp/perApp";
 	}
@@ -80,6 +87,8 @@ public class AdminController {
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
 
+
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
 		return "/admin_emp/resApp";
 	}
 	
@@ -99,6 +108,8 @@ public class AdminController {
 		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
+
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
 		return "/admin_emp/joinus";
 	}
 	
@@ -138,6 +149,7 @@ public class AdminController {
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
 		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
@@ -157,6 +169,7 @@ public class AdminController {
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
 		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
@@ -174,6 +187,7 @@ public class AdminController {
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
 		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
@@ -193,6 +207,7 @@ public class AdminController {
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
 		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
@@ -214,6 +229,7 @@ public class AdminController {
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
 		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
@@ -236,6 +252,7 @@ public class AdminController {
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
 		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
