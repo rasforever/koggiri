@@ -162,6 +162,11 @@ public class AdminDAOImpl implements AdminDAO {
 		return session.selectList(namespace+".select_res", search);
 	}
 
+	@Override
+	public void update_sns() throws Exception {
+		session.update(namespace+".update_sns");
+	}
+
 	
 
 }

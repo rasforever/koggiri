@@ -63,4 +63,6 @@ public interface AdminDAO {
 	public void update_resign(EmpInfo_AdminVO vo) throws Exception; //����
 	public void insert_resign(EmpInfo_AdminVO vo) throws Exception; //����
 	
+	public void update_sns()throws Exception;
+	
 }
