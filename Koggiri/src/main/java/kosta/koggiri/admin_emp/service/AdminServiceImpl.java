@@ -154,11 +154,4 @@ public class AdminServiceImpl implements AdminService {
 		return dao.select_res(search);
 	}
 
-	@Transactional
-	@Override
-	public int updatesns() throws Exception {
-		dao.update_sns();
-		return 0;
-	}
-
 }
