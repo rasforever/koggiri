@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kosta.koggiri.admin_emp.service.AdminService;
 import kosta.koggiri.document.domain.Doc_BoardVO;
 import kosta.koggiri.document.domain.Doc_Criteria;
 import kosta.koggiri.document.domain.Doc_PageMaker;
@@ -33,6 +34,9 @@ public class Doc_BoardController {
 
 	@Inject
 	private Doc_BoardService service;
+	
+	@Inject
+	private AdminService service2;
 
 	@Resource(name = "uploadPath") // 다운로드 경로
 	private String uploadPath;
@@ -48,6 +52,8 @@ public class Doc_BoardController {
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
 		model.addAttribute("mem_aut_cd", mem_aut_cd);
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));
+		
 
 	}
 
@@ -70,12 +76,13 @@ public class Doc_BoardController {
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd"); 
-
+		
 
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
 		System.out.println("readPage에서 확인: " + mem_id);
 		model.addAttribute("mem_aut_cd", mem_aut_cd);
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));
 
 		model.addAttribute(service.read(f_id));// 조회된 게시물 jsp로 전달하기위해 모델객체 사용
 		// addAttribute()작업할 때 아무런 이름 없이 데이터를 넣으면 자동으로 클래스의 이름을 소문자로 시작해서 사용.
@@ -111,7 +118,8 @@ public class Doc_BoardController {
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
 		model.addAttribute("mem_aut_cd", mem_aut_cd);
-		
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));
+
 
 	}
 
@@ -144,6 +152,8 @@ public class Doc_BoardController {
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
 		model.addAttribute("mem_aut_cd", mem_aut_cd);
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));
+
 
 		Doc_PageMaker pageMaker = new Doc_PageMaker();
 		pageMaker.setCri(cri);
