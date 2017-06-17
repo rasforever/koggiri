@@ -4,14 +4,14 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 <head>
-<link rel="stylesheet" href="../resources/Content/themes/real/sns.css">
+<link rel="stylesheet" href="../resources/Content/themes/real/msg.css">
 
 </head>
 
 
 <body>
 	<div>
-		<div id="sns_chat" class="sns_chat"
+		<div id="msg_context" class="msg_context"
 			style="overflow-y: scroll; height: 600px">
 			<section>
 				<%-- ${ck_emp_id} --%>
@@ -37,14 +37,15 @@
 						</div>
 					</c:if>
 				</c:forEach>
+
 			</section>
 		</div>
 
-		<div class="sns_header">
+		<div class="msg_header">
 			<br> <img src="../resources/img/koggiri_talk.png"> <br>
 		</div>
-		<div class="sns_chatBox">
-			<form action="chat_room" method="post">
+		<div class="msg_contextBox">
+			<form action="msg_content" method="post">
 				<input type="hidden" name="emp_id" value="${emp_id }"> <input
 					type="hidden" name="msg_id" value="${msg_id }"> <input
 					type="hidden" name="n_emp_id" value="${n_emp_id }">
@@ -53,11 +54,11 @@
 			</form>
 		</div>
 		<div>
-			<a href="http://localhost:8081/sns/listAll">목록</a>
+			<a href="http://localhost:8081/msg/msg_emplist">목록</a>
 		</div>
 	</div>
 	<script type="text/javascript">
-		var objDiv = document.getElementById("sns_chat");
+		var objDiv = document.getElementById("msg_context");
 		objDiv.scrollTop = objDiv.scrollHeight;
 	</script>
 

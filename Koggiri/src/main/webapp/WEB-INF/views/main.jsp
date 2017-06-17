@@ -55,7 +55,7 @@
 						}, 500, "easeInOutCubic");
 					},
 				});
-				window.open('http://localhost:8081/sns/listAll', 'Javis',
+				window.open('http://localhost:8081/msg/msg_emplist', 'Javis',
 						"width=530px, height=600px, resizable=no, scrollbars=yes")
 			});
 

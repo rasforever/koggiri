@@ -8,16 +8,16 @@ import kosta.koggiri.msg.domain.MsgVO;
 
 public interface MsgDAO {
 	
-	public List<Msg_EmpVO> listAll(String emp_id) throws Exception; 
+	public List<Msg_EmpVO> msg_emplist(String emp_id) throws Exception; 
 	
-	public int chat_room_count(MsgVO vo) throws Exception;	
+	public int msg_count(MsgVO vo) throws Exception;	
 
-	public int chat_room_id(MsgVO vo) throws Exception; 
+	public int chat_msg_id(MsgVO vo) throws Exception; 
 	
-	public void create_room(MsgVO vo)throws Exception;
+	public void create_msg(MsgVO vo)throws Exception;
 	
-	public List<MsgVO> chat(MsgVO vo)throws Exception;
+	public List<MsgVO> msgcontent(MsgVO vo)throws Exception;
 	
-	public MsgVO create_chat_context(MsgVO vo)throws Exception; //고병휘 추가
+	public void create_msg_context(MsgVO vo)throws Exception; //고병휘 추가
 
 }

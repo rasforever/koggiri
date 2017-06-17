@@ -7,7 +7,7 @@
 <head>
 
 
-<link rel="stylesheet" href="../resources/Content/themes/real/sns.css">
+<link rel="stylesheet" href="../resources/Content/themes/real/msg.css">
 </head>
 <body >
 	<div id="header" >
@@ -15,7 +15,7 @@
 	<br>
 
 	<div data-role="content" data-position="fixed">
-	<div class="sns_header">
+	<div class="msg_header">
 		<br>
 		<img src="../resources/img/koggiri_talk.png">
 		<br>
@@ -23,9 +23,9 @@
 	</div>
 	</div>
 		<div align="center">
-	<div class="sns_contain">
+	<div class="msg_contain">
 		<div>
-			<table  class="sns_table" style="width: 100%">
+			<table  class="msg_table" style="width: 100%">
 				<c:forEach items="${list}" var="Msg_EmpVO">
 				
 					<tr>
@@ -33,9 +33,9 @@
 					
 					<ul>
 			
-						<li><span class="sns_font">${Msg_EmpVO.dept_nm}<span><br>
+						<li><span class="msg_font">${Msg_EmpVO.dept_nm}<span><br>
 									<a style="font-size: 25px;">
-										${Msg_EmpVO.emp_nm}&nbsp;<span class="sns_font">${Msg_EmpVO.pos_nm}<span>
+										${Msg_EmpVO.emp_nm}&nbsp;<span class="msg_font">${Msg_EmpVO.pos_nm}<span>
 								</a> </li>
 					</ul>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -44,7 +44,7 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href='/sns/chat_room?emp_id=${emp_id}&n_emp_id=${Msg_EmpVO.emp_id}'>
+					<a href='/msg/msg_content?emp_id=${emp_id}&n_emp_id=${Msg_EmpVO.emp_id}'>
 					<img src="../resources/img/talk.png" ></a>
 					</c:forEach>
 					</td>

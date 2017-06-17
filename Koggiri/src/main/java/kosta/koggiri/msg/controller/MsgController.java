@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.msg.domain.MsgVO;
@@ -18,7 +17,7 @@ import kosta.koggiri.msg.service.MsgService;
 
 
 @Controller
-@RequestMapping("/sns/*")
+@RequestMapping("/msg/*")
 public class MsgController {
 	
 private static final Logger logger = LoggerFactory.getLogger(MsgController.class);
@@ -27,42 +26,46 @@ private static final Logger logger = LoggerFactory.getLogger(MsgController.class
 	private MsgService service;
 
 	//채팅 사원 목록 출력 
-	@RequestMapping(value="/listAll", method= RequestMethod.GET)
-	public void listAll(Model model,  HttpSession session) throws Exception{
+	@RequestMapping(value="/msg_emplist", method= RequestMethod.GET)
+	public void msg_emplist(Model model,  HttpSession session) throws Exception{
 
 		
 		String emp_id = (String) session.getAttribute("mem_id");
 		model.addAttribute("emp_id", emp_id);
 		logger.info("show all list................");
-		model.addAttribute("list",service.listAll(emp_id));
+		model.addAttribute("list",service.msg_emplist(emp_id));
 		
 	}
 	
 	//채팅내역 출력
-	@RequestMapping(value="/chat_room", method= RequestMethod.GET)
-	public void chat_room_listGET(@ModelAttribute("vo") MsgVO vo, Model model, HttpSession session)throws Exception{
-		
+	@RequestMapping(value="/msg_content", method= RequestMethod.GET)
+	public void msg_contentGET(@ModelAttribute("vo") MsgVO vo, Model model, HttpSession session)throws Exception{		
 
-		System.out.println("시작");
 		String emp_id = (String) session.getAttribute("mem_id");
 		model.addAttribute("emp_id", emp_id);
-
-		System.out.println("까르르르1" + vo.getN_emp_id());
-		model.addAttribute("n_emp_id", vo.getN_emp_id());
-			
-			
-		
+		if(service.msg_count(vo) == 0 ){
+			model.addAttribute("msglist",service.create_msg(vo));
+			model.addAttribute("msg_id", vo.getMsg_id());
+			model.addAttribute("n_emp_id", vo.getN_emp_id());
+		}else{
+			model.addAttribute("msglist", service.msgcontent(vo));
+			model.addAttribute("msg_id", vo.getMsg_id());		
+			model.addAttribute("n_emp_id", vo.getN_emp_id());	
+		}	
 	}
 	
-	//고병휘 추가
-	@RequestMapping(value="/chat_room", method = RequestMethod.POST) 
-	public String chat_room_listPOST(MsgVO vo, Model model, RedirectAttributes rttr)throws Exception{
-		System.out.println(vo.getN_emp_id());
-		service.create_chat_context(vo);
+	//채팅 대화내용 보내기(POST)
+	@RequestMapping(value="/msg_content", method = RequestMethod.POST) 
+	public String msg_contentPOST(MsgVO vo, Model model, RedirectAttributes rttr)throws Exception{
+		
+		service.create_msg_context(vo);
+		
 		rttr.addAttribute("msg_id", vo.getMsg_id());
 		rttr.addAttribute("emp_id", vo.getEmp_id());
 		rttr.addAttribute("n_emp_id", vo.getN_emp_id());
-		return "redirect:/sns/chat_room";
+		
+		return "redirect:/msg/msg_content";
+		
 	}
 	
 	@RequestMapping(value="/testchat", method = RequestMethod.GET)
