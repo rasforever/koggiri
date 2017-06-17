@@ -45,6 +45,12 @@
 			}
 		});
 	});
+	
+	$(function(){
+        $("#jobis_click").draggable(); //id가 jobis_click인 요소가 드래그(Draggable) 될 수 있도록 합니다.
+  });
+	
+	
 </script>
 </head>
 
@@ -57,7 +63,10 @@
 	<div class="header_wrap">
 		<div id="container">
 			<div class="my_information">
-
+				<div id="jobis_click">
+					<a href="../msg/jobis_page">자비스호출!!!!</a>
+				</div>
+				
 				<a href="javascript:;"
 					onclick="window.open('../msg/msg_emplist','count_button','width=500, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no')"><img
 					src="../resources/img/msg_check_.png">${msg_count}</a> │ <a
