@@ -33,18 +33,32 @@
 <link rel="stylesheet"
 	href="../resources/Content/themes/real/common.css" />
 
+<script type="text/javascript">
+$(document).ready(function (){
+	$('.admin_page').click(function(event){
+		event.preventDefault();
+		var mem_aut_cd = '${mem_aut_cd}';
+		if(mem_aut_cd == 'A'){
+			location.href = "../admin_emp/manager";
+		} else{
+			alert("넌 아웃이야 관리자 아님!케케켘케");
+		}		
+	});
+});
+</script>
 </head>
 
 <!-- ----------------------------------------------------------------------- -->
 <body class="main">
-
+	
 
 	<!-- ************************************* -->
 	<h1 class="hidden">Koggiri 메인 페이지</h1>
 	<div class="header_wrap">
 		<div id="container">
 			<div class="my_information">
-				<a href="javascript:;" onclick="window.open('../msg/msg_emplist','count_button','width=500, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=yes')"><img
+				<a href="javascript:;"
+					onclick="window.open('../msg/msg_emplist','count_button','width=500, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=yes')"><img
 					src="../resources/img/msg_check_.png">${msg_count}</a> │ <a
 					class="my_name">${emp_nm} 님이 접속하셨습니다.</a> │ <a class="my_modify"
 					href="../login/passcheck">내 정보 수정</a> │ <a class="log_out"
@@ -108,14 +122,14 @@
 						<li class="menu05 "><a href="#" class="menu_a"
 							style="padding-top: 10px;">회사정보</a> <!-- 2depth : s -->
 							<ul>
-								<li class=""><a href="/attendance/att_alldlist">관리자설정</a>
+								<li class="admin_page"><a href="/attendance/att_alldlist">관리자설정</a>
 									<div>
 										<span><img
 											src="http://s.nx.com/S2/billing/pcbang/real/homepage/common/img_depth3_arrow.png"
 											alt="" /></span>
 										<ul>
-											<li class=""><a href="/admin_emp/manager">사원 관리</a></li>
-											<li class=""><a href="/attendance/att_alldlist">근태
+											<li class=""><a href="../admin_emp/manager">사원 관리</a></li>
+											<li class=""><a href="../attendance/att_alldlist">근태
 													확인</a></li>
 										</ul>
 									</div></li>
@@ -130,4 +144,3 @@
 		</div>
 		<hr />
 	</div>
-
