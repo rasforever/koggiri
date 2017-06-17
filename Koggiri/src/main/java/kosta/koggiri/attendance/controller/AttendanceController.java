@@ -31,6 +31,8 @@ public class AttendanceController {
 
 		String emp_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		String ck_emp_id = search.getEmp_id();
 		model.addAttribute("mem_id",emp_id);
 		model.addAttribute("emp_nm",emp_nm);
@@ -50,6 +52,8 @@ public class AttendanceController {
 				
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
 		String att_day = search.getAtt_dd();
@@ -78,6 +82,8 @@ public class AttendanceController {
 		
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
 		

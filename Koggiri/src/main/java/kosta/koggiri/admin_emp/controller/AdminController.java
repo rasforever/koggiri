@@ -31,7 +31,12 @@ public class AdminController {
 
 	@RequestMapping(value = "/manager", method = RequestMethod.GET)
 	public String managerPage(SearchVO search, Model model, HttpSession session) throws Exception {
-
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		model.addAttribute("list", service.selectList(search));
 
 		return "/admin_emp/manager";
@@ -48,6 +53,12 @@ public class AdminController {
 	@RequestMapping(value= "/perApp", method = RequestMethod.GET)
 	public String perAppPage(App_SearchVO search, Model model, HttpSession session)throws Exception{
 		model.addAttribute("list", service.select_per(search));
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		
 		return "/admin_emp/perApp";
 	}
@@ -62,6 +73,12 @@ public class AdminController {
 	@RequestMapping(value= "/resApp", method = RequestMethod.GET)
 	public String resAppPage(App_SearchVO search, Model model, HttpSession session)throws Exception{
 		model.addAttribute("list", service.select_res(search));
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 
 		return "/admin_emp/resApp";
 	}
@@ -75,7 +92,13 @@ public class AdminController {
 
 
 	@RequestMapping(value = "/joinus", method = RequestMethod.GET)
-	public String joinus() throws Exception {
+	public String joinus(Model model, HttpSession session) throws Exception {
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		return "/admin_emp/joinus";
 	}
 	
@@ -111,7 +134,13 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/ch_Personnel", method = RequestMethod.GET)
-	public String ch_PersonnelGET(Model model) throws Exception {
+	public String ch_PersonnelGET(Model model, HttpSession session) throws Exception {
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		model.addAttribute("deptlist",service.dept_info());
 		model.addAttribute("poslist",service.pos_info());
 		return "/admin_emp/ch_Personnel";
@@ -124,7 +153,13 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/modifyInformation", method = RequestMethod.GET)
-	public String modifyInformationGET(Model model) throws Exception {
+	public String modifyInformationGET(Model model, HttpSession session) throws Exception {
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		return "/admin_emp/modifyInformation";
 	}
 
@@ -135,7 +170,13 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/resign", method = RequestMethod.GET)
-	public String resignGET(Model model) throws Exception {
+	public String resignGET(Model model,  HttpSession session) throws Exception {
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		model.addAttribute("reslist",service.res_info());
 		return "/admin_emp/resign";
 	}
@@ -148,7 +189,13 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/temppass", method = RequestMethod.GET)
-	public String temppass() throws Exception {
+	public String temppass(Model model,HttpSession session) throws Exception {
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		return "/admin_emp/temppass";
 	}
 
@@ -163,8 +210,13 @@ public class AdminController {
 		return "redirect:/admin/manager";
 	}
 	@RequestMapping(value="/emp", method = RequestMethod.GET)
-	public void searchempGET(@ModelAttribute("emp") EmpVO emp, Model model) throws Exception{
-		
+	public void searchempGET(@ModelAttribute("emp") EmpVO emp, Model model, HttpSession session) throws Exception{
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		String emp_id = emp.getEmp_id();
 		emp.setEmp_id(emp_id + "%");
 		model.addAttribute("emplist",service.searchEmp(emp));
@@ -180,7 +232,13 @@ public class AdminController {
 		
 	}
 	@RequestMapping(value="/att_emp", method = RequestMethod.GET)
-	public void searchatt_empGET(@ModelAttribute("emp") EmpVO emp, Model model) throws Exception{
+	public void searchatt_empGET(@ModelAttribute("emp") EmpVO emp, Model model, HttpSession session) throws Exception{
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
 		
 		String emp_id = emp.getEmp_id();
 		emp.setEmp_id(emp_id + "%");

@@ -36,6 +36,8 @@ public class ApprovalController {
 		logger.info("register get......");
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
 		model.addAttribute("einfo", service.einfo_select(mem_id));
@@ -64,6 +66,8 @@ public class ApprovalController {
 		model.addAttribute("deptlist", service.dept_select());
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
 		search.setDraft_emp_id(mem_id);
@@ -108,6 +112,8 @@ public class ApprovalController {
 		model.addAttribute("deptlist", service.dept_select());
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
 		search.setApp_emp_id(mem_id);
@@ -151,6 +157,8 @@ public class ApprovalController {
 
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("emp_nm",emp_nm);
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute(service.read(app_id));
@@ -183,6 +191,8 @@ public class ApprovalController {
 
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm",emp_nm);
 		model.addAttribute("einfo", service.einfo_select(mem_id));
