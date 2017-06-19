@@ -11,7 +11,7 @@
 
 <body>
 	<div>
-		<div id="msg_context" class="msg_context"
+		<div id="jobis_context" class="jobis_context"
 			style="overflow-y: scroll; height: 600px">
 			<section>
 				<%-- ${ck_emp_id} --%>
@@ -53,9 +53,7 @@
 				<input type="submit" value="전송">
 			</form>
 		</div>
-		<div>
-			<a href="http://localhost:8081/msg/msg_emplist">목록</a>
-		</div>
+		
 	</div>
 	
 	<script type="text/javascript">
@@ -68,4 +66,3 @@
 
 
 <!-- /.box-body -->
-

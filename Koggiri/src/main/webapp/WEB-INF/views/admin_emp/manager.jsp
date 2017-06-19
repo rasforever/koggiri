@@ -33,7 +33,14 @@
       <ul>
                 <li class="menu01 ">
                     <a href="/admin_emp/manager">사원관리</a>
-                    <ul> </ul>
+                    <ul>
+							<li class="sub01 "><a href="/admin_emp/manager">
+									사원관리</a></li>
+							<li class="sub01 "><a href="/admin_emp/perApp">
+									인사이동내역</a></li>
+							<li class="sub01 "><a href="/admin_emp/resApp">
+									퇴직내역</a></li>
+						</ul>
                 </li>
       						<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
 						<ul>

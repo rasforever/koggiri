@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.task.domain.TaskPageMaker;
 import kosta.koggiri.task.domain.TaskSearchCriteria;
+import kosta.koggiri.admin_emp.service.AdminService;
 import kosta.koggiri.task.domain.TaskCriteria;
 import kosta.koggiri.task.domain.TaskVO;
 
@@ -29,6 +30,9 @@ public class TaskController {
 	@Inject
 	private TaskService service;
 	
+	@Inject
+	private AdminService service2;
+	
 	
 	//등록 (get방식) -세션불러와서 값을 가지고 있음
 	@RequestMapping(value="/register", method= RequestMethod.GET)
@@ -36,6 +40,9 @@ public class TaskController {
 	      
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));      
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
 		
@@ -69,9 +76,11 @@ public class TaskController {
 		 
 			String mem_id = (String) session.getAttribute("mem_id");
 			String emp_nm = (String) session.getAttribute("emp_nm");
+			String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+			model.addAttribute("mem_aut_cd",mem_aut_cd);
 			model.addAttribute("mem_id", mem_id);
 			model.addAttribute("emp_nm", emp_nm);
-		
+			model.addAttribute("msg_count", service2.msg_new_count(mem_id));      
 		   model.addAttribute(service.read(ta_seq));
 	   }
 	   
@@ -98,8 +107,11 @@ public class TaskController {
 		   
 		   String mem_id = (String) session.getAttribute("mem_id");
 		   String emp_nm = (String) session.getAttribute("emp_nm");
+		   String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+			model.addAttribute("mem_aut_cd",mem_aut_cd);
 			model.addAttribute("mem_id", mem_id);
 			model.addAttribute("emp_nm", emp_nm);
+			model.addAttribute("msg_count", service2.msg_new_count(mem_id));      
 		   model.addAttribute(service.read(ta_seq));
 	   }
 	   
@@ -123,12 +135,15 @@ public class TaskController {
 			
 			String mem_id = (String) session.getAttribute("mem_id");
 			String emp_nm = (String) session.getAttribute("emp_nm");
+			String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+			model.addAttribute("mem_aut_cd",mem_aut_cd);
 			model.addAttribute("mem_id", mem_id);
 			model.addAttribute("emp_nm", emp_nm);
 	
 			cri.setEmp_id(mem_id);
 			System.out.println(cri.getEmp_id());
 			//model.addAttribute("list", service.listCriteria(cri));
+			model.addAttribute("msg_count", service2.msg_new_count(mem_id));      
 			model.addAttribute("list", service.listSearchCriteria(cri));
 			
 			TaskPageMaker pageMaker = new TaskPageMaker();
@@ -136,7 +151,6 @@ public class TaskController {
 			//pageMaker.setTotalCount(service.listCountCriteria(cri));
 			pageMaker.setTotalCount(service.listSearchCount(cri));
 			System.out.println(cri.getKeyword());
-			
 			model.addAttribute("pageMaker", pageMaker);
 			
 		}

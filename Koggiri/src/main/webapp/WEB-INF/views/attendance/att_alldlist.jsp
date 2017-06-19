@@ -27,30 +27,40 @@
 				<img src="/resources/img/s_menu12.png" />
 			</h1>
 			<div class="sub_top">
-				<span><a href="/main">홈</a> <span> &gt; </span> <a href="/attendance/att_alldlist">근태확인</a>  <span> &gt; </span> <strong>일 근태내역</strong></span>
+				<span><a href="/main">홈</a> <span> &gt; </span> <a
+					href="/attendance/att_alldlist">근태확인</a> <span> &gt; </span> <strong>일
+						근태내역</strong></span>
 			</div>
 		</div>
 
 
 		<div id="lnb">
-   <div class="lnb01">
-      <strong class="menu05"><span>회사 정보</span></strong>
-      <ul>
-                <li class="menu01 ">
-                    <a href="/admin_emp/manager">사원관리</a>
-                    <ul> </ul>
-                </li>
-      						<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
+			<div class="lnb01">
+				<strong class="menu05"><span>회사 정보</span></strong>
+				<ul>
+					<li class="menu01 "><a href="/admin_emp/manager">사원관리</a>
 						<ul>
-							<li class="sub01 "><a href="/attendance/att_mlist">월 근태내역</a></li>
-							<li class="sub01 "><a href="/attendance/att_alldlist">일 근태내역</a></li>
+							<li class="sub01 "><a href="/admin_emp/manager">
+									사원관리</a></li>
+							<li class="sub01 "><a href="/admin_emp/perApp">
+									인사이동내역</a></li>
+							<li class="sub01 "><a href="/admin_emp/resApp">
+									퇴직내역</a></li>
+						</ul>
+					</li>
+					<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
+						<ul>
+							<li class="sub01 "><a href="/attendance/att_mlist">월
+									근태내역</a></li>
+							<li class="sub01 "><a href="/attendance/att_alldlist">일
+									근태내역</a></li>
 							<li class="sub01 "><a href="#">휴가등록</a></li>
 
 							<ul></ul>
 						</ul></li>
 				</ul>
 			</div>
-</div>
+		</div>
 
 		<div id="sub_content" align="center">
 			<div class="row">
@@ -62,13 +72,15 @@
 					<div class="box" align="left">
 						<div class="box-header with-border">
 							현재일 : ${ att_day } <br>
-						</div><br>
+						</div>
+						<br>
 						<div class='box-body'>
 							조회일: <input type="text" name="att_dd" id="att_dd"
 								class="datepicker" size="14">
 							<button id='searchBtn'>Search</button>
 						</div>
-						<br><br>
+						<br>
+						<br>
 						<div class="box-body">
 							<h3></h3>
 							<table class="table table-bordered">
