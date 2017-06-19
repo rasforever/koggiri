@@ -67,13 +67,12 @@
 				<div id="jobis_click">
 					<a href="javascript:;"
 					onclick="window.open('../msg/jobis_page','count_button','width=500, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no')">
-					잡이스 호출!!
 					</a>
 				</div>
 				
 				<a href="javascript:;"
-					onclick="window.open('../msg/msg_emplist','count_button','width=500, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no')"><img
-					src="../resources/img/msg_check_.png">${msg_count}</a> │ <a
+					onclick="window.open('../msg/msg_emplist','count_button','width=560, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no')"><img
+					src="../resources/img/msg_m.png">${msg_count}</a> │ <a
 					class="my_name">${emp_nm} 님이 접속하셨습니다.</a> │ <a class="my_modify"
 					href="../login/passcheck">내 정보 수정</a> │ <a class="log_out"
 					href="../login/logout">로그아웃</a>
