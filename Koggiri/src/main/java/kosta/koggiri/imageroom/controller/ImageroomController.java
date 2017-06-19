@@ -120,9 +120,9 @@ public class ImageroomController {
 		ResponseEntity<Integer> entity = null;
 		
 		try {
-			Integer image_room_no = service.nextRoomNoRead();
+			Integer room_id = service.nextRoomNoRead();
 
-			entity = new ResponseEntity<Integer>(image_room_no, HttpStatus.OK);
+			entity = new ResponseEntity<Integer>(room_id, HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
 			entity = new ResponseEntity<Integer>(HttpStatus.BAD_REQUEST);
