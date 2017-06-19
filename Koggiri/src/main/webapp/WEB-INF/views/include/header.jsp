@@ -47,15 +47,15 @@
 	});
 
 	$(function() {
-		$("#jobis_click").draggable(); //id가 jobis_click인 요소가 드래그(Draggable) 될 수 있도록 합니다.
+		/* 	$("#jobis_click").draggable(); //id가 jobis_click인 요소가 드래그(Draggable) 될 수 있도록 합니다. */
 		$("#clickclick")
 				.click(
 						function() {
 							event.preventDefault();
 							window
-									.open('../msg/jobis_page', 'count_button',
+									.open('../jobis/jobis_page', 'count_button',
 											'width=500, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no');
-						})
+						});
 	});
 </script>
 </head>
@@ -69,16 +69,12 @@
 	<div class="header_wrap">
 		<div id="container">
 			<div class="my_information">
-				<div id="jobis_click">
-					<div id="clickclick">
-						<!-- <a href="javascript:;"
-					onclick="window.open('../msg/jobis_page','count_button','width=500, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no')">
-					잡이스</a> -->
-						잡이스
-					</div>
-				</div>
 
-				<a href="javascript:;"
+				<a href="javascript:;" id = "clickclick"
+					onclick="window.open('../jobis/jobis_page','count_button','width=500, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no')">
+					잡이스</a> 
+					
+					<a href="javascript:;"
 					onclick="window.open('../msg/msg_emplist','count_button','width=560, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no')"><img
 					src="../resources/img/msg_m.png"
 					style="position: relative; top: -2px"><a class="msg_cnt">${msg_count}</a></a>│
