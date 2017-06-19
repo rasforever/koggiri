@@ -1,14 +1,14 @@
 $(function() {
 	$(window).load(function() {
-		// GNB 蹂댁씠湲�/媛먯텛湲� : s
+		// GNB 보이기/감추기 : s
 		var header_wrap = $('.header_wrap');
 		var container_wrap = $('.container_wrap');
 		var menu1depth = $('.gnb>ul>li');
 		var menu2depth = $('.gnb>ul>li>ul>li');
-		var menu1depth_wrap = $('.gnb>ul>li>ul>li>div');
+		var menu3depth_wrap = $('.gnb>ul>li>ul>li>div');
 		var menu3depth = $('.gnb>ul>li>ul>li>div>ul>li');
 		
-		// 1Depth �쒖꽦�� 諛� GNB蹂댁씠湲�
+		// 1Depth 활성화 및 GNB보이기
 		menu1depth.on({
 			mouseenter: function() {
 				$(this).addClass('on').siblings('li').removeClass('on');
@@ -22,7 +22,7 @@ $(function() {
 			}
 		});
 
-		// 2Depth �쒖꽦�� 諛� GNB蹂댁씠湲�
+		// 2Depth 활성화 및 GNB보이기
 		menu2depth.on({
 			mouseenter: function() {
 				$(this).addClass('on').siblings('li').removeClass('on');
@@ -32,7 +32,7 @@ $(function() {
 			}
 		});
 
-		// 3Depth �쒖꽦�� 諛� GNB蹂댁씠湲�
+		// 3Depth 활성화 및 GNB보이기
 		menu3depth.on({
 			mouseenter: function() {
 				$(this).children('div').show();
@@ -44,28 +44,28 @@ $(function() {
 			}
 		});
 		
-		// GNB�닿린 Animation �⑥닔
+		// GNB열기 Animation 함수
 		function gnb_open() {
 			header_wrap.css({'position':'fixed', 'z-index':'100'}).stop().animate({'height':'345px'}, 300);
 			container_wrap.css('padding-top', '144px');
-			$('.input_area>input[type="text"], .input_area>input[type="password"]').blur(); // IE�먯꽌 濡쒓렇�� input諛뺤뒪�� �ъ빱�ㅺ� �ㅼ뼱媛� �덉쓣 �� GNB �꾨줈 而ㅼ꽌媛� 蹂댁씠�� 踰꾧렇 �닿껐
+			$('.input_area>input[type="text"], .input_area>input[type="password"]').blur(); // IE에서 로그인 input박스에 포커스가 들어가 있을 때 GNB 위로 커서가 보이는 버그 해결
 			
 		}
-		// GNB�リ린 Animation �⑥닔
+		// GNB닫기 Animation 함수
 		function gnb_close() {
 			header_wrap.stop().animate({'height':'100px'}, 300, function() {
 				$(this).css('position', 'relative');
 				container_wrap.css('padding', '42px 0 40px 0');
 			});
 		}
-		// GNB�ㅼ떆 �닿린 Animation �⑥닔 : ��궎 �대룞�� �덉쓣 寃쎌슦 �쒓컙 GNB媛� �대젮�� �섎�濡� �좊땲硫붿씠�섏쓣 遺��ы븯吏� �딆쓬.
+		// GNB다시 열기 Animation 함수 : 탭키 이동을 했을 경우 순간 GNB가 열려야 하므로 애니메이션을 부여하지 않음.
 		function gnb_reverse() {
 			header_wrap.css({'position':'fixed', 'height':'345px', 'z-index':'100'});
 			container_wrap.css('padding-top', '144px');
-			$('.input_area>input[type="text"], .input_area>input[type="password"]').blur(); // IE�먯꽌 濡쒓렇�� input諛뺤뒪�� �ъ빱�ㅺ� �ㅼ뼱媛� �덉쓣 �� GNB �꾨줈 而ㅼ꽌媛� 蹂댁씠�� 踰꾧렇 �닿껐
+			$('.input_area>input[type="text"], .input_area>input[type="password"]').blur(); // IE에서 로그인 input박스에 포커스가 들어가 있을 때 GNB 위로 커서가 보이는 버그 해결
 		}
 
-		// 蹂몃Ц�곸뿭�� 留덉슦�� 而ㅼ꽌媛� �ㅼ뼱媛�嫄곕굹 �ъ빱�ㅺ� �대룞�섎㈃ GNB瑜� �ル뒗��.
+		// 본문영역에 마우스 커서가 들어가거나 포커스가 이동하면 GNB를 닫는다.
 		container_wrap.on({
 			mouseenter: function() {
 				gnb_close();
@@ -79,7 +79,7 @@ $(function() {
 			}
 		});
 
-		// GNB�곸뿭 �쇱そ�� �덈뒗 諛곕꼫�� �ъ빱�ㅺ� �대룞�섎㈃ GNB瑜� 蹂댁씤��.
+		// GNB영역 왼쪽에 있는 배너에 포커스가 이동하면 GNB를 보인다.
 		$('.gnb_banner').on({
 			mouseenter: function() {
 				gnb_reverse();
@@ -88,12 +88,12 @@ $(function() {
 				gnb_reverse();
 			}
 		});
-		// GNB 3Depth 硫붾돱�� 以� 留덉�留� ��ぉ�� border-bottom�� �놁븻��. (�붿옄�� �쒖븞 李멸퀬)
+		// GNB 3Depth 메뉴들 중 마지막 항목의 border-bottom을 없앤다. (디자인 시안 참고)
 		$('.gnb>ul>li>ul>li>div>ul>li:last-child').css('border-bottom', 'none');
 
-		// GNB 蹂댁씠湲�/媛먯텛湲� : e
+		// GNB 보이기/감추기 : e
 
-		// 愿��⑥궗�댄듃 紐⑸줉 蹂댁씠湲�/媛먯텛湲� : s
+		// 관련사이트 목록 보이기/감추기 : s
 		$('.relation_site>a').bind('click', function() {
 			if(!$(this).hasClass('on')) {
 				$(this).addClass('on');
@@ -107,10 +107,10 @@ $(function() {
 			$(this).hide();
 			$(this).siblings('a').removeClass('on')
 		});
-		// 愿��⑥궗�댄듃 紐⑸줉 蹂댁씠湲�/媛먯텛湲� : e
+		// 관련사이트 목록 보이기/감추기 : e
 
 
-		// 愿��⑥궗�댄듃 �대룞 援ы쁽 : s
+		// 관련사이트 이동 구현 : s
 		$('.relation_site>ul>li').find('a').bind('click', function(e) {
 			var site_url = $(this).attr('href');
 			var site_name = $(this).text();
@@ -120,31 +120,31 @@ $(function() {
 			e.preventDefault();
 			console.log(site_url, site_name);
 		});
-		// 愿��⑥궗�댄듃 �대룞 援ы쁽 : e
+		// 관련사이트 이동 구현 : e
 
 
-		// 濡쒓렇�� �꾩씠��, �⑥뒪�뚮뱶 input諛뺤뒪 媛� 泥댄겕 : s
+		// 로그인 아이디, 패스워드 input박스 값 체크 : s
 		$('.login_ip input').each(function() {
 			$(this).on({
 				focusin:function() {
-					$(this).css('background', '#fff'); // input 諛뺤뒪�� focus�� 諛곌꼍 �곗깋 泥섎━
+					$(this).css('background', '#fff'); // input 박스에 focus시 배경 흰색 처리
 				},
 				focusout:function() {
-					var val = $(this).val(); // input 諛뺤뒪�� 媛믪쓣 泥댄겕�섏뿬 媛믪씠 �덉쑝硫� 媛믪쓣 �섑��닿퀬 �놁쑝硫� �꾨옒�� 議곌굔臾몄쓣 �섑��몃떎.
+					var val = $(this).val(); // input 박스의 값을 체크하여 값이 있으면 값을 나타내고 없으면 아래의 조건문을 나타낸다.
 					if(!val) {
-						if($(this).attr('id') == 'txtID') { // �대떦 input 諛뺤뒪�� id媛� 'id'�� 寃쎌슦,
+						if($(this).attr('id') == 'txtID') { // 해당 input 박스의 id가 'id'일 경우,
 							$(this).css('background', '#fff url(http://s.nx.com/S2/billing/pcbang/stage/homepage/common/bg_txt_id.png) no-repeat 25px center');
-						} else { // �대떦 input 諛뺤뒪�� id媛� 'id'媛� �꾨땶 �ㅻⅨ 媛믪씪 寃쎌슦(利�, password �� 寃쎌슦)
+						} else { // 해당 input 박스의 id가 'id'가 아닌 다른 값일 경우(즉, password 일 경우)
 							$(this).css('background', '#fff url(http://s.nx.com/S2/billing/pcbang/stage/homepage/common/bg_txt_pw.png) no-repeat 25px center');
 						}
 					}
 				}
 			});
 		});
-		// 濡쒓렇�� �꾩씠��, �⑥뒪�뚮뱶 input諛뺤뒪 媛� 泥댄겕 : e
+		// 로그인 아이디, 패스워드 input박스 값 체크 : e
 
 
-		// 硫붿씤 �쒕퉬�� �좏깮 �� 諛곌꼍 蹂댁씠湲�/媛먯텛湲�
+		// 메인 서비스 선택 시 배경 보이기/감추기
 		$('.main #content div>a').on({
 			mouseenter:function() {
 				$(this).parent('div').stop().animate({'background-position-y':'-206px'}, 500, "easeInOutCubic");
@@ -154,17 +154,17 @@ $(function() {
 			},
 		});
 
-		// 濡ㅻ쭅諛곕꼫 : s //
+		// 롤링배너 : s //
 		var slider;
-		var startNum = 1;  // ��긽 �쒖옉�섎뒗 �レ옄�� 怨좎젙媛�
+		var startNum = 1;  // 항상 시작하는 숫자는 고정값
 		var TotalNum = $('.slider').find('li').size();
 		
-		// 濡ㅻ쭅諛곕꼫 �쒖옉 �꾩뿉 湲곕낯 �レ옄瑜� 遺��ы븳��.
+		// 롤링배너 시작 전에 기본 숫자를 부여한다.
 		$('.current_page').html(startNum);
 		$('.total_page').html(TotalNum);
 
 
-		/*slider = $('.slider').bxSlider({
+		slider = $('.slider').bxSlider({
 			auto: true,
 			control:false,
 			pager:false,
@@ -212,30 +212,30 @@ $(function() {
 		    }
 		});
 
-		// 濡ㅻ쭅諛곕꼫 prev, next踰꾪듉 �곸뿭�� 留덉슦�� 而ㅼ꽌瑜� �щ졇�� 寃쎌슦 �좊땲硫붿씠�섏씠 硫덉땄
+		// 롤링배너 prev, next버튼 영역에 마우스 커서를 올렸을 경우 애니메이션이 멈춤
 		$('.bx-controls-direction').on({
 			mouseenter:function() {
 				slider.stopAuto();
 			},
-			//�곸뿭�먯꽌 踰쀬뼱�섎㈃ �좊땲硫붿씠�� �ъ깮
+			//영역에서 벗어나면 애니메이션 재생
 			mouseleave:function() { 
 				slider.startAuto();
 			}
-		});*/
-		// 濡ㅻ쭅諛곕꼫 : e //
+		});
+		// 롤링배너 : e //
 
-		// LNB�곸뿭
-		$('.lnb01 ul>li:last-child>ul').css({'border-bottom':'none', 'margin':'0px', 'padding':'0px'});  // lnb 2depth�� 留덉�留� ul
+		// LNB영역
+		$('.lnb01 ul>li:last-child>ul').css({'border-bottom':'none', 'margin':'0px', 'padding':'0px'});  // lnb 2depth의 마지막 ul
 		$('.lnb01 ul>li>ul>li:last-child>a').css('margin-bottom', '0px');
 
 
-		// Tab �좏깮 �쒖꽦�� or 鍮꾪솢�깊솕
+		// Tab 선택 활성화 or 비활성화
 		$('.tab>ul>li').find('a').bind('click', function() {
 			$(this).parent('li').addClass('on').siblings('li').removeClass('on');
 		});
 
 
-		// info_box(�쒕퉬�� �ㅻ챸) �④린湲�/蹂댁씠湲�
+		// info_box(서비스 설명) 숨기기/보이기
 
 		$('.btn_info').each(function(){
 			$(this).bind('click',function(){
@@ -257,7 +257,7 @@ $(function() {
 
 		})
 
-		//���쒕낫�� �� PC諛� �곹뭹 濡ㅻ쭅
+		//대시보드 내 PC방 상품 롤링
 //		var n = 0;
 //		var prdtName = $('.prdt_name').children('ul');
 //		var prdtList = prdtName.children('li').size();
@@ -279,16 +279,16 @@ $(function() {
 //		});
 
 
-		// ���쒕낫�� div 3n踰덉㎏ �ㅻⅨ履� 留덉쭊�� 0px濡� 留뚮뱺��.
+		// 대시보드 div 3n번째 오른쪽 마진을 0px로 만든다.
 		$('.contents_wrap>div:nth-child(3n)').css('margin-right', '0px');
 		
-		// ���쒕낫�� div 7, 8, 9踰덉㎏ �꾨옒履� 留덉쭊�� 0px濡� 留뚮뱺��.
+		// 대시보드 div 7, 8, 9번째 아래쪽 마진을 0px로 만든다.
 		$('.contents_wrap>div:nth-child(6)').css('margin-bottom', '0px');
 		$('.contents_wrap>div:nth-child(7)').css('margin-bottom', '0px');
 		$('.contents_wrap>div:nth-child(8)').css('margin-bottom', '0px');
 
 
-		// FAQ �④�/�쇱튂湲�
+		// FAQ 숨김/펼치기
 //		var docH = $(document).height();
 //		$('.faq_wrap').css('height', docH-100);
 //		$('.search_result_wrap').css('height', docH-284);
@@ -308,15 +308,15 @@ $(function() {
 
 
 
-		// �앹뾽 �꾩슦湲� : popup�대옒�ㅻ� �좎뼵�� a�쒓렇�� href �띿꽦媛믪쓣 url蹂��섏뿉 �닿퀬 window.open�쇰줈 �덉갹�� �꾩슫��.
-		//             �ㅼ젣濡� �대떦 �앹뾽 �섏씠吏� �섎떒�� �ㅽ겕由쏀듃瑜� �듯빐 �앹뾽�� �꾩튂媛믪씠 �뺥빐吏꾨떎.$('.popup').bind('click', function(e) {
+		// 팝업 띄우기 : popup클래스를 선언한 a태그의 href 속성값을 url변수에 담고 window.open으로 새창을 띄운다.
+		//             실제로 해당 팝업 페이지 하단의 스크립트를 통해 팝업의 위치값이 정해진다.$('.popup').bind('click', function(e) {
 //			e.preventDefault();
 //			var url = $(this).attr('href');
 //			window.open(url, 'popup', 'width=1, height=1, scrollbars=0');
 //		});
 
 
-//		// 泥ル쾲吏� �덉씠�� �앹뾽
+//		// 첫번째 레이어 팝업
 //		var tg = $('.layer_popup');
 //		var layerW = tg.outerWidth();
 //		var layerH = tg.outerHeight();
@@ -330,7 +330,7 @@ $(function() {
 //			$(this).parent('div').parent('div').hide();
 //		});
 
-//		// �먮쾲吏� �덉씠�� �앹뾽
+//		// 두번째 레이어 팝업
 //		var tg2 = $('.layer_popup2');
 //		var layerW2 = tg2.outerWidth();
 //		var layerH2 = tg2.outerHeight();
@@ -347,21 +347,21 @@ $(function() {
 
 
 
-//		//�쒕퉬�� �댁슜�쎄� �앹뾽 
+//		//서비스 이용약관 팝업 
 //		$('.service_agreement').bind('click', function(){
 //			var url = $(this).attr('href');
 //			openPopup(url, 'popup1', '500', '430');
 //			return false;
 //		});
 
-		//媛쒖씤�뺣낫痍④툒諛⑹묠 �앹뾽 
+		//개인정보취급방침 팝업 
 		$('.service_agreement1').bind('click', function(){
 			var url = $(this).attr('href');
 			openPopup(url, 'popup1', '500', '470');
 			return false;
 		});
 
-		//�꾩옄荑좏룿 �댁슜 媛��대뱶
+		//전자쿠폰 이용 가이드
 		$('.coupon_guide').bind('click', function(){
 			var url = $(this).attr('href');
 			openPopup(url, 'popup1', '900', '700');
@@ -369,7 +369,7 @@ $(function() {
 		});
 
 
-		// 湲곗〈 PC諛� �앹뾽�섏씠吏� �꾩슦湲�
+		// 기존 PC방 팝업페이지 띄우기
 		function openPopup(popup_url, name, width, height) {
 		    var left = (screen.width - Number(width)) / 2;
 		    var top = (screen.height - Number(height)) / 2;

@@ -106,7 +106,7 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3 class="box-title">READ BOARD</h3>
+
 				</div>
 				<!-- /.box-header -->
 				
@@ -120,28 +120,29 @@
 				</form>
 
 				<div class="box-body">
+				<table>
 					<tr>
-						<th>문서번호</th>
-						<td width="700px">${approvalVO.app_id }</td>
-						<th>문서타입</th>
+						<th style="width: 100px; text-align: center;">문서번호</th>
+						<td width="400px">${approvalVO.app_id }</td>
+						<th style="width: 100px; text-align: center;">문서타입</th>
 						<td>${approvalVO.app_type_nm }</td>
 					</tr>
 					<tr>
-						<th>부서명</th>
+						<th style="text-align: center;">부서명</th>
 						<td>${approvalVO.dept_nm }</td>
-						<th>진행상태</th>
+						<th style="text-align: center;">진행상태</th>
 						<td>${approvalVO.app_pro_nm }</td>
 					</tr>
 					<tr>
-						<th>기안자</th>
+						<th style="text-align: center;">기안자</th>
 						<td>${approvalVO.draft_emp_nm }</td>
-						<th>결재자</th>
+						<th style="text-align: center;">결재자</th>
 						<td>${approvalVO.app_emp_nm }</td>
 					</tr>
 					<tr>
-						<th>기안일</th>
+						<th style="text-align: center;">기안일</th>
 						<td>${approvalVO.draft_dt.substring(0,10) }</td>
-						<th>결재일</th>
+						<th style="text-align: center;">결재일</th>
 						<td>${approvalVO.app_dt.substring(0,10) }</td>
 					</tr>
 					
@@ -155,18 +156,19 @@
 					</c:if>
 					
 					<tr>
-						<th>제목</th>
-						<td colspan="3">${approvalVO.app_title }</td>
+						<th style="text-align: center;">제목</th>
+						<td colspan="3" style="text-align: left;">&nbsp;&nbsp;&nbsp;${approvalVO.app_title }</td>
 					</tr>
 					<tr>
-						<td colspan="4"><hr>내용 : ${approvalVO.app_context }
-							<hr></td>
+					<div >
+						<td colspan="4" align="center"><hr>${approvalVO.app_context }
+							<hr></td></div>
 					</tr>
-
+</table>
 				</div>
 				<!-- /.box-body -->
 
-				<div class="box-footer">
+				<div class="box-footer" align="left">
 
 					<div>
 						<hr>
