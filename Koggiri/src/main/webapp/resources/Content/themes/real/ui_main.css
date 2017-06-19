@@ -516,10 +516,12 @@ table.vertical th.detail{background:#f0f4f6;vertica}
 
 /* 근태 확인 */
 .on_btn{
-   width :184px;
-   height:48px;
-   background: url(../../../img/on.png);
-   border: 0px;
+    width: 100px;
+    height: 72px;
+    background: url(../../../img/on.png);
+    border: 0px;
+    margin-top: 3px;
+    margin-left: 5px;
 }
 
 .on_btn:HOVER{
@@ -527,10 +529,11 @@ table.vertical th.detail{background:#f0f4f6;vertica}
 }
 
 .off_btn{
-   width :184px;
-   height:48px;
-   background: url(../../../img/off.png);
-   border: 0px;
+    width: 100px;
+    height: 72px;
+    background: url(../../../img/off.png);
+    border: 0px;
+        margin-left: 5px;
 }
 
 .off_btn:HOVER{
@@ -565,9 +568,10 @@ font-weight: bold;
     position: relative;
 }
 .my_information{
-	padding-top:4px;
-	position: relative;
-	left:800px;
+padding-top: 4px;
+    position: relative;
+    left: 800px;
+    top: 10px;
 }
 
 .cal_view{
