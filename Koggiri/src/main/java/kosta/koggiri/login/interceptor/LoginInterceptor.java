@@ -52,7 +52,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			session.setAttribute(LOGIN, memberVO); // 로그인 정보 저장
 			System.out.println(emp_nm);
 			session.setAttribute("mem_id", memberVO.getMem_id());// 아이디 세션 저장
-			session.setAttribute("dept_id", memberVO.getDept_id());// 아이디 세션 저장
+			session.setAttribute("dept_id", memberVO.getDept_id());// 부서 id 저장
+			session.setAttribute("mem_aut_cd", memberVO.getMem_aut_cd());// 권한 저장
 			session.setAttribute("emp_nm", emp_nm); // 세션 이름저장
 			
 		/*	if(request.getParameter("useCookie") != null){ // 자동로그인 쿠키저장

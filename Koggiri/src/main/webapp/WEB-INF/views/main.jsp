@@ -40,26 +40,6 @@
 <link type="text/css" rel="stylesheet"
    href="../resources/Content/themes/real/cal.css" />
 
-<script type="text/javascript">
-	$(document).ready(
-			function() {
-				$('.main #content div>a').on({
-					mouseenter : function() {
-						$(this).stop().animate({
-							'top' : '-206px'
-						}, 500, "easeInOutCubic");
-					},
-					mouseleave : function() {
-						$(this).stop().animate({
-							'top' : '0px'
-						}, 500, "easeInOutCubic");
-					},
-				});
-				window.open('http://localhost:8081/sns/listAll', 'Javis',
-						"width=530px, height=600px, resizable=no, scrollbars=yes")
-			});
-
-</script>
 
 <!-- ------------------------------------------------------------------------ -->
 

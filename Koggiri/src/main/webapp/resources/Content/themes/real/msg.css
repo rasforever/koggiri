@@ -49,23 +49,23 @@ p{
     padding-bottom: 3px;
     padding-top: 3px;
 }
-.sns_chatBox{
+.msg_contextBox{
 	padding-top: 7px;
 }
 
-.sns_chatBox textarea{
+.msg_contextBox textarea{
 position: relative;
     top: 13px;
-    left: 38px;
+    left: 20px;
     resize: none;
     font-size: 18px;
     
 }
-.sns_chatBox input{
+.msg_contextBox input{
 width: 70px;
     height: 65px;
     position: relative;
-    left: 50px;
+    left: 30px;
     top: -10px;
     background: #e5e5ea;
     border: 0px;
@@ -73,11 +73,11 @@ width: 70px;
     font-weight: bold;
     color: #0b93f6;
 }
-.sns_chatBox input:HOVER{
+.msg_contextBox input:HOVER{
 	color:#ffffff;
 	}
 
-.sns_chat{
+.msg_context{
 	background-color: #ffffff;
 }
 }
@@ -85,7 +85,7 @@ width: 70px;
 
 
 
-.sns_header{
+.msg_header{
 	width:100%;
 	height:80px;
 	position: fixed;
@@ -95,7 +95,7 @@ width: 70px;
 	border-bottom: 2px solid gray;
 }
 
-.sns_header{
+.msg_header{
 	width:100%;
 	height:80px;
 	position: fixed;
@@ -105,54 +105,65 @@ width: 70px;
 	border-bottom: 2px solid gray;
 }
 
-.sns_contain{
+.msg_contain{
 	    margin-top: 60px;
 	    padding-left: 0px;
 	    width: 100%;
 }
-.sns_chat{
+.msg_context{
 	margin-top: 100px;
 }
 
 
-.sns_title{
+.msg_title{
 	font-size: 20px;
 	text-align: center;
 
 }
-.sns_contain li a{
+.msg_contain li a{
 	text-decoration: none;
 	color: black;
  	
 }
-.sns_contain li{
+.msg_contain li{
 	display: inline;
 }
 
-.sns_contain ul{
+.msg_contain ul{
 height: 40px;
     margin-bottom: 0px;
     float: left;
 }
-.sns_font{
+.msg_font{
 	font-size: 16px;
 }
-.sns_table td:FIRST-CHILD:HOVER{
+.msg_table td:FIRST-CHILD:HOVER{
 
 	background-color: rgb(238, 241, 242);
 }
 
 
-.sns_table img{
+.msg_table img{
 	width: 60px; 
 	height: 60px;
 	margin-top: 10px;
 }
-.sns_header img{
+.msg_header img{
     position: relative;
     left: 20px;
     top: -8px;
 
 }
 
+.msg_back{
+	    position: relative;
+    left: 195px;
+    top: -20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    border: 2px solid white;
+    padding: 3px;
+    background-color: white;
+}
 

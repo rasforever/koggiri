@@ -41,6 +41,8 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+	
 
 		EmpVO vo = new EmpVO();
 		vo.setEmp_id(mem_id);
@@ -52,13 +54,15 @@ public class HomeController {
 		System.out.println("home:" + mem_id);
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
 		model.addAttribute("list_notice", service.list_notice());
 		model.addAttribute("list_important", service.list_important());
 		model.addAttribute("list_calendar", service.list_calendar(mem_id));
-		// return "login/loginForm";
-
+		model.addAttribute("msg_count", service.msg_new_count(mem_id));		
+		
 		return "/main";
 	}
+	
 
 	// 출근
 	@RequestMapping(value = "/att", method = RequestMethod.POST)
@@ -66,7 +70,6 @@ public class HomeController {
 
 		String emp_id = (String) session.getAttribute("mem_id");
 		service.updateAtt(emp_id);
-
 		return "redirect:/";
 	}
 
@@ -76,7 +79,6 @@ public class HomeController {
 
 		String emp_id = (String) session.getAttribute("mem_id");
 		service.updateLev(emp_id);
-
 		return "redirect:/";
 	}
 		

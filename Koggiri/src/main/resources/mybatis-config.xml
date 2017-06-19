@@ -13,7 +13,7 @@
  	<package name="kosta.koggiri.login.domain"/>
  	<package name="kosta.koggiri.noticeboard.domain"/>
  	<package name="kosta.koggiri.task.domain"/>
- 	<package name="kosta.koggiri.sns.domain"/>
+ 	<package name="kosta.koggiri.msg.domain"/>
  	<package name="kosta.koggiri.attendance.domain"/>
  	<package name="kosta.koggiri.home.domain"/>
  	<package name="kosta.koggiri.importantboard.domain"/>

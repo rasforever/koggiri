@@ -9,6 +9,7 @@ var socketio = require('socket.io');
 var server = http.createServer(app);
 server.listen("5200");
 var emp_id;
+var mem_nm;
 
 
 //웹서버 만듦

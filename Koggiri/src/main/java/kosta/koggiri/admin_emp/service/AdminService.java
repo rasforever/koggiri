@@ -56,9 +56,10 @@ public interface AdminService {
 	public void update_Personnel(EmpInfo_AdminVO vo) throws Exception; //�λ��̵�
 
 	public void update_modifyInformation(EmpInfo_AdminVO vo) throws Exception; //������� �߰� ����
-	
 
 	public void update_resign(EmpInfo_AdminVO vo) throws Exception; //����
+	
+	public int msg_new_count(String emp_id) throws Exception;
 	
 
 }

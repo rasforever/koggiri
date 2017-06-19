@@ -18,14 +18,11 @@ public class LoginDAOImpl implements LoginDAO {
 	
 	@Override
 	public MemberVO login(LoginDTO dto)throws Exception {
-		// TODO Auto-generated method stub
-		System.out.println(dto.toString());
 		return session.selectOne(namespace+".login", dto);
 	}
 
 	@Override
 	public String get_emp_nm(MemberVO vo)throws Exception {
-		// TODO Auto-generated method stub
 		return session.selectOne(namespace+".get_emp_nm", vo);
 	}
 

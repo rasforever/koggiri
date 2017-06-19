@@ -98,7 +98,7 @@
 																			+ '<label for="title">title:</label><br/>'
 																			+ '<input id="title" class="input" name="title" type="text"/><br/>'
 																			+ '<label for="content">content:</label><br/>'
-																			+ '<textarea id="content" class="input" name="content"></textarea><br/>'
+																			+ '<textarea id="content_cal" class="input" name="content" style="width:100%"></textarea><br/>'
 																			+ '</form>',
 																	sizeClass : 'small',
 																	title : '일정 등록',
@@ -263,7 +263,7 @@
 																			+ '<label for="title">title:</label><br/>'
 																			+ '<input id="title" class="input" name="title" type="text" value="'+event.title+'"/><br/>'
 																			+ '<label for="content">content:</label><br/>'
-																			+ '<textarea id="content" class="input" name="content" >'
+																			+ '<textarea id="content_cal" class="input" name="content" style="width:100%">'
 																			+ event.content
 																					.replace(
 																							/<br>/gi,
