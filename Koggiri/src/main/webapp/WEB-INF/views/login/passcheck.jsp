@@ -26,7 +26,7 @@
       <ul>
 
                 <li class="menu02 ">
-                    <a href="/chart/listAll">내 정보수정</a>
+                    <a href="/login/passcheck">내 정보수정</a>
                     <ul>
      
                     </ul>
