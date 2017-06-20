@@ -34,10 +34,12 @@ public class AdminServiceImpl implements AdminService {
 	public List<SearchedEmpVO> selectList(SearchVO search) throws Exception {
 		return dao.selectList(search);
 	}
-
+	
+	@Transactional
 	@Override
 	public void insertEmp(EmpVO vo) throws Exception {
 		dao.insertEmp(vo);
+		dao.insertEmp_att(vo);
 	}
 
 	@Override
@@ -118,8 +120,11 @@ public class AdminServiceImpl implements AdminService {
 		if (vo.getTel_no() != null) {
 			dao.update_modifyInformation_tel(vo);
 		}
-		if (vo.getTel_no() != null) {
+		if (vo.getE_mail() != null) {
 			dao.update_modifyInformation_email(vo);
+		}
+		if (vo.getFilename() != null) {
+			dao.update_modifyInformation_filename(vo);
 		}
 
 	}

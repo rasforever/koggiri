@@ -1,7 +1,10 @@
 package kosta.koggiri.login.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import kosta.koggiri.admin_emp.service.AdminService;
 import kosta.koggiri.login.domain.MemberVO;
@@ -28,6 +32,9 @@ public class LoginController {
 	
 	@Inject
 	private AdminService service2;
+	
+	@Resource(name = "uploadPath")
+	private String uploadPath;
 
 	@RequestMapping(value = { "", "/logout" }, method = RequestMethod.GET) // 다중매핑
 	public String loginpage(@ModelAttribute("dto") LoginDTO dto, HttpServletRequest request) throws Exception {
@@ -126,6 +133,20 @@ public class LoginController {
 		vo.setTel_no(vo.getTelno1() + "-" + vo.getTelno2() + "-" + vo.getTelno3());
 
 		vo.setMem_id(mem_id);
+
+		MultipartFile uploadfile = vo.getFile();
+        if (uploadfile != null) {
+            String fileName = uploadfile.getOriginalFilename();
+            fileName = mem_id + fileName.substring(fileName.lastIndexOf("."));
+            vo.setFilename(fileName);
+            try {
+                // 1. C:\\kosta\\upload
+                File file = new File("C:/kosta/upload/emp/" + fileName);
+                uploadfile.transferTo(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } // try - catch
+        } // if
 		/*if (vo.getMem_pw() == "" && vo.getAddr1() == "" && vo.getAddr2() == "" && vo.getE_mail1() == ""
 				&& vo.getTelno2() == "" && vo.getTelno3() == "") {
 			out.println("<script>");

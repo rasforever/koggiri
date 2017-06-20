@@ -92,7 +92,7 @@
 	
 </script>
 
-	<form method="post" action="/login/modify" name="form">
+	<form method="post" action="/login/modify" name="form"  enctype="multipart/form-data">
 		<label>아이디 : ${mem_id}</label><br> <label>비밀번호: <input
 			type="password" id="password" name="mem_pw" maxlength="50"
 			placeholder="새 비밀번호를 입력하세요">
@@ -118,8 +118,10 @@
 		</label><br> <input type="button" onclick="sample6_execDaumPostcode()"
 			value="주소 찾기"><br> <input type="text" id="addr1"
 			name="addr1" placeholder="주소"> <input type="text" id="addr2"
-			name="addr2" placeholder="상세주소"> <br><input type="submit"
-			value="수정" /> <input type="button" value="취소"
+			name="addr2" placeholder="상세주소"> <br>
+			 <label>사진업로드:<input type="file" name="file" required="required"><br>
+			<input type="submit"
+			value="수정" /></label> <input type="button" value="취소"
 			onclick="history.go(-2)" />
 		</form>
 

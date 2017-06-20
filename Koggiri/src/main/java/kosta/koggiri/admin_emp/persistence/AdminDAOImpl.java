@@ -129,6 +129,13 @@ public class AdminDAOImpl implements AdminDAO {
 		
 	}
 	
+
+	@Override
+	public void update_modifyInformation_filename(EmpInfo_AdminVO vo) throws Exception {
+		session.update(namespace+".update_modifyInformation_filename", vo);
+		
+	}
+	
 	@Override
 	public void update_resign(EmpInfo_AdminVO vo) throws Exception {
 		session.update(namespace+".update_resign", vo);
@@ -172,6 +179,12 @@ public class AdminDAOImpl implements AdminDAO {
 	public EmpTimeVO et_time(String emp_id) throws Exception {
 		return session.selectOne(namespace+".selectW_L" ,emp_id);
 	}
+
+	@Override
+	public void insertEmp_att(EmpVO vo) throws Exception {
+		session.insert(namespace+".insertEmp_att", vo);
+	}
+
 
 	
 

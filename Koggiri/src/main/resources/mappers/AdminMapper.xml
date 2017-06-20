@@ -38,9 +38,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="mainEmp" resultType="EmpVO" parameterType="EmpVO">
 		<![CDATA[
 		select
-		e.emp_id, e.emp_nm, d.dept_nm , p.pos_nm,e.tel_no from
-		emp e,dept d,pos
-		p
+		e.emp_id, e.emp_nm, d.dept_nm , p.pos_nm,e.tel_no, e.filename from
+		emp e,dept d,pos p
 		where e.pos_id = p.pos_id and e.dept_id = d.dept_id
 		and e.emp_id =
 		#{emp_id}
@@ -56,6 +55,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		,#{dept_id},#{pos_id},#{join_dt}
 		,#{wstate_cd},#{input_emp_id},sysdate,#{filename})
 	</insert>
+	
+	<select id="insertEmp_att" parameterType="EmpVO" statementType="CALLABLE">
+		{CALL ATT_SCH_EMP(#{emp_id})}
+	</select>
 
 	<select id="findEmpid" parameterType="EmpVO" resultType="String">
 		select
@@ -67,7 +70,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="tempPass" parameterType="EmpVO">
 		insert into
 		member(mem_id,mem_pw,mem_aut_cd)
-		values( #{emp_id},#{mem_pw},'A')
+		values( #{emp_id},#{mem_pw},'B')
 
 	</insert>
 
@@ -169,6 +172,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	<update id="update_modifyInformation_email" parameterType="EmpInfo_AdminVO">
 		update emp set 	e_mail = #{e_mail}	where emp_id = #{emp_id}
+	</update>
+	<update id="update_modifyInformation_filename" parameterType="EmpInfo_AdminVO">
+		update emp set 	filename = #{filename}	where emp_id = #{emp_id}
 	</update>
 	
 	<update id="update_resign" parameterType="EmpInfo_AdminVO">

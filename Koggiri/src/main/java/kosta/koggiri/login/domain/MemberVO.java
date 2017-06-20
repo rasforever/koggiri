@@ -2,6 +2,8 @@ package kosta.koggiri.login.domain;
 
 import java.io.Serializable;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MemberVO implements Serializable{
 	private String mem_id;
 	private String mem_pw;
@@ -20,6 +22,10 @@ public class MemberVO implements Serializable{
 	private String addr;
 	private String addr1;
 	private String addr2;
+	
+
+	private String filename;	
+	private MultipartFile file;
 	
 	public String getMem_id() {
 		return mem_id;
@@ -112,14 +118,26 @@ public class MemberVO implements Serializable{
 	public void setMem_aut_cd(String mem_aut_cd) {
 		this.mem_aut_cd = mem_aut_cd;
 	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 	@Override
 	public String toString() {
 		return "MemberVO [mem_id=" + mem_id + ", mem_pw=" + mem_pw + ", dept_id=" + dept_id + ", e_mail1=" + e_mail1
 				+ ", e_mail2=" + e_mail2 + ", mem_aut_cd=" + mem_aut_cd + ", e_mail=" + e_mail + ", tel_no=" + tel_no
 				+ ", telno1=" + telno1 + ", telno2=" + telno2 + ", telno3=" + telno3 + ", addr=" + addr + ", addr1="
-				+ addr1 + ", addr2=" + addr2 + "]";
+				+ addr1 + ", addr2=" + addr2 + ", filename=" + filename + ", file=" + file + "]";
 	}
-	
+
 	
 	
 }

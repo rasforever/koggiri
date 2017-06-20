@@ -113,8 +113,8 @@
 				<!-- ************************************* -->
 				<div class="customer_center">
 					<div class="customer_img">
-						<label style="font-size: 30px; color: white;">사진크기 <br>
-							150 * 180
+						<label style="font-size: 30px; color: white;">
+							<img alt="사진" src="/displayFile?fileName=/emp/${empVO.filename }" width="150" height="180" >
 						</label>
 					</div>
 					<div class="customer_info">

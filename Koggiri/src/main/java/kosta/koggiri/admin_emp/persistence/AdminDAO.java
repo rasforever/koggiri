@@ -26,6 +26,7 @@ public interface AdminDAO {
 	public List<Res_AppVO> select_res(App_SearchVO search)throws Exception; //퇴사리스트
 	
 	public void insertEmp(EmpVO vo)throws Exception;
+	public void insertEmp_att(EmpVO vo)throws Exception;
 	
 	public String findEmpid(EmpVO vo)throws Exception;
 	
@@ -59,6 +60,7 @@ public interface AdminDAO {
 	public void update_modifyInformation_addr(EmpInfo_AdminVO vo) throws Exception; //��������
 	public void update_modifyInformation_tel(EmpInfo_AdminVO vo) throws Exception; //��������
 	public void update_modifyInformation_email(EmpInfo_AdminVO vo) throws Exception; //��������
+	public void update_modifyInformation_filename(EmpInfo_AdminVO vo) throws Exception; //��������
 
 
 	public void update_resign(EmpInfo_AdminVO vo) throws Exception; //����

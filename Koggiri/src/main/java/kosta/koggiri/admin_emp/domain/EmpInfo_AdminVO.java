@@ -1,5 +1,6 @@
 package kosta.koggiri.admin_emp.domain;
 
+import org.springframework.web.multipart.MultipartFile;
 
 public class EmpInfo_AdminVO {
 	private String emp_id;	
@@ -10,6 +11,11 @@ public class EmpInfo_AdminVO {
 	private String addr;
 	private Integer res_type;
 	private String expire_dt;
+
+	private String filename;
+	
+	private MultipartFile file;
+	
 	public String getEmp_id() {
 		return emp_id;
 	}
@@ -57,6 +63,18 @@ public class EmpInfo_AdminVO {
 	}
 	public void setExpire_dt(String expire_dt) {
 		this.expire_dt = expire_dt;
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 
 

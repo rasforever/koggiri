@@ -6,7 +6,7 @@
 
 <h2 align="left">사원정보 추가/변경</h2>
 <br>
-<form id="modifyInformation" action="modifyInformation" method="post">
+<form id="modifyInformation" action="modifyInformation" method="post" enctype="multipart/form-data">
 	<table id="modifyInformation_table">
 		<input type="hidden" id="emp_id" name="emp_id" value="">
 		<tr>
