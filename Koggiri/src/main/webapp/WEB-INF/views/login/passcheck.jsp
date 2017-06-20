@@ -35,6 +35,9 @@
            </ul>
    </div>
 </div>
+
+<div id="sub_content">
+
 	<form action="/login/passcheck" method="post">
 		<label>아이디 : ${mem_id }</label>
 		<input type="password" name="mem_pw" maxlength="15" placeholder="비밀번호를 입력하세요" class="idpw_pw">
