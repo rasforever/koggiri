@@ -10,7 +10,6 @@
 
 </head>
 
-
 <body>
 	<div>
 		<div id="jobis_context" class="jobis_context"
@@ -20,9 +19,10 @@
 				<br> <br> <br> <br> <br>
 				<div class="clear" style="text-align: left;"></div>
 				<div class="aa" style="text-align: left;"></div>
-				<div class="from-me">
-					<c:if test="${my_text !=null}">
-						<p style="text-align: left">${my_text}</p>
+				<div>
+					<c:if test="${my_text != null}">
+						<h1 style="text-align: left">${my_text}</h1>
+						<br>
 					</c:if>
 				</div>
 
@@ -58,9 +58,9 @@
 					$.ajax({
 						url : '/jobis/jobis_page',
 						dataType : 'text',
-						data : input_text,
+						data : {a : input_text},
 						type : 'post',
-						success : function(data) {
+						success : function(){
 							$('#jobis_context').append(input_text + "<br>")
 									.css("text-align", "right");
 							$("#input_text").val("");
