@@ -60,9 +60,9 @@
 				<h3>${einfo.emp_nm} ${einfo.pos_nm}</h3>
 				<table class="table table-bordered">
 					<tr>
-						<th>근무일</th>
-						<th>출근시간</th>
-						<th>퇴근시간</th>
+						<th style="text-align: center">근무일</th>
+						<th style="text-align: center">출근시간</th>
+						<th style="text-align: center">퇴근시간</th>
 					</tr>
 
 					<c:forEach items="${list}" var="attendanceVO">

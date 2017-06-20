@@ -83,15 +83,15 @@
 						<br>
 						<div class="box-body">
 							<h3></h3>
-							<table class="table table-bordered">
+							<table class="table table-bordered" >
 
 								<tr>
-									<th>사번</th>
-									<th>사원</th>
-									<th>부서</th>
-									<th>직급</th>
-									<th>출근시간</th>
-									<th>퇴근시간</th>
+									<th style="text-align: center" >사번</th>
+									<th style="text-align: center">사원</th>
+									<th style="text-align: center">부서</th>
+									<th style="text-align: center">직급</th>
+									<th style="text-align: center">출근시간</th>
+									<th style="text-align: center">퇴근시간</th>
 								</tr>
 
 								<c:forEach items="${alldlist}" var="attendanceVO">
