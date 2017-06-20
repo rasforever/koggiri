@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -63,17 +63,17 @@
 					src="../resources/img/msg_check_.png">${msg_count}</a> │ <a
 					class="my_name">${emp_nm} 님이 접속하셨습니다.</a> │ <a class="my_modify"
 					href="../login/passcheck">내 정보 수정</a> │ <a class="log_out"
-					href="../login/logout">로그아웃</a>
+					href="../login/logout" >로그아웃</a>
 			</div>
 			<!-- skipNavi : s -->
-			<div id="skipNavi">
+			<div id="skipNavi" >
 
 				<a href="#header">주메뉴 바로가기</a><a href="#container">본문 바로가기</a>
 			</div>
 			<!-- skipNavi : e -->
 
 			<!-- header : s -->
-			<div id="header">
+			<div id="header" >
 				<div class="logo" style="padding-top: 13px;">
 					<a class="back_for_main" href="/"><img
 						src="../resources/img/koggiri.PNG"
@@ -144,4 +144,4 @@
 			</div>
 		</div>
 		<hr />
-	</div>
+	</div >
