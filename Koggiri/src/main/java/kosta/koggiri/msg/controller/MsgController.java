@@ -48,7 +48,8 @@ private static final Logger logger = LoggerFactory.getLogger(MsgController.class
 			model.addAttribute("n_emp_id", vo.getN_emp_id());
 		}else{
 			model.addAttribute("msglist", service.msgcontent(vo));
-			model.addAttribute("msg_id", vo.getMsg_id());		
+			model.addAttribute("msg_id", vo.getMsg_id());	
+			model.addAttribute("emp_nm", vo.getEmp_nm());
 			model.addAttribute("n_emp_id", vo.getN_emp_id());	
 		}	
 	}

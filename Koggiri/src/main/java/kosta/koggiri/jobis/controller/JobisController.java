@@ -37,12 +37,13 @@ public class JobisController {
 	}
 	
 	@RequestMapping(value="/jobis_page", method=RequestMethod.POST)
-	public String jobis_pagePOST(@RequestParam("a")String data ,Model model, RedirectAttributes rttr )throws Exception{
+	public String jobis_pagePOST(@ModelAttribute("input_text")String input_text ,Model model, RedirectAttributes rttr )throws Exception{
 		
-		rttr.addFlashAttribute("input_text", data);
-		String a = service.jobis_content(data);
-		System.out.println(a);
-		rttr.addFlashAttribute("aa", a);
+		rttr.addAttribute("input_text", input_text);
+		System.out.println("자비스컨트롤러에서 input_text : " + input_text);
+		String my_text = service.jobis_content(input_text);
+		System.out.println("자비스컨트롤러에서 my_text : " + my_text);
+		rttr.addAttribute("my_text", my_text);
 		return "redirect:/jobis/jobis_page";
 	}
 	

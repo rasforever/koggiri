@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+	//HTML문서가 모두 준비되면
+	$(document).ready(function() {
+		//변수 선언
+		var socket = io.connect();
+		//이벤트 연결
+		socket.on('message', function(data) {
+			//추가할 문자열 만듦
+			var output = "";
+			output += '<li>';
+			output += '     <p>' + data.input_text + '</p>';
+			output += '     <p>' + data.input_date + '</p>';
+			output += '</li>';
+
+			//문서객체 추가.
+			$(output).prependTo("#content").css("text-align", "left");
+
+		});
+
+		//버튼을 클릭할 때
+		$('button').click(function() {
+			var Hi = "네 안녕하세요";
+			var test = '안녕';
+			var a = $('#message').val();
+			var b = a.indexOf('안');
+			console.log(b);
+			var c = a.substr(b,test.length);
+			console.log(c);
+			
+			if($('#message').val()==""){
+				alert("공백입니다.");
+			}else{
+				if(c == "안녕"){
+					socket.emit('message',{
+						input_text : Hi,
+						input_date : new Date().toUTCString()
+					});
+				}
+			}
+			/* if ($('#message').val().contains("안녕")) {
+				socket.emit('message', {
+					input_text : Hi,
+					input_date : new Date().toUTCString()
+				});
+			} */
+
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>Jobis</h1>
+	<p>제발 돼라 시1발~</p>
+	<hr />
+
+	<input type="text" id="message" />
+	<button>Button</button>
+	<ul id="content"></ul>
+
+</body>
+</html>
