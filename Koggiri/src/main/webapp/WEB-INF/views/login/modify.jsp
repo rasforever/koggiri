@@ -1,10 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="false"%>
+
+<%@ include file="../include/header.jsp"%>
+
+<link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
+<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
+
+<div class="container_wrap" style="background-color: #ffffff;">
+<div id="container">
+
+<div id="sub_menu_title">
+<h1><img src="/resources/img/s_menu10.png"/></h1>
+<div class="sub_top">   
+    <span><a href="/main">í™ˆ</a>  <span> &gt; </span>  <strong>ë‚´ ì •ë³´ìˆ˜ì •</strong></span>
+</div>
+</div>
+
+
+<div id="lnb">
+     <div class="lnb01">
+      <strong class="menu05"><span>ë‚´ ì •ë³´ìˆ˜ì •</span></strong>
+      <ul>
+
+                <li class="menu02 ">
+                    <a href="/login/passcheck">ë‚´ ì •ë³´ìˆ˜ì •</a>
+                    <ul>
+     
+                    </ul>
+                </li>
+                <ul> </ul>
+           </ul>
+   </div>
+</div>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
@@ -12,42 +43,42 @@
 		new daum.Postcode(
 				{
 					oncomplete : function(data) {
-						// ÆË¾÷¿¡¼­ °Ë»ö°á°ú Ç×¸ñÀ» Å¬¸¯ÇßÀ»¶§ ½ÇÇàÇÒ ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â ºÎºÐ.
+						// íŒì—…ì—ì„œ ê²€ìƒ‰ê²°ê³¼ í•­ëª©ì„ í´ë¦­í–ˆì„ë•Œ ì‹¤í–‰í•  ì½”ë“œë¥¼ ìž‘ì„±í•˜ëŠ” ë¶€ë¶„.
 
-						// °¢ ÁÖ¼ÒÀÇ ³ëÃâ ±ÔÄ¢¿¡ µû¶ó ÁÖ¼Ò¸¦ Á¶ÇÕÇÑ´Ù.
-						// ³»·Á¿À´Â º¯¼ö°¡ °ªÀÌ ¾ø´Â °æ¿ì¿£ °ø¹é('')°ªÀ» °¡Áö¹Ç·Î, ÀÌ¸¦ Âü°íÇÏ¿© ºÐ±â ÇÑ´Ù.
-						var fullAddr = ''; // ÃÖÁ¾ ÁÖ¼Ò º¯¼ö
-						var extraAddr = ''; // Á¶ÇÕÇü ÁÖ¼Ò º¯¼ö
+						// ê° ì£¼ì†Œì˜ ë…¸ì¶œ ê·œì¹™ì— ë”°ë¼ ì£¼ì†Œë¥¼ ì¡°í•©í•œë‹¤.
+						// ë‚´ë ¤ì˜¤ëŠ” ë³€ìˆ˜ê°€ ê°’ì´ ì—†ëŠ” ê²½ìš°ì—” ê³µë°±('')ê°’ì„ ê°€ì§€ë¯€ë¡œ, ì´ë¥¼ ì°¸ê³ í•˜ì—¬ ë¶„ê¸° í•œë‹¤.
+						var fullAddr = ''; // ìµœì¢… ì£¼ì†Œ ë³€ìˆ˜
+						var extraAddr = ''; // ì¡°í•©í˜• ì£¼ì†Œ ë³€ìˆ˜
 
-						// »ç¿ëÀÚ°¡ ¼±ÅÃÇÑ ÁÖ¼Ò Å¸ÀÔ¿¡ µû¶ó ÇØ´ç ÁÖ¼Ò °ªÀ» °¡Á®¿Â´Ù.
-						if (data.userSelectedType === 'R') { // »ç¿ëÀÚ°¡ µµ·Î¸í ÁÖ¼Ò¸¦ ¼±ÅÃÇßÀ» °æ¿ì
+						// ì‚¬ìš©ìžê°€ ì„ íƒí•œ ì£¼ì†Œ íƒ€ìž…ì— ë”°ë¼ í•´ë‹¹ ì£¼ì†Œ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
+						if (data.userSelectedType === 'R') { // ì‚¬ìš©ìžê°€ ë„ë¡œëª… ì£¼ì†Œë¥¼ ì„ íƒí–ˆì„ ê²½ìš°
 							fullAddr = data.roadAddress;
 
-						} else { // »ç¿ëÀÚ°¡ Áö¹ø ÁÖ¼Ò¸¦ ¼±ÅÃÇßÀ» °æ¿ì(J)
+						} else { // ì‚¬ìš©ìžê°€ ì§€ë²ˆ ì£¼ì†Œë¥¼ ì„ íƒí–ˆì„ ê²½ìš°(J)
 							fullAddr = data.jibunAddress;
 						}
 
-						// »ç¿ëÀÚ°¡ ¼±ÅÃÇÑ ÁÖ¼Ò°¡ µµ·Î¸í Å¸ÀÔÀÏ¶§ Á¶ÇÕÇÑ´Ù.
+						// ì‚¬ìš©ìžê°€ ì„ íƒí•œ ì£¼ì†Œê°€ ë„ë¡œëª… íƒ€ìž…ì¼ë•Œ ì¡°í•©í•œë‹¤.
 						if (data.userSelectedType === 'R') {
-							//¹ýÁ¤µ¿¸íÀÌ ÀÖÀ» °æ¿ì Ãß°¡ÇÑ´Ù.
+							//ë²•ì •ë™ëª…ì´ ìžˆì„ ê²½ìš° ì¶”ê°€í•œë‹¤.
 							if (data.bname !== '') {
 								extraAddr += data.bname;
 							}
-							// °Ç¹°¸íÀÌ ÀÖÀ» °æ¿ì Ãß°¡ÇÑ´Ù.
+							// ê±´ë¬¼ëª…ì´ ìžˆì„ ê²½ìš° ì¶”ê°€í•œë‹¤.
 							if (data.buildingName !== '') {
 								extraAddr += (extraAddr !== '' ? ', '
 										+ data.buildingName : data.buildingName);
 							}
-							// Á¶ÇÕÇüÁÖ¼ÒÀÇ À¯¹«¿¡ µû¶ó ¾çÂÊ¿¡ °ýÈ£¸¦ Ãß°¡ÇÏ¿© ÃÖÁ¾ ÁÖ¼Ò¸¦ ¸¸µç´Ù.
+							// ì¡°í•©í˜•ì£¼ì†Œì˜ ìœ ë¬´ì— ë”°ë¼ ì–‘ìª½ì— ê´„í˜¸ë¥¼ ì¶”ê°€í•˜ì—¬ ìµœì¢… ì£¼ì†Œë¥¼ ë§Œë“ ë‹¤.
 							fullAddr += (extraAddr !== '' ? ' (' + extraAddr
 									+ ')' : '');
 						}
 
-						// ¿ìÆí¹øÈ£¿Í ÁÖ¼Ò Á¤º¸¸¦ ÇØ´ç ÇÊµå¿¡ ³Ö´Â´Ù.
-						//document.getElementById('sample6_postcode').value = data.zonecode; //5ÀÚ¸® »õ¿ìÆí¹øÈ£ »ç¿ë
+						// ìš°íŽ¸ë²ˆí˜¸ì™€ ì£¼ì†Œ ì •ë³´ë¥¼ í•´ë‹¹ í•„ë“œì— ë„£ëŠ”ë‹¤.
+						//document.getElementById('sample6_postcode').value = data.zonecode; //5ìžë¦¬ ìƒˆìš°íŽ¸ë²ˆí˜¸ ì‚¬ìš©
 						document.getElementById('addr1').value = fullAddr;
 
-						// Ä¿¼­¸¦ »ó¼¼ÁÖ¼Ò ÇÊµå·Î ÀÌµ¿ÇÑ´Ù.
+						// ì»¤ì„œë¥¼ ìƒì„¸ì£¼ì†Œ í•„ë“œë¡œ ì´ë™í•œë‹¤.
 						document.getElementById('addr2').focus();
 					}
 				}).open();
@@ -61,19 +92,19 @@
 </head>
 <body>
 	<form method="post" action="/login/modify" name="form">
-		<label>¾ÆÀÌµð : ${mem_id}</label><br> <label>ºñ¹Ð¹øÈ£: <input
+		<label>ì•„ì´ë”” : ${mem_id}</label><br> <label>ë¹„ë°€ë²ˆí˜¸: <input
 			type="password" id="password" name="mem_pw" maxlength="50"
-			placeholder="»õ ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä">
-		</label><br> <label>ºñ¹Ð¹øÈ£ È®ÀÎ: <input type="password"
-			name="passwordcheck" maxlength="50" placeholder="ºñ¹Ð¹øÈ£ È®ÀÎ"></label><br>
+			placeholder="ìƒˆ ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš”">
+		</label><br> <label>ë¹„ë°€ë²ˆí˜¸ í™•ì¸: <input type="password"
+			name="passwordcheck" maxlength="50" placeholder="ë¹„ë°€ë²ˆí˜¸ í™•ì¸"></label><br>
 		<label>E-Mail: <input type="text" name="e_mail1"
-			maxlength="50" value="" placeholder="ÀÌ¸ÞÀÏ ¾ÆÀÌµð"> @ &nbsp;<select
+			maxlength="50" value="" placeholder="ì´ë©”ì¼ ì•„ì´ë””"> @ &nbsp;<select
 			name="e_mail2" id="e_mail2">
 				<option value="@naver.com">naver.com</option>
 				<option value="@gmail.com">gmail.com</option>
 				<option value="@daum.net">daum.net</option>
 				<option value="@nate.com">nate.com</option>
-		</select></label><br> <label>ÇÚµåÆù¹øÈ£: <select id="telno1" name="telno1">
+		</select></label><br> <label>í•¸ë“œí°ë²ˆí˜¸: <select id="telno1" name="telno1">
 				<option value="010">010</option>
 				<option value="011">011</option>
 				<option value="016">016</option>
@@ -84,11 +115,16 @@
 			style="width: 45px"> - <input type="input" name="telno3"
 			id="telno3" maxlength="4" style="width: 45px">
 		</label><br> <input type="button" onclick="sample6_execDaumPostcode()"
-			value="ÁÖ¼Ò Ã£±â"><br> <input type="text" id="addr1"
-			name="addr1" placeholder="ÁÖ¼Ò"> <input type="text" id="addr2"
-			name="addr2" placeholder="»ó¼¼ÁÖ¼Ò"> <br><input type="submit"
-			value="¼öÁ¤" /> <input type="button" value="Ãë¼Ò"
+			value="ì£¼ì†Œ ì°¾ê¸°"><br> <input type="text" id="addr1"
+			name="addr1" placeholder="ì£¼ì†Œ"> <input type="text" id="addr2"
+			name="addr2" placeholder="ìƒì„¸ì£¼ì†Œ"> <br><input type="submit"
+			value="ìˆ˜ì •" /> <input type="button" value="ì·¨ì†Œ"
 			onclick="history.go(-2)" />
 	</form>
-</body>
-</html>
+
+</div>
+</div>
+
+<div class="footer_wrap" >
+<div id="footer" style="height: 150px">
+<%@ include file="../include/footer.jsp"%>
