@@ -72,7 +72,7 @@
 
 				<a class="jobis_icon" href="javascript:;" id = "clickclick"
 					onclick="window.open('../jobis/jobis_page','count_button','width=500, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no')">
-					&nbsp;</a> 
+					자비스</a> 
 					
 					<a href="javascript:;"
 					onclick="window.open('../msg/msg_emplist','count_button','width=530, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no')"><img
