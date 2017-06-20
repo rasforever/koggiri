@@ -59,8 +59,13 @@
 
 		$('#att_btn').click(function(event) {
 			var go_w = '${go_w}';
+			var emp_nm = '${emp_nm}';
 			if (go_w == "") {
-				alert(go_w);
+			    var today = new Date();    
+			    var hour = today.getHours();
+			    var minute = today.getMinutes();
+			    
+				alert(emp_nm+"님 "+hour + ":" + minute+" 에 출근하셨습니다");
 			} else {
 				event.preventDefault();
 				alert("이미 출근하셨습니다. ");
@@ -70,8 +75,13 @@
 
 		$('#leave_btn').click(function(event) {
 			var lev_o = '${lev_o}';
+			var emp_nm = '${emp_nm}';
 			if (lev_o == "") {
-				alert(lev_o);
+			    var today = new Date();    
+			    var hour = today.getHours();
+			    var minute = today.getMinutes();
+			    
+				alert(emp_nm+"님 "+hour + ":" + minute+" 에 퇴근하셨습니다");
 			} else {
 				event.preventDefault();
 				alert("이미 퇴근하셨습니다. ");
