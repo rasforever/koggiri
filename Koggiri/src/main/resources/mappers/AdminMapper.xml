@@ -125,7 +125,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<select id="list_calendar" parameterType="String" resultType="H_calendarVO">
 	<![CDATA[
-		select * from calendar where mem_id = #{emp_id}
+		select * from calendar where mem_id = #{emp_id} and show = 'y'
 		and replace(START_DATE,'-','') <= to_char(sysdate, 'yyyymmdd')
         and replace(END_DATE,'-','') >= to_char(sysdate, 'yyyymmdd')
 	]]>
