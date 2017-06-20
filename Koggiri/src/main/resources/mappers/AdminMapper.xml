@@ -229,7 +229,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
     
     <select id="msg_new_count" parameterType="EmpInfo_AdminVO" resultType="int">
-   		 select  MAX(( select count(M.ck_yn) from MSG_LIST M, MSG_EMP_LIST ME 
+   		 select  SUM(( select count(M.ck_yn) from MSG_LIST M, MSG_EMP_LIST ME 
               where M.msg_id = ME.msg_id
                 and M.MSG_ID = (SELECT ml1.msg_id 
                 				 from msg_emp_list ml1, msg_emp_list ml2 
