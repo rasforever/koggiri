@@ -44,7 +44,12 @@ public class Noti_BoardController {
 	public void registerGET(Noti_BoardVO board, Model model, HttpSession session) throws Exception{
 		logger.info("register get ..........");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_id = (String) session.getAttribute("mem_id");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd"); 
+		
 		model.addAttribute("emp_nm", emp_nm);
+		model.addAttribute("mem_id", mem_id);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -71,7 +76,12 @@ public class Noti_BoardController {
 		logger.info("read.....");
 		
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_id = (String) session.getAttribute("mem_id");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd"); 
+		
 		model.addAttribute("emp_nm", emp_nm);
+		model.addAttribute("mem_id", mem_id);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
 		model.addAttribute("Noti_BoardVO", service.read(n_ID));
 	}
 	
@@ -94,7 +104,12 @@ public class Noti_BoardController {
 	public void modifyGET(@RequestParam("n_ID")int n_ID, @ModelAttribute("cri")Noti_SearchCriteria cri, Model model, HttpSession session) throws Exception{
 		
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_id = (String) session.getAttribute("mem_id");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd"); 
+		
 		model.addAttribute("emp_nm", emp_nm);
+		model.addAttribute("mem_id", mem_id);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
 		model.addAttribute("Noti_BoardVO",service.read(n_ID));
 	}
 	
@@ -117,9 +132,12 @@ public class Noti_BoardController {
 
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		String mem_id = (String) session.getAttribute("mem_id");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd"); 
 		
 		request.setAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
+		//model.addAttribute("mem_id", mem_id);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
 		model.addAttribute("list", service.listSearchCriteria(cri));
 		
 		Noti_PageMaker PageMaker = new Noti_PageMaker();
