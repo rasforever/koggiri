@@ -36,6 +36,8 @@
    </div>
 </div>
 
+<div id="sub_content">
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
@@ -89,8 +91,7 @@
 	
 	
 </script>
-</head>
-<body>
+
 	<form method="post" action="/login/modify" name="form">
 		<label>아이디 : ${mem_id}</label><br> <label>비밀번호: <input
 			type="password" id="password" name="mem_pw" maxlength="50"
@@ -120,7 +121,7 @@
 			name="addr2" placeholder="상세주소"> <br><input type="submit"
 			value="수정" /> <input type="button" value="취소"
 			onclick="history.go(-2)" />
-	</form>
+		</form>
 
 </div>
 </div>
