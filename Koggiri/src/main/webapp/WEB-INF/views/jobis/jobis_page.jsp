@@ -60,7 +60,7 @@
 						dataType : 'text',
 						data : input_text,
 						type : 'post',
-						success : function(data) {
+						success : function(){
 							$('#jobis_context').append(input_text + "<br>")
 									.css("text-align", "right");
 							$("#input_text").val("");
