@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kosta.koggiri.admin_emp.service.AdminService;
 import kosta.koggiri.login.domain.MemberVO;
 import kosta.koggiri.login.dto.LoginDTO;
 import kosta.koggiri.login.service.LoginService;
@@ -24,6 +25,9 @@ public class LoginController {
 
 	@Inject
 	private LoginService service;
+	
+	@Inject
+	private AdminService service2;
 
 	@RequestMapping(value = { "", "/logout" }, method = RequestMethod.GET) // 다중매핑
 	public String loginpage(@ModelAttribute("dto") LoginDTO dto, HttpServletRequest request) throws Exception {
@@ -56,10 +60,15 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/passcheck", method = RequestMethod.GET)
-	public void passcheck(HttpSession session, Model model) {
+	public void passcheck(HttpSession session, Model model) throws Exception {
 		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
+		model.addAttribute("emp_nm",emp_nm);
 		model.addAttribute("mem_id", mem_id);
 
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
 	}
 
 	@RequestMapping(value = "/passcheck", method = RequestMethod.POST)
@@ -68,7 +77,7 @@ public class LoginController {
 
 		vo.setMem_id((String) session.getAttribute("mem_id"));
 		dto.setMem_id((String) session.getAttribute("mem_id"));
-
+		
 		MemberVO membervo = service.logincheck(dto);
 
 		if (membervo == null) {
@@ -87,10 +96,22 @@ public class LoginController {
 		
 		model.addAttribute("mem", mem);*/
 
-		return "/login/modify";
+		return "redirect:/login/modify";
 	}
 	
 	
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public void modifyGET(HttpSession session, Model model) throws Exception {
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
+		model.addAttribute("emp_nm",emp_nm);
+		model.addAttribute("mem_id", mem_id);
+
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
+
+	}
 	
 
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
