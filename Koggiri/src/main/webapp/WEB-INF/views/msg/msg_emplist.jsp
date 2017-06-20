@@ -34,18 +34,17 @@
 									<li><span class="msg_font">${Msg_EmpVO.dept_nm}</span><br>
 										<a style="font-size: 25px;"> ${Msg_EmpVO.emp_nm}&nbsp;<span
 											class="msg_font">${Msg_EmpVO.pos_nm}</span></a></li>
-								</ul> <c:if
-									test="${Msg_EmpVO.c_count != 0 }">
-									<span class="msg_font">${Msg_EmpVO.c_count}
-								</c:if> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</ul>  
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href='/msg/msg_content?emp_id=${emp_id}&n_emp_id=${Msg_EmpVO.emp_id}'>
-									<img src="../resources/img/talk.png">
-							</a>
+								&nbsp;&nbsp;&nbsp;&nbsp;
+								 <a href='/msg/msg_content?emp_id=${emp_id}&n_emp_id=${Msg_EmpVO.emp_id}'>
+									<img src="../resources/img/talk.png"></a>
+									<c:if test="${Msg_EmpVO.c_count != 0 }">
+									<span class="msg_cnt_m">${Msg_EmpVO.c_count}</span>
+								</c:if>
 					</c:forEach>
 					</td>
 

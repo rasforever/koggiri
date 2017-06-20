@@ -52,7 +52,7 @@
 				<input type="hidden" name="emp_id" value="${emp_id }"> <input
 					type="hidden" name="msg_id" value="${msg_id }"> <input
 					type="hidden" name="n_emp_id" value="${n_emp_id }">
-				<textarea rows="3" cols="45" name="input_text"></textarea>
+				<textarea rows="3" cols="40" name="input_text"></textarea>
 				<input type="submit" value="전송">
 			</form>
 		</div>

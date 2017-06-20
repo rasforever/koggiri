@@ -75,7 +75,7 @@
 					잡이스</a> 
 					
 					<a href="javascript:;"
-					onclick="window.open('../msg/msg_emplist','count_button','width=560, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no')"><img
+					onclick="window.open('../msg/msg_emplist','count_button','width=530, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no')"><img
 					src="../resources/img/msg_m.png"
 					style="position: relative; top: -2px"><a class="msg_cnt">${msg_count}</a></a>│
 				<a class="my_name">${emp_nm} 님이 접속하셨습니다.</a> │ <a class="my_modify"

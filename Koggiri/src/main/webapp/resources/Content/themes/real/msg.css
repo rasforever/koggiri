@@ -93,6 +93,7 @@ width: 70px;
 	top: 0px;
 	left: 0px;
 	border-bottom: 2px solid gray;
+	z-index: 100;
 }
 
 .msg_header{
@@ -103,6 +104,7 @@ width: 70px;
 	top: 0px;
 	left: 0px;
 	border-bottom: 2px solid gray;
+		z-index: 100;
 }
 
 .msg_contain{
@@ -157,7 +159,7 @@ height: 40px;
 
 .msg_back{
 	    position: relative;
-    left: 195px;
+   left: 165px;
     top: -20px;
     text-decoration: none;
     color: black;
@@ -167,3 +169,16 @@ height: 40px;
     background-color: white;
 }
 
+.msg_cnt_m{
+background-color: #ff0000;
+    padding-right: 8px;
+    padding-bottom: 2px;
+    padding-left: 8px;
+    border-radius: 30px;
+    color: #ffffff;
+    font-weight: bold;
+    position: relative;
+    left: -34px;
+    top: -28px;
+    font-size: 20;
+}
