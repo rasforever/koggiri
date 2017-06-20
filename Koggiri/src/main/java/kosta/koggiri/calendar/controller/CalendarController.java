@@ -17,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,8 +35,10 @@ public class CalendarController {
 	private CalendarService service;
 
 	@RequestMapping(value = "/index")
-	public String calendar() throws Exception {
-
+	public String calendar(HttpServletRequest request,Model model) throws Exception {
+		HttpSession session =request.getSession();
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("emp_nm", emp_nm);
 		return "/calendar/index";
 	}
 

@@ -3,6 +3,7 @@
    pageEncoding="UTF-8"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
+
 <%
    Calendar cal = Calendar.getInstance();
 
@@ -40,8 +41,22 @@
 <link type="text/css" rel="stylesheet"
    href="../resources/Content/themes/real/cal.css" />
 
+<!-- --------------------마우스 오버 스크립트--------------------------- -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.main #content div>a').on({
+	        mouseenter:function() {
+		        $(this).stop().animate({'top':'-206px'}, 500, "easeInOutCubic");
+	        },
+	        mouseleave:function() {
+		        $(this).stop().animate({'top':'0px'}, 500, "easeInOutCubic");
+	        },
+        });
+    });
+</script>
+<!-- ------------------------마우스 오버 스크립트----------------------- -->
 
-<!-- ------------------------------------------------------------------------ -->
+
 
 <!-- 본문 시작 -->
 <!-- 본문 시작 -->
@@ -88,18 +103,16 @@
 
             <div class="remote_support"
                style="width: 226px; height: 206px; background: white;"
-               align="center">
+               align="left">
                <form method='post' action='att'>
-                  <input type="submit" class="on_btn" id="att_btn" value=""
-                     style="margin: 20px 0px 5px 0px;">
+                  <input type="submit" class="on_btn" id="att_btn" value=""> //몇시 출근~
                </form>
                <form method='post' action='leave'>
-                  <input type="submit" class="off_btn" id="leave_btn" value=""
-                     style="margin: 7px;">
+                  <input type="submit" class="off_btn" id="leave_btn" value=""> //몇시 퇴근~
                </form>
                <form method='get' action='attendance/att_dlist'>
                   <input type="submit" value="근태확인" class="att_list"
-                     style="width: 120px; height: 35px; border: 0px; background: gray; margin: 7px;">
+                     style="    width: 120px;  height: 35px;  border: 0px; background: #607D8B; color: #ffffff; margin-left: 50px;">
                </form>
             </div>
             <!-- *************************************** -->

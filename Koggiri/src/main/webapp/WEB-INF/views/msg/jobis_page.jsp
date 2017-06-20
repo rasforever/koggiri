@@ -11,8 +11,8 @@
 
 <body>
 	<div>
-		<div id="msg_context" class="msg_context"
-			style="overflow-y: scroll; height: 430px">
+		<div id="jobis_context" class="jobis_context"
+			style="overflow-y: scroll; height: 600px">
 			<section>
 				<%-- ${ck_emp_id} --%>
 				<c:forEach items="${msglist}" var="msgVO">
@@ -42,21 +42,18 @@
 		</div>
 
 		<div class="msg_header">
-			<br> <img src="../resources/img/koggiri_talk.png">
-
-			<a class="msg_back" href="http://localhost:8081/msg/msg_emplist">목록</a>
-
+			<br> <img src="../resources/img/koggiri_talk.png"> <br>
 		</div>
 		<div class="msg_contextBox">
 			<form action="msg_content" method="post">
 				<input type="hidden" name="emp_id" value="${emp_id }"> <input
 					type="hidden" name="msg_id" value="${msg_id }"> <input
 					type="hidden" name="n_emp_id" value="${n_emp_id }">
-				<textarea rows="3" cols="45" name="input_text"></textarea>
+				<textarea rows="3" cols="50" name="input_text"></textarea>
 				<input type="submit" value="전송">
 			</form>
 		</div>
-
+		
 	</div>
 	
 	<script type="text/javascript">
@@ -69,4 +66,3 @@
 
 
 <!-- /.box-body -->
-

@@ -29,6 +29,8 @@ public class TaskController {
 	
 	@Inject
 	private TaskService service;
+	
+	@Inject
 	private AdminService service2;
 	
 	
