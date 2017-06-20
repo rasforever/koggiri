@@ -46,6 +46,7 @@
                     <a href="/importantboard/listPage">알립니다</a>
                     <ul>
                       <li class="sub01 "><a href="/importantboard/listPage">알립니다 목록</a></li>
+                      
                       <li class="sub02 "><a href="/importantboard/register">알립니다 작성</a></li>
                     </ul>
                 </li>
@@ -202,6 +203,10 @@
 			});
 </script>
 
+<script>
+
+
+</script>
 <br><br>
 	
 <!-- 본문 내용  끝-->
