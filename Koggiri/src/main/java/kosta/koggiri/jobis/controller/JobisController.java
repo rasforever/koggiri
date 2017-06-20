@@ -39,10 +39,10 @@ public class JobisController {
 	@RequestMapping(value="/jobis_page", method=RequestMethod.POST)
 	public String jobis_pagePOST(@RequestParam("a")String data ,Model model, RedirectAttributes rttr )throws Exception{
 		
-		rttr.addAttribute("input_text", data);
+		rttr.addFlashAttribute("input_text", data);
 		String a = service.jobis_content(data);
 		System.out.println(a);
-		rttr.addAttribute("aa", a);
+		rttr.addFlashAttribute("aa", a);
 		return "redirect:/jobis/jobis_page";
 	}
 	
