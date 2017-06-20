@@ -90,17 +90,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		LEA_TIME = to_char(sysdate, 'HH24:MI') WHERE EMP_ID = #{emp_id} and
 		ATT_DT = to_char(sysdate,'YYYYMMDD')
 	</update>
+	
+	<select id="selectW_L" parameterType="String" resultType="EmpTimeVO">
+		select * from ATTENDANCE 
+		 WHERE EMP_ID = #{emp_id} 
+		 and ATT_DT = to_char(sysdate,'YYYYMMDD')
+	</select> 
 
 	<select id="searchEmp" resultType="EmpVO">
 		select emp_id, emp_nm from emp
-		where emp_id like #{emp_id} or emp_nm like #{emp_id}
+		where (emp_id like #{emp_id} or emp_nm like #{emp_id})
 		and WSTATE_CD = '0'
 	</select>
 
 	<select id="searchatt_Emp" resultType="EmpVO">
-		select e.emp_id as emp_id,
-		e.emp_nm as emp_nm from emp e, member m where e.emp_id like #{emp_id}
-		or e.emp_nm like #{emp_id}
+		select DISTINCT e.emp_id as emp_id,
+			e.emp_nm as emp_nm 
+		from emp e, member m 
+		where (e.emp_id like #{emp_id} or e.emp_nm like #{emp_id})
 		and e.emp_id = m.mem_id and m.mem_aut_cd = 'A'
 		and WSTATE_CD = '0'
 	</select>
@@ -222,7 +229,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
     
     <select id="msg_new_count" parameterType="EmpInfo_AdminVO" resultType="int">
-   		 select  MAX(( select count(M.ck_yn) from MSG_LIST M, MSG_EMP_LIST ME 
+   		 select  SUM(( select count(M.ck_yn) from MSG_LIST M, MSG_EMP_LIST ME 
               where M.msg_id = ME.msg_id
                 and M.MSG_ID = (SELECT ml1.msg_id 
                 				 from msg_emp_list ml1, msg_emp_list ml2 

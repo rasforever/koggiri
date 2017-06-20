@@ -84,14 +84,14 @@
 							<table class="table table-bordered">
 
 								<tr>
-									<th>사번</th>
-									<th>사원</th>
-									<th>부서</th>
-									<th>직급</th>
-									<th>근무일</th>
-									<th>출근일</th>
-									<th>결근일</th>
-									<th>휴가</th>
+									<th style="text-align: center">사번</th>
+									<th style="text-align: center">사원</th>
+									<th style="text-align: center">부서</th>
+									<th style="text-align: center">직급</th>
+									<th style="text-align: center">근무일</th>
+									<th style="text-align: center">출근일</th>
+									<th style="text-align: center">결근일</th>
+									<th style="text-align: center">휴가</th>
 								</tr>
 
 								<c:forEach items="${att_mlist}" var="attendanceVO">

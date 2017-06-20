@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import kosta.koggiri.admin_emp.service.AdminService;
 import kosta.koggiri.noticeboard.domain.Noti_BoardVO;
 import kosta.koggiri.noticeboard.domain.Noti_SearchCriteria;
 import kosta.koggiri.noticeboard.domain.Noti_PageMaker;
@@ -37,6 +39,9 @@ public class Noti_BoardController {
 	@Inject
 	private Noti_BoardService service;
 	
+	@Inject
+	private AdminService service2;
+	
 	@Resource(name = "uploadPath") // �떎�슫濡쒕뱶 寃쎈줈
 	private String uploadPath;
 	
@@ -44,7 +49,13 @@ public class Noti_BoardController {
 	public void registerGET(Noti_BoardVO board, Model model, HttpSession session) throws Exception{
 		logger.info("register get ..........");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_id = (String) session.getAttribute("mem_id");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd"); 
+		
 		model.addAttribute("emp_nm", emp_nm);
+		model.addAttribute("mem_id", mem_id);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id)); 
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -71,8 +82,14 @@ public class Noti_BoardController {
 		logger.info("read.....");
 		
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_id = (String) session.getAttribute("mem_id");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd"); 
+		
 		model.addAttribute("emp_nm", emp_nm);
+		model.addAttribute("mem_id", mem_id);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
 		model.addAttribute("Noti_BoardVO", service.read(n_ID));
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id)); 
 	}
 	
 	@RequestMapping(value = "/remove", method = RequestMethod.POST )
@@ -94,8 +111,15 @@ public class Noti_BoardController {
 	public void modifyGET(@RequestParam("n_ID")int n_ID, @ModelAttribute("cri")Noti_SearchCriteria cri, Model model, HttpSession session) throws Exception{
 		
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_id = (String) session.getAttribute("mem_id");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd"); 
+		
 		model.addAttribute("emp_nm", emp_nm);
+		model.addAttribute("mem_id", mem_id);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id)); 
 		model.addAttribute("Noti_BoardVO",service.read(n_ID));
+		
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
@@ -117,9 +141,13 @@ public class Noti_BoardController {
 
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		String mem_id = (String) session.getAttribute("mem_id");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd"); 
 		
 		request.setAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
+		//model.addAttribute("mem_id", mem_id);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id)); 
 		model.addAttribute("list", service.listSearchCriteria(cri));
 		
 		Noti_PageMaker PageMaker = new Noti_PageMaker();

@@ -75,12 +75,12 @@
 							<h3></h3>
 							<table class="perApp_table_title" border="1">
 								<tr>
-									<th>사원ID</th>
-									<th>성명</th>
-									<th>변경일</th>
-									<th>인사발령명</th>
-									<th>변경 직급</th>
-									<th>변경 부서</th>
+									<th style="text-align: center">사원ID</th>
+									<th style="text-align: center">성명</th>
+									<th style="text-align: center">변경일</th>
+									<th style="text-align: center">인사발령명</th>
+									<th style="text-align: center">변경 직급</th>
+									<th style="text-align: center">변경 부서</th>
 
 								</tr>
 
