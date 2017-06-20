@@ -134,7 +134,7 @@
 						<div class="box-footer">
 							<ul class="mailbox-attachments clearfix uploadedList"></ul>
 							
-							<c:if test="${emp_nm=='master'}">
+							<c:if test="${mem_aut_cd=='A'}">
 							<button type="submit" class="btn btn-warning">수정하기</button>
 							<button type="submit" class="btn btn-danger">삭제하기</button>
 							</c:if>

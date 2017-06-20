@@ -90,7 +90,7 @@
 							</select> <input type="text" name='keyword' id="keywordInput"
 						value='${cri.keyword }'>
 					<button id='searchBtn' class="pagination" style="border: 1px solid #bdbdbd; padding: 4px">검색</button>
-					<c:if test="${emp_nm=='master'}">
+					<c:if test="${mem_aut_cd=='A'}">
 					<button id='newBtn' class="pagination" style="border: 1px solid #bdbdbd; padding: 4px">글 작성</button>
 					</c:if>
 
