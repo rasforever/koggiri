@@ -29,7 +29,7 @@
 
 					<c:if test="${msgVO.emp_id == n_emp_id}">
 						<div class="clear"></div>
-						<div class="emp_name">사원이름</div>
+						<div class="emp_name">${msgVO.emp_nm }</div>
 						<div class="from-them" style="text-align: left">
 							<c:if test="${msgVO.input_text !=null}">
 								<p>${msgVO.input_text }</p>
