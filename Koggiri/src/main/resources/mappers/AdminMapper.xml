@@ -51,10 +51,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertEmp" parameterType="EmpVO">
 		insert into
 		emp(emp_id,emp_nm,res_no,sex_id,nation_id,dept_id,pos_id,join_dt
-		,wstate_cd,input_emp_id,input_sysdt)
+		,wstate_cd,input_emp_id,input_sysdt,filename)
 		values(#{emp_id},#{emp_nm},#{res_no},#{sex_id},#{nation_id}
 		,#{dept_id},#{pos_id},#{join_dt}
-		,#{wstate_cd},#{input_emp_id},sysdate)
+		,#{wstate_cd},#{input_emp_id},sysdate,#{filename})
 	</insert>
 
 	<select id="findEmpid" parameterType="EmpVO" resultType="String">

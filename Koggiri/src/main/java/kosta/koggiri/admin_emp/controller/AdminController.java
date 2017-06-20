@@ -1,6 +1,8 @@
 package kosta.koggiri.admin_emp.controller;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
 import javax.inject.Inject;
@@ -13,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.admin_emp.domain.Admin_MemberVO;
@@ -134,12 +137,27 @@ public class AdminController {
 		vo.setEmp_id(emp_id);
 		vo.setWstate_cd("0");
 		vo.setInput_emp_id("master");
-		service.insertEmp(vo);
+		MultipartFile uploadfile = vo.getFile();
+        if (uploadfile != null) {
+            String fileName = uploadfile.getOriginalFilename();
+            fileName = emp_id + fileName.substring(fileName.lastIndexOf("."));
+            vo.setFilename(fileName);
+            try {
+                // 1. C:\\kosta\\upload
+                File file = new File("C:/kosta/upload/" + fileName);
+                uploadfile.transferTo(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } // try - catch
+        } // if
+        service.insertEmp(vo);
 
 		String mem_pw = vo.getRes_no().substring(0, 6); // 
 		vo.setMem_pw(mem_pw);
 		service.tempPass(vo);
-
+		
+		
+        // 데이터 베이스 처리를 현재 위치에서 처리
 		return "redirect:/admin_emp/manager";
 
 	}
@@ -271,6 +289,9 @@ public class AdminController {
 		model.addAttribute("emplist", service.searchatt_Emp(emp));
 		
 	}
+	
+	
+
 
 	public static String temporaryPassword(int size) {
 		StringBuffer buffer = new StringBuffer();

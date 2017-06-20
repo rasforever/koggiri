@@ -9,13 +9,15 @@
 		});
 
 	});
+	
+
 </script>
 <br>
 <br>
 <br>
 <div id="joinus" align="left">
 	<h2>입사 발령 입력</h2>
-	<form action="joinus" method="post" id="insertform">
+	<form action="joinus" method="post" id="insertform" enctype="multipart/form-data">
 		<table id="joinus_table">
 			<tr>
 				<th align="center" width="150px">이름</th>
@@ -78,6 +80,13 @@
 				<td><input type="text" style="width: 290px;" name="res_no"
 					placeholder=" ' - '없이 입력하세요"></td>
 			</tr>
+			<tr>
+				<th align="center">사진</th>
+				<td><input type="file" name="file" required="required"></td>
+				
+			</tr>
+			
+
 			<tr>
 				<br>
 				<td colspan="2" align="center"><input type="submit" value="추가"
