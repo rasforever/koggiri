@@ -37,7 +37,7 @@ public class JobisController {
 	}
 	
 	@RequestMapping(value="/jobis_page", method=RequestMethod.POST)
-	public String jobis_pagePOST(String input_text ,Model model, RedirectAttributes rttr )throws Exception{
+	public String jobis_pagePOST(@RequestParam("a")String input_text ,Model model, RedirectAttributes rttr )throws Exception{
 		
 		model.addAttribute("input_text", input_text);
 		System.out.println("자비스컨트롤러에서 input_text : " + input_text);
