@@ -151,7 +151,7 @@
 																				title : title.value,
 																				start : start,
 																				end : end,
-																				content : content.value
+																				content : content_cal.value
 																						.replace(
 																								/\n/gi,
 																								"<br>")

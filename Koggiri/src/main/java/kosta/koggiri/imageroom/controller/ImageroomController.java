@@ -27,13 +27,13 @@ public class ImageroomController {
 	private ImageroomService service;
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public void list(Model model,HttpSession session)throws Exception{
+	public String list(Model model,HttpSession session)throws Exception{
 		System.out.println("아왜안됨");
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
-		
+		return "imageroom/list";
 	}
 	
 	//로비에 방 리스트 전송
@@ -120,9 +120,9 @@ public class ImageroomController {
 		ResponseEntity<Integer> entity = null;
 		
 		try {
-			Integer image_room_no = service.nextRoomNoRead();
+			Integer room_id = service.nextRoomNoRead();
 
-			entity = new ResponseEntity<Integer>(image_room_no, HttpStatus.OK);
+			entity = new ResponseEntity<Integer>(room_id, HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
 			entity = new ResponseEntity<Integer>(HttpStatus.BAD_REQUEST);
