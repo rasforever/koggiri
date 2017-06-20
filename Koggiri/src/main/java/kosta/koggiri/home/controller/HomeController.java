@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import kosta.koggiri.admin_emp.domain.EmpTimeVO;
 import kosta.koggiri.admin_emp.domain.EmpVO;
 import kosta.koggiri.admin_emp.service.AdminService;
 
@@ -59,6 +61,10 @@ public class HomeController {
 		model.addAttribute("list_important", service.list_important());
 		model.addAttribute("list_calendar", service.list_calendar(mem_id));
 		model.addAttribute("msg_count", service.msg_new_count(mem_id));		
+		EmpTimeVO etvo = new EmpTimeVO();
+		etvo = service.et_time(mem_id);
+		model.addAttribute("go_w", etvo.getAtt_time());
+		model.addAttribute("lev_o", etvo.getLea_time());
 		
 		return "/main";
 	}

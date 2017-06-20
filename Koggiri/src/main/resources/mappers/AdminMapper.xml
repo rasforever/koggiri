@@ -90,6 +90,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		LEA_TIME = to_char(sysdate, 'HH24:MI') WHERE EMP_ID = #{emp_id} and
 		ATT_DT = to_char(sysdate,'YYYYMMDD')
 	</update>
+	
+	<select id="selectW_L" parameterType="String" resultType="EmpTimeVO">
+		select * from ATTENDANCE 
+		 WHERE EMP_ID = #{emp_id} 
+		 and ATT_DT = to_char(sysdate,'YYYYMMDD')
+	</select> 
 
 	<select id="searchEmp" resultType="EmpVO">
 		select emp_id, emp_nm from emp
