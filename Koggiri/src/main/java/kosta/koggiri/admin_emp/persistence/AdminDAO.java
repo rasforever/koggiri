@@ -6,6 +6,7 @@ import kosta.koggiri.admin_emp.domain.Admin_MemberVO;
 import kosta.koggiri.admin_emp.domain.App_SearchVO;
 import kosta.koggiri.admin_emp.domain.Dept_TypeVO;
 import kosta.koggiri.admin_emp.domain.EmpInfo_AdminVO;
+import kosta.koggiri.admin_emp.domain.EmpTimeVO;
 import kosta.koggiri.admin_emp.domain.EmpVO;
 import kosta.koggiri.admin_emp.domain.H_CalendarVO;
 import kosta.koggiri.admin_emp.domain.H_ImportantVO;
@@ -65,5 +66,7 @@ public interface AdminDAO {
 	
 
 	public int msg_new_count(String emp_id) throws Exception; //신규 메세지 확인
-
+	
+	
+	public EmpTimeVO et_time(String emp_id)throws Exception;
 }
