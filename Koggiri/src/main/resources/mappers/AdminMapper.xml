@@ -99,14 +99,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="searchEmp" resultType="EmpVO">
 		select emp_id, emp_nm from emp
-		where emp_id like #{emp_id} or emp_nm like #{emp_id}
+		where (emp_id like #{emp_id} or emp_nm like #{emp_id})
 		and WSTATE_CD = '0'
 	</select>
 
 	<select id="searchatt_Emp" resultType="EmpVO">
-		select e.emp_id as emp_id,
-		e.emp_nm as emp_nm from emp e, member m where e.emp_id like #{emp_id}
-		or e.emp_nm like #{emp_id}
+		select DISTINCT e.emp_id as emp_id,
+			e.emp_nm as emp_nm 
+		from emp e, member m 
+		where (e.emp_id like #{emp_id} or e.emp_nm like #{emp_id})
 		and e.emp_id = m.mem_id and m.mem_aut_cd = 'A'
 		and WSTATE_CD = '0'
 	</select>
