@@ -39,15 +39,18 @@
                     <a href="/noticeboard/listPage">공지사항</a>
                     <ul>
                       <li class="sub01 "><a href="/noticeboard/listPage">공지사항 목록</a></li>
+                      <c:if test="${Imp_BoardVO.i_EMP_ID == mem_id or mem_aut_cd == 'A'}">
                       <li class="sub02 "><a href="/noticeboard/register">공지사항 작성</a></li>
+                      </c:if>
                     </ul>
                 </li>
                 <li class="menu02 ">
                     <a href="/importantboard/listPage">알립니다</a>
                     <ul>
                       <li class="sub01 "><a href="/importantboard/listPage">알립니다 목록</a></li>
-                      
+                      	<c:if test="${Imp_BoardVO.i_EMP_ID == mem_id or mem_aut_cd == 'A'}">
                       <li class="sub02 "><a href="/importantboard/register">알립니다 작성</a></li>
+                      </c:if>
                     </ul>
                 </li>
            </ul>

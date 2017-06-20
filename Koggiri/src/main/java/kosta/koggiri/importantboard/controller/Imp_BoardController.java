@@ -57,7 +57,7 @@ public class Imp_BoardController {
 		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
 		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("emp_nm", emp_nm);
-		
+		model.addAttribute("mem_id",mem_id);
 		
 		
 		
@@ -83,6 +83,7 @@ public class Imp_BoardController {
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		
+		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm", emp_nm);
 		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
 		model.addAttribute("mem_aut_cd",mem_aut_cd);
@@ -111,6 +112,7 @@ public class Imp_BoardController {
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		
+		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("emp_nm", emp_nm);
 		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
 		model.addAttribute("mem_aut_cd",mem_aut_cd);
@@ -138,7 +140,7 @@ public class Imp_BoardController {
 		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
 		String mem_id = (String) session.getAttribute("mem_id");
 
-		
+		model.addAttribute("mem_id",mem_id);
 		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
 		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("emp_nm", emp_nm);
