@@ -1344,3 +1344,18 @@ table.tbl_goods td>span{display:inline-block;width:42px;}
 .app_sel_table tr td{
 	text-align: left;
 }
+
+.msg_cnt{
+    background-color: #ff0000;
+    padding: 2px 5px 3px 5px;
+    border-radius: 30px;
+    color: #ffffff;
+    font-weight: bold;
+    position: relative;
+    left: -15px;
+    top: -7px;
+	
+}
+.msg_cnt:HOVER {
+	color:#ffffff;
+}
