@@ -3,12 +3,15 @@ package kosta.koggiri.jobis.controller;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.jobis.service.JobisService;
@@ -34,17 +37,22 @@ public class JobisController {
 	//	model.addAttribute("a", a);
 
 	//	System.out.println("c"+a);
+		
 	}
 	
-	@RequestMapping(value="/jobis_page", method=RequestMethod.POST)
+	@RequestMapping(value="/jobis_page", produces = "application/text; charset=utf8",method=RequestMethod.POST)
+	@ResponseBody
 	public String jobis_pagePOST(@RequestParam("a")String input_text ,Model model, RedirectAttributes rttr )throws Exception{
 		
-		model.addAttribute("input_text", input_text);
+		
+		rttr.addFlashAttribute("input_text", input_text);
 		System.out.println("자비스컨트롤러에서 input_text : " + input_text);
 		String my_text = service.jobis_content(input_text);
 		System.out.println("자비스컨트롤러에서 my_text : " + my_text);
-		model.addAttribute("my_text", my_text);
-		return "redirect:/jobis/jobis_page";
+		rttr.addAttribute("my_text", my_text);
+		
+		
+		return my_text;
 	}
 	
 	
