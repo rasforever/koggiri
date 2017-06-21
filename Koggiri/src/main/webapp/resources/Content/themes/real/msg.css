@@ -31,10 +31,9 @@ section div {
 	float: right;
 }
 
-
 .from-them {
 	position: relative;
-	margin-left:30px;
+	margin-left: 30px;
 	padding: 5px 20px;
 	background: #E5E5EA;
 	border-radius: 25px;
@@ -42,63 +41,64 @@ section div {
 	float: left;
 }
 
-p{
-	
-    margin-bottom: 0px;
-    margin-top: 0px;
-    padding-bottom: 3px;
-    padding-top: 3px;
+p {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	padding-bottom: 3px;
+	padding-top: 3px;
 }
-.msg_contextBox{
+
+.msg_contextBox {
 	padding-top: 7px;
 }
 
-.msg_contextBox textarea{
-position: relative;
-    top: 13px;
-    left: 20px;
-    resize: none;
-    font-size: 18px;
-    
+.msg_contextBox textarea {
+	position: relative;
+	top: 13px;
+	left: 20px;
+	resize: none;
+	font-size: 18px;
 }
-.msg_contextBox input{
-width: 70px;
-    height: 65px;
-    position: relative;
-    left: 30px;
-    top: -10px;
-    background: #e5e5ea;
-    border: 0px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #0b93f6;
-}
-.msg_contextBox input:HOVER{
-	color:#ffffff;
-	}
 
-.msg_context{
+.msg_contextBox input {
+	width: 70px;
+	height: 65px;
+	position: relative;
+	left: 30px;
+	top: -10px;
+	background: #e5e5ea;
+	border: 0px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #0b93f6;
+}
+
+.msg_contextBox input:HOVER {
+	color: #ffffff;
+}
+
+.msg_context {
 	background-color: #ffffff;
 }
+
 }
 /*******************************************/
 
-
 /*msg_header를 왜 두번 써야 하는지 모르겠지만 하나만 쓰면 적용이 안됨*/
-.msg_header{
-	width:100%;
-	height:80px;
+.msg_header {
+	width: 100%;
+	height: 80px;
 	position: fixed;
 	background-color: rgb(238, 241, 242);
 	top: 0px;
 	left: 0px;
 	border-bottom: 2px solid gray;
 	z-index: 100;
-} 
+}
 
-.msg_header{
-	width:100%;
-	height:80px;
+.msg_header {
+	width: 100%;
+	height: 80px;
 	position: fixed;
 	background-color: rgb(238, 241, 242);
 	top: 0px;
@@ -107,125 +107,126 @@ width: 70px;
 	z-index: 100; /* 레이어 제일 위로 올리기*/
 }
 
-.msg_contain{
-	    margin-top: 60px;
-	    padding-left: 0px;
-	    width: 100%;
+.msg_contain {
+	margin-top: 60px;
+	padding-left: 0px;
+	width: 100%;
 }
-.msg_context{
+
+.msg_context {
 	margin-top: 100px;
 }
 
-
-.msg_title{
+.msg_title {
 	font-size: 20px;
 	text-align: center;
-
 }
-.msg_contain li a{
+
+.msg_contain li a {
 	text-decoration: none;
 	color: black;
- 	
 }
-.msg_contain li{
+
+.msg_contain li {
 	display: inline;
 }
 
-.msg_contain ul{
-height: 40px;
-    margin-bottom: 0px;
-    float: left;
+.msg_contain ul {
+	height: 40px;
+	margin-bottom: 0px;
+	float: left;
 }
-.msg_font{
+
+.msg_font {
 	font-size: 16px;
 }
-.msg_table td:FIRST-CHILD:HOVER{
 
+.msg_table td:FIRST-CHILD:HOVER {
 	background-color: rgb(238, 241, 242);
 }
 
-
-.msg_table img{
-	width: 60px; 
+.msg_table img {
+	width: 60px;
 	height: 60px;
 	margin-top: 10px;
 }
-.msg_header img{
-    position: relative;
-    left: 20px;
-    top: -8px;
 
+.msg_header img {
+	position: relative;
+	left: 20px;
+	top: -8px;
 }
 
-.msg_back{
-	    position: relative;
-   left: 165px;
-    top: -20px;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    border: 2px solid white;
-    padding: 3px;
-    background-color: white;
+.msg_back {
+	position: relative;
+	left: 165px;
+	top: -20px;
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	border: 2px solid white;
+	padding: 3px;
+	background-color: white;
 }
 
-.msg_cnt_m{
-background-color: #ff0000;
-    padding-right: 8px;
-    padding-bottom: 2px;
-    padding-left: 8px;
-    border-radius: 30px;
-    color: #ffffff;
-    font-weight: bold;
-    position: relative;
-    left: -34px;
-    top: -28px;
-    font-size: 20;
+.msg_cnt_m {
+	background-color: #ff0000;
+	padding-right: 8px;
+	padding-bottom: 2px;
+	padding-left: 8px;
+	border-radius: 30px;
+	color: #ffffff;
+	font-weight: bold;
+	position: relative;
+	left: -34px;
+	top: -28px;
+	font-size: 20;
 }
 
 /*************************************/
-
-
 .jobis_me {
 	width: 100%;
 	margin-bottom: 15px;
 	margin-right: 10px;
-	
-}
-.jobis_me a{
-	    background-color: #2196F3;
-    padding: 10px 20px;
-    border-radius: 21px;
-    color: #ffffff;
 }
 
-.jobis_you{
+.jobis_me a {
+	background-color: #2196F3;
+	padding: 10px 20px;
+	border-radius: 21px;
+	color: #ffffff;
+	max-width: 240px;
+}
+
+.jobis_you {
 	width: 100%;
 	margin-bottom: 15px;
 }
-.jobis_you a{
-		    background-color: #ff80c0;
-    padding: 10px 20px;
-    border-radius: 21px;
-    color: #ffffff;
+
+.jobis_you a {
+	background-color: #ff80c0;
+	padding: 10px 20px;
+	border-radius: 21px;
+	color: #ffffff;
 }
 
-.jobis_context{
-	    overflow-y: scroll;
-    position: relative;
-    top: 70px;
-    height: 480px;
-    padding: 0px 10px;
-}
-.jobis_contextBox{
-	    position: relative;
-    top: 90px;
+.jobis_context {
+	overflow-y: scroll;
+	position: relative;
+	top: 70px;
+	height: 480px;
+	padding: 0px 10px;
 }
 
-.jobis_contextBox input{
-	    position: relative;
-    left: 30px;
-    top: -18px;
-    height: 50px;
-    width: 60px;
+.jobis_contextBox {
+	position: relative;
+	top: 90px;
+}
+
+.jobis_contextBox input {
+	position: relative;
+	left: 30px;
+	top: -18px;
+	height: 50px;
+	width: 60px;
 }

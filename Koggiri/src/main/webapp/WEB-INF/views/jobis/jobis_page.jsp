@@ -50,7 +50,7 @@
 						type : 'post',
 						success : function(data) {
 
-							$('#jobis_context').append("<div class='jobis_me' align='right' ><a>" + input_text + "</a></div><br>")
+							$('#jobis_context').append("<div class='jobis_me' align='right'><a>" + input_text + "</a></div><br>")
 							$('#jobis_context').append(
 									"<div class='jobis_you' align='left'><a>" + data + "</a></div><br>");
 							$('#input_text').val("");
