@@ -12,17 +12,9 @@
 
 <body>
 	<div>
-		<div id="jobis_context" class="jobis_context" 
-			style="overflow-y: scroll; height: 600px">
+		<div id="jobis_context" class="jobis_context" >
 			<section>
 				<%-- ${ck_emp_id} --%>
-				<br> <br> <br> <br> <br>
-
-				
-
-
-
-
 			</section>
 		</div>
 
@@ -32,7 +24,7 @@
 
 		<div class="jobis_contextBox">
 
-			<textarea rows="3" cols="50" id="input_text"></textarea>
+			<textarea rows="3" cols="55" id="input_text" style="position: relative; left: 20px;"></textarea>
 			<input type="submit" id="submit" value="전송">
 
 		</div>
@@ -58,9 +50,9 @@
 						type : 'post',
 						success : function(data) {
 
-							$('#jobis_context').append("<div class='jobis_me' align='right' style='width=100%'>" + input_text + "</div>")
+							$('#jobis_context').append("<div class='jobis_me' align='right' ><a>" + input_text + "</a></div><br>")
 							$('#jobis_context').append(
-									"<div class='jobis_you' align='left' style='width=100%'>" + data + "</div>");
+									"<div class='jobis_you' align='left'><a>" + data + "</a></div><br>");
 							$('#input_text').val("");
 
 						}
