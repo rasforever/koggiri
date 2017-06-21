@@ -182,3 +182,50 @@ background-color: #ff0000;
     top: -28px;
     font-size: 20;
 }
+
+/*************************************/
+
+
+.jobis_me {
+	width: 100%;
+	margin-bottom: 15px;
+	margin-right: 10px;
+	
+}
+.jobis_me a{
+	    background-color: #2196F3;
+    padding: 10px 20px;
+    border-radius: 21px;
+    color: #ffffff;
+}
+
+.jobis_you{
+	width: 100%;
+	margin-bottom: 15px;
+}
+.jobis_you a{
+		    background-color: #ff80c0;
+    padding: 10px 20px;
+    border-radius: 21px;
+    color: #ffffff;
+}
+
+.jobis_context{
+	    overflow-y: scroll;
+    position: relative;
+    top: 70px;
+    height: 480px;
+    padding: 0px 10px;
+}
+.jobis_contextBox{
+	    position: relative;
+    top: 90px;
+}
+
+.jobis_contextBox input{
+	    position: relative;
+    left: 30px;
+    top: -18px;
+    height: 50px;
+    width: 60px;
+}
