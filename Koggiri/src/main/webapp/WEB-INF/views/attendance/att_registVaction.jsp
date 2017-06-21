@@ -21,12 +21,12 @@
 <script>
 	$(function() {
 		$(".datepicker").datepicker({
-			altField : '#getdate',
+			altField : '#start_vacation',
 			dateFormat : "yy/mm/dd",
 			minDate : 0
 		});
 		$(".datepicker").datepicker({
-			altField : '#setdate',
+			altField : '#end_vacation',
 			dateFormat : "yy/mm/dd",
 			minDate : 0
 		});
@@ -80,64 +80,62 @@
 
 
 					<div class="box" align="left">
-						<div class="box-header with-border">
-							현재일 : ${ att_day } <br>
-						</div>
-						<br>
-						<div class='box-body'>
-							조회일: <input type="text" name="att_dd" id="att_dd"
-								class="datepicker" size="14">
-							<button id='searchBtn'>Search</button>
-						</div>
-						<br> <br>
 						<div class="box-body">
 							<h3></h3>
 
-
-							<table class="att_registVacation">
+							<table class="att_registVacation" style="margin-bottom: 0px;">
 								<tr>
 									<th>사번</th>
 									<th>이름</th>
 									<th>부서</th>
 									<th>직급</th>
 								</tr>
-
-								<!-- 밑에는 내용 뿌려줄것 -->
-
-								<c:forEach var="Att_EmpVO" items="${list }">
-									<tr align="center">
-										<td>${Att_EmpVO.emp_id }</td>
-										<td>&nbsp;&nbsp;&nbsp;${Att_EmpVO.emp_nm }</td>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${Att_EmpVO.dept_nm }</td>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${Att_EmpVO.pos_nm }</td>
+							</table>
+							<div class="att_registVacation_t"
+								style="width: 970px; height: 300px; overflow: auto;">
+								<table id="att_registVacation_table" style="table-layout: fixed;">
+									<!-- 밑에는 내용 뿌려줄것 -->
+									<c:set var="n" value="0" />
+									<c:forEach var="Att_EmpVO" items="${list }">
+										<tr align="center">
+											<td><a href='javascript:getVal("${n}");'>${Att_EmpVO.emp_id }</td>
+											<td>${Att_EmpVO.emp_nm }</td>
+											<td>${Att_EmpVO.dept_nm }</td>
+											<td>${Att_EmpVO.pos_nm }</td>
+										</tr>
+										<c:set var="n" value="${n+1}" />
+									</c:forEach>
+								</table>
+							</div>
+							<form id="modifyInformation" action="modifyInformation"
+								method="post">
+								<table id="resign_table">
+									<input type="hidden" id="emp_id" name="emp_id" value="">
+									<tr>
+										<td>사번 &nbsp;&nbsp;&nbsp; <input type="text" name="emp"
+											id="emp"
+											style="height: 25px; width: 150px; margin-right: 60px"
+											disabled></td>
+										<td>이름 &nbsp;&nbsp;&nbsp; <input type="text" id="emp_nm"
+											name="emp_nm" style="height: 25px; width: 150px" disabled></td>
 									</tr>
-								</c:forEach>
-							</table>
-							<table id="resign_table">
+									<tr>
+										<td>직급 &nbsp;&nbsp;&nbsp; <input type="text" id="dept_nm"
+											name="dept_nm" style="height: 25px; width: 150px" disabled></td>
+										<td>부서 &nbsp;&nbsp;&nbsp; <input type="text" id="pos_nm"
+											name="pos_nm" style="height: 25px; width: 150px" disabled></td>
+									</tr>
+									<tr>
+										<td>시작일 <input type="text" name="start_vacation"
+											id="start_vacation" class="datepicker"></td>
+										<td>종료일 <input type="text" name="end_vacation"
+											id="end_vacation" class="datepicker"> <input
+											type="submit" id="temp" value="등록" style="cursor: pointer" /></td>
 
-								<tr>
-									<td>사번 &nbsp;&nbsp;&nbsp; <input type="text" name="area"
-										style="height: 25px; width: 150px; margin-right: 60px"
-										disabled></td>
-									<td>이름 &nbsp;&nbsp;&nbsp; <input type="text" name="area"
-										style="height: 25px; width: 150px" disabled></td>
-								</tr>
-								<tr>
-									<td>직급 &nbsp;&nbsp;&nbsp; <input type="text" name="area"
-										style="height: 25px; width: 150px" disabled></td>
-									<td>부서 &nbsp;&nbsp;&nbsp; <input type="text" name="area"
-										style="height: 25px; width: 150px" disabled></td>
-								</tr>
-								<tr>
-									<td>시작일 <input type="text" name="start_vacation"
-										id="getdate" class="datepicker"></td>
-									<td>종료일 <input type="text" name="end_vacation"
-										id="setdate" class="datepicker"> <input type="button"
-										id="temp" value="등록" style="cursor: pointer" /></td>
+									</tr>
 
-								</tr>
-
-							</table>
+								</table>
+							</form>
 						</div>
 						<!-- /.box-body -->
 						<div class="box-footer"></div>
@@ -152,6 +150,41 @@
 	</div>
 </div>
 
+<script type="text/javascript">
+	var tr = $("#att_registVacation_table tr");
+	var td_id = [];
+	var td_name = [];
+	var td_dept = [];
+	var td_pos = [];
+	for (var i = 0; i < tr.length; i++) {
+		var temp = $("td", tr.eq(i));
+		var tempArr_id = [];
+		var tempArr_name = [];
+		var tempArr_dept = [];
+		var tempArr_pos = [];
+		tempArr_id.push(temp.eq(0).text());
+		tempArr_name.push(temp.eq(1).text());
+		tempArr_dept.push(temp.eq(2).text());
+		tempArr_pos.push(temp.eq(3).text());
+		td_id[i] = tempArr_id;
+		td_name[i] = tempArr_name;
+		td_dept[i] = tempArr_dept;
+		td_pos[i] = tempArr_pos;
+	}
+	var getVal = function(key) {
+		var id = td_id[key];
+		var name = td_name[key];
+		var dept = td_dept[key];
+		var pos = td_pos[key];
+		$('#emp_id').val(id);
+		$('#emp').val(id);
+		$('#emp_nm').val(name);
+		$('#dept_nm').val(dept);
+		$('#pos_nm').val(pos);
+
+		return false;
+	};
+</script>
 
 <!-- 본문 끝 -->
 

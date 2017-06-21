@@ -117,12 +117,40 @@ public class AttendanceController {
 	}
 	
 	
-	@RequestMapping(value="/att_registVacation", method= RequestMethod.GET)
-	public String att_registVacation(Att_EmpVO vo, Model model, HttpSession session)throws Exception{
+	@RequestMapping(value="/att_registVaction", method= RequestMethod.GET)
+	public void att_registVacationGET(Att_EmpVO vo, Model model, HttpSession session)throws Exception{
+		
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
+		
+
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));    
 		
 		model.addAttribute("list",service.att_selectList(vo));
 		
-		return "/attendance/att_registVacation"; 
+		
+		
+	}
+	@RequestMapping(value="/att_registVaction", method= RequestMethod.POST)
+	public void att_registVacationPOST(Att_EmpVO vo, Model model, HttpSession session)throws Exception{
+		
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm",emp_nm);
+		
+
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));    
+		
+		model.addAttribute("list",service.att_selectList(vo));
+		
+		
 		
 	}
 
