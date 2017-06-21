@@ -20,6 +20,6 @@ public class JobisServiceImpl implements JobisService {
 
 			return "원빈?";
 		}
-		return "해당하는 키워드가 없습니다.";
+		return "잘 못알아 들었어요";
 	}
 }

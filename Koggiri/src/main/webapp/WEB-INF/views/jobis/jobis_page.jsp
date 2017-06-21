@@ -17,13 +17,10 @@
 			<section>
 				<%-- ${ck_emp_id} --%>
 				<br> <br> <br> <br> <br>
-			
-				<div>
-					<c:if test="${my_text != null}">
-						<p style="text-align: left">${my_text}</p>
-						<br>
-					</c:if>
-				</div>
+
+				
+
+
 
 
 			</section>
@@ -51,24 +48,21 @@
 
 					var input_text = $("#input_text").val();
 
-					alert("ㅣ어ㅗ리몾ㄷ로미졸ㅇ러씨씨ㅣ빨빨빠리ㅏ빠씨ㅏㅃ라ㅣ씨빨");
-
+					
 					$.ajax({
 						url : '/jobis/jobis_page',
-						
+
 						data : {
 							a : input_text
 						},
 						type : 'post',
 						success : function(data) {
-							
-							$('#jobis_context').append(input_text + "<br>")
-									.css("text-align", "left");
-							$('#jobis_context').append(data + "<br>").css("text-align", "right");
-							$('#input_text').val("");
-							
 
-							
+							$('#jobis_context').append(input_text + "<br><br>").css("text-align","right");
+							$('#jobis_context').append(
+									data + "<br><br>");
+							$('#input_text').val("");
+
 						}
 
 					});
