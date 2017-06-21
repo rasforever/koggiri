@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import kosta.koggiri.admin_emp.service.AdminService;
 import kosta.koggiri.calendar.domain.EventVO;
 import kosta.koggiri.calendar.service.CalendarService;
 import net.sf.json.JSONArray;
@@ -33,11 +35,18 @@ public class CalendarController {
 	private static final Logger logger = LoggerFactory.getLogger(CalendarController.class);
 	@Inject
 	private CalendarService service;
-
+	
+	@Inject
+	private AdminService service2;
+	
 	@RequestMapping(value = "/index")
 	public String calendar(HttpServletRequest request,Model model) throws Exception {
 		HttpSession session =request.getSession();
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		String mem_id = (String) session.getAttribute("mem_id");
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("emp_nm", emp_nm);
 		return "/calendar/index";
 	}
