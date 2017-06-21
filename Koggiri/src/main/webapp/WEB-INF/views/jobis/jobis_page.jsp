@@ -12,7 +12,7 @@
 
 <body>
 	<div>
-		<div id="jobis_context" class="jobis_context" >
+		<div id="jobis_context" class="msg_context" style="overflow-y: scroll; height: 470px">
 			<section>
 				<%-- ${ck_emp_id} --%>
 			</section>
@@ -30,6 +30,10 @@
 		</div>
 
 	</div>
+
+
+
+
 
 	<script type="text/javascript">
 		var objDiv = document.getElementById("jobis_context");
@@ -49,10 +53,10 @@
 						},
 						type : 'post',
 						success : function(data) {
-
-							$('#jobis_context').append("<div class='jobis_me' align='right'><a>" + input_text + "</a></div><br>")
-							$('#jobis_context').append(
-									"<div class='jobis_you' align='left'><a>" + data + "</a></div><br>");
+							$('#jobis_context').append("<div class='clear'></div>");
+							$('#jobis_context').append("<div class='from-me' align='right'>" + input_text + "</div>")
+							$('#jobis_context').append("<div class='clear'></div>");
+							$('#jobis_context').append("<div class='from-them' align='left'>" + data + "</div>");
 							$('#input_text').val("");
 
 						}
