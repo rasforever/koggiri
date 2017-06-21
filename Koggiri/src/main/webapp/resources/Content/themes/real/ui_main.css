@@ -568,10 +568,9 @@ font-weight: bold;
     position: relative;
 }
 .my_information{
-padding-top: 4px;
+padding-top: 1px;
     position: relative;
-       left: 750px;
-    top: 10px;
+    left: 750px;
 }
 
 .cal_view{
@@ -603,7 +602,7 @@ left: 50px;
 	width:32px;
 	height:32px;
 	position: relative;
-    top:-12px;
+    top:8px;
     left: -2px;
     background: url(../../../img/jobis.png);
 }
@@ -612,7 +611,7 @@ left: 50px;
 		width:32px;
 	height:32px;
 	position: relative;
-    top:-12px;
+    top:8px;
     left: -2px;
     background: url(../../../img/jobis_on.gif);
 }
