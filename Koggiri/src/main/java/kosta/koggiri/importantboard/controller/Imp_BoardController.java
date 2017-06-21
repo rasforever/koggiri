@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kosta.koggiri.admin_emp.service.AdminService;
 import kosta.koggiri.importantboard.domain.Imp_BoardVO;
 import kosta.koggiri.importantboard.domain.Imp_PageMaker;
 import kosta.koggiri.importantboard.domain.Imp_SearchCriteria;
@@ -38,6 +39,10 @@ public class Imp_BoardController {
 	@Inject
 	private Imp_BoardService service;
 	
+	@Inject
+	private AdminService service2;
+
+	
 	@Resource(name = "uploadPath") // �떎�슫濡쒕뱶 寃쎈줈
 	private String uploadPath;
 	
@@ -45,7 +50,17 @@ public class Imp_BoardController {
 	public void registerGET(Imp_BoardVO board, Model model, HttpSession session) throws Exception{
 		logger.info("register get ..........");
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		String mem_id = (String) session.getAttribute("mem_id");
+	
+	
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("emp_nm", emp_nm);
+		model.addAttribute("mem_id",mem_id);
+		
+		
+		
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -61,8 +76,17 @@ public class Imp_BoardController {
 	
 	
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
-	public void read(@RequestParam("i_ID")int i_ID, @ModelAttribute("cri")Imp_SearchCriteria cri, Model model) throws Exception{
+	public void read(@RequestParam("i_ID")int i_ID, @ModelAttribute("cri")Imp_SearchCriteria cri, Model model, HttpSession session) throws Exception{
 		logger.info("read.....");
+		
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm", emp_nm);
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("Imp_BoardVO", service.read(i_ID));
 	}
 	
@@ -82,8 +106,16 @@ public class Imp_BoardController {
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
-	public void modifyGET(@RequestParam("i_ID")int i_ID, @ModelAttribute("cri")Imp_SearchCriteria cri, Model model) throws Exception{
+	public void modifyGET(@RequestParam("i_ID")int i_ID, @ModelAttribute("cri")Imp_SearchCriteria cri, Model model, HttpSession session) throws Exception{
 		
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("emp_nm", emp_nm);
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("Imp_BoardVO",service.read(i_ID));
 	}
 	
@@ -105,8 +137,17 @@ public class Imp_BoardController {
 	public void listPage(@ModelAttribute("cri")Imp_SearchCriteria cri, Model model,HttpSession session) throws Exception{
 
 		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		String mem_id = (String) session.getAttribute("mem_id");
+
+		model.addAttribute("mem_id",mem_id);
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
+		model.addAttribute("mem_aut_cd",mem_aut_cd);
 		model.addAttribute("emp_nm", emp_nm);
 		model.addAttribute("list", service.listSearchCriteria(cri));
+		
+		
+		
 		
 		Imp_PageMaker PageMaker = new Imp_PageMaker();
 		PageMaker.setCri(cri);

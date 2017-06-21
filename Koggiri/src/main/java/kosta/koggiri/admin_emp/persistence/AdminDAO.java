@@ -6,6 +6,7 @@ import kosta.koggiri.admin_emp.domain.Admin_MemberVO;
 import kosta.koggiri.admin_emp.domain.App_SearchVO;
 import kosta.koggiri.admin_emp.domain.Dept_TypeVO;
 import kosta.koggiri.admin_emp.domain.EmpInfo_AdminVO;
+import kosta.koggiri.admin_emp.domain.EmpTimeVO;
 import kosta.koggiri.admin_emp.domain.EmpVO;
 import kosta.koggiri.admin_emp.domain.H_CalendarVO;
 import kosta.koggiri.admin_emp.domain.H_ImportantVO;
@@ -25,6 +26,7 @@ public interface AdminDAO {
 	public List<Res_AppVO> select_res(App_SearchVO search)throws Exception; //퇴사리스트
 	
 	public void insertEmp(EmpVO vo)throws Exception;
+	public void insertEmp_att(EmpVO vo)throws Exception;
 	
 	public String findEmpid(EmpVO vo)throws Exception;
 	
@@ -58,6 +60,7 @@ public interface AdminDAO {
 	public void update_modifyInformation_addr(EmpInfo_AdminVO vo) throws Exception; //��������
 	public void update_modifyInformation_tel(EmpInfo_AdminVO vo) throws Exception; //��������
 	public void update_modifyInformation_email(EmpInfo_AdminVO vo) throws Exception; //��������
+	public void update_modifyInformation_filename(EmpInfo_AdminVO vo) throws Exception; //��������
 
 
 	public void update_resign(EmpInfo_AdminVO vo) throws Exception; //����
@@ -65,5 +68,7 @@ public interface AdminDAO {
 	
 
 	public int msg_new_count(String emp_id) throws Exception; //신규 메세지 확인
-
+	
+	
+	public EmpTimeVO et_time(String emp_id)throws Exception;
 }

@@ -74,12 +74,12 @@
 							<h3></h3>
 							<table class="resApp_table_title" border="1">
 								<tr>
-									<th>사원ID</th>
-									<th>성명</th>
-									<th>부서명</th>
-									<th>직급 이름</th>
-									<th>퇴사일</th>
-									<th>퇴사 사유</th>
+									<th style="text-align: center">사원ID</th>
+									<th style="text-align: center">성명</th>
+									<th style="text-align: center">부서명</th>
+									<th style="text-align: center">직급 이름</th>
+									<th style="text-align: center">퇴사일</th>
+									<th style="text-align: center">퇴사 사유</th>
 
 								</tr><br>
 

@@ -29,7 +29,7 @@
 
 					<c:if test="${msgVO.emp_id == n_emp_id}">
 						<div class="clear"></div>
-						<div class="emp_name">사원이름</div>
+						<div class="emp_name">${msgVO.emp_nm }</div>
 						<div class="from-them" style="text-align: left">
 							<c:if test="${msgVO.input_text !=null}">
 								<p>${msgVO.input_text }</p>
@@ -52,7 +52,7 @@
 				<input type="hidden" name="emp_id" value="${emp_id }"> <input
 					type="hidden" name="msg_id" value="${msg_id }"> <input
 					type="hidden" name="n_emp_id" value="${n_emp_id }">
-				<textarea rows="3" cols="45" name="input_text"></textarea>
+				<textarea rows="3" cols="40" name="input_text"></textarea>
 				<input type="submit" value="전송">
 			</form>
 		</div>

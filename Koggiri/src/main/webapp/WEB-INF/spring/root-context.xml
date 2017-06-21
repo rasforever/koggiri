@@ -88,5 +88,6 @@
 	<context:component-scan base-package="kosta.koggiri.imageroom.persistence"></context:component-scan>
 	<context:component-scan base-package="kosta.koggiri.imageroom.service"></context:component-scan>
 	
-
+	<!-- jobis <context:component-scan> -->
+	<context:component-scan base-package="kosta.koggiri.jobis.service"></context:component-scan>
 </beans>

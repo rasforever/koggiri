@@ -1,18 +1,33 @@
 package kosta.koggiri.admin_emp.controller;
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.admin_emp.domain.Admin_MemberVO;
@@ -21,16 +36,23 @@ import kosta.koggiri.admin_emp.domain.EmpInfo_AdminVO;
 import kosta.koggiri.admin_emp.domain.EmpVO;
 import kosta.koggiri.admin_emp.domain.SearchVO;
 import kosta.koggiri.admin_emp.service.AdminService;
+import kosta.koggiri.approval.controller.ApprovalUploadController;
+import kosta.koggiri.approval.util.ApprovalMediaUtils;
 
 @Controller
 @RequestMapping("/admin_emp/*")
 public class AdminController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 
 	@Inject
 	private AdminService service;
 	
 	@Inject
 	private AdminService service2;
+	
+	@Resource(name = "uploadPath")
+	private String uploadPath;
 
 	@RequestMapping(value = "/manager", method = RequestMethod.GET)
 	public String managerPage(SearchVO search, Model model, HttpSession session) throws Exception {
@@ -134,12 +156,27 @@ public class AdminController {
 		vo.setEmp_id(emp_id);
 		vo.setWstate_cd("0");
 		vo.setInput_emp_id("master");
-		service.insertEmp(vo);
+		MultipartFile uploadfile = vo.getFile();
+        if (uploadfile != null) {
+            String fileName = uploadfile.getOriginalFilename();
+            fileName = emp_id + fileName.substring(fileName.lastIndexOf("."));
+            vo.setFilename(fileName);
+            try {
+                // 1. C:\\kosta\\upload
+                File file = new File("C:/kosta/upload/emp/" + fileName);
+                uploadfile.transferTo(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } // try - catch
+        } // if
+        service.insertEmp(vo);
 
 		String mem_pw = vo.getRes_no().substring(0, 6); // 
 		vo.setMem_pw(mem_pw);
 		service.tempPass(vo);
-
+		
+		
+        // 데이터 베이스 처리를 현재 위치에서 처리
 		return "redirect:/admin_emp/manager";
 
 	}
@@ -178,6 +215,19 @@ public class AdminController {
 
 	@RequestMapping(value = "/modifyInformation", method = RequestMethod.POST)
 	public String modifyInformationPOST(EmpInfo_AdminVO vo, Model model) throws Exception {
+		MultipartFile uploadfile = vo.getFile();
+        if (uploadfile != null) {
+            String fileName = uploadfile.getOriginalFilename();
+            fileName = vo.getEmp_id() + fileName.substring(fileName.lastIndexOf("."));
+            vo.setFilename(fileName);
+            try {
+                // 1. C:\\kosta\\upload
+                File file = new File("C:/kosta/upload/emp/" + fileName);
+                uploadfile.transferTo(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } // try - catch
+        } // if
 		service.update_modifyInformation(vo);
 		return "redirect:/admin_emp/manager";
 	}
@@ -271,6 +321,40 @@ public class AdminController {
 		model.addAttribute("emplist", service.searchatt_Emp(emp));
 		
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/displayFile")
+	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception {
+		InputStream in = null;
+		ResponseEntity<byte[]> entity = null;
+
+		logger.info("FILE NAME: " + fileName);
+
+		try {
+			String formatName = fileName.substring(fileName.lastIndexOf(".") + 1);
+			MediaType mType = ApprovalMediaUtils.getMediaType(formatName);
+
+			HttpHeaders headers = new HttpHeaders();
+
+			in = new FileInputStream(uploadPath + fileName);
+			if (mType != null) {
+				headers.setContentType(mType);
+			} else {
+				fileName = fileName.substring(fileName.indexOf("_") + 1);
+				headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+				headers.add("Content-Disposition",
+						"attachment; filename=\"" + new String(fileName.getBytes("UTF-8"), "ISO-8859-1") + "\"");
+			}
+			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.CREATED);
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+		} finally {
+			in.close();			
+		}
+		return entity;
+	}
+
 
 	public static String temporaryPassword(int size) {
 		StringBuffer buffer = new StringBuffer();

@@ -34,7 +34,6 @@ public class LoginDAOImpl implements LoginDAO {
 
 	@Override
 	public MemberVO detail_mem(String mem_id) throws Exception {
-		// TODO Auto-generated method stub
 		return session.selectOne(namespace+".detail_mem", mem_id);
 	}
 

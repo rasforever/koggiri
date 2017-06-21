@@ -23,7 +23,7 @@
 	</select>
 	
 	<update id="mem_update" parameterType="MemberVO">
-		update emp set e_mail = #{e_mail}, tel_no= #{tel_no}, addr = #{addr}
+		update emp set e_mail = #{e_mail}, tel_no= #{tel_no}, addr = #{addr} , filename = #{filename}
 		where emp_id = #{mem_id} 
 	</update>
 	

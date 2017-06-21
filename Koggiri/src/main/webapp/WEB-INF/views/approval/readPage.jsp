@@ -3,20 +3,28 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
 <!-- Bootstrap 3.3.4 -->
-    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Ionicons -->
-    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-    <!-- Theme style -->
-    <link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- Font Awesome Icons -->
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- Ionicons -->
+<link
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- Theme style -->
+<link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- AdminLTE Skins. Choose a skin from the css/skins 
          folder instead of downloading all of them to reduce the load. -->
-    <link href="/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+<link href="/resources/dist/css/skins/_all-skins.min.css"
+	rel="stylesheet" type="text/css" />
 
 
 
@@ -25,7 +33,8 @@
 
 
 <link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
-<link href="/resources/Content/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
+<link href="/resources/Content/themes/base/jquery-ui.min.css"
+	rel="stylesheet" type="text/css" />
 
 <!-- Main content -->
 <style type="text/css">
@@ -58,149 +67,153 @@
 </style>
 
 <div class="container_wrap" style="background-color: #ffffff;">
-<div id="container">
+	<div id="container">
 
-<div id="sub_menu_title">
-<h1><img src="/resources/img/s_menu04.png"/></h1>
-<div class="sub_top">   
-    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/task/list">전자 문서</a> <span> &gt; </span> <a href="/approval/lists">전자결재</a>  &gt;  <strong>상세 보기</strong></span>
-</div>
-</div>
-
-
-<div id="lnb">
-   <div class="lnb01">
-      <strong class="menu02"><span>전자결재</span></strong>
-      <ul>
-                <li class="menu01">
-                    <a href="/task/list">업무보고</a>
-                    <ul> </ul>
-                </li>
-                <li class="menu02 ">
-                    <a href="/approval/lists">전자결재</a>
-                    <ul>
-                      <li class="sub01 "><a href="/approval/lists">보낸 결재</a></li>
-                      <li class="sub02 "><a href="/approval/listr">받은 결재</a></li>
-                      <li class="sub03 "><a href="/approval/register">결재 입력</a></li>
-                    </ul>
-                </li>
-                 <li class="menu03 ">
-                    <a href="/document/list">문서함</a>
-  					<ul></ul>
-                </li>
-           </ul>
-   </div>
-</div>
-
-<div id="sub_content" align="center">
-
-<div class='popup back' style="display: none;"></div>
-<div id="popup_front" class='popup front' style="display: none;">
-	<img id="popup_img">
-</div>
-
-<section class="content">
-	<div class="row">
-		<!-- left column -->
-		<div class="col-md-12">
-			<!-- general form elements -->
-			<div class="box box-primary">
-				<div class="box-header">
-
-				</div>
-				<!-- /.box-header -->
-				
-				<form role="form" action="modifyPage" method="post">
-
-					<input type='hidden' name='app_id' value="${approvalVO.app_id}">
-					<input type='hidden' name='page' value="${search.page}"> <input
-						type='hidden' name='perPageNum' value="${search.perPageNum}">
-					<input type='hidden' name='searchType' id="searchType" value="${search.searchType}">
-
-				</form>
-
-				<div class="box-body">
-				<table>
-					<tr>
-						<th style="width: 100px; text-align: center;">문서번호</th>
-						<td width="400px">${approvalVO.app_id }</td>
-						<th style="width: 100px; text-align: center;">문서타입</th>
-						<td>${approvalVO.app_type_nm }</td>
-					</tr>
-					<tr>
-						<th style="text-align: center;">부서명</th>
-						<td>${approvalVO.dept_nm }</td>
-						<th style="text-align: center;">진행상태</th>
-						<td>${approvalVO.app_pro_nm }</td>
-					</tr>
-					<tr>
-						<th style="text-align: center;">기안자</th>
-						<td>${approvalVO.draft_emp_nm }</td>
-						<th style="text-align: center;">결재자</th>
-						<td>${approvalVO.app_emp_nm }</td>
-					</tr>
-					<tr>
-						<th style="text-align: center;">기안일</th>
-						<td>${approvalVO.draft_dt.substring(0,10) }</td>
-						<th style="text-align: center;">결재일</th>
-						<td>${approvalVO.app_dt.substring(0,10) }</td>
-					</tr>
-					
- 					<c:if test="${search.searchType == 'r' }">
-		 				<c:if test="${approvalVO.app_pro_cd.equals('0') }">
-		 					<c:if test="${approvalVO.app_emp_id == mem_id }">					
-							<button type="submit" class="btn btn-warning" id="recBtn">승인</button>
-							<button type="submit" class="btn btn-danger" id="votBtn">부결</button>
-							</c:if>
-						 </c:if>
-					</c:if>
-					
-					<tr>
-						<th style="text-align: center;">제목</th>
-						<td colspan="3" style="text-align: left;">&nbsp;&nbsp;&nbsp;${approvalVO.app_title }</td>
-					</tr>
-					<tr>
-					<div >
-						<td colspan="4" align="center"><hr>${approvalVO.app_context }
-							<hr></td></div>
-					</tr>
-</table>
-				</div>
-				<!-- /.box-body -->
-
-				<div class="box-footer" align="left">
-
-					<div>
-						<hr>
-					</div>
-
-					<ul class="mailbox-attachments clearfix uploadedList">
-					</ul>
-					
- 					<c:if test="${search.searchType == 's' }">
-		 				<c:if test="${approvalVO.app_pro_cd.equals('0') }">
-		 					<c:if test="${approvalVO.draft_emp_id == mem_id }">
-								<button type="submit" class="btn btn-warning" id="modifyBtn">Modify</button>
-								<button type="submit" class="btn btn-danger" id="removeBtn">REMOVE</button>
-							</c:if>
-						 </c:if>
-					 </c:if>
-					<button type="submit" class="btn btn-primary" id="goListBtn">GO
-						LIST</button>
-				</div>
-
+		<div id="sub_menu_title">
+			<h1>
+				<img src="/resources/img/s_menu04.png" />
+			</h1>
+			<div class="sub_top">
+				<span><a href="/main">홈</a> <span> &gt; </span> <a
+					href="/task/list">전자 문서</a> <span> &gt; </span> <a
+					href="/approval/lists">전자결재</a> &gt; <strong>상세 보기</strong></span>
 			</div>
-			<!-- /.box -->
 		</div>
-		<!--/.col (left) -->
 
+
+		<div id="lnb">
+			<div class="lnb01">
+				<strong class="menu02"><span>전자결재</span></strong>
+				<ul>
+					<li class="menu01"><a href="/task/list">업무보고</a>
+						<ul>
+						</ul></li>
+					<li class="menu02 "><a href="/approval/lists">전자결재</a>
+						<ul>
+							<li class="sub01 "><a href="/approval/lists">보낸 결재</a></li>
+							<li class="sub02 "><a href="/approval/listr">받은 결재</a></li>
+							<li class="sub03 "><a href="/approval/register">결재 입력</a></li>
+						</ul></li>
+					<li class="menu03 "><a href="/document/list">문서함</a>
+						<ul></ul></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="sub_content" align="center">
+
+			<div class='popup back' style="display: none;"></div>
+			<div id="popup_front" class='popup front' style="display: none;">
+				<img id="popup_img">
+			</div>
+
+			<section class="content">
+				<div class="row">
+					<!-- left column -->
+					<div class="col-md-12">
+						<!-- general form elements -->
+						<div class="box box-primary">
+							<div class="box-header"></div>
+							<!-- /.box-header -->
+
+							<form role="form" action="modifyPage" method="post">
+
+								<input type='hidden' name='app_id' value="${approvalVO.app_id}">
+								<input type='hidden' name='page' value="${search.page}">
+								<input type='hidden' name='perPageNum'
+									value="${search.perPageNum}"> <input type='hidden'
+									name='searchType' id="searchType" value="${search.searchType}">
+
+							</form>
+
+							<div class="box-body">
+								<table>
+									<tr>
+										<th style="width: 100px; text-align: center;">문서번호</th>
+										<td width="400px">${approvalVO.app_id }</td>
+										<th style="width: 100px; text-align: center;">문서타입</th>
+										<td>${approvalVO.app_type_nm }</td>
+									</tr>
+									<tr>
+										<th style="text-align: center;">부서명</th>
+										<td>${approvalVO.dept_nm }</td>
+										<th style="text-align: center;">진행상태</th>
+										<td>${approvalVO.app_pro_nm }</td>
+									</tr>
+									<tr>
+										<th style="text-align: center;">기안자</th>
+										<td>${approvalVO.draft_emp_nm }</td>
+										<th style="text-align: center;">결재자</th>
+										<td>${approvalVO.app_emp_nm }</td>
+									</tr>
+									<tr>
+										<th style="text-align: center;">기안일</th>
+										<td>${approvalVO.draft_dt.substring(0,10) }</td>
+										<th style="text-align: center;">결재일</th>
+										<td>${approvalVO.app_dt.substring(0,10) }</td>
+									</tr>
+
+									<c:if test="${search.searchType == 'r' }">
+										<c:if test="${approvalVO.app_pro_cd.equals('0') }">
+											<c:if test="${approvalVO.app_emp_id == mem_id }">
+												<button type="submit" class="btn btn-warning" id="recBtn">승인</button>
+												<button type="submit" class="btn btn-danger" id="votBtn">부결</button>
+											</c:if>
+										</c:if>
+									</c:if>
+
+									<tr>
+										<th style="text-align: center;">제목</th>
+										<td colspan="3" style="text-align: left;">&nbsp;&nbsp;&nbsp;${approvalVO.app_title }</td>
+									</tr>
+									<tr>
+										<td colspan="4" align="center">
+										<hr>${approvalVO.app_context }
+										</td>
+
+									</tr>
+								</table>
+							</div>
+							<!-- /.box-body -->
+
+							<div class="box-footer" align="left">
+
+								<div>
+									<hr>
+								</div>
+
+								<ul class="mailbox-attachments clearfix uploadedList">
+								</ul>
+
+								<c:if test="${search.searchType == 's' }">
+									<c:if test="${approvalVO.app_pro_cd.equals('0') }">
+										<c:if test="${approvalVO.draft_emp_id == mem_id }">
+											<button type="submit" class="btn btn-warning" id="modifyBtn">Modify</button>
+											<button type="submit" class="btn btn-danger" id="removeBtn">REMOVE</button>
+										</c:if>
+									</c:if>
+								</c:if>
+								<button type="submit" class="btn btn-primary" id="goListBtn">GO
+									LIST</button>
+							</div>
+
+						</div>
+						<!-- /.box -->
+					</div>
+					<!--/.col (left) -->
+
+				</div>
+				<!-- /.row -->
+
+
+			</section>
+		</div>
 	</div>
-	<!-- /.row -->
-
-
-</section>
+</div>
 <!-- /.content -->
 
+<script type="text/javascript" src="/resources/js/upload.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 
 <script id="templateAttach" type="text/x-handlebars-template">
@@ -216,7 +229,7 @@
 
 
 
-<script type="text/javascript" >
+<script type="text/javascript">
 
 $(document).ready(function(){
 	
@@ -315,16 +328,6 @@ $(document).ready(function(){
 });
 </script>
 
-<div class="footer_wrap" >
-<div id="footer" style="height: 150px">
-<%@ include file="../include/footer.jsp"%>
-
-
-
-
-
-
-
-
-
-
+<div class="footer_wrap">
+	<div id="footer" style="height: 150px">
+		<%@ include file="../include/footer.jsp"%>

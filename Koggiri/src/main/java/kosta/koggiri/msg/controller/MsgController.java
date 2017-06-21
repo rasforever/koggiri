@@ -48,7 +48,8 @@ private static final Logger logger = LoggerFactory.getLogger(MsgController.class
 			model.addAttribute("n_emp_id", vo.getN_emp_id());
 		}else{
 			model.addAttribute("msglist", service.msgcontent(vo));
-			model.addAttribute("msg_id", vo.getMsg_id());		
+			model.addAttribute("msg_id", vo.getMsg_id());	
+			model.addAttribute("emp_nm", vo.getEmp_nm());
 			model.addAttribute("n_emp_id", vo.getN_emp_id());	
 		}	
 	}
@@ -67,14 +68,14 @@ private static final Logger logger = LoggerFactory.getLogger(MsgController.class
 		
 	}
 	
-	@RequestMapping(value="/jobis_page", method=RequestMethod.GET)
+/*	@RequestMapping(value="/jobis_page", method=RequestMethod.GET)
 	public void jobis_pageGET(Model model, HttpSession session )throws Exception{
 		
 		String emp_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		model.addAttribute("emp_id", emp_id);
 		model.addAttribute("emp_nm", emp_nm);
-	}
+	}*/
 	
 	@RequestMapping(value="/testchat", method = RequestMethod.GET)
 	public String testchatGet(Model model, HttpSession session)throws Exception{

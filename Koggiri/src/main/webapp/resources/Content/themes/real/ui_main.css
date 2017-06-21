@@ -570,7 +570,7 @@ font-weight: bold;
 .my_information{
 padding-top: 4px;
     position: relative;
-    left: 800px;
+       left: 750px;
     top: 10px;
 }
 
@@ -597,4 +597,23 @@ left: 50px;
 	width: 469px;
 	height: 206px;
 	background-color: #aaee57;
+}
+
+.jobis_icon{
+	width:32px;
+	height:32px;
+	position: relative;
+    top:-12px;
+    left: -2px;
+    background: url(../../../img/jobis.png);
+}
+
+.jobis_icon:HOVER {
+		width:32px;
+	height:32px;
+	position: relative;
+    top:-12px;
+    left: -2px;
+    background: url(../../../img/jobis_on.gif);
+}
 }
