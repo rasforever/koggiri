@@ -17,11 +17,10 @@
 			<section>
 				<%-- ${ck_emp_id} --%>
 				<br> <br> <br> <br> <br>
-				<div class="clear" style="text-align: left;"></div>
-				<div class="aa" style="text-align: left;"></div>
+			
 				<div>
 					<c:if test="${my_text != null}">
-						<h1 style="text-align: left">${my_text}</h1>
+						<p style="text-align: left">${my_text}</p>
 						<br>
 					</c:if>
 				</div>
@@ -35,10 +34,10 @@
 		</div>
 
 		<div class="jobis_contextBox">
-		
-				<textarea rows="3" cols="50" id="input_text"></textarea>
-				<input type="submit" id="submit" value="전송">
-		
+
+			<textarea rows="3" cols="50" id="input_text"></textarea>
+			<input type="submit" id="submit" value="전송">
+
 		</div>
 
 	</div>
@@ -46,7 +45,6 @@
 	<script type="text/javascript">
 		var objDiv = document.getElementById("jobis_context");
 		objDiv.scrollTop = objDiv.scrollHeight;
-
 
 		$('#submit').click(
 				function() {
@@ -57,14 +55,20 @@
 
 					$.ajax({
 						url : '/jobis/jobis_page',
-						dataType : 'text',
-						data : {a : input_text},
+						
+						data : {
+							a : input_text
+						},
 						type : 'post',
-						success : function(){
+						success : function(data) {
+							
 							$('#jobis_context').append(input_text + "<br>")
-									.css("text-align", "right");
-							$("#input_text").val("");
-							alert("에이작스에서  data : " + input_text);
+									.css("text-align", "left");
+							$('#jobis_context').append(data + "<br>").css("text-align", "right");
+							$('#input_text').val("");
+							
+
+							
 						}
 
 					});

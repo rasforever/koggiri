@@ -12,13 +12,14 @@ public class JobisServiceImpl implements JobisService {
 		if (input_text.contains("안녕")) {
 			System.out.println("자비스서비스임플리ㅇㅋ : " + input_text);
 
-			String re_text = "네 반갑습니다!";
+			return "네 반갑습니다!";
+		} else if (input_text.contains("잘가")) {
 
-			return re_text;
+			return "꺼져이새끼야";
+		} else if (input_text.contains("유승현")) {
+
+			return "원빈?";
 		}
-		System.out.println("자비스서비스임플리 ㄴㄴ: " + input_text);
-
-		return "꺼져";
-
+		return "해당하는 키워드가 없습니다.";
 	}
 }
