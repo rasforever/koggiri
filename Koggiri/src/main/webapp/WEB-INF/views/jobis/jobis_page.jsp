@@ -19,7 +19,7 @@
 		</div>
 
 		<div class="msg_header">
-			<br> <img src="../resources/img/koggiri_talk.png"> <br>
+			<br> <img src="../resources/img/koggiri_jobis.png"> <br>
 		</div>
 
 		<div class="jobis_contextBox">
