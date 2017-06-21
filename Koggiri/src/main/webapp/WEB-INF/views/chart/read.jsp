@@ -51,13 +51,17 @@
 </form>
 
 	<div>
-		<label>이름: </label><a>${chartVO.emp_nm}</a><br>
-		<label>사번: </label><a>${chartVO.emp_id}</a><br>
-		<label>성별: </label><a>${chartVO.sex_nm}</a><br>
-		<label>직급: </label><a>${chartVO.pos_nm}</a><br>
-		<label>Tel: </label><a>${chartVO.tel_no}</a><br>
-		<label>Email: </label><a>${chartVO.e_mail}</a><br>
-		<label>입사일: </label><a>${chartVO.join_dt}</a>
+	<table>
+		<tr><td rowspan="4"  width=" 180px">사진</td>
+		<th>이름</th><td width="630px" style="text-align: left">&nbsp;&nbsp;<a>${chartVO.emp_nm}</a></td></tr>
+		<th>사번</th><td  style="text-align: left">&nbsp;&nbsp;<a>${chartVO.emp_id}</a></td></tr>
+		<th>성별</th><td  style="text-align: left">&nbsp;&nbsp;<a>${chartVO.sex_nm}</a></td></tr>
+		<th>직급</th><td style="text-align: left">&nbsp;&nbsp;<a>${chartVO.pos_nm}</a></td></tr>
+		<tr><th colspan="2" >Tel</th><td style="text-align: left">&nbsp;&nbsp;<a>${chartVO.tel_no}</a></td></tr>
+		<tr><th colspan="2">Email</th><td style="text-align: left">&nbsp;&nbsp;<a>${chartVO.e_mail}</a></td></tr>
+		<tr><th colspan="2">입사일</th><td style="text-align: left">&nbsp;&nbsp;<a>${chartVO.join_dt}</a></td></tr>
+
+		</table>
 	</div>
 	
 <!-- 본문 내용  끝-->
