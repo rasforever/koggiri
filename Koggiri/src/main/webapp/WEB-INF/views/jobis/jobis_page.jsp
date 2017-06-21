@@ -12,7 +12,7 @@
 
 <body>
 	<div>
-		<div id="jobis_context" class="jobis_context"
+		<div id="jobis_context" class="jobis_context" 
 			style="overflow-y: scroll; height: 600px">
 			<section>
 				<%-- ${ck_emp_id} --%>
@@ -58,9 +58,9 @@
 						type : 'post',
 						success : function(data) {
 
-							$('#jobis_context').append(input_text + "<br><br>").css("text-align","right");
+							$('#jobis_context').append("<div class='jobis_me' align='right' style='width=100%'>" + input_text + "</div>")
 							$('#jobis_context').append(
-									data + "<br><br>");
+									"<div class='jobis_you' align='left' style='width=100%'>" + data + "</div>");
 							$('#input_text').val("");
 
 						}
