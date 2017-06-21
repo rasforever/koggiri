@@ -28,7 +28,7 @@ a:hover{color:#333}
 .header_wrap{position:relative;height:100px;border-bottom:2px #000 solid;overflow:hidden;background:#fff url(http://s.nx.com/S2/billing/pcbang/real/homepage/common/bg_header_wrap.gif) repeat-x 0 0}
 .container_wrap{padding:42px 0 40px 0; min-height:620px;}
 .footer_wrap{height: 100px;}
-#header{position:relative;width:1200px;height:100px;margin:0 auto}
+#header{position:relative; top: -10px; width:1200px;height:100px;margin:0 auto}
 #header:after{content:'';display:block;visibility:hidden;height:0;clear:both}
 #container{width:1200px; margin:0 auto;}
 #container:after{content:'';display:block;visibility:hidden;height:0;clear:both}
