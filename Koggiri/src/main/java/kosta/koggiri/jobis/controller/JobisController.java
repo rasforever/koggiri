@@ -46,8 +46,11 @@ public class JobisController {
 		
 		
 		rttr.addFlashAttribute("input_text", input_text);
+		
 		System.out.println("자비스컨트롤러에서 input_text : " + input_text);
+		
 		String my_text = service.jobis_content(input_text);
+		
 		System.out.println("자비스컨트롤러에서 my_text : " + my_text);
 		rttr.addAttribute("my_text", my_text);
 		
