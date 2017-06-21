@@ -44,12 +44,12 @@
 
 <div id="sub_content">
 
-	▶${dept} <br><br>
+	<a style="font-size: 20px">▶${dept}</a> <br><br>
 
       <c:forEach var = "ChartVO" items = "${list}">
        <%-- <c:if test="${ChartVO.dept_id} == ${dept_id}"> --%>
          
-            <a href='/chart/read?emp_id=${ChartVO.emp_id}'> ${ChartVO.emp_nm } ${ChartVO.pos_nm } </a><br><br>
+            <a class="chart_mem" href='/chart/read?emp_id=${ChartVO.emp_id}'> ${ChartVO.emp_nm } ${ChartVO.pos_nm } </a><br><br>
          
         <%--  </c:if> --%>
       </c:forEach>
