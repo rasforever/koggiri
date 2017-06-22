@@ -26,8 +26,6 @@
 	href="../resources/Content/themes/real/ui_sub.css" />
 <link href="../resources/Content/themes/base/jquery-ui.min.css"
 	rel="stylesheet" type="text/css" />
-<link rel="shortcut icon" type="image/x-icon"
-	href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
 <link rel="stylesheet"
 	href="../resources/Content/themes/real/ui_main.css" />
 <link rel="stylesheet"
