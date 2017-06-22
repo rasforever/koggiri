@@ -78,7 +78,7 @@ public class JobisServiceImpl implements JobisService {
 		} else if (input_text.contains("잘가")) {
 
 			return "꺼져이새끼야";
-		} else if (input_text.contains("승현")) {
+		} else if (input_text.contains("승현") && input_text.contains("얼굴")) {
 
 			return "원빈은 우선 아니에요.";
 		} else if (input_text.matches("야") || input_text.matches("자비스")) {
@@ -93,8 +93,18 @@ public class JobisServiceImpl implements JobisService {
 				String intext = empvo.get(i).getEmp_nm();
 				text += intext + "님,\n";
 			}
-			
 
+			return text + " 입니다.";
+			
+		}else if (input_text.contains("전체") && input_text.contains("출근리스트")){
+			List<Jobis_EmpVO> attendlist = dao_jobis.all_attendlist();
+			
+			for(int i=0; i<attendlist.size(); i++){
+				
+			 String intext	= attendlist.get(i).getEmp_nm()+ " : " + attendlist.get(i).getAtt_time();
+			 text += intext +",\n\n ";
+				
+			}
 			return text + " 입니다.";
 		}
 		
