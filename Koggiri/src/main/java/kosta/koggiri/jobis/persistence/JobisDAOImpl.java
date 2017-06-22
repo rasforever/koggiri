@@ -22,4 +22,15 @@ public class JobisDAOImpl implements JobisDAO{
 		return session.selectList(namespace + ".all_emplist");
 	}
 
+
+	//고병휘 jobis 추가
+	@Override
+	public List<Jobis_EmpVO> all_attendlist() throws Exception {
+		
+		return session.selectList(namespace + ".all_attendlist");
+	}
+	
+	
+	
+
 }

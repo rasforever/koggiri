@@ -3,6 +3,7 @@ package kosta.koggiri.attendance.persistence;
 import java.util.List;
 
 import kosta.koggiri.attendance.domain.AttendanceVO;
+
 import kosta.koggiri.attendance.domain.Att_EmpVO;
 import kosta.koggiri.attendance.domain.Att_Emp_InfoVO;
 import kosta.koggiri.attendance.domain.Att_Vat_DtVO;
@@ -18,9 +19,6 @@ public interface AttendanceDAO {
 	public List<Att_EmpVO> att_selectList()throws Exception;
 
 	public List<AttendanceSearchVO> att_workMM() throws Exception; //�����Ͱ� ������ ��
-	
-
-    public List<AttendanceVO>jobis_search(String input_text)throws Exception;//고병휘 jobis 추가
 
 	public void emp_vatcation(Att_Vat_DtVO vo) throws Exception;
 	
