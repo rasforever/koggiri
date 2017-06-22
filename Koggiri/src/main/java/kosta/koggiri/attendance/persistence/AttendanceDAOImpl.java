@@ -57,20 +57,11 @@ public class AttendanceDAOImpl implements AttendanceDAO{
 		session.insert(namespace + ".emp_vatcation",vo);
 	}
 
-<<<<<<< HEAD
-	//고병휘 jobis 추가
-	@Override
-	public List<AttendanceVO> jobis_search(String input_text) throws Exception {
-		return session.selectList(namespace + ".jobis_search", input_text);
-	}
 
 	@Override
 	public int emp_vat_ct(Att_Vat_DtVO vo) throws Exception {	
 		return session.selectOne(namespace + ".emp_vat_ct", vo);
 	}
-	
-=======
->>>>>>> branch 'master' of https://github.com/rasforever/koggiri
 
 	
 
