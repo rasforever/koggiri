@@ -24,14 +24,13 @@
 
 		<div class="jobis_contextBox">
 
-			<textarea rows="3" cols="55" id="input_text" style="position: relative; left: 20px;"></textarea>
+			<textarea rows="3" cols="55" id="input_text" style="position: relative; left: 20px;" ></textarea>
 			<input type="submit" id="submit" value="전송">
 
 		</div>
 
 	</div>
-
-
+	
 
 
 

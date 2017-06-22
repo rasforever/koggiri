@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kosta.koggiri.attendance.domain.AttendanceVO;
+import kosta.koggiri.jobis.domain.Jobis_EmpVO;
 import kosta.koggiri.attendance.domain.Att_EmpVO;
 import kosta.koggiri.attendance.domain.Att_Emp_InfoVO;
 import kosta.koggiri.attendance.domain.Att_Vat_DtVO;
@@ -56,12 +57,6 @@ public class AttendanceDAOImpl implements AttendanceDAO{
 		session.insert(namespace + ".emp_vatcation",vo);
 	}
 
-	//고병휘 jobis 추가
-	@Override
-	public List<AttendanceVO> jobis_search(String input_text) throws Exception {
-		return session.selectList(namespace + ".jobis_search", input_text);
-	}
-	
 
 	
 

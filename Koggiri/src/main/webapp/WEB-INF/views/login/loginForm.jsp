@@ -17,14 +17,15 @@
 					<tr>
 						<td><input type="text" name="mem_id" maxlength="15"
 							placeholder="아이디를 입력하세요" class="idpw"></td>
-						<td rowspan="2"><input type="submit" value="LOGIN"
-							id="loginbt" onclick="doLogin()"></td>
 					</tr>
 					<tr>
 						<td><input type="password" name="mem_pw" maxlength="15"
 							placeholder="비밀번호를 입력하세요" class="idpw"></td>
 					</tr>
-				</table>
+					</table>
+					<input type="submit" value="LOGIN"
+							id="loginbt" onclick="doLogin()" style="position: relative;  left: 260px;  top: -143px;">
+				
 
 			</div>
 		</form>
