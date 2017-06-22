@@ -105,15 +105,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 
-	<select id ="jobis_search" resultType="AttendanceVO">
-		<![CDATA[
-		select emp_id from emp
-		 where expire_dt is NULL
-						and wstate_cd <> '1'
-						]]>
-							
-	</select>
-
 	
 	<select id="emp_vatcation" parameterType="Att_Vat_DtVO" statementType="CALLABLE">
 		{CALL
@@ -121,8 +112,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 
-	
-	
->>>>>>> branch 'master' of https://github.com/rasforever/koggiri.git
 
 </mapper>
