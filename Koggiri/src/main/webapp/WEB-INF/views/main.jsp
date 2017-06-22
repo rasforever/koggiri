@@ -296,7 +296,7 @@
 					style="font-family: Verdana; font-size: 14px;">
 					<tr>
 						<td
-							style="padding-top: 0px; padding-bottom: 0px; position: relative; top: 6px;">
+							style="padding-top: 0px; padding-bottom: 0px; position: relative; top: 5px;">
 							<table width=100% cellpadding=0 cellspacing=0>
 								<tr height="56px">
 									<td width=8 height=30
