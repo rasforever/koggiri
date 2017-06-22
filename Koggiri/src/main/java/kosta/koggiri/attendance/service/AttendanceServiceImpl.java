@@ -57,7 +57,7 @@ public class AttendanceServiceImpl implements AttendanceService{
 		vo.setAtt_ed_dt(vo.getAtt_st_dt().replace("/",""));
 		int chk_count  = dao.emp_vat_ct(vo);
 		System.out.println(chk_count);
-		if (chk_count > 0){
+		if (chk_count == 0){
 			 dao.emp_vatcation(vo);				
 		}
 		return	chk_count;
