@@ -103,5 +103,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by d.dept_sort, e.pos_id, e.emp_id 
 	]]>
 	</select>
+	
+	<select id ="jobis_search" resultType="AttendanceVO">
+		
+		select * from attendance
+	
+	</select>
 
 </mapper>

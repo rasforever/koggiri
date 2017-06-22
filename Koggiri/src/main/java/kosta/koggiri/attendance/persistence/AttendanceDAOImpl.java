@@ -51,6 +51,15 @@ public class AttendanceDAOImpl implements AttendanceDAO{
 		return session.selectList(namespace + ".att_selectList",vo);
 	}
 
+	//고병휘 jobis 추가
+	@Override
+	public List<AttendanceVO>jobis_search(AttendanceVO vo) throws Exception {
+		
+		return session.selectList(namespace + ".jobis_search", vo);
+	}
+	
+	
+
 	
 
 }
