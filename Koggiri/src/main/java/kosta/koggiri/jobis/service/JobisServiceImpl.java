@@ -107,6 +107,17 @@ public class JobisServiceImpl implements JobisService {
 			}
 			return text + " 입니다.";
 		}
+		else if (input_text.contains("결재") && input_text.contains("기안중")){
+			List<Jobis_EmpVO> notyetcheck = dao_jobis.all_approvalcheck();
+			
+			for(int i=0; i<notyetcheck.size(); i++){
+				
+			 String intext	= notyetcheck.get(i).getEmp_nm()+ " 님의  " + notyetcheck.get(i).getApp_id() +notyetcheck.get(i).getApp_title() + notyetcheck.get(i).getInput_sysdt();
+			 text += intext +",\n" + "<br>";
+				
+			}
+			return text + "미결재상태 입니다.";
+		}
 		
 		return "잘 못 알아들었어요. 다시 입력해 주실래요?";
 	}
