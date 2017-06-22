@@ -8,9 +8,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kosta.koggiri.attendance.domain.AttendanceVO;
-import kosta.koggiri.admin_emp.domain.SearchedEmpVO;
 import kosta.koggiri.attendance.domain.Att_EmpVO;
 import kosta.koggiri.attendance.domain.Att_Emp_InfoVO;
+import kosta.koggiri.attendance.domain.Att_Vat_DtVO;
 import kosta.koggiri.attendance.domain.AttendanceSearchVO;
 
 @Repository
@@ -47,9 +47,21 @@ public class AttendanceDAOImpl implements AttendanceDAO{
 	}
 
 	@Override
-	public List<Att_EmpVO> att_selectList(Att_EmpVO vo) throws Exception {
-		return session.selectList(namespace + ".att_selectList",vo);
+	public List<Att_EmpVO> att_selectList() throws Exception {
+		return session.selectList(namespace + ".att_selectList");
 	}
+
+	@Override
+	public void emp_vatcation(Att_Vat_DtVO vo) throws Exception {
+		session.insert(namespace + ".emp_vatcation",vo);
+	}
+
+	//고병휘 jobis 추가
+	@Override
+	public List<AttendanceVO> jobis_search(String input_text) throws Exception {
+		return session.selectList(namespace + ".jobis_search", input_text);
+	}
+	
 
 	
 

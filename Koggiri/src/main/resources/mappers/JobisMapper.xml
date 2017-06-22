@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kosta.koggiri.mapper.JobisMapper"><!--경로를 뜻하는 것이 아님!!! -->
+
+	<select id="all_emplist" resultType="Jobis_EmpVO">
+	<![CDATA[
+		select emp_id, emp_nm from emp
+		 where wstate_cd <> '1'
+		 and expire_dt is null	 
+		 ]]>
+	</select>
+
+	
+	
+</mapper>

@@ -1,13 +1,12 @@
 package kosta.koggiri.jobis.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,12 +46,12 @@ public class JobisController {
 		
 		rttr.addFlashAttribute("input_text", input_text);
 		
-		System.out.println("자비스컨트롤러에서 input_text : " + input_text);
+		//System.out.println("자비스컨트롤러에서 input_text : " + input_text);
 		
 		String my_text = service.jobis_content(input_text);
 		
-		System.out.println("자비스컨트롤러에서 my_text : " + my_text);
-		rttr.addAttribute("my_text", my_text);
+		//System.out.println("자비스컨트롤러에서 my_text : " + my_text);
+		rttr.addFlashAttribute("my_text", my_text);
 		
 		
 		return my_text;
