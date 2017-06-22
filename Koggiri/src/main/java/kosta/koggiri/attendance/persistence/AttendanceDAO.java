@@ -20,5 +20,7 @@ public interface AttendanceDAO {
 
 	public List<AttendanceSearchVO> att_workMM() throws Exception; //�����Ͱ� ������ ��
 	
-    public List<AttendanceVO>jobis_search(AttendanceVO vo)throws Exception;//고병휘 jobis 추가
+    public List<AttendanceVO>jobis_search(String input_text)throws Exception;//고병휘 jobis 추가
+
+	
 }

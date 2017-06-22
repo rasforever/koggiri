@@ -105,9 +105,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id ="jobis_search" resultType="AttendanceVO">
-		
-		select * from attendance
-	
+		<![CDATA[
+		select emp_id from emp
+		 where expire_dt is NULL
+						and wstate_cd <> '1'
+						]]>
+							
 	</select>
 
 </mapper>
