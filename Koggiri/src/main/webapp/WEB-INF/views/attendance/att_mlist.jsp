@@ -51,7 +51,7 @@
 						<ul>
 							<li class="sub01 "><a href="/attendance/att_mlist">월 근태내역</a></li>
 							<li class="sub01 "><a href="/attendance/att_alldlist">일 근태내역</a></li>
-							<li class="sub01 "><a href="#">휴가등록</a></li>
+							<li class="sub01 "><a href="/attendance/att_registVaction">휴가등록</a></li>
 
 							<ul></ul>
 						</ul></li>
