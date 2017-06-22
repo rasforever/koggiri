@@ -107,30 +107,35 @@
 									</c:forEach>
 								</table>
 							</div>
+							
 							<form id="att_registVaction" action="att_registVaction"
 								method="post">
+								<br><br>
+								<h2 style="font-size: 20px">휴가 등록</h2>
+								<br><br>
 								<table id="resign_table">
 									<input type="hidden" id="emp_id" name="emp_id" value="">
 									<tr>
-										<td>사번 &nbsp;&nbsp;&nbsp; <input type="text" name="emp"
-											id="emp"
-											style="height: 25px; width: 150px; margin-right: 60px"
+										<th style="width: 150px; text-align: center">사번</th><td> <input type="text" name="emp" id="emp" style="height: 25px; "
 											disabled></td>
-										<td>이름 &nbsp;&nbsp;&nbsp; <input type="text" id="emp_nm"
-											name="emp_nm" style="height: 25px; width: 150px" disabled></td>
+										<th style="width: 150px; text-align: center">이름</th><td><input type="text" id="emp_nm"
+											name="emp_nm" style="height: 25px; " disabled></td>
 									</tr>
 									<tr>
-										<td>직급 &nbsp;&nbsp;&nbsp; <input type="text" id="dept_nm"
-											name="dept_nm" style="height: 25px; width: 150px" disabled></td>
-										<td>부서 &nbsp;&nbsp;&nbsp; <input type="text" id="pos_nm"
-											name="pos_nm" style="height: 25px; width: 150px" disabled></td>
+										<th style="width: 150px; text-align: center">직급</th><td> <input type="text" id="dept_nm"
+											name="dept_nm" style="height: 25px; " disabled></td>
+										<th style="width: 150px; text-align: center">부서 </th><td> <input type="text" id="pos_nm"
+											name="pos_nm" style="height: 25px; " disabled></td>
 									</tr>
 									<tr>
-										<td>시작일 <input type="text" name="att_st_dt"
+										<th style="width: 150px; text-align: center">시작일</th><td> <input type="text" name="att_st_dt"
 											id="att_st_dt" class="datepicker1"></td>
-										<td>종료일 <input type="text" name="att_ed_dt"
-											id="att_ed_dt" class="datepicker2"> <input
-											type="submit" id="temp" value="등록" style="cursor: pointer" /></td>
+										<th style="width: 150px; text-align: center">종료일</th><td> <input type="text" name="att_ed_dt"
+											id="att_ed_dt" class="datepicker2"></td></tr>
+											<tr>
+											<td colspan="4"> <input
+											type="submit" id="temp" value="등록" style="cursor: pointer; width: 100px; height: 40px" /></td>
+											
 
 									</tr>
 
