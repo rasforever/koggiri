@@ -91,7 +91,7 @@ public class JobisServiceImpl implements JobisService {
 			
 			for(int i=0;i<empvo.size();i++){
 				String intext = empvo.get(i).getEmp_nm();
-				text += intext + "님,\n";
+				text += intext + "님,\n" + "<br>";
 			}
 
 			return text + " 입니다.";
@@ -102,7 +102,7 @@ public class JobisServiceImpl implements JobisService {
 			for(int i=0; i<attendlist.size(); i++){
 				
 			 String intext	= attendlist.get(i).getEmp_nm()+ " : " + attendlist.get(i).getAtt_time();
-			 text += intext +",\n\n ";
+			 text += intext +",\n" + "<br>";
 				
 			}
 			return text + " 입니다.";
