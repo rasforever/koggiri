@@ -40,20 +40,17 @@
 				<ul>
 					<li class="menu01 "><a href="/admin_emp/manager">사원관리</a>
 						<ul>
-							<li class="sub01 "><a href="/admin_emp/manager">
-									사원관리</a></li>
-							<li class="sub01 "><a href="/admin_emp/perApp">
-									인사이동내역</a></li>
-							<li class="sub01 "><a href="/admin_emp/resApp">
-									퇴직내역</a></li>
-						</ul>
-					</li>
+							<li class="sub01 "><a href="/admin_emp/manager"> 사원관리</a></li>
+							<li class="sub01 "><a href="/admin_emp/perApp"> 인사이동내역</a></li>
+							<li class="sub01 "><a href="/admin_emp/resApp"> 퇴직내역</a></li>
+						</ul></li>
 					<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
 						<ul>
 							<li class="sub01 "><a href="/attendance/att_mlist">월
 									근태내역</a></li>
 							<li class="sub01 "><a href="/attendance/att_alldlist">일
 									근태내역</a></li>
+							<li class="sub01 "><a href="/attendance/att_vactionlist ">휴가내역</a></li>
 							<li class="sub01 "><a href="/attendance/att_registVaction">휴가등록</a></li>
 
 							<ul></ul>

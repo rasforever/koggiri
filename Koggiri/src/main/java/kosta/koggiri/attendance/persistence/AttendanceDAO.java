@@ -26,6 +26,8 @@ public interface AttendanceDAO {
 	public int emp_vat_ct(Att_Vat_DtVO vo) throws Exception;
 	
 	public List<Att_EmpVO> att_vacationList() throws Exception;
+	
+	public void att_deletevat(Att_Vat_DtVO vo) throws Exception;
 
 	
 }

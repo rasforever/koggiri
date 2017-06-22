@@ -50,6 +50,7 @@
 									근태내역</a></li>
 							<li class="sub01 "><a href="/attendance/att_alldlist">일
 									근태내역</a></li>
+							<li class="sub01 "><a href="/attendance/att_vactionlist ">휴가내역</a></li>
 							<li class="sub01 "><a href="/attendance/att_registVaction">휴가등록</a></li>
 
 							<ul></ul>

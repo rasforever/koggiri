@@ -69,4 +69,9 @@ public class AttendanceDAOImpl implements AttendanceDAO{
 		return session.selectList(namespace + ".att_vacationList");
 	}
 
+	@Override
+	public void att_deletevat(Att_Vat_DtVO vo) throws Exception {
+		session.delete(namespace + ".att_deletevat",vo);
+	}
+
 }

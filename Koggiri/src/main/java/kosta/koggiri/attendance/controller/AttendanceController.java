@@ -14,10 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.admin_emp.service.AdminService;
-import kosta.koggiri.attendance.domain.Att_EmpVO;
 import kosta.koggiri.attendance.domain.Att_Vat_DtVO;
 import kosta.koggiri.attendance.domain.AttendanceSearchVO;
 import kosta.koggiri.attendance.domain.AttendanceVO;
@@ -34,9 +34,7 @@ public class AttendanceController {
 	@Inject
 	private AdminService service2;
 
-	@RequestMapping(value = "/att_dlist", method = RequestMethod.GET) // ���� ��
-																		// ���³���
-																		// ��ȸ
+	@RequestMapping(value = "/att_dlist", method = RequestMethod.GET) 
 	public void att_dlistGET(@ModelAttribute("search") AttendanceVO search, Model model, HttpSession session)
 			throws Exception {
 
@@ -61,10 +59,7 @@ public class AttendanceController {
 		model.addAttribute("list", service.att_dlist(search));
 	}
 
-	@RequestMapping(value = "/att_alldlist", method = RequestMethod.GET) // �����
-																			// ����
-																			// ���³���
-																			// ��ȸ
+	@RequestMapping(value = "/att_alldlist", method = RequestMethod.GET) 
 	public void att_alldlistGET(@ModelAttribute("search") AttendanceSearchVO search, Model model, HttpSession session)
 			throws Exception {
 
@@ -97,10 +92,7 @@ public class AttendanceController {
 		model.addAttribute("alldlist", service.att_alldlist(search));
 	}
 
-	@RequestMapping(value = "/att_mlist", method = RequestMethod.GET) // �����
-																		// ��
-																		// ���³���
-																		// ��ȸ
+	@RequestMapping(value = "/att_mlist", method = RequestMethod.GET) 
 	public void att_mlistGET(@ModelAttribute("search") AttendanceSearchVO search, Model model, HttpSession session)
 			throws Exception {
 
@@ -149,7 +141,8 @@ public class AttendanceController {
 	}
 
 	@RequestMapping(value = "/att_registVaction", method = RequestMethod.POST)
-	public String att_registVacationPOST(Att_Vat_DtVO vo, Model model, RedirectAttributes ratt, HttpServletResponse response) throws Exception {
+	public String att_registVacationPOST(Att_Vat_DtVO vo, Model model, RedirectAttributes ratt,
+			HttpServletResponse response) throws Exception {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		int chk = service.emp_vatcation(vo);
@@ -160,11 +153,11 @@ public class AttendanceController {
 			out.println("location.href='/attendance/att_registVaction';");
 			out.println("</script>");
 			out.close();
-		}return "redirect:/attendance/att_registVaction";
-
+		}
+		return "redirect:/attendance/att_registVaction";
 
 	}
-	
+
 	@RequestMapping(value = "/att_vactionlist", method = RequestMethod.GET)
 	public void att_vacationlistGET(Model model, HttpSession session) throws Exception {
 
@@ -181,21 +174,24 @@ public class AttendanceController {
 
 	}
 
-	@RequestMapping(value = "/att_vactionlist", method = RequestMethod.POST)
-	public String att_vacationlistPOST(Att_Vat_DtVO vo, Model model, RedirectAttributes ratt, HttpServletResponse response) throws Exception {
+	@RequestMapping(value = "/att_deleteVact", method = RequestMethod.GET)
+	public void att_vacationlistPOST(@RequestParam("v_emp_id") String v_emp_id, @RequestParam("vat_dt") String vat_dt, Model model, RedirectAttributes ratt,
+			HttpServletResponse response) throws Exception {
+		Att_Vat_DtVO vo = new Att_Vat_DtVO();
+		
+		vo.setEmp_id(v_emp_id);
+		vo.setAtt_st_dt(vat_dt);
+		service.att_deletevat(vo);
+		
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
-		int chk = service.emp_vatcation(vo);
-		System.out.println(chk);
-		if (chk > 0) {
-			out.println("<script>");
-			out.println("alert('휴가일이 겹칩니다.');");
-			out.println("location.href='/attendance/att_registVaction';");
-			out.println("</script>");
-			out.close();
-		}return "redirect:/attendance/att_registVaction";
-
-
+		
+		out.println("<script>");
+		out.println("alert('삭제되었습니다');");
+		out.println("location.href='/attendance/att_vactionlist';");
+		out.println("</script>");
+		out.close();
+		
 	}
 
 }

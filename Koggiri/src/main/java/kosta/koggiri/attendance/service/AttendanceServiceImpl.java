@@ -55,7 +55,7 @@ public class AttendanceServiceImpl implements AttendanceService{
 	@Override
 	public int emp_vatcation(Att_Vat_DtVO vo) throws Exception {
 		vo.setAtt_ed_dt(vo.getAtt_ed_dt().replace("/",""));
-		vo.setAtt_ed_dt(vo.getAtt_st_dt().replace("/",""));
+		vo.setAtt_st_dt(vo.getAtt_st_dt().replace("/",""));
 		int chk_count  = dao.emp_vat_ct(vo);
 		System.out.println(chk_count);
 		if (chk_count == 0){
@@ -69,5 +69,8 @@ public class AttendanceServiceImpl implements AttendanceService{
 		return dao.att_vacationList();
 	}
 
-
+	@Override
+	public void att_deletevat(Att_Vat_DtVO vo) throws Exception {
+		dao.att_deletevat(vo);	
+	}
 }

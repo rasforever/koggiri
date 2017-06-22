@@ -100,7 +100,7 @@
 									<c:set var="n" value="0" />
 									<c:forEach var="Att_EmpVO" items="${list }">
 										<tr align="center">
-											<td><a href='javascript:getVal("${n}");'>${Att_EmpVO.emp_id }</td>
+											<td><a href="/attendance/att_deleteVact?v_emp_id=${Att_EmpVO.emp_id}&vat_dt=${Att_EmpVO.vat_dt}">${Att_EmpVO.emp_id }</td>
 											<td>${Att_EmpVO.emp_nm }</td>
 											<td>${Att_EmpVO.dept_nm }</td>
 											<td>${Att_EmpVO.pos_nm }</td>
@@ -126,41 +126,8 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-	var tr = $("#att_Vacationlist_table tr");
-	var td_id = [];
-	var td_name = [];
-	var td_dept = [];
-	var td_pos = [];
-	for (var i = 0; i < tr.length; i++) {
-		var temp = $("td", tr.eq(i));
-		var tempArr_id = [];
-		var tempArr_name = [];
-		var tempArr_dept = [];
-		var tempArr_pos = [];
-		tempArr_id.push(temp.eq(0).text());
-		tempArr_name.push(temp.eq(1).text());
-		tempArr_dept.push(temp.eq(2).text());
-		tempArr_pos.push(temp.eq(3).text());
-		td_id[i] = tempArr_id;
-		td_name[i] = tempArr_name;
-		td_dept[i] = tempArr_dept;
-		td_pos[i] = tempArr_pos;
-	}
-	var getVal = function(key) {
-		var id = td_id[key];
-		var name = td_name[key];
-		var dept = td_dept[key];
-		var pos = td_pos[key];
-		$('#emp_id').val(id);
-		$('#emp').val(id);
-		$('#emp_nm').val(name);
-		$('#dept_nm').val(dept);
-		$('#pos_nm').val(pos);
+	
 
-		return false;
-	};
-</script>
 
 <!-- 본문 끝 -->
 
