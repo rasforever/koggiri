@@ -24,7 +24,7 @@ public interface AttendanceDAO {
 
 	public void emp_vatcation(Att_Vat_DtVO vo) throws Exception;
 	
-
+	public int emp_vat_ct(Att_Vat_DtVO vo) throws Exception;
 
 	
 }

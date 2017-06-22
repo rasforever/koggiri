@@ -61,6 +61,11 @@ public class AttendanceDAOImpl implements AttendanceDAO{
 	public List<AttendanceVO> jobis_search(String input_text) throws Exception {
 		return session.selectList(namespace + ".jobis_search", input_text);
 	}
+
+	@Override
+	public int emp_vat_ct(Att_Vat_DtVO vo) throws Exception {	
+		return session.selectOne(namespace + ".emp_vat_ct", vo);
+	}
 	
 
 	

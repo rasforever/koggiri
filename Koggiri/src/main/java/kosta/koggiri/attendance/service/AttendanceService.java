@@ -18,6 +18,6 @@ public interface AttendanceService {
 
 	public List<AttendanceSearchVO> att_workMM() throws Exception; //�����Ͱ� ������ ��
 	
-	public void emp_vatcation(Att_Vat_DtVO vo) throws Exception;
+	public int emp_vatcation(Att_Vat_DtVO vo) throws Exception;
 
 }

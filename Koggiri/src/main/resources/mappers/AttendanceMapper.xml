@@ -107,8 +107,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	
 	<select id="emp_vatcation" parameterType="Att_Vat_DtVO" statementType="CALLABLE">
+	<![CDATA[
 		{CALL
 		ATT_VAT(#{emp_id}, #{att_st_dt}, #{att_ed_dt})}
+		]]>
+	</select>
+	
+	<select id="emp_vat_ct" parameterType="Att_Vat_DtVO" resultType="int">
+	<![CDATA[
+		select count(*) from att_vat_day 
+		 where emp_id = #{emp_id} 
+		   and vat_dt >= #{att_st_dt}
+		   and  vat_dt <= #{att_ed_dt}
+		   ]]>
 	</select>
 	
 
