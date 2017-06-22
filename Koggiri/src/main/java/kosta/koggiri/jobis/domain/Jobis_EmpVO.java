@@ -1,5 +1,7 @@
 package kosta.koggiri.jobis.domain;
 
+import java.sql.Timestamp;
+
 public class Jobis_EmpVO {
 	
 	private String emp_id; //사번
@@ -7,6 +9,14 @@ public class Jobis_EmpVO {
 	private String att_dt; //일자
 	private String att_time; //출근시간
 	private String lea_time; //퇴근시간
+	
+	
+	
+	private String app_id; //결재문서 문서코드
+	private Timestamp input_sysdt; //결재문서기안일
+	private String app_title; //문서이름
+	
+	
 	public String getEmp_id() {
 		return emp_id;
 	}
@@ -37,6 +47,25 @@ public class Jobis_EmpVO {
 	public void setLea_time(String lea_time) {
 		this.lea_time = lea_time;
 	}
+	public String getApp_id() {
+		return app_id;
+	}
+	public void setApp_id(String app_id) {
+		this.app_id = app_id;
+	}
+	public Timestamp getInput_sysdt() {
+		return input_sysdt;
+	}
+	public void setInput_sysdt(Timestamp input_sysdt) {
+		this.input_sysdt = input_sysdt;
+	}
+	public String getApp_title() {
+		return app_title;
+	}
+	public void setApp_title(String app_title) {
+		this.app_title = app_title;
+	}
+	
 	
 	
 	

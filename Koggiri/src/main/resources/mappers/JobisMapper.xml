@@ -12,17 +12,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 and expire_dt is null	 
 		 ]]>
 	</select>
-	
-	<!-- 고병휘 추가  -->
+
+	<!-- 고병휘 추가 -->
 	<select id="all_attendlist" resultType="Jobis_EmpVO">
 
-			select e.emp_id, e.emp_nm, a.att_dt, a.att_time 
-				from attendance a, emp e 
-				where a.emp_id = e.emp_id 
-				and a.att_time IS NOT NULL
-				and a.att_dt = to_char(sysdate,'yyyymmdd')
-				
+		select e.emp_id, e.emp_nm, a.att_dt, a.att_time
+		from attendance a, emp e
+		where a.emp_id = e.emp_id
+		and a.att_time IS NOT NULL
+		and a.att_dt = to_char(sysdate,'yyyymmdd')
+
 	</select>
-	
+
+	<select id="all_approvalcheck" resultType="Jobis_EmpVO">
+		select a.app_id, e.emp_nm, a.input_sysdt, a.app_title
+		from emp e, approval a
+		where e.emp_id = a.app_emp_id
+		and a.app_pro_cd = 0
+	</select>
+
 
 </mapper>
