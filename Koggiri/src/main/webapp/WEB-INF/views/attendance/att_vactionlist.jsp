@@ -90,11 +90,12 @@
 									<th style="text-align: center"> 이름</th>
 									<th style="text-align: center">부서</th>
 									<th style="text-align: center">직급</th>
+									<th style="text-align: center">휴가일</th>
 								</tr>
 							</table>
 							<div class="att_registVacation_t"
 								style="width: 970px; height: 300px; overflow: auto;">
-								<table id="att_registVacation_table" style="table-layout: fixed;">
+								<table id="att_Vacationlist_table" style="table-layout: fixed;">
 									<!-- 밑에는 내용 뿌려줄것 -->
 									<c:set var="n" value="0" />
 									<c:forEach var="Att_EmpVO" items="${list }">
@@ -103,45 +104,14 @@
 											<td>${Att_EmpVO.emp_nm }</td>
 											<td>${Att_EmpVO.dept_nm }</td>
 											<td>${Att_EmpVO.pos_nm }</td>
+											<td>${Att_EmpVO.vat_dt }</td>
 										</tr>
 										<c:set var="n" value="${n+1}" />
 									</c:forEach>
 								</table>
 							</div>
 							
-							<form id="att_registVaction" action="att_registVaction"
-								method="post">
-								<br><br>
-								<h2 style="font-size: 20px">휴가 등록</h2>
-								<br><br>
-								<table id="resign_table">
-									<input type="hidden" id="emp_id" name="emp_id" value="">
-									<tr>
-										<th style="width: 150px; text-align: center">사번</th><td> <input type="text" name="emp" id="emp" style="height: 25px; "
-											disabled></td>
-										<th style="width: 150px; text-align: center">이름</th><td><input type="text" id="emp_nm"
-											name="emp_nm" style="height: 25px; " disabled></td>
-									</tr>
-									<tr>
-										<th style="width: 150px; text-align: center">직급</th><td> <input type="text" id="dept_nm"
-											name="dept_nm" style="height: 25px; " disabled></td>
-										<th style="width: 150px; text-align: center">부서 </th><td> <input type="text" id="pos_nm"
-											name="pos_nm" style="height: 25px; " disabled></td>
-									</tr>
-									<tr>
-										<th style="width: 150px; text-align: center">시작일</th><td> <input type="text" name="att_st_dt"
-											id="att_st_dt" class="datepicker1"></td>
-										<th style="width: 150px; text-align: center">종료일</th><td> <input type="text" name="att_ed_dt"
-											id="att_ed_dt" class="datepicker2"></td></tr>
-											<tr>
-											<td colspan="4"> <input
-											type="submit" id="temp" value="등록" style="cursor: pointer; width: 100px; height: 40px" /></td>
-											
-
-									</tr>
-
-								</table>
-							</form>
+							
 						</div>
 						<!-- /.box-body -->
 						<div class="box-footer"></div>
@@ -157,7 +127,7 @@
 </div>
 
 <script type="text/javascript">
-	var tr = $("#att_registVacation_table tr");
+	var tr = $("#att_Vacationlist_table tr");
 	var td_id = [];
 	var td_name = [];
 	var td_dept = [];

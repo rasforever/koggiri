@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import kosta.koggiri.admin_emp.domain.SearchedEmpVO;
 import kosta.koggiri.attendance.domain.Att_EmpVO;
 import kosta.koggiri.attendance.domain.Att_Emp_InfoVO;
+import kosta.koggiri.attendance.domain.Att_VactionVO;
 import kosta.koggiri.attendance.domain.Att_Vat_DtVO;
 import kosta.koggiri.attendance.domain.AttendanceSearchVO;
 import kosta.koggiri.attendance.domain.AttendanceVO;
@@ -61,6 +62,11 @@ public class AttendanceServiceImpl implements AttendanceService{
 			 dao.emp_vatcation(vo);				
 		}
 		return	chk_count;
+	}
+
+	@Override
+	public List<Att_EmpVO> att_vacationList() throws Exception {
+		return dao.att_vacationList();
 	}
 
 

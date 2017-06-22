@@ -164,5 +164,38 @@ public class AttendanceController {
 
 
 	}
+	
+	@RequestMapping(value = "/att_vactionlist", method = RequestMethod.GET)
+	public void att_vacationlistGET(Model model, HttpSession session) throws Exception {
+
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
+		model.addAttribute("mem_id", mem_id);
+		model.addAttribute("emp_nm", emp_nm);
+
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));
+
+		model.addAttribute("list", service.att_vacationList());
+
+	}
+
+	@RequestMapping(value = "/att_vactionlist", method = RequestMethod.POST)
+	public String att_vacationlistPOST(Att_Vat_DtVO vo, Model model, RedirectAttributes ratt, HttpServletResponse response) throws Exception {
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		int chk = service.emp_vatcation(vo);
+		System.out.println(chk);
+		if (chk > 0) {
+			out.println("<script>");
+			out.println("alert('휴가일이 겹칩니다.');");
+			out.println("location.href='/attendance/att_registVaction';");
+			out.println("</script>");
+			out.close();
+		}return "redirect:/attendance/att_registVaction";
+
+
+	}
 
 }
