@@ -20,13 +20,13 @@
 
 <script>
 	$(function() {
-		$(".datepicker").datepicker({
-			altField : '#start_vacation',
+		$(".datepicker1").datepicker({
+			altField : '#att_st_dt',
 			dateFormat : "yy/mm/dd",
 			minDate : 0
 		});
-		$(".datepicker").datepicker({
-			altField : '#end_vacation',
+		$(".datepicker2").datepicker({
+			altField : '#att_ed_dt',
 			dateFormat : "yy/mm/dd",
 			minDate : 0
 		});
@@ -107,7 +107,7 @@
 									</c:forEach>
 								</table>
 							</div>
-							<form id="modifyInformation" action="modifyInformation"
+							<form id="att_registVaction" action="att_registVaction"
 								method="post">
 								<table id="resign_table">
 									<input type="hidden" id="emp_id" name="emp_id" value="">
@@ -126,10 +126,10 @@
 											name="pos_nm" style="height: 25px; width: 150px" disabled></td>
 									</tr>
 									<tr>
-										<td>시작일 <input type="text" name="start_vacation"
-											id="start_vacation" class="datepicker"></td>
-										<td>종료일 <input type="text" name="end_vacation"
-											id="end_vacation" class="datepicker"> <input
+										<td>시작일 <input type="text" name="att_st_dt"
+											id="att_st_dt" class="datepicker1"></td>
+										<td>종료일 <input type="text" name="att_ed_dt"
+											id="att_ed_dt" class="datepicker2"> <input
 											type="submit" id="temp" value="등록" style="cursor: pointer" /></td>
 
 									</tr>

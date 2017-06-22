@@ -2,10 +2,9 @@ package kosta.koggiri.attendance.service;
 
 import java.util.List;
 
-import kosta.koggiri.admin_emp.domain.SearchVO;
-import kosta.koggiri.admin_emp.domain.SearchedEmpVO;
 import kosta.koggiri.attendance.domain.Att_EmpVO;
 import kosta.koggiri.attendance.domain.Att_Emp_InfoVO;
+import kosta.koggiri.attendance.domain.Att_Vat_DtVO;
 import kosta.koggiri.attendance.domain.AttendanceSearchVO;
 import kosta.koggiri.attendance.domain.AttendanceVO;
 
@@ -15,8 +14,10 @@ public interface AttendanceService {
 	public List<AttendanceVO> att_dlist(AttendanceVO vo) throws Exception; //���� �� ���³��� 
 	public List<AttendanceVO> att_alldlist(AttendanceSearchVO vo) throws Exception; //����� ���� ���³��� 
 	public List<AttendanceVO> att_mlist(AttendanceSearchVO vo) throws Exception; //����� �� ���³��� 
-	public List<Att_EmpVO> att_selectList(Att_EmpVO vo) throws Exception;
+	public List<Att_EmpVO> att_selectList() throws Exception;
 
 	public List<AttendanceSearchVO> att_workMM() throws Exception; //�����Ͱ� ������ ��
+	
+	public void emp_vatcation(Att_Vat_DtVO vo) throws Exception;
 
 }

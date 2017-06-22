@@ -12,9 +12,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.koggiri.admin_emp.service.AdminService;
 import kosta.koggiri.attendance.domain.Att_EmpVO;
+import kosta.koggiri.attendance.domain.Att_Vat_DtVO;
 import kosta.koggiri.attendance.domain.AttendanceSearchVO;
 import kosta.koggiri.attendance.domain.AttendanceVO;
 import kosta.koggiri.attendance.service.AttendanceService;
@@ -118,7 +120,7 @@ public class AttendanceController {
 	
 	
 	@RequestMapping(value="/att_registVaction", method= RequestMethod.GET)
-	public void att_registVacationGET(Att_EmpVO vo, Model model, HttpSession session)throws Exception{
+	public void att_registVacationGET(Model model, HttpSession session)throws Exception{
 		
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
@@ -130,27 +132,16 @@ public class AttendanceController {
 
 		model.addAttribute("msg_count", service2.msg_new_count(mem_id));    
 		
-		model.addAttribute("list",service.att_selectList(vo));
+		model.addAttribute("list",service.att_selectList());
 		
 		
 		
 	}
 	@RequestMapping(value="/att_registVaction", method= RequestMethod.POST)
-	public void att_registVacationPOST(Att_EmpVO vo, Model model, HttpSession session)throws Exception{
+	public String att_registVacationPOST(Att_Vat_DtVO vo, Model model, RedirectAttributes ratt)throws Exception{
+		service.emp_vatcation(vo);
 		
-		String mem_id = (String) session.getAttribute("mem_id");
-		String emp_nm = (String) session.getAttribute("emp_nm");
-		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
-		model.addAttribute("mem_aut_cd",mem_aut_cd);
-		model.addAttribute("mem_id",mem_id);
-		model.addAttribute("emp_nm",emp_nm);
-		
-
-		model.addAttribute("msg_count", service2.msg_new_count(mem_id));    
-		
-		model.addAttribute("list",service.att_selectList(vo));
-		
-		
+		return "redirect:/attendance/att_registVaction";	
 		
 	}
 
