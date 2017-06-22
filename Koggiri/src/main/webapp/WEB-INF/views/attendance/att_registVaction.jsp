@@ -85,10 +85,10 @@
 
 							<table class="att_registVacation" style="margin-bottom: 0px;">
 								<tr>
-									<th>사번</th>
-									<th>이름</th>
-									<th>부서</th>
-									<th>직급</th>
+									<th style="text-align: center">사번</th>
+									<th style="text-align: center"> 이름</th>
+									<th style="text-align: center">부서</th>
+									<th style="text-align: center">직급</th>
 								</tr>
 							</table>
 							<div class="att_registVacation_t"
