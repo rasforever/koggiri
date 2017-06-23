@@ -22,7 +22,7 @@
 			</h1>
 			<div class="sub_top">
 				<span><a href="/main">홈</a> <span> &gt; </span> <a href="#">사원관리</a>
-					<span> &gt; </span> <strong>사원등록</strong></span>
+					<span> &gt; </span> <strong>사원관리</strong></span>
 			</div>
 		</div>
 

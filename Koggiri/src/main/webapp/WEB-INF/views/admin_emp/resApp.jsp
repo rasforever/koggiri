@@ -28,8 +28,8 @@
 			</h1>
 			<div class="sub_top">
 				<span><a href="/main">홈</a> <span> &gt; </span> <a
-					href="/attendance/att_alldlist">근태확인</a> <span> &gt; </span> <strong>일
-						근태내역</strong></span>
+					href="/admin_emp/manager">사원관리</a> <span> &gt; </span> <strong>
+						퇴직내역</strong></span>
 			</div>
 		</div>
 
