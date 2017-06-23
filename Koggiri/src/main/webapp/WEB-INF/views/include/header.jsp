@@ -39,7 +39,7 @@
 			if (mem_aut_cd == 'A') {
 				location.href = "../admin_emp/manager";
 			} else {
-				alert("넌 아웃이야 관리자 아님!케케켘케");
+				alert("접근 권한이 없습니다.");
 			}
 		});
 	});
