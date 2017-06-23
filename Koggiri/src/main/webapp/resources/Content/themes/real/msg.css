@@ -228,22 +228,28 @@ p {
 	position: relative;
 }
 
-.jobis_contextBox input {
-    position: relative;
-    left: 30px;
-    top: -18px;
-    background-color: #e5e5ea;
-    color: #2196F3;
-    height: 50px;
-    width: 60px;
-    font-size: 15px;
-    font-weight: bold;
-    border: 0px;
-}
-.jobis_contextBox input:HOVER{
-	color:#ffffff;
+
+.jobis_contextBox textarea {
+	position: relative;
+	top: 13px;
+	left: 20px;
+	resize: none;
+	font-size: 18px;
 }
 
-.submit{
-	
+.jobis_contextBox input {
+	width: 70px;
+	height: 65px;
+	position: relative;
+	left: 30px;
+	top: -10px;
+	background: #e5e5ea;
+	border: 0px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #0b93f6;
+}
+
+.jobis_contextBox input:HOVER {
+	color: #ffffff;
 }
