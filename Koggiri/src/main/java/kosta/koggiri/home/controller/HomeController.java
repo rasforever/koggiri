@@ -62,9 +62,9 @@ public class HomeController {
 		model.addAttribute("list_calendar", service.list_calendar(mem_id));
 		model.addAttribute("msg_count", service.msg_new_count(mem_id));		
 		EmpTimeVO etvo = new EmpTimeVO();
-		etvo = service.et_time(mem_id);
+		etvo = service.et_time(mem_id);/*
 		model.addAttribute("go_w", etvo.getAtt_time());
-		model.addAttribute("lev_o", etvo.getLea_time());
+		model.addAttribute("lev_o", etvo.getLea_time());*/
 		
 		return "/main";
 	}
