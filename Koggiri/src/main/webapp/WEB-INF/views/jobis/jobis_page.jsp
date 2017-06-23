@@ -37,7 +37,8 @@
 	<script type="text/javascript">
 		var objDiv = document.getElementById("jobis_context");
 		objDiv.scrollTop = objDiv.scrollHeight;
-
+	
+		
 		$('#submit').click(
 				function() {
 
@@ -52,11 +53,17 @@
 						},
 						type : 'post',
 						success : function(data) {
+							
+							if(input_text != " "){
 							$('#jobis_context').append("<div class='clear'></div>");
 							$('#jobis_context').append("<div class='from-me' align='right'>" + input_text + "</div>")
 							$('#jobis_context').append("<div class='clear'></div>");
 							$('#jobis_context').append("<div class='from-them' align='left'>" + data + "</div>");
 							$('#input_text').val("");
+							}
+							else{
+								alert("공백은 입력할 수 없습니다.");
+							}
 
 						}
 
