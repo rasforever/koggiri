@@ -31,5 +31,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		and a.app_pro_cd = 0
 	</select>
 
-
+	<select id = "every_emp" resultType="Jobis_EmpVO">
+	
+		select e.emp_id as emp_id, e.emp_nm as emp_nm, e.pos_id as pos_id, p.pos_nm as pos_nm, d.dept_id as dept_id, d.dept_nm as dept_nm, a.att_time as att_time, a.lea_time as lea_time 
+		from  emp e, dept d, pos p, attendance a 
+		where e.dept_id = d.dept_id 
+		and e.pos_id = p.pos_id 
+		and e.emp_id = a.emp_id 
+		and a.att_dt = to_char(sysdate, 'yyyymmdd')
+	
+	</select>
 </mapper>

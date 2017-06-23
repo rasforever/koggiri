@@ -34,6 +34,19 @@ public class JobisDAOImpl implements JobisDAO{
 		
 		return session.selectList(namespace + ".all_approvalcheck");
 	}
+
+	@Override
+	public List<Jobis_EmpVO> every_emp() throws Exception {
+		
+		return session.selectList(namespace + ".every_emp");
+	}
+	
+
+
+	
+	
+	
+	
 	
 	
 	
