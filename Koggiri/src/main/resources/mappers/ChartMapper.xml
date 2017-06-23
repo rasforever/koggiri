@@ -29,7 +29,7 @@
 	    inner join SEX s
 		on e.sex_id = s.sex_id
 		and e.emp_id = #{emp_id}
-		order by d.dept_sort, e.pos_id, e.emp_id
+		order by  e.pos_id, e.emp_id
 	</select>
 	
 	
