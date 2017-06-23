@@ -229,9 +229,21 @@ p {
 }
 
 .jobis_contextBox input {
-	position: relative;
-	left: 30px;
-	top: -18px;
-	height: 50px;
-	width: 60px;
+    position: relative;
+    left: 30px;
+    top: -18px;
+    background-color: #e5e5ea;
+    color: #2196F3;
+    height: 50px;
+    width: 60px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 0px;
+}
+.jobis_contextBox input:HOVER{
+	color:#ffffff;
+}
+
+.submit{
+	
 }
