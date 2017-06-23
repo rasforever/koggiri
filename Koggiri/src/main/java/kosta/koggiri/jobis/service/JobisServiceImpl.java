@@ -156,7 +156,6 @@ public class JobisServiceImpl implements JobisService {
 
 		}
 		
-		
 	
 		return 	"저장된 키워드가 없습니다. 다시 입력해 보실래요?";
 	}
