@@ -13,7 +13,21 @@ public class ChartVO {
 	private String join_dt;
 	private String pos_id;
 	private String sex_nm;
+	private String filename;
+	private String addr;
 	
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 	public String getDept_id() {
 		return dept_id;
 	}

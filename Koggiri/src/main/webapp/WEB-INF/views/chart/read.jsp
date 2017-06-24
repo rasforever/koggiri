@@ -49,17 +49,20 @@
 <form role="form" method="get">
 	<input type='hidden' name='emp_id' value="${chartVO.emp_id}">
 </form>
-
+	
+	<a style="font-size: 20px">▶${chartVO.dept_nm}</a> <br><br><br>
+	
 	<div>
 	<table>
-		<tr><td rowspan="4"  width=" 180px">사진</td>
-		<th>이름</th><td width="630px" style="text-align: left">&nbsp;&nbsp;<a>${chartVO.emp_nm}</a></td></tr>
-		<th>사번</th><td  style="text-align: left">&nbsp;&nbsp;<a>${chartVO.emp_id}</a></td></tr>
-		<th>성별</th><td  style="text-align: left">&nbsp;&nbsp;<a>${chartVO.sex_nm}</a></td></tr>
-		<th>직급</th><td style="text-align: left">&nbsp;&nbsp;<a>${chartVO.pos_nm}</a></td></tr>
-		<tr><th colspan="2" >Tel</th><td style="text-align: left">&nbsp;&nbsp;<a>${chartVO.tel_no}</a></td></tr>
-		<tr><th colspan="2">Email</th><td style="text-align: left">&nbsp;&nbsp;<a>${chartVO.e_mail}</a></td></tr>
-		<tr><th colspan="2">입사일</th><td style="text-align: left">&nbsp;&nbsp;<a>${chartVO.join_dt}</a></td></tr>
+		<tr><td rowspan="4"  width=" 180px"><img alt="사진" src="/displayFile?fileName=/emp/${chartVO.filename }" width="170" height="190" ></td>
+		<th>이름</th><td width="630px" style="text-align: left">&nbsp;&nbsp;&nbsp;&nbsp;<a>${chartVO.emp_nm}</a></td></tr>
+		<th>사번</th><td  style="text-align: left">&nbsp;&nbsp;&nbsp;&nbsp;<a>${chartVO.emp_id}</a></td></tr>
+		<th>성별</th><td  style="text-align: left">&nbsp;&nbsp;&nbsp;&nbsp;<a>${chartVO.sex_nm}</a></td></tr>
+		<th>직급</th><td style="text-align: left">&nbsp;&nbsp;&nbsp;&nbsp;<a>${chartVO.pos_nm}</a></td></tr>
+		<tr><th colspan="2" >Tel</th><td style="text-align: left">&nbsp;&nbsp;&nbsp;&nbsp;<a>${chartVO.tel_no}</a></td></tr>
+		<tr><th colspan="2">Email</th><td style="text-align: left">&nbsp;&nbsp;&nbsp;&nbsp;<a>${chartVO.e_mail}</a></td></tr>
+		<tr><th colspan="2">주소</th><td style="text-align: left">&nbsp;&nbsp;&nbsp;&nbsp;<a>${chartVO.addr}</a></td></tr>
+		<tr><th colspan="2">입사일</th><td style="text-align: left">&nbsp;&nbsp;&nbsp;&nbsp;<a>${chartVO.join_dt}</a></td></tr>
 
 		</table>
 	</div>

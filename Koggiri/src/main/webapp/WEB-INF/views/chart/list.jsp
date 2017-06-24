@@ -44,7 +44,7 @@
 
 <div id="sub_content">
 
-	<a style="font-size: 20px">▶${dept}</a> <br><br>
+	<a style="font-size: 20px">▶${dept}</a> <br><br><br>
 
       <c:forEach var = "ChartVO" items = "${list}">
        <%-- <c:if test="${ChartVO.dept_id} == ${dept_id}"> --%>

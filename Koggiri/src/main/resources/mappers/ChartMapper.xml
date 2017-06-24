@@ -23,11 +23,16 @@
 		        e.e_mail as e_mail,
 		        e.join_dt as join_dt,
 		        e.pos_id as pos_id,
-		        e.tel_no as tel_no
+		        e.tel_no as tel_no,
+		        e.filename as filename,
+		        e.addr as addr,
+		        d.dept_nm as dept_nm
 		from EMP e inner join POS p
 	    on  e.pos_id = p.pos_id
 	    inner join SEX s
 		on e.sex_id = s.sex_id
+		inner join DEPT d
+		on e.dept_id = d.dept_id
 		and e.emp_id = #{emp_id}
 		order by  e.pos_id, e.emp_id
 	</select>
