@@ -26,11 +26,7 @@ public class LoginDAOImpl implements LoginDAO {
 		return session.selectOne(namespace+".get_emp_nm", vo);
 	}
 
-	@Override
-	public void mem_update(MemberVO vo) throws Exception {
-		session.update(namespace+".mem_update", vo);
-		
-	}
+	
 
 	@Override
 	public MemberVO detail_mem(String mem_id) throws Exception {
@@ -40,6 +36,29 @@ public class LoginDAOImpl implements LoginDAO {
 	@Override
 	public void mem_pass(MemberVO vo) throws Exception {
 		session.update(namespace+".mem_pass", vo);
+	}
+
+	@Override
+	public void mem_file_update(MemberVO vo) throws Exception {
+		session.update(namespace+".mem_file_update", vo);		
+	}
+
+	@Override
+	public void mem_e_mail_update(MemberVO vo) throws Exception {
+		session.update(namespace+".mem_e_mail_update", vo);	
+		
+	}
+
+	@Override
+	public void mem_tel_no_update(MemberVO vo) throws Exception {
+		session.update(namespace+".mem_tel_no_update", vo);	
+		
+	}
+
+	@Override
+	public void mem_addr_update(MemberVO vo) throws Exception {
+		session.update(namespace+".mem_addr_update", vo);	
+		
 	}
 	
 	

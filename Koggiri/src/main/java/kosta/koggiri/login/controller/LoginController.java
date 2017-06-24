@@ -29,10 +29,10 @@ public class LoginController {
 
 	@Inject
 	private LoginService service;
-	
+
 	@Inject
 	private AdminService service2;
-	
+
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 
@@ -71,11 +71,11 @@ public class LoginController {
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
-		model.addAttribute("mem_aut_cd",mem_aut_cd);
-		model.addAttribute("emp_nm",emp_nm);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
+		model.addAttribute("emp_nm", emp_nm);
 		model.addAttribute("mem_id", mem_id);
 
-		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));
 	}
 
 	@RequestMapping(value = "/passcheck", method = RequestMethod.POST)
@@ -84,7 +84,7 @@ public class LoginController {
 
 		vo.setMem_id((String) session.getAttribute("mem_id"));
 		dto.setMem_id((String) session.getAttribute("mem_id"));
-		
+
 		MemberVO membervo = service.logincheck(dto);
 		if (membervo == null) {
 			response.setContentType("text/html;charset=utf-8");
@@ -94,31 +94,30 @@ public class LoginController {
 			out.println("location.href='/login/passcheck';");
 			out.println("</script>");
 			out.close();
-		} 
-		
-		/*String mem_id = (String) session.getAttribute("mem_id");
-		MemberVO mem= service.detail_mem(mem_id);
-		mem.g
-		
-		model.addAttribute("mem", mem);*/
+		}
+
+		/*
+		 * String mem_id = (String) session.getAttribute("mem_id"); MemberVO
+		 * mem= service.detail_mem(mem_id); mem.g
+		 * 
+		 * model.addAttribute("mem", mem);
+		 */
 
 		return "redirect:/login/modify";
 	}
-	
-	
+
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
 	public void modifyGET(HttpSession session, Model model) throws Exception {
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
-		model.addAttribute("mem_aut_cd",mem_aut_cd);
-		model.addAttribute("emp_nm",emp_nm);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
+		model.addAttribute("emp_nm", emp_nm);
 		model.addAttribute("mem_id", mem_id);
 
-		model.addAttribute("msg_count", service2.msg_new_count(mem_id));  
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));
 
 	}
-	
 
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
 	@Transactional
@@ -134,36 +133,39 @@ public class LoginController {
 		vo.setMem_id(mem_id);
 
 		MultipartFile uploadfile = vo.getFile();
-        if (uploadfile != null) {
-            String fileName = uploadfile.getOriginalFilename();
-            fileName = mem_id + fileName.substring(fileName.lastIndexOf("."));
-            vo.setFilename(fileName);
-            try {
-                // 1. C:\\kosta\\upload
-                File file = new File("C:/kosta/upload/emp/" + fileName);
-                uploadfile.transferTo(file);
-            } catch (IOException e) {
-                e.printStackTrace();
-            } // try - catch
-        } // if
-		/*if (vo.getMem_pw() == "" && vo.getAddr1() == "" && vo.getAddr2() == "" && vo.getE_mail1() == ""
-				&& vo.getTelno2() == "" && vo.getTelno3() == "") {
-			out.println("<script>");
-			out.println("alert('항목을 모두 입력해주세요.');");
-			out.println("</script>");
-			out.close();
-			return "/login/modify";
-			
-		}else{*/
-			service.mem_update(vo);
-			service.mem_pass(vo);
-			out.println("<script>");
-			out.println("alert('수정 되었습니다.');");
-			out.println("location.href='/';");
-			out.println("</script>");
-			out.close();
-			
-		//}
+		if (uploadfile != null) {
+			String fileName = uploadfile.getOriginalFilename();
+			if (fileName.equals("")) {
+			} else {
+				fileName = mem_id + fileName.substring(fileName.lastIndexOf("."));
+				vo.setFilename(fileName);
+				try {
+					// 1. C:\\kosta\\upload
+					File file = new File("C:/kosta/upload/emp/" + fileName);
+					uploadfile.transferTo(file);
+				} catch (IOException e) {
+					e.printStackTrace();
+				} // try - catch
+			}
+		} // if
+		/*
+		 * if (vo.getMem_pw() == "" && vo.getAddr1() == "" && vo.getAddr2() ==
+		 * "" && vo.getE_mail1() == "" && vo.getTelno2() == "" && vo.getTelno3()
+		 * == "") { out.println("<script>");
+		 * out.println("alert('항목을 모두 입력해주세요.');"); out.println("</script>");
+		 * out.close(); return "/login/modify";
+		 * 
+		 * }else{
+		 */
+		service.mem_update(vo);
+		service.mem_pass(vo);
+		out.println("<script>");
+		out.println("alert('수정 되었습니다.');");
+		out.println("location.href='/';");
+		out.println("</script>");
+		out.close();
+
+		// }
 
 	}
 

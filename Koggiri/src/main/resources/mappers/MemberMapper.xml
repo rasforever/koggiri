@@ -22,10 +22,24 @@
 		
 	</select>
 	
-	<update id="mem_update" parameterType="MemberVO">
-		update emp set e_mail = #{e_mail}, tel_no= #{tel_no}, addr = #{addr} , filename = #{filename}
+	<update id="mem_e_mail_update" parameterType="MemberVO">
+		update emp set e_mail = #{e_mail}
 		where emp_id = #{mem_id} 
 	</update>
+	<update id="mem_tel_no_update" parameterType="MemberVO">
+		update emp set  tel_no= #{tel_no}
+		where emp_id = #{mem_id} 
+	</update>
+	<update id="mem_addr_update" parameterType="MemberVO">
+		update emp set  addr = #{addr}
+		where emp_id = #{mem_id} 
+	</update>
+	
+	<update id="mem_file_update" parameterType="MemberVO">
+		update  emp set filename = #{filename}
+		where emp_id = #{mem_id} 
+	</update>
+	
 	
 	<update id="mem_pass" parameterType="MemberVO">
 		update member set mem_pw=#{mem_pw} where mem_id = #{mem_id}
