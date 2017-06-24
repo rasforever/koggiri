@@ -11,17 +11,15 @@ import kosta.koggiri.admin_emp.persistence.AdminDAO;
 import kosta.koggiri.approval.persistence.ApprovalDAO;
 import kosta.koggiri.attendance.persistence.AttendanceDAO;
 import kosta.koggiri.calendar.persistence.CalendarDAO;
-import kosta.koggiri.chart.persistence.ChartDAO;
+
 import kosta.koggiri.document.domain.Doc_BoardVO;
-import kosta.koggiri.document.domain.Doc_PageMaker;
+
 import kosta.koggiri.document.domain.Doc_SearchCriteria;
 import kosta.koggiri.document.persistence.Doc_BoardDAO;
 import kosta.koggiri.importantboard.domain.Imp_BoardVO;
 import kosta.koggiri.importantboard.persistence.Imp_BoardDAO;
 import kosta.koggiri.jobis.domain.Jobis_EmpVO;
 import kosta.koggiri.jobis.persistence.JobisDAO;
-import kosta.koggiri.login.persistence.LoginDAO;
-import kosta.koggiri.msg.persistence.MsgDAO;
 import kosta.koggiri.noticeboard.domain.Noti_BoardVO;
 import kosta.koggiri.noticeboard.persistence.Noti_BoardDAO;
 import kosta.koggiri.task.persistence.TaskDAO;
@@ -69,20 +67,21 @@ public class JobisServiceImpl implements JobisService {
 
 	@Transactional
 	@Override
-	public String jobis_content(String input_text) throws Exception {
+	public String jobis_content(String input_text, String emp_nm) throws Exception {
 
 		String text = "";
 		Jobis_EmpVO vo = new Jobis_EmpVO();
+		
 		List<Jobis_EmpVO> all_emp = dao_jobis.all_emplist(); // 전체 사원 아이디,이름
 
 		for (int j = 0; j < all_emp.size(); j++) {
 			// 인사
 			if (input_text.contains("안녕") || input_text.contains("반가워") || input_text.contains("자비스 안녕")) {
-				text = "네 안녕하세요 [" + all_emp.get(j).getEmp_nm() + "] 님 반갑습니다. 오늘도 활기찬 하루 되세요!";
+				text = "네 안녕하세요 [" + emp_nm + "] 님 반갑습니다. 오늘도 활기찬 하루 되세요!";
 				return text;
 				// 인사
 			} else if (input_text.contains("잘가")) {
-				text = all_emp.get(j).getEmp_nm() + "님? 가라고요? 그래요.. ";
+				text =" [" + emp_nm + "]님 아직 해야할 것이 더 남았어요";
 				return text;
 				// 강사님 취미
 			} else if (input_text.contains("서창훈") && input_text.contains("어떤")) {
@@ -162,72 +161,76 @@ public class JobisServiceImpl implements JobisService {
 						+ c + "');\">요기 클릭!</a>";
 			} else if (input_text.contains("알립니다")) {
 				if (input_text.contains("검색")) {
-					String b = input_text.substring(input_text.indexOf(" ") + 1, input_text.length());		
+					String b = input_text.substring(input_text.indexOf(" ") + 1, input_text.length());
 					String c = b.substring(0, b.indexOf(" "));
 					Imp_BoardVO impBVO = new Imp_BoardVO();
 					impBVO.setI_TITLE(c);
 					impBVO.setI_CONTENT(c);
 					int ck_imp = dao_important.SearchId_count(impBVO);
-					
+
 					List<Imp_BoardVO> dao_impid = dao_important.SearchId(impBVO);
 					String t = dao_impid.toString().replaceAll("[^0-9]", "");
-					if (ck_imp == 0){
+					if (ck_imp == 0) {
 						return "해당하는 알립니다 글이 없습니다.";
-					} else if(ck_imp == 1){
-									
-						return "해당하는 글을 발견했습니다.  <a href =\"javascript:;\"onclick=\"opener.parent.location='../importantboard/readPage?i_ID="+ t + "';\"\"\">요기 클릭!</a>";
-						
-					} else{
-						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/importantboard/listPage?searchType=t&keyword="+ c + "';\"\"\">요기 클릭!</a>";
+					} else if (ck_imp == 1) {
+
+						return "해당하는 글을 발견했습니다.  <a href =\"javascript:;\"onclick=\"opener.parent.location='../importantboard/readPage?i_ID="
+								+ t + "';\"\"\">요기 클릭!</a>";
+
+					} else {
+						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/importantboard/listPage?searchType=t&keyword="
+								+ c + "';\"\"\">요기 클릭!</a>";
 					}
-					
+
 				}
-			}
-			else if (input_text.contains("문서함")) {
+			} else if (input_text.contains("문서함")) {
 				if (input_text.contains("검색")) {
-					String b = input_text.substring(input_text.indexOf(" ") + 1, input_text.length());		
+					String b = input_text.substring(input_text.indexOf(" ") + 1, input_text.length());
 					String c = b.substring(0, b.indexOf(" "));
 					Doc_BoardVO DocBVO = new Doc_BoardVO();
 					DocBVO.setF_title(c);
 					DocBVO.setF_content(c);
 					int ck_doc = dao_document.SearchId_count(DocBVO);
-					
-					List<Doc_BoardVO> dao_documentid = dao_document.SearchId(DocBVO);	
+
+					List<Doc_BoardVO> dao_documentid = dao_document.SearchId(DocBVO);
 					String t = dao_documentid.toString().replaceAll("[^0-9]", "");
-					if (ck_doc == 0){
+					if (ck_doc == 0) {
 						return "해당하는 문서글이 존재하지 않습니다.";
-					} else if(ck_doc == 1){
-								
-						return "해당하는 글을 발견했습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='../document/readPage?f_id="+ t + "';\"\"\">요기 클릭!</a>";
-						
-					} else{
-						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/document/list?searchType=t&keyword="+ c +";\"\"\">요기 클릭!</a>";
+					} else if (ck_doc == 1) {
+
+						return "해당하는 글을 발견했습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='../document/readPage?f_id="
+								+ t + "';\"\"\">요기 클릭!</a>";
+
+					} else {
+						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/document/list?searchType=t&keyword="
+								+ c + ";\"\"\">요기 클릭!</a>";
 					}
-					
+
 				}
-			}
-			else if (input_text.contains("공지")) {
+			} else if (input_text.contains("공지")) {
 				if (input_text.contains("검색")) {
-					String b = input_text.substring(input_text.indexOf(" ") + 1, input_text.length());		
+					String b = input_text.substring(input_text.indexOf(" ") + 1, input_text.length());
 					String c = b.substring(0, b.indexOf(" "));
 					Noti_BoardVO NOTIBVO = new Noti_BoardVO();
 					NOTIBVO.setN_TITLE(c);
 					NOTIBVO.setN_CONTENT(c);
 					int ck_noti = dao_noticeboard.SearchId_count(NOTIBVO);
-					
-					List<Noti_BoardVO> dao_notiboardid = dao_noticeboard.SearchId(NOTIBVO);			
+
+					List<Noti_BoardVO> dao_notiboardid = dao_noticeboard.SearchId(NOTIBVO);
 					String t = dao_notiboardid.toString().replaceAll("[^0-9]", "");
-					if (ck_noti == 0){
+					if (ck_noti == 0) {
 						return "해당하는 공지 글이 존재하지 않습니다.";
-					} else if(ck_noti == 1){
-						
-						return "해당하는 글을 발견했습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='../noticeboard/readPage?n_ID="+ t + "';\"\"\">요기 클릭!</a>";
-						
-					} else{
-						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/noticeboard/listPage?searchType=t&keyword="+ c +"';\"\"\">요기 클릭!</a>";
-						       
+					} else if (ck_noti == 1) {
+
+						return "해당하는 글을 발견했습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='../noticeboard/readPage?n_ID="
+								+ t + "';\"\"\">요기 클릭!</a>";
+
+					} else {
+						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/noticeboard/listPage?searchType=t&keyword="
+								+ c + "';\"\"\">요기 클릭!</a>";
+
 					}
-					
+
 				}
 			}
 		}

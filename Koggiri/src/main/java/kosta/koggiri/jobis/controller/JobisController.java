@@ -41,14 +41,16 @@ public class JobisController {
 	
 	@RequestMapping(value="/jobis_page", produces = "application/text; charset=utf8",method=RequestMethod.POST)
 	@ResponseBody
-	public String jobis_pagePOST(@RequestParam("a")String input_text ,Model model, RedirectAttributes rttr )throws Exception{
+	public String jobis_pagePOST(@RequestParam("a")String input_text ,Model model, RedirectAttributes rttr , HttpSession session)throws Exception{
 		
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		model.addAttribute("emp_nm", emp_nm);
 		
 		rttr.addFlashAttribute("input_text", input_text);
 		
 		//System.out.println("자비스컨트롤러에서 input_text : " + input_text);
 		
-		String my_text = service.jobis_content(input_text);
+		String my_text = service.jobis_content(input_text, emp_nm);
 		
 		//System.out.println("자비스컨트롤러에서 my_text : " + my_text);
 		rttr.addFlashAttribute("my_text", my_text);
