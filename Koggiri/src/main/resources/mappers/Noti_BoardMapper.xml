@@ -2,31 +2,35 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="koggiri.notice.mappers.Noti_BoardMapper">
 
- 	<insert id="create" parameterType="Noti_BoardVO">
- 		
- 		insert into NOTICEBOARD (N_ID, N_TITLE, N_CONTENT, N_EMP_ID, N_DATE) 
- 		values(nboard.nextval, #{N_TITLE}, #{N_CONTENT},#{N_EMP_ID} , sysdate)
- 	</insert>
- 	
- 	
-  	<select id="read" resultType="Noti_BoardVO">		
-		select N_ID, N_TITLE, N_CONTENT, N_EMP_ID, N_DATE, N_HIT 
+	<insert id="create" parameterType="Noti_BoardVO">
+
+		insert into NOTICEBOARD (N_ID,
+		N_TITLE, N_CONTENT, N_EMP_ID, N_DATE)
+		values(nboard.nextval,
+		#{N_TITLE}, #{N_CONTENT},#{N_EMP_ID} , sysdate)
+	</insert>
+
+
+	<select id="read" resultType="Noti_BoardVO">
+		select N_ID, N_TITLE, N_CONTENT,
+		N_EMP_ID, N_DATE, N_HIT
 		from NOTICEBOARD where N_ID = #{N_ID}
-	 </select>
-			
-			 
+	</select>
+
+
 	<update id="update" parameterType="Noti_BoardVO">
-		update NOTICEBOARD set N_TITLE = #{N_TITLE}, N_CONTENT =#{N_CONTENT} where N_ID = #{N_ID}
+		update NOTICEBOARD set N_TITLE
+		= #{N_TITLE}, N_CONTENT =#{N_CONTENT} where N_ID = #{N_ID}
 	</update>
 
 	<delete id="delete">
 		delete from NOTICEBOARD where N_ID = #{N_ID}
 	</delete>
-	
-	
+
+
 	<select id="listAll" resultType="Noti_BoardVO">
 	<![CDATA[
 	select N_ID, N_TITLE, N_CONTENT, N_EMP_ID, N_DATE, N_HIT from NOTICEBOARD
@@ -34,7 +38,7 @@
 	order by N_ID desc, N_DATE desc
 	]]>
 	</select>
-	
+
 	<select id="listPage" resultType="Noti_BoardVO">
 	<![CDATA[
 	select N_ID, N_TITLE, N_CONTENT, N_EMP_ID, N_DATE, N_HIT from (select * from NOTICEBOARD ) 
@@ -43,7 +47,7 @@
 	order by N_ID desc, N_DATE desc
 	]]>
 	</select>
-	
+
 	<select id="listCriteria" resultType="Noti_BoardVO">
 	<![CDATA[
 	select N_ID, N_TITLE, N_CONTENT, N_EMP_ID, N_DATE, N_HIT from NOTICEBOARD
@@ -56,9 +60,9 @@
 	<![CDATA[
 	select count(N_ID) from NOTICEBOARD where N_ID > 0
 		]]>
-		</select>
-		
-		
+	</select>
+
+
 	<sql id="search">
 		<if test="searchType != null">
 			<if test="searchType == 't'.toString()">
@@ -95,29 +99,52 @@
      from NOTICEBOARD 
      where N_ID > 0 
    ]]>
-	<include refid="search"></include>
+		<include refid="search"></include>
 	</select>
 
 	<update id="updateViewCnt">
-		update NOTICEBOARD set N_HIT = N_HIT + 1 where N_ID = #{N_ID}
+		update NOTICEBOARD set N_HIT = N_HIT + 1 where N_ID =
+		#{N_ID}
 	</update>
-	
+
 	<insert id="addAttach" parameterType="Noti_FileVO">
-      insert into NOTICEBOARD_ATTACH(FULLNAME, N_ID) values (#{fullName}, nboard.currval)
-   </insert>
- 	<select id="getAttach" resultType="String">
-		select fullName from NOTICEBOARD_AttACH where N_ID = #{N_ID} order by N_DATE
+		insert into
+		NOTICEBOARD_ATTACH(FULLNAME, N_ID) values (#{fullName},
+		nboard.currval)
+	</insert>
+	<select id="getAttach" resultType="String">
+		select fullName from
+		NOTICEBOARD_AttACH where N_ID = #{N_ID} order by N_DATE
 	</select>
-	
+
 	<delete id="deleteAttach">
-   	 	delete from NOTICEBOARD_ATTACH where N_ID = #{N_ID}
-   </delete>
-   
-   <insert id="replaceAttach">
-   		insert into NOTICEBOARD_ATTACH(FULLNAME, N_ID) values (#{fullName},#{N_ID})
-   </insert>
-   
- </mapper>   
+		delete from NOTICEBOARD_ATTACH where N_ID = #{N_ID}
+	</delete>
+
+	<insert id="replaceAttach">
+		insert into NOTICEBOARD_ATTACH(FULLNAME, N_ID) values
+		(#{fullName},#{N_ID})
+	</insert>
+
+
+	<select id="SearchId" parameterType="Noti_BoardVO" resultType="int">
+		select * from NOTICEBOARD
+		where
+		(N_TITLE = #{N_TITLE}
+		or N_CONTENT =
+		#{N_CONTENT})
+	</select>
+	<select id="SearchId_count" parameterType="Noti_BoardVO"
+		resultType="int">
+		select count(*) from NOTICEBOARD
+		where
+		(N_TITLE =
+		#{N_TITLE}
+		or N_CONTENT = #{N_CONTENT})
+	</select>
+
+
+</mapper>   
   
 
 

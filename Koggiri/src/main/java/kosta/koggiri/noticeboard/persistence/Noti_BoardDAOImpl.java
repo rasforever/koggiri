@@ -123,6 +123,18 @@ public class Noti_BoardDAOImpl implements Noti_BoardDAO {
 		session.update(namespace + ".updateViewCnt", n_ID);
 	}
 
+	@Override
+	public int SearchId(Noti_BoardVO vo) throws Exception {
+	
+		return session.selectOne(namespace + ".SearchId" , vo);
+	}
+
+	@Override
+	public int SearchId_count(Noti_BoardVO vo) throws Exception {
+		
+		return session.selectOne(namespace + ".SearchId_count" , vo);
+	}
+
 	
 
 }
