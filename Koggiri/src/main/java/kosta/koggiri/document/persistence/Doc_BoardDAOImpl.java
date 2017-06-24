@@ -98,6 +98,18 @@ public class Doc_BoardDAOImpl implements Doc_BoardDAO {
 		session.insert(namespace + ".replaceAttach", paramMap);
 		
 	}
+
+	@Override
+	public int SearchId(Doc_BoardVO vo) throws Exception {
+		
+		return session.selectOne(namespace + ".SearchId", vo);
+	}
+
+	@Override
+	public int SearchId_count(Doc_BoardVO vo) throws Exception {
+	
+		return session.selectOne(namespace + ".SearchId_count", vo);
+	}
 	
 	
 	

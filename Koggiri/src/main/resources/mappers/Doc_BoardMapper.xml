@@ -119,6 +119,19 @@
    <insert id="replaceAttach">
    		insert into document_attach(fullname, f_id) values (#{fullName},#{f_id})
    </insert>
+   
+   	<select id="SearchId" parameterType="Doc_BoardVO" resultType="int">
+		select * from documentboard
+		where
+		(f_title = #{f_title}
+		or f_content = #{f_content})
+	</select>
+	<select id="SearchId_count" parameterType="Doc_BoardVO" resultType="int">
+		select count(*) from documentboard
+		where
+		(f_title = #{f_title}
+		or f_content = #{f_content})
+	</select>
 
 
 

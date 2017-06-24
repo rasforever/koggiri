@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="mainEmp" resultType="EmpVO" parameterType="EmpVO">
 		<![CDATA[
 		select
-		e.emp_id, e.emp_nm, d.dept_nm , p.pos_nm,e.tel_no, e.filename from
+		e.emp_id, e.emp_nm, d.dept_nm , p.pos_nm,e.tel_no, e.filename, e.e_mail from
 		emp e,dept d,pos p
 		where e.pos_id = p.pos_id and e.dept_id = d.dept_id
 		and e.emp_id =

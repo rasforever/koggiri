@@ -12,6 +12,7 @@ import kosta.koggiri.approval.persistence.ApprovalDAO;
 import kosta.koggiri.attendance.persistence.AttendanceDAO;
 import kosta.koggiri.calendar.persistence.CalendarDAO;
 import kosta.koggiri.chart.persistence.ChartDAO;
+import kosta.koggiri.document.domain.Doc_BoardVO;
 import kosta.koggiri.document.domain.Doc_PageMaker;
 import kosta.koggiri.document.domain.Doc_SearchCriteria;
 import kosta.koggiri.document.persistence.Doc_BoardDAO;
@@ -21,6 +22,7 @@ import kosta.koggiri.jobis.domain.Jobis_EmpVO;
 import kosta.koggiri.jobis.persistence.JobisDAO;
 import kosta.koggiri.login.persistence.LoginDAO;
 import kosta.koggiri.msg.persistence.MsgDAO;
+import kosta.koggiri.noticeboard.domain.Noti_BoardVO;
 import kosta.koggiri.noticeboard.persistence.Noti_BoardDAO;
 import kosta.koggiri.task.persistence.TaskDAO;
 
@@ -174,6 +176,46 @@ public class JobisServiceImpl implements JobisService {
 						
 					} else{
 						return "드루와 ~ <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/importantboard/listPage';\"\"\">요기 클릭!</a>";
+					}
+					
+				}
+			}
+			else if (input_text.contains("문서함")) {
+				if (input_text.contains("검색")) {
+					String b = input_text.substring(input_text.indexOf(" ") + 1, input_text.length());		
+					String c = b.substring(0, b.indexOf(" "));
+					Doc_BoardVO DocBVO = new Doc_BoardVO();
+					DocBVO.setF_title(c);
+					DocBVO.setF_content(c);
+					int ck_doc = dao_document.SearchId_count(DocBVO);
+					if (ck_doc == 0){
+						return "해당하는 문서글이 존재하지 않습니다.";
+					} else if(ck_doc == 1){
+						int dao_documentid = dao_document.SearchId(DocBVO);			
+						return "드루와 ~ <a href =\"javascript:;\"onclick=\"opener.parent.location='../document/readPage?f_id="+ dao_documentid + "';\"\"\">요기 클릭!</a>";
+						
+					} else{
+						return "드루와 ~ <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/document/list;\"\"\">요기 클릭!</a>";
+					}
+					
+				}
+			}
+			else if (input_text.contains("공지")) {
+				if (input_text.contains("검색")) {
+					String b = input_text.substring(input_text.indexOf(" ") + 1, input_text.length());		
+					String c = b.substring(0, b.indexOf(" "));
+					Noti_BoardVO NOTIBVO = new Noti_BoardVO();
+					NOTIBVO.setN_TITLE(c);
+					NOTIBVO.setN_CONTENT(c);
+					int ck_noti = dao_noticeboard.SearchId_count(NOTIBVO);
+					if (ck_noti == 0){
+						return "해당하는 공지 글이 존재하지 않습니다.";
+					} else if(ck_noti == 1){
+						int dao_notiboardid = dao_noticeboard.SearchId(NOTIBVO);			
+						return "드루와 ~ <a href =\"javascript:;\"onclick=\"opener.parent.location='../noticeboard/readPage?n_ID="+ dao_notiboardid + "';\"\"\">요기 클릭!</a>";
+						
+					} else{
+						return "드루와 ~ <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/noticeboard/listPage;\"\"\">요기 클릭!</a>";
 					}
 					
 				}
