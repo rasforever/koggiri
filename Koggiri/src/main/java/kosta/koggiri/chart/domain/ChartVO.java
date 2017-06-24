@@ -15,7 +15,14 @@ public class ChartVO {
 	private String sex_nm;
 	private String filename;
 	private String addr;
+	private String wstate_cd;
 	
+	public String getWstate_cd() {
+		return wstate_cd;
+	}
+	public void setWstate_cd(String wstate_cd) {
+		this.wstate_cd = wstate_cd;
+	}
 	public String getAddr() {
 		return addr;
 	}

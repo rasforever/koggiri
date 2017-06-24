@@ -269,7 +269,7 @@ public class AdminController {
 		service.tempPassUpdate(advo);
 		ratt.addFlashAttribute("id", advo.getMem_id());
 		ratt.addFlashAttribute("mem_pw", advo.getMem_pw());
-		return "redirect:/admin/manager";
+		return "redirect:/admin_emp/manager";
 	}
 
 	@RequestMapping(value = "/emp", method = RequestMethod.GET)
