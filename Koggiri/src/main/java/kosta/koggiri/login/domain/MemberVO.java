@@ -23,6 +23,8 @@ public class MemberVO implements Serializable{
 	private String addr1;
 	private String addr2;
 	
+	private String wstate_cd;
+	
 
 	private String filename;	
 	private MultipartFile file;
@@ -130,13 +132,21 @@ public class MemberVO implements Serializable{
 	public void setFile(MultipartFile file) {
 		this.file = file;
 	}
+	public String getWstate_cd() {
+		return wstate_cd;
+	}
+	public void setWstate_cd(String wstate_cd) {
+		this.wstate_cd = wstate_cd;
+	}
 	@Override
 	public String toString() {
 		return "MemberVO [mem_id=" + mem_id + ", mem_pw=" + mem_pw + ", dept_id=" + dept_id + ", e_mail1=" + e_mail1
 				+ ", e_mail2=" + e_mail2 + ", mem_aut_cd=" + mem_aut_cd + ", e_mail=" + e_mail + ", tel_no=" + tel_no
 				+ ", telno1=" + telno1 + ", telno2=" + telno2 + ", telno3=" + telno3 + ", addr=" + addr + ", addr1="
-				+ addr1 + ", addr2=" + addr2 + ", filename=" + filename + ", file=" + file + "]";
+				+ addr1 + ", addr2=" + addr2 + ", wstate_cd=" + wstate_cd + ", filename=" + filename + ", file=" + file
+				+ "]";
 	}
+	
 
 	
 	

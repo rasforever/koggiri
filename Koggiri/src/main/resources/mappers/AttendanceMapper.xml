@@ -6,6 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="kosta.koggiri.mapper.AttendanceMapper"><!--경로를 뜻하는 것이 아님!!! -->
 
 	<select id="einfo_select" parameterType="String" resultType="Att_Emp_InfoVO">
+	<![CDATA[
 		select e.emp_id as emp_id, e.emp_nm as emp_nm, e.dept_id as dept_id,
 		d.dept_nm as dept_nm, p.pos_nm as pos_nm
 		from emp e inner join dept d
@@ -15,21 +16,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		e.pos_id = p.pos_id
 		and
 		e.emp_id = #{emp_id}
+		where  e.wstate_cd <> '1' 
+		and e.expire_dt is null
+	]]>	
 	</select>
 
 	<select id="att_dlist" parameterType="String" resultType="AttendanceVO">
 		select
 		att_dt, att_time, lea_time from attendance where emp_id = #{emp_id}
 		and substr(att_dt,0,6) = to_char(sysdate, 'yyyymm')
+		
 	</select>
 	
 	<select id="att_selectList" resultType="Att_EmpVO">
+	<![CDATA[
 		select e.emp_id, e.emp_nm, d.dept_nm , p.pos_nm from
 		emp e,dept d,pos p
 		where e.pos_id = p.pos_id and e.dept_id = d.dept_id
+		and e.wstate_cd <> '1' 
+		and e.expire_dt is null
+	]]>	
 	</select>
 
 	<select id="att_alldlist" resultType="AttendanceVO">
+	<![CDATA[
 		select e.emp_id as emp_id
 		, e.emp_nm as emp_nm
 		, d.dept_nm as dept_nm
@@ -46,7 +56,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		on e.pos_id =
 		p.pos_id
 		where e.emp_id not in ('master')
+		and e.wstate_cd <> '1' 
+		and e.expire_dt is null
 		order by d.dept_sort, e.pos_id, e.emp_id
+	]]>	
 	</select>
 
 	<select id="att_workmm" resultType="AttendanceSearchVO">
@@ -99,6 +112,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		on e.pos_id =
 		p.pos_id
 		where e.emp_id not in ('master')
+		and e.wstate_cd <> '1' 
+		and e.expire_dt is null
 		group by e.emp_id, e.emp_nm, d.dept_nm, p.pos_nm, d.DEPT_SORT, e.pos_id
 		order by d.dept_sort, e.pos_id, e.emp_id 
 	]]>
@@ -137,6 +152,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		on e.dept_id = d.dept_id
 		inner join pos p 
 		on e.pos_id = p.pos_id	
+		where e.wstate_cd <> '1' 
+		and e.expire_dt is null
 		   ]]>
 	</select>
 	

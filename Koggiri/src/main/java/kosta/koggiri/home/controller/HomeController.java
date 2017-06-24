@@ -55,6 +55,8 @@ public class HomeController {
 		model.addAttribute("mem_id", mem_id);
 		model.addAttribute("emp_nm", emp_nm);
 		model.addAttribute("mem_aut_cd", mem_aut_cd);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
 		model.addAttribute("list_notice", service.list_notice());
 		model.addAttribute("list_important", service.list_important());
 		model.addAttribute("list_calendar", service.list_calendar(mem_id));

@@ -8,7 +8,20 @@
 
 <%@ include file="../include/header.jsp"%>
 <%-- <%@ include file="side.jsp"%> --%>
-
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.aut').click(function(event) {
+			event.preventDefault();
+			var mem_aut_cd = '${mem_aut_cd}';
+			var ck_emp_id = '${mem_id}';
+			if (mem_aut_cd == 'A' && ck_emp_id =='master') {
+				location.href = "../admin_emp/authority";
+			} else {
+				alert("접근 권한이 없습니다.");
+			}
+		});
+	});
+</script>
 <link rel="stylesheet" href="/resources/Content/themes/real/ui_sub.css" />
 <link href="/resources/Content/themes/base/jquery-ui.min.css"
 	rel="stylesheet" type="text/css" />
@@ -36,7 +49,7 @@
 							<li class="sub01 "><a href="/admin_emp/manager"> 사원관리</a></li>
 							<li class="sub01 "><a href="/admin_emp/perApp"> 인사이동내역</a></li>
 							<li class="sub01 "><a href="/admin_emp/resApp"> 퇴직내역</a></li>
-							<li class="sub01 "><a href="/admin_emp/authority"> 권한부여</a></li>
+							<li class="aut "><a href="/admin_emp/authority"> 권한부여</a></li>
 						</ul></li>
 					<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
 						<ul>

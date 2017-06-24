@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="mainEmp" resultType="EmpVO" parameterType="EmpVO">
 		<![CDATA[
 		select
-		e.emp_id, e.emp_nm, d.dept_nm , p.pos_nm,e.tel_no, e.filename from
+		e.emp_id, e.emp_nm, d.dept_nm , p.pos_nm,e.tel_no, e.filename, e.e_mail from
 		emp e,dept d,pos p
 		where e.pos_id = p.pos_id and e.dept_id = d.dept_id
 		and e.emp_id =
@@ -253,7 +253,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	      where e.emp_id not in ('master',#{emp_id})
 	      order by d.dept_sort, e.pos_id, e.emp_id
     </select>
+    
+    <select id="select_mem" resultType="Mem_TypeVO">
+    	select * from mem_aut    
+    </select>
 
+	<select id="basic_select" resultType="EmpVO">
+	<![CDATA[
+		select e.emp_id as emp_id
+		     , e.emp_nm as emp_nm
+		     , d.dept_nm as dept_nm
+		     , p.pos_nm as pos_nm 
+		     , m.mem_aut_cd as mem_aut_cd 
+		  from emp e, dept d, pos p, member m
+		 where e.pos_id = p.pos_id
+		   and e.dept_id = d.dept_id
+		   and wstate_cd <> '1' 
+		   and expire_dt is null
+		   and e.emp_id = m.mem_id
+		   and e.emp_id <> 'master'
+		   order by d.dept_sort, p.pos_id, e.emp_id
+		]]>
+	</select>
 	
+	<update id="update_mem" parameterType="EmpVO">
+	update member set mem_aut_cd = #{mem_aut_cd} where mem_id =#{emp_id}
+	</update>
 	
 </mapper>
