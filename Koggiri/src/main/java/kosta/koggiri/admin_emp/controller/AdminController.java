@@ -322,6 +322,29 @@ public class AdminController {
 		model.addAttribute("emplist", service.searchatt_Emp(emp));
 
 	}
+	
+	@RequestMapping(value = "/authority", method = RequestMethod.GET)
+	public void authorityGET(@ModelAttribute("emp") EmpVO emp, Model model, HttpSession session) throws Exception {
+		String mem_id = (String) session.getAttribute("mem_id");
+		String emp_nm = (String) session.getAttribute("emp_nm");
+		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
+		model.addAttribute("msg_count", service2.msg_new_count(mem_id));
+		model.addAttribute("mem_aut_cd", mem_aut_cd);
+		model.addAttribute("mem_id", mem_id);
+		model.addAttribute("emp_nm", emp_nm);
+		
+		
+
+	}
+
+	@RequestMapping(value = "/authority", method = RequestMethod.POST)
+	public String authorityPOST(@ModelAttribute("emp") EmpVO emp, Model model) throws Exception {
+		String emp_id = emp.getEmp_id();
+		emp.setEmp_id(emp_id + "%");
+		System.out.println(emp.getEmp_id());
+		model.addAttribute("emplist", service.searchatt_Emp(emp));
+		return "redirect:/admin_emp/authority";
+	}
 
 	@ResponseBody
 	@RequestMapping(value = "/displayFile")
