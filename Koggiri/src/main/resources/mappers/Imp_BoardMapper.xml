@@ -2,30 +2,31 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="koggiri.important.mappers.Imp_BoardMapper">
 
-<insert id="create" parameterType="Imp_BoardVO">
+	<insert id="create" parameterType="Imp_BoardVO">
 
-insert into IMPORTANTBOARD (I_ID, I_TITLE, I_CONTENT, I_EMP_ID, I_DATE) 
- 		values(iboard.nextval, #{I_TITLE}, #{I_CONTENT},#{I_EMP_ID} , sysdate)
-</insert>
+		insert into IMPORTANTBOARD (I_ID, I_TITLE, I_CONTENT, I_EMP_ID, I_DATE)
+		values(iboard.nextval, #{I_TITLE}, #{I_CONTENT},#{I_EMP_ID} , sysdate)
+	</insert>
 
-<select id="read" resultType="Imp_BoardVO">		
-		select I_ID, I_TITLE, I_CONTENT, I_EMP_ID, I_DATE, I_HIT 
+	<select id="read" resultType="Imp_BoardVO">
+		select I_ID, I_TITLE, I_CONTENT, I_EMP_ID, I_DATE, I_HIT
 		from IMPORTANTBOARD where I_ID = #{I_ID}
-	 </select>
-			
-			 
+	</select>
+
+
 	<update id="update" parameterType="Imp_BoardVO">
-		update IMPORTANTBOARD set I_TITLE = #{I_TITLE}, I_CONTENT =#{I_CONTENT} where I_ID = #{I_ID}
+		update IMPORTANTBOARD set
+		I_TITLE = #{I_TITLE}, I_CONTENT =#{I_CONTENT} where I_ID = #{I_ID}
 	</update>
 
 	<delete id="delete">
 		delete from IMPORTANTBOARD where I_ID = #{I_ID}
 	</delete>
-	
-	
+
+
 	<select id="listAll" resultType="Imp_BoardVO">
 	<![CDATA[
 	select I_ID, I_TITLE, I_CONTENT, I_EMP_ID, I_DATE, I_HIT from IMPORTANTBOARD
@@ -33,8 +34,8 @@ insert into IMPORTANTBOARD (I_ID, I_TITLE, I_CONTENT, I_EMP_ID, I_DATE)
 	order by I_ID desc, I_DATE desc
 	]]>
 	</select>
-	
-<select id="listPage" resultType="Imp_BoardVO">
+
+	<select id="listPage" resultType="Imp_BoardVO">
 
 
 	<![CDATA[
@@ -45,7 +46,7 @@ insert into IMPORTANTBOARD (I_ID, I_TITLE, I_CONTENT, I_EMP_ID, I_DATE)
 	]]>
 	</select>
 
-	
+
 	<select id="listCriteria" resultType="Imp_BoardVO">
 	<![CDATA[
 	select I_ID, I_TITLE, I_CONTENT, I_EMP_ID, I_DATE, I_HIT from IMPORTANTBOARD
@@ -58,9 +59,9 @@ insert into IMPORTANTBOARD (I_ID, I_TITLE, I_CONTENT, I_EMP_ID, I_DATE)
 	<![CDATA[
 	select count(I_ID) from IMPORTANTBOARD where I_ID > 0
 		]]>
-		</select>
-		
-		
+	</select>
+
+
 	<sql id="search">
 		<if test="searchType != null">
 			<if test="searchType == 't'.toString()">
@@ -97,26 +98,44 @@ insert into IMPORTANTBOARD (I_ID, I_TITLE, I_CONTENT, I_EMP_ID, I_DATE)
      from IMPORTANTBOARD 
      where I_ID > 0 
    ]]>
-	<include refid="search"></include>
+		<include refid="search"></include>
 	</select>
 
 	<update id="updateViewCnt">
-		update IMPORTANTBOARD set I_HIT = I_HIT + 1 where I_ID = #{I_ID}
+		update IMPORTANTBOARD set I_HIT = I_HIT + 1 where
+		I_ID = #{I_ID}
 	</update>
-	
+
 	<insert id="addAttach" parameterType="Imp_FileVO">
-      insert into IMPORTANTBOARD_ATTACH(FULLNAME, I_ID) values (#{fullName}, iboard.currval)
-   </insert>
- 	<select id="getAttach" resultType="String">
-		select fullName from IMPORTANTBOARD_AttACH where I_ID = #{I_ID} order by I_DATE
+		insert into IMPORTANTBOARD_ATTACH(FULLNAME, I_ID) values (#{fullName},
+		iboard.currval)
+	</insert>
+	<select id="getAttach" resultType="String">
+		select fullName from
+		IMPORTANTBOARD_AttACH where I_ID = #{I_ID} order by I_DATE
 	</select>
-	
+
 	<delete id="deleteAttach">
-   	 	delete from IMPORTANTBOARD_ATTACH where I_ID = #{I_ID}
-   </delete>
-   
-   <insert id="replaceAttach">
-   		insert into IMPORTANTBOARD_ATTACH(FULLNAME, I_ID) values (#{fullName},#{I_ID})
-   </insert>
-   
+		delete from IMPORTANTBOARD_ATTACH where I_ID = #{I_ID}
+	</delete>
+
+	<insert id="replaceAttach">
+		insert into IMPORTANTBOARD_ATTACH(FULLNAME, I_ID) values
+		(#{fullName},#{I_ID})
+	</insert>
+
+	<select id="SearchId" parameterType="Imp_BoardVO" resultType="int">
+		select * from IMPORTANTBOARD
+		where
+		(I_TITLE = #{I_TITLE}
+		or I_CONTENT = #{I_CONTENT})
+	</select>
+	<select id="SearchId_count" parameterType="Imp_BoardVO"
+		resultType="int">
+		select count(*) from IMPORTANTBOARD
+		where
+		(I_TITLE = #{I_TITLE}
+		or I_CONTENT = #{I_CONTENT})
+	</select>
+
 </mapper>

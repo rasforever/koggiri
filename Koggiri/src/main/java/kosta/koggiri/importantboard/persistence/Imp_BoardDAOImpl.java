@@ -123,6 +123,16 @@ public class Imp_BoardDAOImpl implements Imp_BoardDAO {
 		session.update(namespace + ".updateViewCnt", i_ID);
 	}
 
+	@Override
+	public int SearchId(Imp_BoardVO vo) throws Exception {
+		return session.selectOne(namespace + ".SearchId", vo);
+	}
+
+	@Override
+	public int SearchId_count(Imp_BoardVO vo) throws Exception {
+		return session.selectOne(namespace + ".SearchId_count", vo);
+	}
+
 	
 
 

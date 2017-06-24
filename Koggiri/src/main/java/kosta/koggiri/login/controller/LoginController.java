@@ -86,7 +86,6 @@ public class LoginController {
 		dto.setMem_id((String) session.getAttribute("mem_id"));
 		
 		MemberVO membervo = service.logincheck(dto);
-
 		if (membervo == null) {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
@@ -95,7 +94,7 @@ public class LoginController {
 			out.println("location.href='/login/passcheck';");
 			out.println("</script>");
 			out.close();
-		}
+		} 
 		
 		/*String mem_id = (String) session.getAttribute("mem_id");
 		MemberVO mem= service.detail_mem(mem_id);

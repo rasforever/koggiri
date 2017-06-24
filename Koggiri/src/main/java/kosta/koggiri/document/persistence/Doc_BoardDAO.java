@@ -5,6 +5,7 @@ import java.util.List;
 import kosta.koggiri.document.domain.Doc_BoardVO;
 import kosta.koggiri.document.domain.Doc_Criteria;
 import kosta.koggiri.document.domain.Doc_SearchCriteria;
+import kosta.koggiri.importantboard.domain.Imp_BoardVO;
 
 public interface Doc_BoardDAO {
 	//글 작성 기능
@@ -36,4 +37,7 @@ public interface Doc_BoardDAO {
 	public void deleteAttach(Integer f_id)throws Exception;
 	public void replaceAttach(String fullName, Integer f_id)throws Exception;
 	
+	//자비스 추가
+	public int SearchId(Doc_BoardVO vo) throws Exception;
+	public int SearchId_count(Doc_BoardVO vo) throws Exception;
 }
