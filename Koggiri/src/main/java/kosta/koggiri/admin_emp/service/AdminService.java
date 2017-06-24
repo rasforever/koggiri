@@ -11,6 +11,7 @@ import kosta.koggiri.admin_emp.domain.EmpVO;
 import kosta.koggiri.admin_emp.domain.H_CalendarVO;
 import kosta.koggiri.admin_emp.domain.H_ImportantVO;
 import kosta.koggiri.admin_emp.domain.H_NoticeVO;
+import kosta.koggiri.admin_emp.domain.Mem_TypeVO;
 import kosta.koggiri.admin_emp.domain.Per_AppVO;
 import kosta.koggiri.admin_emp.domain.Pos_TypeVO;
 import kosta.koggiri.admin_emp.domain.Res_AppVO;
@@ -56,12 +57,18 @@ public interface AdminService {
 	
 	public void update_Personnel(EmpInfo_AdminVO vo) throws Exception; //�λ��̵�
 
-	public void update_modifyInformation(EmpInfo_AdminVO vo) throws Exception; //������� �߰� ����
+	public void update_modifyInformation(EmpInfo_AdminVO vo) throws Exception; //
 
 	public void update_resign(EmpInfo_AdminVO vo) throws Exception; //����
 	
 	public int msg_new_count(String emp_id) throws Exception;
 	
 	public EmpTimeVO et_time(String emp_id)throws Exception;
-
+	
+	public List<Mem_TypeVO> select_mem() throws Exception;
+	
+	public List<SearchedEmpVO> basic_select() throws Exception;
+	
+	public void update_mem(EmpVO vo) throws Exception;
+	
 }

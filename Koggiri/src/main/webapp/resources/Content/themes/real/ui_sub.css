@@ -1362,12 +1362,32 @@ table.tbl_goods td>span{display:inline-block;width:42px;}
 .chart_mem{
 		width: 200px;
 	 padding: 10px 0px 10px 0px; 
-	 font-size: 18px; 
+	 font-size: 20px; 
 	 text-align: center; 
 	 vertical-align: middle;
 	background-color: rgb(238, 241, 242);
 }
 .chart_mem:HOVER{ 
+
+	 background-color: #5e709d;
+	 color: #ffffff;
+}
+
+.dept_nm{
+	width: 30px;
+    height: 157px;
+    padding: 10px 10px 10px 10px;
+    font-size: 22px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgb(238, 241, 242);
+    position: relative;
+    top: 5px;
+    left: 0px;
+    margin: 0px 53px 0px 54px;
+}
+
+.dept_nm:HOVER{ 
 
 	 background-color: #5e709d;
 	 color: #ffffff;

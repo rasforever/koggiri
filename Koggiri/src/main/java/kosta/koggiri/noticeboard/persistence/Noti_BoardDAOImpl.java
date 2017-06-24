@@ -124,9 +124,9 @@ public class Noti_BoardDAOImpl implements Noti_BoardDAO {
 	}
 
 	@Override
-	public int SearchId(Noti_BoardVO vo) throws Exception {
+	public List<Noti_BoardVO> SearchId(Noti_BoardVO vo) throws Exception {
 	
-		return session.selectOne(namespace + ".SearchId" , vo);
+		return session.selectList(namespace + ".SearchId" , vo);
 	}
 
 	@Override

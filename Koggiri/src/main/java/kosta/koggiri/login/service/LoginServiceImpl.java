@@ -3,6 +3,7 @@ package kosta.koggiri.login.service;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kosta.koggiri.login.domain.MemberVO;
 import kosta.koggiri.login.dto.LoginDTO;
@@ -23,10 +24,28 @@ public class LoginServiceImpl implements LoginService {
 	public String getEmpnmbyMemid(MemberVO vo) throws Exception {
 		return dao.get_emp_nm(vo);
 	}
-
+	
+	@Transactional
 	@Override
 	public void mem_update(MemberVO vo) throws Exception {
-		dao.mem_update(vo);
+		if (vo.getAddr() != null) {
+			dao.mem_addr_update(vo);
+		}
+		if (vo.getTel_no() != null ) {
+			if ( vo.getTel_no().equals("010--")){				
+			}else{
+				dao.mem_tel_no_update(vo);
+			}
+		}
+		if (vo.getE_mail() != null ) {
+			if ( vo.getE_mail().equals("@naver.com")){				
+			}else{
+				dao.mem_e_mail_update(vo);
+			}
+		}
+		if (vo.getFilename() != null) {
+			dao.mem_file_update(vo);
+		}
 		
 	}
 

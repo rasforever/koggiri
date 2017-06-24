@@ -17,14 +17,27 @@
 	rel="stylesheet" type="text/css" />
 
 <%@ include file="../include/header.jsp"%>
-
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.aut').click(function(event) {
+			event.preventDefault();
+			var mem_aut_cd = '${mem_aut_cd}';
+			var ck_emp_id = '${mem_id}';
+			if (mem_aut_cd == 'A' && ck_emp_id =='master') {
+				location.href = "../admin_emp/authority";
+			} else {
+				alert("접근 권한이 없습니다.");
+			}
+		});
+	});
+</script>
 
 <div class="container_wrap" style="background-color: #ffffff;">
 	<div id="container">
 
 		<div id="sub_menu_title">
 			<h1>
-				<img src="/resources/img/s_menu12.png" />
+				<img src="/resources/img/s_menu11.png" />
 			</h1>
 			<div class="sub_top">
 				<span><a href="/main">홈</a> <span> &gt; </span> <a
@@ -43,7 +56,7 @@
 							<li class="sub01 "><a href="/admin_emp/manager"> 사원관리</a></li>
 							<li class="sub01 "><a href="/admin_emp/perApp"> 인사이동내역</a></li>
 							<li class="sub01 "><a href="/admin_emp/resApp"> 퇴직내역</a></li>
-							<li class="sub01 "><a href="/admin_emp/authority"> 권한부여</a></li>
+							<li class="aut "><a href="/admin_emp/authority"> 권한부여</a></li>
 						</ul></li>
 					<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
 						<ul>

@@ -39,7 +39,7 @@ public interface Noti_BoardDAO {
 	public void updateViewCnt(Integer n_ID)throws Exception;
 	
 	//자비스 추가
-	public int SearchId(Noti_BoardVO vo) throws Exception;
+	public List<Noti_BoardVO> SearchId(Noti_BoardVO vo) throws Exception;
 	public int SearchId_count(Noti_BoardVO vo) throws Exception;
 
 }

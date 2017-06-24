@@ -38,6 +38,6 @@ public interface Doc_BoardDAO {
 	public void replaceAttach(String fullName, Integer f_id)throws Exception;
 	
 	//자비스 추가
-	public int SearchId(Doc_BoardVO vo) throws Exception;
+	public List<Doc_BoardVO> SearchId(Doc_BoardVO vo) throws Exception;
 	public int SearchId_count(Doc_BoardVO vo) throws Exception;
 }

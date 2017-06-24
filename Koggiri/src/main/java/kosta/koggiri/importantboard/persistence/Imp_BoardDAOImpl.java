@@ -124,8 +124,8 @@ public class Imp_BoardDAOImpl implements Imp_BoardDAO {
 	}
 
 	@Override
-	public int SearchId(Imp_BoardVO vo) throws Exception {
-		return session.selectOne(namespace + ".SearchId", vo);
+	public List<Imp_BoardVO> SearchId(Imp_BoardVO vo) throws Exception {
+		return session.selectList(namespace + ".SearchId", vo);
 	}
 
 	@Override
