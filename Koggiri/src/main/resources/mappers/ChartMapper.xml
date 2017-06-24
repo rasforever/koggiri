@@ -10,6 +10,7 @@
 		from EMP e, POS p, SEX s, DEPT d
 		where e.pos_id = p.pos_id and e.sex_id = s.sex_id and e.dept_id = d.dept_id
 		and e.dept_id = #{dept_id}
+		and e.wstate_cd != 1
 		order by d.dept_sort, e.pos_id, e.emp_id
 	</select>
 
