@@ -100,9 +100,9 @@ public class Doc_BoardDAOImpl implements Doc_BoardDAO {
 	}
 
 	@Override
-	public int SearchId(Doc_BoardVO vo) throws Exception {
+	public List<Doc_BoardVO> SearchId(Doc_BoardVO vo) throws Exception {
 		
-		return session.selectOne(namespace + ".SearchId", vo);
+		return session.selectList(namespace + ".SearchId", vo);
 	}
 
 	@Override

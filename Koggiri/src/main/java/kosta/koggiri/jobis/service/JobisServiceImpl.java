@@ -78,7 +78,7 @@ public class JobisServiceImpl implements JobisService {
 		for (int j = 0; j < all_emp.size(); j++) {
 			// 인사
 			if (input_text.contains("안녕") || input_text.contains("반가워") || input_text.contains("자비스 안녕")) {
-				text = "네 안녕하세요" + all_emp.get(j).getEmp_nm() + "님 반갑습니다. 오늘도 활기차게 간다 간다 뿅간다.";
+				text = "네 안녕하세요 [" + all_emp.get(j).getEmp_nm() + "] 님 반갑습니다. 오늘도 활기찬 하루 되세요!";
 				return text;
 				// 인사
 			} else if (input_text.contains("잘가")) {
@@ -86,7 +86,7 @@ public class JobisServiceImpl implements JobisService {
 				return text;
 				// 강사님 취미
 			} else if (input_text.contains("서창훈") && input_text.contains("어떤")) {
-				return "백바지를 즐겨입으시는 PRO L.E.C.T.U.R.E.R. 입니다.";
+				return "백바지를 즐겨입으시는 프로강의러입니다.";
 				// 사람들 평가
 			} else if (input_text.contains(all_emp.get(j).getEmp_nm()) && input_text.contains("얼굴")) {
 				return "인간의 형상은 아닌거 같아요.";
@@ -107,7 +107,7 @@ public class JobisServiceImpl implements JobisService {
 			} else if (input_text.contains("전체") && input_text.contains("출근리스트")) {
 				List<Jobis_EmpVO> attendlist = dao_jobis.all_attendlist();
 				if (attendlist.size() == 0) {
-					return text + "그 누구도 출근하지 않았다.";
+					return text + "아직 아무도 출근하지 않았습니다.";
 
 				} else {
 					for (int i = 0; i < attendlist.size(); i++) {
@@ -168,14 +168,17 @@ public class JobisServiceImpl implements JobisService {
 					impBVO.setI_TITLE(c);
 					impBVO.setI_CONTENT(c);
 					int ck_imp = dao_important.SearchId_count(impBVO);
+					
+					List<Imp_BoardVO> dao_impid = dao_important.SearchId(impBVO);
+					String t = dao_impid.toString().replaceAll("[^0-9]", "");
 					if (ck_imp == 0){
-						return "그런건 없어...";
+						return "해당하는 알립니다 글이 없습니다.";
 					} else if(ck_imp == 1){
-						int dao_impid = dao_important.SearchId(impBVO);			
-						return "드루와 ~ <a href =\"javascript:;\"onclick=\"opener.parent.location='../importantboard/readPage?i_ID="+ dao_impid + "';\"\"\">요기 클릭!</a>";
+									
+						return "해당하는 글을 발견했습니다.  <a href =\"javascript:;\"onclick=\"opener.parent.location='../importantboard/readPage?i_ID="+ t + "';\"\"\">요기 클릭!</a>";
 						
 					} else{
-						return "드루와 ~ <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/importantboard/listPage';\"\"\">요기 클릭!</a>";
+						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/importantboard/listPage?searchType=t&keyword="+ c + "';\"\"\">요기 클릭!</a>";
 					}
 					
 				}
@@ -188,14 +191,17 @@ public class JobisServiceImpl implements JobisService {
 					DocBVO.setF_title(c);
 					DocBVO.setF_content(c);
 					int ck_doc = dao_document.SearchId_count(DocBVO);
+					
+					List<Doc_BoardVO> dao_documentid = dao_document.SearchId(DocBVO);	
+					String t = dao_documentid.toString().replaceAll("[^0-9]", "");
 					if (ck_doc == 0){
 						return "해당하는 문서글이 존재하지 않습니다.";
 					} else if(ck_doc == 1){
-						int dao_documentid = dao_document.SearchId(DocBVO);			
-						return "드루와 ~ <a href =\"javascript:;\"onclick=\"opener.parent.location='../document/readPage?f_id="+ dao_documentid + "';\"\"\">요기 클릭!</a>";
+								
+						return "해당하는 글을 발견했습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='../document/readPage?f_id="+ t + "';\"\"\">요기 클릭!</a>";
 						
 					} else{
-						return "드루와 ~ <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/document/list;\"\"\">요기 클릭!</a>";
+						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/document/list?searchType=t&keyword="+ c +";\"\"\">요기 클릭!</a>";
 					}
 					
 				}
@@ -208,14 +214,18 @@ public class JobisServiceImpl implements JobisService {
 					NOTIBVO.setN_TITLE(c);
 					NOTIBVO.setN_CONTENT(c);
 					int ck_noti = dao_noticeboard.SearchId_count(NOTIBVO);
+					
+					List<Noti_BoardVO> dao_notiboardid = dao_noticeboard.SearchId(NOTIBVO);			
+					String t = dao_notiboardid.toString().replaceAll("[^0-9]", "");
 					if (ck_noti == 0){
 						return "해당하는 공지 글이 존재하지 않습니다.";
 					} else if(ck_noti == 1){
-						int dao_notiboardid = dao_noticeboard.SearchId(NOTIBVO);			
-						return "드루와 ~ <a href =\"javascript:;\"onclick=\"opener.parent.location='../noticeboard/readPage?n_ID="+ dao_notiboardid + "';\"\"\">요기 클릭!</a>";
+						
+						return "해당하는 글을 발견했습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='../noticeboard/readPage?n_ID="+ t + "';\"\"\">요기 클릭!</a>";
 						
 					} else{
-						return "드루와 ~ <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/noticeboard/listPage;\"\"\">요기 클릭!</a>";
+						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/noticeboard/listPage?searchType=t&keyword="+ c +"';\"\"\">요기 클릭!</a>";
+						       
 					}
 					
 				}

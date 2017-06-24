@@ -38,6 +38,6 @@ public interface Imp_BoardDAO {
 	
 	public void updateViewCnt(Integer i_ID)throws Exception;
 	
-	public int SearchId(Imp_BoardVO vo) throws Exception;
+	public List<Imp_BoardVO> SearchId(Imp_BoardVO vo) throws Exception;
 	public int SearchId_count(Imp_BoardVO vo) throws Exception;
 }
