@@ -38,8 +38,7 @@
 
 
 	<script type="text/javascript">
-		var objDiv = document.getElementById("jobis_context");
-		objDiv.scrollTop = objDiv.scrollHeight;
+		
 
 		$('#submit').click(
 				function() {
@@ -67,6 +66,10 @@
 										"<div class='from-them' align='left'>"
 												+ data + "</div>");
 								$('#input_text').val("");
+								
+								var objDiv = document.getElementById("jobis_context");
+								objDiv.scrollTop = objDiv.scrollHeight;
+								
 							} else {
 								alert("공백은 입력할 수 없습니다.");
 							}
@@ -74,6 +77,9 @@
 						}
 
 					});
+					
+					
+					
 
 					/* 		var text = '${aa}';
 							$(".aa").append(text+"<br>");
