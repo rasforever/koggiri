@@ -10,6 +10,6 @@ public interface JobisDAO {
 	public List<Jobis_EmpVO> all_attendlist() throws Exception; 
 	public List<Jobis_EmpVO> all_approvalcheck() throws Exception;
 	
-	public List<Jobis_EmpVO> every_emp ()throws Exception;
+	public Jobis_EmpVO every_emp (String emp_id)throws Exception;
 
 }
