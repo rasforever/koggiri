@@ -12,7 +12,8 @@
 
 <body>
 	<div>
-		<div id="jobis_context" class="msg_context" style="overflow-y: scroll; height: 470px">
+		<div id="jobis_context" class="msg_context"
+			style="overflow-y: scroll; height: 430px">
 			<section>
 				<%-- ${ck_emp_id} --%>
 			</section>
@@ -24,13 +25,15 @@
 
 		<div class="jobis_contextBox">
 
-			<textarea rows="3" cols="55" id="input_text" style="position: relative; left: 20px;" ></textarea>
+
+
+			<textarea rows="3" cols="40" id="input_text" ></textarea>
 			<input type="submit" id="submit" value="전송">
 
 		</div>
 
 	</div>
-	
+
 
 
 
@@ -43,7 +46,6 @@
 
 					var input_text = $("#input_text").val();
 
-					
 					$.ajax({
 						url : '/jobis/jobis_page',
 
@@ -52,11 +54,22 @@
 						},
 						type : 'post',
 						success : function(data) {
-							$('#jobis_context').append("<div class='clear'></div>");
-							$('#jobis_context').append("<div class='from-me' align='right'>" + input_text + "</div>")
-							$('#jobis_context').append("<div class='clear'></div>");
-							$('#jobis_context').append("<div class='from-them' align='left'>" + data + "</div>");
-							$('#input_text').val("");
+
+							if (input_text != " ") {
+								$('#jobis_context').append(
+										"<div class='clear'></div>");
+								$('#jobis_context').append(
+										"<div class='from-me' align='right'>"
+												+ input_text + "</div>")
+								$('#jobis_context').append(
+										"<div class='clear'></div>");
+								$('#jobis_context').append(
+										"<div class='from-them' align='left'>"
+												+ data + "</div>");
+								$('#input_text').val("");
+							} else {
+								alert("공백은 입력할 수 없습니다.");
+							}
 
 						}
 

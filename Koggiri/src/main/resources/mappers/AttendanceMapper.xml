@@ -107,10 +107,44 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	
 	<select id="emp_vatcation" parameterType="Att_Vat_DtVO" statementType="CALLABLE">
+	<![CDATA[
 		{CALL
 		ATT_VAT(#{emp_id}, #{att_st_dt}, #{att_ed_dt})}
+		]]>
 	</select>
 	
+	<select id="emp_vat_ct" parameterType="Att_Vat_DtVO" resultType="int">
+	<![CDATA[
+		select count(*) from att_vat_day 
+		 where emp_id = #{emp_id} 
+		   and vat_dt >= #{att_st_dt}
+		   and  vat_dt <= #{att_ed_dt}
+		   ]]>
+	</select>
+	
+	<select id="att_vacationList" resultType="Att_EmpVO">
+	<![CDATA[
+	select  a.emp_id as emp_id
+			 , e.emp_nm as emp_nm
+			 , d.dept_nm as dept_nm
+			 , p.pos_nm as pos_nm
+       		 , a.VAT_DT as vat_dt
+		from att_vat_day a
+		inner join emp e
+		on  a.emp_id = e.emp_id
+		and vat_dt > to_char(sysdate,'yyyymmdd')
+		inner join dept d
+		on e.dept_id = d.dept_id
+		inner join pos p 
+		on e.pos_id = p.pos_id	
+		   ]]>
+	</select>
+	
+	<delete id="att_deletevat" parameterType="Att_Vat_DtVO">
+	<![CDATA[
+	delete from att_vat_day where emp_id = #{emp_id} and vat_dt = #{att_st_dt}
+		   ]]>
+	</delete>
 	
 
 	

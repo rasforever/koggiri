@@ -23,11 +23,10 @@ import kosta.koggiri.admin_emp.service.AdminService;
  */
 @Controller
 public class HomeController {
-	
 
 	@Inject
 	private AdminService service;
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	/**
@@ -44,7 +43,6 @@ public class HomeController {
 		String mem_id = (String) session.getAttribute("mem_id");
 		String emp_nm = (String) session.getAttribute("emp_nm");
 		String mem_aut_cd = (String) session.getAttribute("mem_aut_cd");
-	
 
 		EmpVO vo = new EmpVO();
 		vo.setEmp_id(mem_id);
@@ -60,15 +58,22 @@ public class HomeController {
 		model.addAttribute("list_notice", service.list_notice());
 		model.addAttribute("list_important", service.list_important());
 		model.addAttribute("list_calendar", service.list_calendar(mem_id));
-		model.addAttribute("msg_count", service.msg_new_count(mem_id));		
+		model.addAttribute("msg_count", service.msg_new_count(mem_id));
 		EmpTimeVO etvo = new EmpTimeVO();
 		etvo = service.et_time(mem_id);
-		model.addAttribute("go_w", etvo.getAtt_time());
-		model.addAttribute("lev_o", etvo.getLea_time());
-		
+
+		// 휴무일 혹은 주말일때 제기랄 뿅간다 뿅뿅간다
+		if (etvo == null) {
+			model.addAttribute("go_w", "쉬세요");
+			model.addAttribute("lev_o", "나오지마");
+		} else {
+			model.addAttribute("go_w", etvo.getAtt_time());
+			model.addAttribute("lev_o", etvo.getLea_time());
+		}
+
+
 		return "/main";
 	}
-	
 
 	// 출근
 	@RequestMapping(value = "/att", method = RequestMethod.POST)
@@ -87,6 +92,5 @@ public class HomeController {
 		service.updateLev(emp_id);
 		return "redirect:/";
 	}
-		
-	
+
 }

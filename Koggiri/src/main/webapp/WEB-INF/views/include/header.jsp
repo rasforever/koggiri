@@ -26,8 +26,6 @@
 	href="../resources/Content/themes/real/ui_sub.css" />
 <link href="../resources/Content/themes/base/jquery-ui.min.css"
 	rel="stylesheet" type="text/css" />
-<link rel="shortcut icon" type="image/x-icon"
-	href="http://s.nx.com/S2/billing/pcbang/real/common/favicon.ico" />
 <link rel="stylesheet"
 	href="../resources/Content/themes/real/ui_main.css" />
 <link rel="stylesheet"
@@ -41,7 +39,7 @@
 			if (mem_aut_cd == 'A') {
 				location.href = "../admin_emp/manager";
 			} else {
-				alert("넌 아웃이야 관리자 아님!케케켘케");
+				alert("접근 권한이 없습니다.");
 			}
 		});
 	});
@@ -71,7 +69,7 @@
 			<div class="my_information">
 
 				<a class="jobis_icon" href="javascript:;" id = "clickclick"
-					onclick="window.open('../jobis/jobis_page','count_button','width=500, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no')"></a> 
+					onclick="window.open('../jobis/jobis_page','count_button','width=530, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no')"></a> 
 					
 					<a href="javascript:;"
 					onclick="window.open('../msg/msg_emplist','count_button','width=530, height=640, toolbar=no, menubar=no, scrollbars=no, resizable=no')"><img

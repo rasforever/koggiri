@@ -11,6 +11,7 @@ import kosta.koggiri.attendance.domain.AttendanceVO;
 import kosta.koggiri.jobis.domain.Jobis_EmpVO;
 import kosta.koggiri.attendance.domain.Att_EmpVO;
 import kosta.koggiri.attendance.domain.Att_Emp_InfoVO;
+import kosta.koggiri.attendance.domain.Att_VactionVO;
 import kosta.koggiri.attendance.domain.Att_Vat_DtVO;
 import kosta.koggiri.attendance.domain.AttendanceSearchVO;
 
@@ -58,6 +59,19 @@ public class AttendanceDAOImpl implements AttendanceDAO{
 	}
 
 
-	
+	@Override
+	public int emp_vat_ct(Att_Vat_DtVO vo) throws Exception {	
+		return session.selectOne(namespace + ".emp_vat_ct", vo);
+	}
+
+	@Override
+	public List<Att_EmpVO> att_vacationList() throws Exception {		
+		return session.selectList(namespace + ".att_vacationList");
+	}
+
+	@Override
+	public void att_deletevat(Att_Vat_DtVO vo) throws Exception {
+		session.delete(namespace + ".att_deletevat",vo);
+	}
 
 }

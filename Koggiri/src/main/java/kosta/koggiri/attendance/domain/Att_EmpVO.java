@@ -25,6 +25,7 @@ public class Att_EmpVO implements Serializable{
 		private String dept_nm;
 		private String mem_id;
 		private String mem_aut_cd;
+		private String vat_dt;
 		
 		public String getMem_id() {
 			return mem_id;
@@ -137,13 +138,24 @@ public class Att_EmpVO implements Serializable{
 		public void setMem_aut_cd(String mem_aut_cd) {
 			this.mem_aut_cd = mem_aut_cd;
 		}
+		public String getVat_dt() {
+			return vat_dt;
+		}
+		public void setVat_dt(String vat_dt) {
+			this.vat_dt = vat_dt;
+		}
 		@Override
 		public String toString() {
-			return "EmpVO [emp_nm=" + emp_nm + ", pos_id=" + pos_id + ", dept_id=" + dept_id + ", join_dt=" + join_dt
-					+ ", emp_id=" + emp_id + ", res_no=" + res_no + ", sex_id=" + sex_id + ", nation_id=" + nation_id
-					+ ", wstate_cd=" + wstate_cd + ", input_emp_id=" + input_emp_id + ", mem_pw=" + mem_pw + ", e_mail="
-					+ e_mail + ", tel_no=" + tel_no + ", addr=" + addr + ", pos_nm=" + pos_nm + ", dept_nm=" + dept_nm
-					+ ", mem_id=" + mem_id + ", mem_aut_cd=" + mem_aut_cd + "]";
+			return "Att_EmpVO [emp_nm=" + emp_nm + ", pos_id=" + pos_id + ", dept_id=" + dept_id + ", join_dt="
+					+ join_dt + ", emp_id=" + emp_id + ", res_no=" + res_no + ", sex_id=" + sex_id + ", nation_id="
+					+ nation_id + ", wstate_cd=" + wstate_cd + ", input_emp_id=" + input_emp_id + ", mem_pw=" + mem_pw
+					+ ", e_mail=" + e_mail + ", tel_no=" + tel_no + ", addr=" + addr + ", pos_nm=" + pos_nm
+					+ ", dept_nm=" + dept_nm + ", mem_id=" + mem_id + ", mem_aut_cd=" + mem_aut_cd + ", vat_dt="
+					+ vat_dt + "]";
 		}
+		
+		
+		
+		
 
 	}

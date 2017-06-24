@@ -114,6 +114,7 @@ public class AdminServiceImpl implements AdminService {
 	@Transactional
 	@Override
 	public void update_modifyInformation(EmpInfo_AdminVO vo) throws Exception {
+		System.out.println(vo.getFilename());
 		if (vo.getAddr() != null) {
 			dao.update_modifyInformation_addr(vo);
 		}

@@ -6,6 +6,7 @@ import kosta.koggiri.attendance.domain.AttendanceVO;
 
 import kosta.koggiri.attendance.domain.Att_EmpVO;
 import kosta.koggiri.attendance.domain.Att_Emp_InfoVO;
+import kosta.koggiri.attendance.domain.Att_VactionVO;
 import kosta.koggiri.attendance.domain.Att_Vat_DtVO;
 import kosta.koggiri.attendance.domain.AttendanceSearchVO;
 
@@ -22,7 +23,11 @@ public interface AttendanceDAO {
 
 	public void emp_vatcation(Att_Vat_DtVO vo) throws Exception;
 	
-
+	public int emp_vat_ct(Att_Vat_DtVO vo) throws Exception;
+	
+	public List<Att_EmpVO> att_vacationList() throws Exception;
+	
+	public void att_deletevat(Att_Vat_DtVO vo) throws Exception;
 
 	
 }

@@ -22,7 +22,7 @@
 			</h1>
 			<div class="sub_top">
 				<span><a href="/main">홈</a> <span> &gt; </span> <a href="#">사원관리</a>
-					<span> &gt; </span> <strong>사원등록</strong></span>
+					<span> &gt; </span> <strong>사원관리</strong></span>
 			</div>
 		</div>
 
@@ -31,21 +31,19 @@
    <div class="lnb01">
       <strong class="menu05"><span>회사 정보</span></strong>
       <ul>
-                <li class="menu01 ">
-                    <a href="/admin_emp/manager">사원관리</a>
-                    <ul>
-							<li class="sub01 "><a href="/admin_emp/manager">
-									사원관리</a></li>
-							<li class="sub01 "><a href="/admin_emp/perApp">
-									인사이동내역</a></li>
-							<li class="sub01 "><a href="/admin_emp/resApp">
-									퇴직내역</a></li>
-						</ul>
-                </li>
-      						<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
+               <li class="menu01 "><a href="/admin_emp/manager">사원관리</a>
 						<ul>
-							<li class="sub01 "><a href="/attendance/att_mlist">월 근태내역</a></li>
-							<li class="sub01 "><a href="/attendance/att_alldlist">일 근태내역</a></li>
+							<li class="sub01 "><a href="/admin_emp/manager"> 사원관리</a></li>
+							<li class="sub01 "><a href="/admin_emp/perApp"> 인사이동내역</a></li>
+							<li class="sub01 "><a href="/admin_emp/resApp"> 퇴직내역</a></li>
+						</ul></li>
+					<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
+						<ul>
+							<li class="sub01 "><a href="/attendance/att_mlist">월
+									근태내역</a></li>
+							<li class="sub01 "><a href="/attendance/att_alldlist">일
+									근태내역</a></li>
+							<li class="sub01 "><a href="/attendance/att_vactionlist ">휴가내역</a></li>
 							<li class="sub01 "><a href="/attendance/att_registVaction">휴가등록</a></li>
 
 							<ul></ul>

@@ -42,8 +42,7 @@
 			</h1>
 			<div class="sub_top">
 				<span><a href="/main">홈</a> <span> &gt; </span> <a
-					href="/attendance/att_alldlist">근태확인</a> <span> &gt; </span> <strong>일
-						근태내역</strong></span>
+					href="/attendance/att_alldlist">근태확인</a> <span> &gt; </span> <strong>휴가등록</strong></span>
 			</div>
 		</div>
 
@@ -64,6 +63,7 @@
 									근태내역</a></li>
 							<li class="sub01 "><a href="/attendance/att_alldlist">일
 									근태내역</a></li>
+							<li class="sub01 "><a href="/attendance/att_vactionlist ">휴가내역</a></li>
 							<li class="sub01 "><a href="/attendance/att_registVaction">휴가등록</a></li>
 
 							<ul></ul>
@@ -85,10 +85,10 @@
 
 							<table class="att_registVacation" style="margin-bottom: 0px;">
 								<tr>
-									<th>사번</th>
-									<th>이름</th>
-									<th>부서</th>
-									<th>직급</th>
+									<th style="text-align: center">사번</th>
+									<th style="text-align: center"> 이름</th>
+									<th style="text-align: center">부서</th>
+									<th style="text-align: center">직급</th>
 								</tr>
 							</table>
 							<div class="att_registVacation_t"

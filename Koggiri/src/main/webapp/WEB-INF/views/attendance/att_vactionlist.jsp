@@ -18,6 +18,20 @@
 
 <%@ include file="../include/header.jsp"%>
 
+<script>
+	$(function() {
+		$(".datepicker1").datepicker({
+			altField : '#att_st_dt',
+			dateFormat : "yy/mm/dd",
+			minDate : 0
+		});
+		$(".datepicker2").datepicker({
+			altField : '#att_ed_dt',
+			dateFormat : "yy/mm/dd",
+			minDate : 0
+		});
+	});
+</script>
 
 <div class="container_wrap" style="background-color: #ffffff;">
 	<div id="container">
@@ -28,8 +42,7 @@
 			</h1>
 			<div class="sub_top">
 				<span><a href="/main">홈</a> <span> &gt; </span> <a
-					href="/attendance/att_alldlist">근태확인</a> <span> &gt; </span> <strong>일
-						근태내역</strong></span>
+					href="/attendance/att_alldlist">근태확인</a> <span> &gt; </span> <strong>휴가내역</strong></span>
 			</div>
 		</div>
 
@@ -67,41 +80,37 @@
 
 
 					<div class="box" align="left">
-						<div class="box-header with-border">
-							현재일 : ${ att_day } <br>
-						</div>
-						<br>
-						<div class='box-body'>
-							조회일: <input type="text" name="att_dd" id="att_dd"
-								class="datepicker" size="14">
-							<button id='searchBtn'>Search</button>
-						</div>
-						<br>
-						<br>
 						<div class="box-body">
 							<h3></h3>
-							<table class="table table-bordered" >
 
+							<table class="att_registVacation" style="margin-bottom: 0px;">
 								<tr>
-									<th style="text-align: center" >사번</th>
-									<th style="text-align: center">사원</th>
+									<th style="text-align: center">사번</th>
+									<th style="text-align: center"> 이름</th>
 									<th style="text-align: center">부서</th>
 									<th style="text-align: center">직급</th>
-									<th style="text-align: center">출근시간</th>
-									<th style="text-align: center">퇴근시간</th>
+									<th style="text-align: center">휴가일</th>
 								</tr>
-
-								<c:forEach items="${alldlist}" var="attendanceVO">
-									<tr>
-										<td>${attendanceVO.emp_id}</td>
-										<td>${attendanceVO.emp_nm}</td>
-										<td>${attendanceVO.dept_nm}</td>
-										<td>${attendanceVO.pos_nm}</td>
-										<td>${attendanceVO.att_time}</td>
-										<td>${attendanceVO.lea_time}</td>
-									</tr>
-								</c:forEach>
 							</table>
+							<div class="att_registVacation_t"
+								style="width: 970px; height: 300px; overflow: auto;">
+								<table id="att_Vacationlist_table" style="table-layout: fixed;">
+									<!-- 밑에는 내용 뿌려줄것 -->
+									<c:set var="n" value="0" />
+									<c:forEach var="Att_EmpVO" items="${list }">
+										<tr align="center">
+											<td><a href="/attendance/att_deleteVact?v_emp_id=${Att_EmpVO.emp_id}&vat_dt=${Att_EmpVO.vat_dt}">${Att_EmpVO.emp_id }</td>
+											<td>${Att_EmpVO.emp_nm }</td>
+											<td>${Att_EmpVO.dept_nm }</td>
+											<td>${Att_EmpVO.pos_nm }</td>
+											<td>${Att_EmpVO.vat_dt }</td>
+										</tr>
+										<c:set var="n" value="${n+1}" />
+									</c:forEach>
+								</table>
+							</div>
+							
+							
 						</div>
 						<!-- /.box-body -->
 						<div class="box-footer"></div>
@@ -116,23 +125,11 @@
 	</div>
 </div>
 
+	
+
 
 <!-- 본문 끝 -->
 
 <div class="footer_wrap">
 	<div id="footer" style="height: 150px">
 		<%@ include file="../include/footer.jsp"%>
-
-		<script>
-			$(document).ready(
-				function() {
-					$('#searchBtn').on(
-						"click",
-						function(event) {
-							self.location = "att_alldlist"
-							+ "?att_dd=" + $('#att_dd').val();
-		
-						});
-		
-				});
-		</script>
