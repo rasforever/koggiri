@@ -12,7 +12,10 @@ import kosta.koggiri.approval.persistence.ApprovalDAO;
 import kosta.koggiri.attendance.persistence.AttendanceDAO;
 import kosta.koggiri.calendar.persistence.CalendarDAO;
 import kosta.koggiri.chart.persistence.ChartDAO;
+import kosta.koggiri.document.domain.Doc_PageMaker;
+import kosta.koggiri.document.domain.Doc_SearchCriteria;
 import kosta.koggiri.document.persistence.Doc_BoardDAO;
+import kosta.koggiri.importantboard.domain.Imp_BoardVO;
 import kosta.koggiri.importantboard.persistence.Imp_BoardDAO;
 import kosta.koggiri.jobis.domain.Jobis_EmpVO;
 import kosta.koggiri.jobis.persistence.JobisDAO;
@@ -24,41 +27,43 @@ import kosta.koggiri.task.persistence.TaskDAO;
 @Service
 public class JobisServiceImpl implements JobisService {
 
-	//자비스 자체
+	// 자비스 자체
 	@Inject
 	private JobisDAO dao_jobis;
 
-	//사원정보
+	// 사원정보
 	@Inject
 	private AdminDAO dao_admin;
-	
-	//결재
+
+	// 결재
 	@Inject
 	private ApprovalDAO dao_approval;
 
-	//일정
+	// 일정
 	@Inject
 	private CalendarDAO dao_calendar;
 
-	//근태
+	// 근태
 	@Inject
 	private AttendanceDAO dao_attend;
-	
-	//문서
+
+	// 문서
 	@Inject
 	private Doc_BoardDAO dao_document;
-	
-	//알립니다
+
+	// 알립니다
 	@Inject
 	private Imp_BoardDAO dao_important;
-	
-	//공지
+
+	// 공지
 	@Inject
 	private Noti_BoardDAO dao_noticeboard;
-	
-	//업무
+
+	// 업무
 	@Inject
 	private TaskDAO dao_task;
+
+	private Doc_SearchCriteria cri;
 
 	@Transactional
 	@Override
@@ -121,7 +126,10 @@ public class JobisServiceImpl implements JobisService {
 				//
 			} else if (input_text.contains(all_emp.get(j).getEmp_nm())) {
 
-				Jobis_EmpVO emp = dao_jobis.every_emp(all_emp.get(j).getEmp_id());// 전체	 사원의 모든 것.
+				Jobis_EmpVO emp = dao_jobis.every_emp(all_emp.get(j).getEmp_id());// 전체
+																					// 사원의
+																					// 모든
+																					// 것.
 				if (input_text.contains("출근시간")) {
 					if (emp.getAtt_time() != null) {
 						return emp.getEmp_nm() + "님의 출근시간은  " + emp.getAtt_time() + " 입니다.";
@@ -150,8 +158,26 @@ public class JobisServiceImpl implements JobisService {
 
 				return "잘 모르겠으니 여기서 검색해드릴게요 ~ <a href =\"javascript:;\"onclick=\"window.open('https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query="
 						+ c + "');\">요기 클릭!</a>";
+			} else if (input_text.contains("알립니다")) {
+				if (input_text.contains("검색")) {
+					String b = input_text.substring(input_text.indexOf(" ") + 1, input_text.length());		
+					String c = b.substring(0, b.indexOf(" "));
+					Imp_BoardVO impBVO = new Imp_BoardVO();
+					impBVO.setI_TITLE(c);
+					impBVO.setI_CONTENT(c);
+					int ck_imp = dao_important.SearchId_count(impBVO);
+					if (ck_imp == 0){
+						return "그런건 없어...";
+					} else if(ck_imp == 1){
+						int dao_impid = dao_important.SearchId(impBVO);			
+						return "드루와 ~ <a href =\"javascript:;\"onclick=\"opener.parent.location='../importantboard/readPage?i_ID="+ dao_impid + "';\"\"\">요기 클릭!</a>";
+						
+					} else{
+						return "드루와 ~ <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/importantboard/listPage';\"\"\">요기 클릭!</a>";
+					}
+					
+				}
 			}
-
 		}
 
 		return "저장된 키워드가 없습니다. 다시 입력해 보실래요?";

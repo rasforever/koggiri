@@ -37,4 +37,7 @@ public interface Imp_BoardDAO {
 	public void replaceAttach(String fullName, Integer i_ID)throws Exception;
 	
 	public void updateViewCnt(Integer i_ID)throws Exception;
+	
+	public int SearchId(Imp_BoardVO vo) throws Exception;
+	public int SearchId_count(Imp_BoardVO vo) throws Exception;
 }
