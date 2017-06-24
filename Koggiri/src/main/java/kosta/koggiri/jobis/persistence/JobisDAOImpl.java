@@ -36,9 +36,9 @@ public class JobisDAOImpl implements JobisDAO{
 	}
 
 	@Override
-	public List<Jobis_EmpVO> every_emp() throws Exception {
+	public Jobis_EmpVO every_emp(String emp_id) throws Exception {
 		
-		return session.selectList(namespace + ".every_emp");
+		return session.selectOne(namespace + ".every_emp", emp_id);
 	}
 	
 
