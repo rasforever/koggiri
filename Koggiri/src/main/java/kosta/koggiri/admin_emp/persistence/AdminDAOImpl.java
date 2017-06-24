@@ -16,6 +16,7 @@ import kosta.koggiri.admin_emp.domain.EmpVO;
 import kosta.koggiri.admin_emp.domain.H_CalendarVO;
 import kosta.koggiri.admin_emp.domain.H_ImportantVO;
 import kosta.koggiri.admin_emp.domain.H_NoticeVO;
+import kosta.koggiri.admin_emp.domain.Mem_TypeVO;
 import kosta.koggiri.admin_emp.domain.Per_AppVO;
 import kosta.koggiri.admin_emp.domain.Pos_TypeVO;
 import kosta.koggiri.admin_emp.domain.Res_AppVO;
@@ -185,7 +186,21 @@ public class AdminDAOImpl implements AdminDAO {
 		session.insert(namespace+".insertEmp_att", vo);
 	}
 
+	@Override
+	public List<Mem_TypeVO> select_mem() throws Exception {		
+		return session.selectList(namespace+".select_mem");
+	}
 
-	
+	@Override
+	public List<SearchedEmpVO> basic_select() throws Exception {
+		return session.selectList(namespace+".basic_select");
+	}
+
+	@Override
+	public void update_mem(EmpVO vo) throws Exception {
+		session.update(namespace+".update_mem",vo);
+		
+	}
+
 
 }

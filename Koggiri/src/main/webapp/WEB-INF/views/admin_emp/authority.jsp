@@ -70,6 +70,7 @@
 									<th style="text-align: center">이름</th>
 									<th style="text-align: center">부서</th>
 									<th style="text-align: center">직급</th>
+									<th style="text-align: center">등급</th>
 								</tr>
 							</table>
 							<div class="att_registVacation_t"
@@ -77,12 +78,13 @@
 								<table id="att_authority_table" style="table-layout: fixed;">
 									<!-- 밑에는 내용 뿌려줄것 -->
 									<c:set var="n" value="0" />
-									<c:forEach var="Att_EmpVO" items="${list }">
+									<c:forEach var="EmpVO" items="${list }">
 										<tr align="center">
-											<td><a href='javascript:getVal("${n}");'>${SearchedEmpVO.emp_id }</td>
-											<td>${SearchedEmpVO.emp_nm }</td>
-											<td>${SearchedEmpVO.dept_nm }</td>
-											<td>${SearchedEmpVO.pos_nm }</td>
+											<td><a href='javascript:getVal("${n}");'>${EmpVO.emp_id }</td>
+											<td>${EmpVO.emp_nm }</td>
+											<td>${EmpVO.dept_nm }</td>
+											<td>${EmpVO.pos_nm }</td>
+											<td>${EmpVO.mem_aut_cd }</td>
 										</tr>
 										<c:set var="n" value="${n+1}" />
 									</c:forEach>
@@ -114,12 +116,11 @@
 									<tr>
 										<th style="width: 150px; text-align: center">권한등급</th>
 										<td colspan=3><select id="mem_aut_cd" name="mem_aut_cd">
-												<c:forEach items="${menlist}" var="memactVO">
+												<c:forEach items="${memlist}" var="memactVO">
 													<option value="${memactVO.mem_aut_cd }">${memactVO.mem_aut_cd }
 													</option>
 												</c:forEach>
 										</select></td>
-
 									</tr>
 									<tr>
 										<td colspan="4"><input type="submit" id="temp" value="등록"
