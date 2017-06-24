@@ -8,7 +8,7 @@
 	<cache />
 	
 	<select id="login" resultType="MemberVO">
-		select mem_id,mem_pw, dept_id , MEM_AUT_CD
+		select mem_id,mem_pw, dept_id , MEM_AUT_CD, e.wstate_cd as wstate_cd
 		from member m inner join emp e
 		on m.mem_id = e.emp_id
 		where 

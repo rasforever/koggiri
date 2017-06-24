@@ -44,7 +44,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		MemberVO memberVO = (MemberVO) modelmap.get("memberVO");
 		String emp_nm =(String) modelmap.get("empnm");
 		
-		
 		if(memberVO !=null){
 			
 			
@@ -55,6 +54,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			session.setAttribute("dept_id", memberVO.getDept_id());// 부서 id 저장
 			session.setAttribute("mem_aut_cd", memberVO.getMem_aut_cd());// 권한 저장
 			session.setAttribute("emp_nm", emp_nm); // 세션 이름저장
+			System.out.println("B");
+			if(memberVO.getWstate_cd().equals("1")){
+					response.setContentType("text/html;charset=utf-8");
+					PrintWriter out = response.getWriter();
+					out.println("<script>");
+					out.println("alert('후훗 퇴사자는 들어올 수 없다규');");
+					out.println("location.href='/login';");
+					out.println("</script>");
+					out.close();
+				
+			}
 			
 		/*	if(request.getParameter("useCookie") != null){ // 자동로그인 쿠키저장
 				logger.info("remember me");
@@ -68,6 +78,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			
 			Object dest = session.getAttribute("dest");
 			response.sendRedirect(dest !=null ? (String)dest:"/");
+			System.out.println("D");
 		}else{
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
