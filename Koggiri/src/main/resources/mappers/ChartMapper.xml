@@ -6,7 +6,7 @@
 <mapper namespace="kosta.koggiri.mapper.ChartMapper">
 
 	<select id="list" parameterType="String" resultType="ChartVO">
-		select e.dept_id, e.emp_nm, e.emp_id, e.sex_id, s.sex_nm, p.pos_nm, e.tel_no, e.e_mail, e.join_dt, e.pos_id, d.dept_nm 
+		select e.dept_id, e.emp_nm, e.emp_id, e.sex_id, s.sex_nm, p.pos_nm, e.tel_no, e.e_mail, e.join_dt, e.pos_id, d.dept_nm, e.wstate_cd
 		from EMP e, POS p, SEX s, DEPT d
 		where e.pos_id = p.pos_id and e.sex_id = s.sex_id and e.dept_id = d.dept_id
 		and e.dept_id = #{dept_id}

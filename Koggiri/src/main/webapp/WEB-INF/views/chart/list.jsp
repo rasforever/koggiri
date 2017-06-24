@@ -47,11 +47,11 @@
 	<a style="font-size: 20px">▶${dept}</a> <br><br><br>
 
       <c:forEach var = "ChartVO" items = "${list}">
-       <%-- <c:if test="${ChartVO.dept_id} == ${dept_id}"> --%>
+       <c:if test="${ChartVO.wstate_cd == '0'}">
          
             <a class="chart_mem" href='/chart/read?emp_id=${ChartVO.emp_id}'> ${ChartVO.emp_nm } ${ChartVO.pos_nm } </a><br><br>
          
-        <%--  </c:if> --%>
+        </c:if>
       </c:forEach>
 </div>
        
