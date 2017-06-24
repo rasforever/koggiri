@@ -38,7 +38,7 @@
 
 <!-- 본문 내용  -->
 
-<iframe id="your-frame-id" name="testIframe" width="970" height="1040" src="http://192.168.0.63:8082/imageroom/lobby?emp_id=${mem_id }" frameborder="1" scrolling="no" ></iframe>
+<iframe id="your-frame-id" name="testIframe" width="970" height="1040" src="http://106.242.203.68:8082/imageroom/lobby?emp_id=${mem_id }" frameborder="1" scrolling="no" ></iframe>
 <!-- 본문 끝 -->
 </div>
 </div>
