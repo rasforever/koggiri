@@ -44,12 +44,20 @@
 
 <div id="sub_content" align="center">
 
-	<a href="/chart/list?dept_id=MM" align="left"><img src="/resources/img/chart01.png"><br><br>▶경영팀</a>&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href="/chart/list?dept_id=PL" align="left"><img src="/resources/img/chart02.png"><br><br>▶인사팀</a>&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href="/chart/list?dept_id=MT" align="left"><img src="/resources/img/chart03.png"><br><br>▶관리팀</a><br><br><br><br><br>
-	<a href="/chart/list?dept_id=SN" align="left"><img src="/resources/img/chart04.png"><br><br>▶솔루션팀</a>&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href="/chart/list?dept_id=BS" align="left"><img src="/resources/img/chart05.png"><br><br>▶영업팀</a>&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href="/chart/list?dept_id=MG" align="left"><img src="/resources/img/chart06.png"><br><br>▶마케팅팀</a>
+	<a href="/chart/read?emp_id=k17030101" align="left" ><img src="/resources/img/chart_CEO.png" style="width: 170px;"></a>
+	<br><br>
+	<a style="font-size: 24px; font: bold;">CEO</a> <a style="font-size: 22px;">고 병휘</a>
+	<br><br>
+	<img src="/resources/img/chart_line.png" align="center" style="width: 815px; height: 150px;">
+	<br>
+	
+	<a class="dept_nm" href="/chart/list?dept_id=MM"><br>경<br><br>영<br><br>팀</a>
+	<a class="dept_nm"href="/chart/list?dept_id=PL"><br>인<br><br>사<br><br>팀</a>
+	<a class="dept_nm"href="/chart/list?dept_id=MT"><br>관<br><br>리<br><br>팀</a>
+	<a class="dept_nm"href="/chart/list?dept_id=SN">솔<br><br>루<br><br>션<br><br>팀</a>
+	<a class="dept_nm"href="/chart/list?dept_id=BS"><br>영<br><br>업<br><br>팀</a>
+	<a class="dept_nm"href="/chart/list?dept_id=MG">마<br><br>케<br><br>팅<br><br>팀</a>
+	
 </div>
 
 
