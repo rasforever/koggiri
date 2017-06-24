@@ -138,7 +138,7 @@
 
 				<div class="col-md-12">
 					<!-- general form elements -->
-					<div class='box'>
+					<div class='box' style="text-align: left;">
 						<div class="box-header with-border">
 							<h3 class="box-title">업무 목록</h3>
 						</div>

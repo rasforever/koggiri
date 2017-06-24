@@ -119,7 +119,7 @@
 					</div>
 					<div class="customer_info">
 						<ul
-							style="position: relative; left: 255px; top: -143px; height: 0px; width: 469px; font-size: 17px; font-weight: bold;">
+							style="position: relative; left: 230px; top: -143px; height: 0px; width: 469px; font-size: 17px; font-weight: bold;">
 
 
 							<li><a><strong>${mem_id}</strong></a></li>
