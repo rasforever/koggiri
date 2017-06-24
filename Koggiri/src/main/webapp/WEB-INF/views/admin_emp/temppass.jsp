@@ -4,7 +4,7 @@
     
 <h2 align="left">비밀번호 변경</h2>
 <br>
-<form action="/admin/temppass" method="post">
+<form action="/admin_emp/temppass" method="post">
 <table>
 	<tr>
 	<td>
