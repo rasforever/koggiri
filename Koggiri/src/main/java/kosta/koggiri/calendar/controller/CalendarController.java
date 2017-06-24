@@ -88,7 +88,7 @@ public class CalendarController {
 		List<EventVO> listEvent = service.listAll(mem_id);
 
 		for (int i = 0; i < listEvent.size(); i++) {
-			listEvent.get(i).setContent(listEvent.get(i).getContent().replace("\n", "<br>"));
+			//listEvent.get(i).setContent(listEvent.get(i).getContent().replace("\n", "<br>"));
 
 			String end = listEvent.get(i).getEnd_date();
 
