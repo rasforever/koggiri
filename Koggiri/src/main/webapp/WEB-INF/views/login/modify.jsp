@@ -85,10 +85,12 @@
 				}).open();
 	}
 	
-
+	if($('.modify').find('input').val()==null){
+		
+	}
 </script>
 
-	<form method="post" action="/login/modify" name="form"  enctype="multipart/form-data" >
+	<form class="modify" method="post" action="/login/modify" name="form"  enctype="multipart/form-data" >
 	<table >
 		<tr><th style="width: 200px">아이디 </th><td style="text-align: left"> &nbsp;&nbsp;${mem_id}</td></tr> 
 		<tr><th>비밀번호</th><td style="text-align: left"> &nbsp;&nbsp;<input type="password" id="password" name="mem_pw" maxlength="50" placeholder="새 비밀번호를 입력하세요"></td></tr>

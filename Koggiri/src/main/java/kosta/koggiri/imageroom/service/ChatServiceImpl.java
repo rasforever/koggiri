@@ -35,4 +35,10 @@ public class ChatServiceImpl implements ChatService{
 		return dao.chaingList(room_id);
 	}
 
+	@Override
+	public void imageRoomHisDelete(Integer room_id) {
+		// TODO Auto-generated method stub
+		dao.imageRoomHisDelete(room_id);
+	}
+	
 }
