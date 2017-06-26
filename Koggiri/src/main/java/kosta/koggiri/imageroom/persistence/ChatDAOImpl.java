@@ -37,4 +37,11 @@ public class ChatDAOImpl implements ChatDAO{
 	public List<ChatingDTO> chaingList(Integer room_id) {
 		return session.selectList(NAMESPACE + ".chaingList", room_id);
 	}
+
+	@Override
+	public void imageRoomHisDelete(Integer room_id) {
+		// TODO Auto-generated method stub
+		session.delete(NAMESPACE+".imageRoomHisDelete", room_id);
+	}
+	
 }

@@ -11,4 +11,5 @@ public interface ChatDAO {
 	public List<ImageRoomHisVO> imageRoomHisList(Integer room_id);
 	public Integer nextImageRoomHisNoSelect();
 	public List<ChatingDTO> chaingList(Integer room_id);
+	public void imageRoomHisDelete(Integer room_id);
 }

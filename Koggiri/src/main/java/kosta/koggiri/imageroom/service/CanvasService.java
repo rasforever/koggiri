@@ -9,4 +9,5 @@ public interface CanvasService {
 	public List<ImageCaptureVO> imageCaptureList(Integer room_id, String emp_id);
 	public Integer nextImageCaptureNoRead();
 	public void imageCaptureRemove(Integer image_capture_no);
+	public void imageCaptureAlldelete(Integer room_id);
 }

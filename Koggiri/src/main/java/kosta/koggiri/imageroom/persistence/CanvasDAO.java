@@ -11,4 +11,5 @@ public interface CanvasDAO {
 	public void imageCaptureDelete(Integer image_capture_no);
 	public List<ImageCaptureVO> imageCaptureList(Integer room_id, String emp_id);
 	public Integer nextImageCaptureNoSelect();
+	public void imageCaptureAlldelete(Integer room_id);
 }

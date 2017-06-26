@@ -29,6 +29,10 @@
 		SELECT NVL(MAX(image_room_his_no),0) + 1
 		FROM image_room_his
 	</select>
+	<delete id="imageRoomHisDelete" parameterType="int">
+		DELETE FROM image_room_his
+		WHERE room_id = #{room_id}
+	</delete>
 </mapper>
 
 
