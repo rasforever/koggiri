@@ -121,9 +121,10 @@ public class ImageroomController {
 		ResponseEntity<String> entity = null;
 		
 		try {
-			service.imageRoomRemove(room_id);
 			service3.imageRoomHisDelete(room_id);
 			service4.imageCaptureAlldelete(room_id);
+			service.imageRoomRemove(room_id);
+			
 			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
