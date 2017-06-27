@@ -17,7 +17,7 @@ public class MsgDAOTest {
 	@Inject
 	private MsgDAO dao;
 	
-	@Test
+	/*@Test
 	public void test_msg_Count() throws Exception{
 		MsgVO vo = new MsgVO();
 		vo.setEmp_id("k15010201");
@@ -25,6 +25,6 @@ public class MsgDAOTest {
 		
 		dao.msg_count(vo);
 		
-	}
+	}*/
 
 }
