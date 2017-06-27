@@ -87,10 +87,25 @@
 							}
 						}).open();
 				}
+				
+				/* function check(){
+					if(form.mem_pw.value==""){
+						alert("비밀번호를 입력해 주세요.");
+						form.mem_pw.focus();
+						return false;
+					}
+					if(form.mem_pw.value!=form.passwordcheck.value){
+						alert("비밀번호가 일치하지 않습니다.");
+						form.passwordcheck.focus();
+						return false;
+					} */
+					
+				}
 			</script>
 
+
 			<form method="post" action="/login/modify" name="form"
-				enctype="multipart/form-data">
+				enctype="multipart/form-data" >
 				<table>
 					<tr>
 						<th style="width: 200px">아이디</th>

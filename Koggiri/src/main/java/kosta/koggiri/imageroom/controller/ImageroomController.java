@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kosta.koggiri.admin_emp.service.AdminService;
 import kosta.koggiri.imageroom.domain.ImageroomDTO;
 import kosta.koggiri.imageroom.domain.ImageroomVO;
+import kosta.koggiri.imageroom.persistence.CanvasDAO;
+import kosta.koggiri.imageroom.service.ChatService;
 import kosta.koggiri.imageroom.service.ImageroomService;
 
 @Controller
@@ -29,6 +32,12 @@ public class ImageroomController {
 	
 	@Inject
 	private AdminService service2;
+	
+	@Inject
+	private ChatService service3;
+	
+	@Inject
+	private CanvasDAO service4;
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public String list(Model model,HttpSession session)throws Exception{
@@ -105,12 +114,15 @@ public class ImageroomController {
 	
 	
 	//방삭제
+	@Transactional
 	@ResponseBody
 	@RequestMapping(value="/imageRoomDelete", method=RequestMethod.POST)
 	public ResponseEntity<String> imageCaptureDelete(@RequestParam("room_id") Integer room_id){
 		ResponseEntity<String> entity = null;
 		
 		try {
+			service3.imageRoomHisDelete(room_id);
+			service4.imageCaptureAlldelete(room_id);
 			service.imageRoomRemove(room_id);
 			
 			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);

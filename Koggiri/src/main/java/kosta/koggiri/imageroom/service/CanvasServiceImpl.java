@@ -34,4 +34,10 @@ public class CanvasServiceImpl implements CanvasService{
 		dao.imageCaptureDelete(image_capture_no);
 	}
 
+	@Override
+	public void imageCaptureAlldelete(Integer room_id) {
+		// TODO Auto-generated method stub
+		dao.imageCaptureAlldelete(room_id);
+	}
+	
 }
