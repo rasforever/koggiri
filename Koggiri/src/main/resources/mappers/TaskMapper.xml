@@ -5,91 +5,97 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kosta.koggiri.mapper.TaskMapper">
 
-	<insert id="create" parameterType="kosta.koggiri.task.domain.TaskVO">
-		insert into task(ta_seq,
-		emp_id, ta_date, ta_weekresult, ta_nextresult,
-		ta_regdate, ta_hitcount)
-		values(task_ta_seq.nextval, #{emp_id},
-		#{ta_date},#{ta_weekresult},#{ta_nextresult}, SYSDATE, 0)
-	</insert>
+   <insert id="create" parameterType="kosta.koggiri.task.domain.TaskVO">
+      insert into task(ta_seq,
+      emp_id, ta_date, ta_weekresult, ta_nextresult,
+      ta_regdate, ta_hitcount)
+      values(task_ta_seq.nextval, #{emp_id},
+      #{ta_date},#{ta_weekresult},#{ta_nextresult}, SYSDATE, 0)
+   </insert>
 
-	<select id="read" resultType="kosta.koggiri.task.domain.TaskVO">
-		select t.ta_seq, t.ta_date,
-		t.ta_weekresult, t.ta_nextresult, e.emp_nm,
-		t.ta_regdate, t.ta_hitcount
-		from task t , emp e
-		where e.emp_id = t.EMP_ID AND ta_seq >0
-		AND ta_seq = #{ta_seq}
-	</select>
+   <select id="read" resultType="kosta.koggiri.task.domain.TaskVO">
+      select t.ta_seq, t.ta_date,
+      t.ta_weekresult, t.ta_nextresult, e.emp_nm,
+      t.ta_regdate, t.ta_hitcount
+      from task t , emp e
+      where e.emp_id = t.EMP_ID AND ta_seq >0
+      AND ta_seq = #{ta_seq}
+   </select>
 
-	<update id="update">
-		update task set ta_date = #{ta_date}, ta_weekresult =
-		#{ta_weekresult},
-		ta_nextresult = #{ta_nextresult}
-		where ta_seq =
-		#{ta_seq}
-	</update>
+   <update id="update">
+      update task set ta_date = #{ta_date}, ta_weekresult =
+      #{ta_weekresult},
+      ta_nextresult = #{ta_nextresult}
+      where ta_seq =
+      #{ta_seq}
+   </update>
 
-	<delete id="delete">
-		delete from task where ta_seq = #{ta_seq}
-	</delete>
+   <delete id="delete">
+      delete from task where ta_seq = #{ta_seq}
+   </delete>
 
-	<select id="countPaging" resultType="int">
- 	
- 	<![CDATA[ 
- 	select count(*) from Task where ta_seq > 0
+   <select id="countPaging" resultType="int">
+    
+    <![CDATA[ 
+    select count(*) from Task where ta_seq > 0
     ]]>
 
-	</select>
+   </select>
 
 
-	<sql id="search">
-		<if test="keyword != '' and keyword != null ">
-			and ta_date = #{keyword}
-		</if>
-	</sql>
+   <sql id="search">
+      <if test="keyword != '' and keyword != null ">
+         and ta_date = #{keyword}
+      </if>
+   </sql>
 
-	<select id="listSearch" resultType="TaskVO" parameterType="TaskSearchCriteria">
+   <select id="listSearch" resultType="TaskVO" parameterType="TaskSearchCriteria">
 
-		select
-		e.emp_id, t.ta_seq, t.ta_date, t.ta_weekresult, t.ta_nextresult, e.emp_nm,
-		t.ta_regdate, t.ta_hitcount
-		from
-		task t , emp e
-		where e.emp_id = t.EMP_ID
-		AND ta_seq >0
-		<if test="emp_id!='master'">
-			AND e.emp_id = #{emp_id}
-		</if>
-		<if test="emp_id=='master'">
-		</if>
-		<include refid="search"></include>
-
-
-		order by ta_seq desc
-
-
-	</select>
+      select
+      e.emp_id, t.ta_seq, t.ta_date, t.ta_weekresult, t.ta_nextresult, e.emp_nm,
+      t.ta_regdate, t.ta_hitcount, p.pos_id
+      from
+      task t , emp e, member m, pos p 
+      where e.emp_id = t.EMP_ID
+      AND e.emp_id = m.mem_id
+      AND e.pos_id = p.pos_id
+      AND ta_seq >0
+      <if test='mem_aut_cd=="A"'>
+      AND e.dept_id = #{dept_id}
+      </if>
+      <if test='mem_aut_cd=="B"'>
+      AND e.emp_id = #{emp_id}
+      </if>
+      <include refid="search"></include>
 
 
-	<select id="listSearchCount" resultType="int" parameterType="TaskSearchCriteria">
+      order by ta_seq desc                 
+
+   </select>
+
+
+   <select id="listSearchCount" resultType="int" parameterType="TaskSearchCriteria">
     
      select count(ta_seq) 
-     from task 
-     where ta_seq > 0 
-     <if test="emp_id!='master'">
-			AND emp_id = #{emp_id}
-		</if>
-		<if test="emp_id=='master'">
-		</if>
+     from task t, member m , emp e
+     where  t.emp_id = m.mem_id
+     AND t.emp_id = e.emp_id
+     AND m.mem_id = e.emp_id
+     AND ta_seq > 0 
+     <if test='mem_aut_cd=="A"'>
+      AND e.dept_id = #{dept_id}
+   </if>
+   <if test='mem_aut_cd=="B"'>
+      AND e.emp_id = #{emp_id}
+      </if>
 
-		<include refid="search"></include>
-	</select>
+      <include refid="search"></include>
+   </select>
 
-	<update id="updateViewCnt">
-		update task set ta_hitcount = ta_hitcount + 1
-		where
-		ta_seq = #{ta_seq}
-	</update>
+   <update id="updateViewCnt">
+      update task set ta_hitcount = ta_hitcount + 1
+      where
+      ta_seq = #{ta_seq}
+   </update>
 
 </mapper>

@@ -28,6 +28,10 @@
 		DELETE FROM image_capture
 		WHERE image_capture_no = #{image_capture_no}
 	</delete>
+	<delete id="imageCaptureAlldelete" parameterType="int">
+		delete from image_capture
+		where room_id = #{room_id}
+	</delete>
 </mapper>
 
 

@@ -48,7 +48,6 @@
 						<option value="MT">관리팀</option>
 						<option value="SN">솔루션팀</option>
 						<option value="BS">영업팀</option>
-						<option value="SE">서비스팀</option>
 						<option value="MG">마케팅팀</option>
 				</select></td>
 			</tr>

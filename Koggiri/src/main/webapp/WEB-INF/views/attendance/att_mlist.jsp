@@ -40,7 +40,7 @@
 				<img src="/resources/img/s_menu12.png" />
 			</h1>
 			<div class="sub_top">
-				<span><a href="/main">홈</a> <span> &gt; </span> <a href="/attendance/att_alldlist">근태확인</a>  <span> &gt; </span> <strong>월 근태내역</strong></span>
+				<span><a href="/main">홈</a> <span> &gt; </span> <a href="/attendance/att_alldlist">근태관리</a>  <span> &gt; </span> <strong>월 근태내역</strong></span>
 			</div>
 		</div>
 
@@ -56,7 +56,7 @@
 							<li class="sub01 "><a href="/admin_emp/resApp"> 퇴직내역</a></li>
 							<li class="aut "><a href="/admin_emp/authority"> 권한부여</a></li>
 						</ul></li>
-					<li class="menu02 "><a href="/attendance/att_alldlist">근태확인</a>
+					<li class="menu02 "><a href="/attendance/att_alldlist">근태관리</a>
 						<ul>
 							<li class="sub01 "><a href="/attendance/att_mlist">월
 									근태내역</a></li>

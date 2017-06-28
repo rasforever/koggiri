@@ -43,6 +43,12 @@ public class CanvasDAOImpl implements CanvasDAO{
 	public void imageCaptureDelete(Integer image_capture_no) {
 		session.delete(NAMESPACE + ".imageCaptureDelete", image_capture_no);
 	}
+
+	@Override
+	public void imageCaptureAlldelete(Integer room_id) {
+		// TODO Auto-generated method stub
+		session.delete(NAMESPACE+".imageCaptureAlldelete", room_id);
+	}
 	
 	
 }
