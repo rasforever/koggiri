@@ -186,7 +186,7 @@
 					<!-- + 버튼 누르면 공지사항 리트스 바로가기 -->
 				</div>
 
-				<h3 class="hidden">받은 메일함</h3>
+				<h3 class="hidden">알립니다</h3>
 				<div class="notice">
 					<img src="../resources/img/impor_ti.png"
 						style="margin-bottom: 10px">
@@ -204,7 +204,7 @@
 						</c:forEach>
 					</ul>
 
-					<span class="more"><a href="#"><img
+					<span class="more"><a href="importantboard/listPage"><img
 							src="http://s.nx.com/S2/billing/pcbang/real/homepage/btn/btn_more.gif"
 							alt="더보기" /></a></span>
 					<!-- + 버튼 누르면 받은 메일함 바로가기  -->

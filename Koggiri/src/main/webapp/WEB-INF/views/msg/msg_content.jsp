@@ -44,7 +44,7 @@
 		<div class="msg_header">
 			<br> <img src="../resources/img/koggiri_talk.png">
 
-			<a class="msg_back" href="http://localhost:8081/msg/msg_emplist">목록</a>
+			<a class="msg_back" href="../msg/msg_emplist">목록</a>
 
 		</div>
 		<div class="msg_contextBox">

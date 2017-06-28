@@ -1,3 +1,4 @@
+
 package kosta.koggiri.msg.test;
 
 import java.util.List;
@@ -60,5 +61,4 @@ public class MsgDAOTest {
 		vo.setInput_text("반갑다 하지만 우리는 이제 헤어져야할 시간 다음에 또 만나요");
 		dao.create_msg_context(vo);
 	}*/
-
 }
