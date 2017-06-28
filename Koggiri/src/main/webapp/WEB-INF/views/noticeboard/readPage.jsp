@@ -120,7 +120,7 @@
 								<label for="exampleInputPassword1">내용<br>
 								<br></label>
 								<textarea class="form-control" name="N_CONTENT" rows="3"
-									readonly="readonly">${Noti_BoardVO.n_CONTENT}</textarea>
+									readonly="readonly" style="HEIGHT: 300PX;">${Noti_BoardVO.n_CONTENT}</textarea>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">작성자<br>

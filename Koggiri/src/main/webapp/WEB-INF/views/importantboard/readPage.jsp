@@ -48,39 +48,44 @@
 <div class="container_wrap" style="background-color: #ffffff;">
 	<div id="container">
 
-<div id="sub_menu_title">
-<h1><img src="/resources/img/s_menu02.png"/></h1>
-<div class="sub_top">   
-    <span><a href="/main">홈</a>  <span> &gt; </span> <a href="/noticeboard/listPage">공지</a>  &gt;  <strong>알립니다</strong></span>
-</div>
-</div>
+		<div id="sub_menu_title">
+			<h1>
+				<img src="/resources/img/s_menu02.png" />
+			</h1>
+			<div class="sub_top">
+				<span><a href="/main">홈</a> <span> &gt; </span> <a
+					href="/noticeboard/listPage">공지</a> &gt; <strong>알립니다</strong></span>
+			</div>
+		</div>
 
 
-<div id="lnb">
-     <div class="lnb01">
-      <strong class="menu01"><span>공지</span></strong>
-      <ul>
-                <li class="menu01 ">
-                    <a href="/noticeboard/listPage">공지사항</a>
-                    <ul>
-                      <li class="sub01 "><a href="/noticeboard/listPage">공지사항 목록</a></li>
-                      <c:if test="${Imp_BoardVO.i_EMP_ID == mem_id or mem_aut_cd == 'A'}">
-                      <li class="sub02 "><a href="/noticeboard/register">공지사항 작성</a></li>
-                      </c:if>
-                    </ul>
-                </li>
-                <li class="menu02 ">
-                    <a href="/importantboard/listPage">알립니다</a>
-                    <ul>
-                      <li class="sub01 "><a href="/importantboard/listPage">알립니다 목록</a></li>
-                      <c:if test="${Imp_BoardVO.i_EMP_ID == mem_id or mem_aut_cd == 'A'}">
-                      <li class="sub02 "><a href="/importantboard/register">알립니다 작성</a></li>
-                    </c:if>
-                    </ul>
-                </li>
-           </ul>
-   </div>
-</div>
+		<div id="lnb">
+			<div class="lnb01">
+				<strong class="menu01"><span>공지</span></strong>
+				<ul>
+					<li class="menu01 "><a href="/noticeboard/listPage">공지사항</a>
+						<ul>
+							<li class="sub01 "><a href="/noticeboard/listPage">공지사항
+									목록</a></li>
+							<c:if
+								test="${Imp_BoardVO.i_EMP_ID == mem_id or mem_aut_cd == 'A'}">
+								<li class="sub02 "><a href="/noticeboard/register">공지사항
+										작성</a></li>
+							</c:if>
+						</ul></li>
+					<li class="menu02 "><a href="/importantboard/listPage">알립니다</a>
+						<ul>
+							<li class="sub01 "><a href="/importantboard/listPage">알립니다
+									목록</a></li>
+							<c:if
+								test="${Imp_BoardVO.i_EMP_ID == mem_id or mem_aut_cd == 'A'}">
+								<li class="sub02 "><a href="/importantboard/register">알립니다
+										작성</a></li>
+							</c:if>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
 
 		<div id="sub_content">
 
@@ -112,21 +117,19 @@
 
 						<div class="box-body">
 							<div class="form-group">
-								<label for="exampleInputEmail1">제목<br>
-								<br></label> <input type="text" name='I_TITLE' class="form-control"
+								<label for="exampleInputEmail1">제목<br> <br></label> <input
+									type="text" name='I_TITLE' class="form-control"
 									value="${Imp_BoardVO.i_TITLE}" readonly="readonly">
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">내용<br>
-								<br></label>
+								<label for="exampleInputPassword1">내용<br> <br></label>
 								<textarea class="form-control" name="I_CONTENT" rows="3"
-									readonly="readonly">${Imp_BoardVO.i_CONTENT}</textarea>
+									readonly="readonly" style="HEIGHT: 300PX;">${Imp_BoardVO.i_CONTENT}</textarea>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputEmail1">작성자<br>
-								<br></label> <input type="text" name="N_EMP_ID"
-									class="form-control" value="${Imp_BoardVO.i_EMP_ID}"
-									readonly="readonly">
+								<label for="exampleInputEmail1">작성자<br> <br></label> <input
+									type="text" name="N_EMP_ID" class="form-control"
+									value="${Imp_BoardVO.i_EMP_ID}" readonly="readonly">
 							</div>
 							<div class='popup back' style="display: none;"></div>
 							<div id="popup_front" class='popup front' style="display: none;">
@@ -137,9 +140,11 @@
 
 						<div class="box-footer">
 							<ul class="mailbox-attachments clearfix uploadedList"></ul>
-							<c:if test="${Imp_BoardVO.i_EMP_ID == mem_id or mem_aut_cd == 'A'}"><!-- A등급이 아닐경우 안보임 -->
-							<button type="submit" class="btn btn-warning">수정하기</button>
-							<button type="submit" class="btn btn-danger">삭제하기</button>
+							<c:if
+								test="${Imp_BoardVO.i_EMP_ID == mem_id or mem_aut_cd == 'A'}">
+								<!-- A등급이 아닐경우 안보임 -->
+								<button type="submit" class="btn btn-warning">수정하기</button>
+								<button type="submit" class="btn btn-danger">삭제하기</button>
 							</c:if>
 							<button type="submit" class="btn btn-primary">목록</button>
 						</div>
@@ -155,9 +160,9 @@
 <div class="footer_wrap">
 	<div id="footer" style="height: 150px">
 		<%@ include file="../include/footer.jsp"%>
-		
-		
-		
+
+
+
 		<script type="text/javascript" src="/resources/js/upload.js"></script>
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
@@ -206,18 +211,18 @@
 						var template = Handlebars.compile($("#templateAttach")
 								.html());
 
-						$.getJSON("/importantboard/getAttach/" + i_ID, function(
-								list) {
-							$(list).each(function() {
+						$.getJSON("/importantboard/getAttach/" + i_ID,
+								function(list) {
+									$(list).each(function() {
 
-								var fileInfo = getFileInfo(this);
+										var fileInfo = getFileInfo(this);
 
-								var html = template(fileInfo);
+										var html = template(fileInfo);
 
-								$(".uploadedList").append(html);
+										$(".uploadedList").append(html);
 
-							});
-						});
+									});
+								});
 
 						$("#removeBtn").on("click", function() {
 
@@ -265,7 +270,6 @@
 					});
 		</script>
 
-		<br>
-		<br>
+		<br> <br>
 
 		<!-- 본문 내용  끝-->
