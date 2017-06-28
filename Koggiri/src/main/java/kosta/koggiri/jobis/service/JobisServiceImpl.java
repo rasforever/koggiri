@@ -203,7 +203,7 @@ public class JobisServiceImpl implements JobisService {
 
 					} else {
 						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='../document/list?searchType=t&keyword="
-								+ c + ";\"\"\">요기 클릭!</a>";
+								+ c + "';\"\"\">요기 클릭!</a>";
 
 						
 					}
