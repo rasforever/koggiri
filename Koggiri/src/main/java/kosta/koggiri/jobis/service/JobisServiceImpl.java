@@ -178,7 +178,7 @@ public class JobisServiceImpl implements JobisService {
 								+ t + "';\"\"\">요기 클릭!</a>";
 
 					} else {
-						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/importantboard/listPage?searchType=t&keyword="
+						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='../importantboard/listPage?searchType=t&keyword="
 								+ c + "';\"\"\">요기 클릭!</a>";
 					}
 
@@ -202,7 +202,7 @@ public class JobisServiceImpl implements JobisService {
 								+ t + "';\"\"\">요기 클릭!</a>";
 
 					} else {
-						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/document/list?searchType=t&keyword="
+						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='../document/list?searchType=t&keyword="
 								+ c + ";\"\"\">요기 클릭!</a>";
 					}
 
@@ -226,7 +226,7 @@ public class JobisServiceImpl implements JobisService {
 								+ t + "';\"\"\">요기 클릭!</a>";
 
 					} else {
-						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='http://localhost:8081/noticeboard/listPage?searchType=t&keyword="
+						return "여러 개의 글이 검색되었습니다. <a href =\"javascript:;\"onclick=\"opener.parent.location='../noticeboard/listPage?searchType=t&keyword="
 								+ c + "';\"\"\">요기 클릭!</a>";
 
 					}
